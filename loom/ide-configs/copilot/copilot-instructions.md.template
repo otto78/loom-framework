@@ -1,0 +1,203 @@
+# GitHub Copilot Instructions — Agentic Framework
+
+> Leggi sempre `AGENT.md` all'inizio di ogni sessione.
+> Questo file contiene solo istruzioni specifiche per GitHub Copilot.
+
+---
+
+## Fonte di Verità
+
+**File principale:** `AGENT.md`
+
+Leggi quel file per:
+- Contesto del progetto
+- Stack tecnologico
+- Framework a 3 livelli
+- Principi operativi
+- Regole specifiche del progetto
+
+---
+
+## Task Management
+
+**File task:** `docs/TASKS.md`
+
+All'inizio di ogni sessione:
+1. Leggi `AGENT.md` per contesto generale
+2. Leggi `docs/TASKS.md` per task attivi
+3. Se nessun task attivo, consulta `docs/BACKLOG.md`
+
+Prima di terminare la sessione:
+1. Aggiorna `docs/TASKS.md` con progresso
+2. Se hai idee future, aggiungile a `docs/BACKLOG.md`
+3. Se necessario handoff, aggiorna `docs/HANDOFF.md`
+
+---
+
+## Workflow Automatico
+
+Usa gli script per gestire task:
+
+```bash
+# Avvia task
+python scripts/task.py start TASK-001 "Descrizione"
+
+# Completa task
+python scripts/task.py complete TASK-001 "Descrizione" --bump minor
+
+# Lista task
+python scripts/task.py list
+```
+
+---
+
+## Framework a 3 Livelli
+
+### Livello 1: Direttive
+
+- Leggi `directives/*.md` per capire **cosa** fare
+- Non inventare procedure, segui le direttive esistenti
+- Se manca una direttiva, chiedi se crearla
+
+### Livello 2: Orchestrazione (TU)
+
+- Leggi direttive
+- Chiama script di esecuzione
+- Gestisci errori
+- Non fare lavoro complesso direttamente
+
+### Livello 3: Esecuzione
+
+- Usa script in `execution/*.py`
+- Non scrivere codice inline, usa script deterministici
+- Se manca uno script, crealo seguendo `execution/_template.py`
+
+---
+
+## Coding Standards
+
+**IMPORTANTE:** Leggi sempre `directives/coding-standards.md` prima di scrivere codice.
+
+Quando generi codice, rispetta:
+- Naming conventions del progetto
+- Struttura file standard
+- Gestione errori completa
+- Type hints (Python)
+- Docstring completi
+- Test per ogni funzione
+
+---
+
+## Commit e Push
+
+Dopo ogni fix o modifica:
+
+1. **Commit selettivo** — Solo file su cui hai lavorato
+   ```bash
+   git add file1.py file2.md
+   git commit -m "feat: descrizione [TASK-ID]"
+   ```
+
+2. **Aggiorna documentazione** — Prima del push:
+   - `docs/STORY.md` — Versione e changelog
+   - `docs/TASKS.md` — Stato task
+
+3. **Push**
+   ```bash
+   git push
+   ```
+
+**IMPORTANTE:** NON usare `git add -A` o `git add .` in ambiente concorrente.
+
+---
+
+## Handoff Protocol
+
+Quando passi il lavoro:
+
+1. Aggiorna `docs/TASKS.md` con stato dettagliato
+2. Aggiorna `docs/HANDOFF.md` con:
+   - File modificati
+   - Decisioni prese
+   - Prossimi step
+   - Blocchi
+3. Commit e push
+
+---
+
+## Best Practices GitHub Copilot
+
+### 1. Usa commenti descrittivi
+
+Scrivi commenti chiari prima di generare codice:
+
+```python
+# Funzione che valida email usando regex
+# Input: email (string)
+# Output: True se valida, False altrimenti
+def validate_email(email: str) -> bool:
+    # Copilot genererà implementazione
+```
+
+### 2. Segui pattern esistenti
+
+Copilot impara dai file esistenti. Mantieni consistenza con il codice già presente.
+
+### 3. Rivedi suggerimenti
+
+Non accettare ciecamente i suggerimenti. Rivedi sempre il codice generato.
+
+### 4. Testa codice generato
+
+Esegui test dopo aver accettato suggerimenti:
+
+```bash
+pytest tests/
+```
+
+### 5. Usa Copilot Chat per domande
+
+Usa Copilot Chat per chiedere spiegazioni o alternative.
+
+---
+
+## Comandi Utili
+
+```bash
+# Inizializza sistema task (prima volta)
+python scripts/task.py init
+
+# Avvia nuovo task
+python scripts/task.py start TASK-001 "Implementare feature X"
+
+# Lista task attivi
+python scripts/task.py list
+
+# Completa task con version bump
+python scripts/task.py complete TASK-001 "Feature X completata" --bump minor
+
+# Dry-run (simula senza eseguire)
+python scripts/task.py complete TASK-001 "..." --dry-run
+
+# Commit senza push
+python scripts/task.py complete TASK-001 "..." --no-push
+```
+
+---
+
+## Riepilogo
+
+1. **Leggi** `AGENT.md` all'inizio
+2. **Consulta** `docs/TASKS.md` per task attivi
+3. **Segui** framework a 3 livelli
+4. **Usa** script automatici per task workflow
+5. **Aggiorna** documentazione prima di push
+6. **Commit** selettivo (solo file modificati)
+7. **Rivedi** sempre codice generato da Copilot
+
+**Sii pragmatico. Sii affidabile. Auto-correggiti.**
+
+---
+
+**Versione:** 1.0.0  
+**Framework:** Agentic Framework v1.0

@@ -1,0 +1,207 @@
+# AGENT.md — Fonte di Verità Unica
+
+> Questo file è letto da tutti gli agenti AI (Claude, Cursor, Windsurf, Gemini, Copilot, Cline).
+> Non duplicare queste istruzioni negli altri file — rimandano tutti qui.
+
+---
+
+## Cos'è [NOME_PROGETTO]
+
+[Descrizione breve del progetto - 2-3 frasi]
+
+**Posizionamento:** [Come si posiziona il progetto]
+
+**Principio fondamentale:** [Principio guida del progetto]
+
+**Target primario:** [Chi sono gli utenti]
+
+**Differenziatore chiave:** [Cosa rende unico questo progetto]
+
+---
+
+## Stack Tecnologico
+
+### Backend
+
+- **Linguaggio:** [Python / Node.js / Rust / ...]
+- **Framework:** [FastAPI / Express / Actix / ...]
+- **Database:** [PostgreSQL / MongoDB / ...]
+- **Cache:** [Redis / Memcached / ...]
+
+### Frontend (se applicabile)
+
+- **Framework:** [React / Vue / Angular / ...]
+- **Styling:** [Tailwind / CSS Modules / ...]
+- **State Management:** [Redux / Zustand / ...]
+
+### AI/ML (se applicabile)
+
+- **LLM:** [GPT-4 / Claude / Gemini / ...]
+- **Orchestrazione:** [LangChain / LangGraph / ...]
+- **Vector DB:** [Pinecone / Weaviate / ...]
+
+### Infrastruttura
+
+- **Hosting:** [AWS / GCP / Azure / Render / ...]
+- **CI/CD:** [GitHub Actions / GitLab CI / ...]
+- **Monitoring:** [Grafana / Datadog / ...]
+
+---
+
+## Architettura a 3 Livelli (Framework Operativo)
+
+Questo framework separa le responsabilità per massimizzare l'affidabilità.
+Gli LLM sono probabilistici; la logica di business è deterministica. Tenerle separate riduce gli errori.
+
+**Perché funziona:** 90% di accuratezza per step = 59% di successo su 5 step concatenati.
+La soluzione è spingere la complessità in codice deterministico. L'agente si concentra solo sul decision-making.
+
+### Livello 1 — Direttiva (Cosa fare)
+
+- SOP scritte in Markdown, vivono in `directives/`
+- Definiscono obiettivi, input, tool/script da usare, output e casi limite
+- Istruzioni in linguaggio naturale, come le daresti a un collaboratore di medio livello
+- Esempi: `directives/feature-x.md`, `directives/api-integration.md`
+
+### Livello 2 — Orchestrazione (Decisioni)
+
+- Il lavoro dell'agente AI: routing intelligente
+- Legge le direttive, chiama gli strumenti di esecuzione nell'ordine giusto, gestisce gli errori
+- Non fa operazioni complesse direttamente — legge `directives/process-data.md` ed esegue `execution/process_data.py`
+- È il collante tra intenzione ed esecuzione
+
+### Livello 3 — Esecuzione (Fare il lavoro)
+
+- Script Python/Node/Rust deterministici in `execution/`
+- Variabili d'ambiente e token API salvati in `.env`
+- Gestiscono chiamate API, elaborazione dati, interazioni con database
+- Affidabili, testabili, veloci. Sempre ben commentati.
+
+---
+
+## Struttura Directory del Progetto
+
+```
+[nome-progetto]/
+├── AGENT.md                    ← questo file (fonte di verità)
+├── docs/
+│   ├── TASKS.md                ← tracciamento task e continuità lavoro
+│   ├── BACKLOG.md              ← idee future
+│   ├── STORY.md                ← storia operativa
+│   ├── CHANGELOG.md            ← changelog dettagliato
+│   └── HANDOFF.md              ← passaggio consegne
+│
+├── [IDE config files]          ← .cursorrules, CLAUDE.md, etc.
+│
+├── src/                        ← codice sorgente principale
+│   ├── main.[ext]              ← entry point
+│   └── ...
+│
+├── directives/                 ← SOP per ogni dominio
+│   ├── coding-standards.md     ← standard di codice (LEGGERE SEMPRE)
+│   └── ...
+│
+├── execution/                  ← script deterministici
+│   └── ...
+│
+├── tests/                      ← test suite
+│   └── ...
+│
+└── .env                        ← variabili d'ambiente (mai committare)
+```
+
+---
+
+## Principi Operativi dell'Agente
+
+### 1. Controlla prima i tool esistenti
+
+Prima di scrivere uno script, controlla `execution/`. Crea nuovi script solo se non ne esistono di adatti.
+
+### 2. Leggi sempre `directives/coding-standards.md` prima di scrivere codice
+
+Ogni file di codice prodotto deve rispettare gli standard definiti lì. Nessuna eccezione.
+
+### 3. Auto-correggiti quando qualcosa si rompe
+
+1. Leggi il messaggio di errore e lo stack trace
+2. Correggi lo script e testalo
+3. Aggiorna la direttiva con ciò che hai imparato
+4. Il sistema ora è più forte
+
+### 4. Aggiorna le direttive mentre impari
+
+Le direttive sono documenti vivi. Quando scopri vincoli API, approcci migliori, errori comuni — aggiorna la direttiva.
+
+### 5. Chiedi prima di agire su operazioni costose o irreversibili
+
+Se un'operazione usa crediti API a pagamento, modifica dati in produzione, o è irreversibile — chiedi conferma prima di procedere.
+
+### 6. Tracciamento dei Task e Persistenza
+
+Leggi sempre `docs/TASKS.md` all'inizio di ogni sessione per capire lo stato attuale del lavoro, salvo indicazioni diverse esplicite dell'utente. Aggiorna `docs/TASKS.md` regolarmente e prima di terminare la sessione, documentando cosa è stato fatto e cosa resta da fare.
+
+### 7. Usa gli script automatici per task workflow
+
+```bash
+# Avvia task
+python scripts/task.py start TASK-001 "Descrizione"
+
+# Completa task
+python scripts/task.py complete TASK-001 "Descrizione" --bump minor
+
+# Lista task
+python scripts/task.py list
+```
+
+### 8. Commit e Push dopo ogni fix (default operativo)
+
+Dopo ogni fix o modifica richiesta dall'utente, l'agente deve completare il ciclo con:
+
+1. **Commit selettivo**: aggiungi SOLO i file su cui hai lavorato direttamente
+2. Commit Git con messaggio coerente
+3. Push sul branch remoto corrente
+
+**IMPORTANTE**: In ambiente concorrente con altri agenti, NON usare `git add -A` o `git add .` perché potresti committare file non ancora completati da altri agenti. Specifica sempre i file singolarmente.
+
+**Prima di ogni push**, aggiorna SEMPRE:
+1. `docs/STORY.md` - versione, fix, evoluzioni
+2. `docs/TASKS.md` - stato lavoro in corso e completamenti
+
+Eccezione: se l'utente chiede esplicitamente di **non** fare commit/push o di fermarsi prima.
+
+---
+
+## Regole Specifiche del Progetto
+
+### [REGOLA_1]
+
+[Descrizione regola specifica per questo progetto]
+
+### [REGOLA_2]
+
+[Altra regola specifica]
+
+---
+
+## Organizzazione File
+
+- `.tmp/` — file intermedi temporanei. Mai committare. Sempre rigenerabili.
+- `execution/` — script deterministici (i tool)
+- `directives/` — SOP in Markdown (le istruzioni operative)
+- `.env` — variabili d'ambiente e chiavi API (mai committare)
+- `docs/` — documentazione permanente del progetto
+
+---
+
+## Riepilogo
+
+Sei posizionato tra intenzione umana (direttive) ed esecuzione deterministica (script).
+Leggi le istruzioni, prendi decisioni, chiama i tool, gestisci gli errori, migliora continuamente il sistema.
+
+**Sii pragmatico. Sii affidabile. Auto-correggiti.**
+
+---
+
+**Versione:** 1.0.0  
+**Ultima modifica:** [DATA] da [AGENTE]
