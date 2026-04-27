@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Loom Framework — Documentation</title>
+<title>Loom Framework - Documentation</title>
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github-dark.min.css">
 <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
@@ -16,35 +16,44 @@
 [data-theme="dark"] {
   --bg:#0d1117; --surface:#161b22; --border:#30363d; --text:#e6edf3; --muted:#8b949e;
   --accent:#818cf8; --accent2:#a78bfa; --feature-bg:#1c2128;
-  --code-bg:#0d1117; --shadow:0 2px 12px rgba(0,0,0,.4);
+  --code-bg:#010409; --shadow:0 2px 12px rgba(0,0,0,.4);
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);transition:background .3s,color .3s;}
 
 .topnav{
+  position:sticky;top:0;z-index:100;
   background:linear-gradient(135deg,var(--accent),var(--accent2));
-  display:flex;align-items:center;gap:.75rem;padding:.7rem 1.5rem;
-  position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.2);
+  display:flex;align-items:center;gap:.6rem;padding:.6rem 1.5rem;
+  box-shadow:0 2px 8px rgba(0,0,0,.2);
 }
-.topnav a{color:white;text-decoration:none;font-weight:600;}
-.topnav .brand{font-size:1.1rem;}
+.topnav a{color:white;text-decoration:none;font-weight:600;font-size:.9rem;}
 .topnav-spacer{flex:1;}
-.topbar-btn{
+.lang-select{
   background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);
-  color:white;padding:.3rem .75rem;border-radius:20px;cursor:pointer;
-  font-size:.8rem;font-weight:600;transition:background .2s;
+  color:white;padding:.28rem 1.6rem .28rem .6rem;border-radius:20px;cursor:pointer;
+  font-size:.82rem;font-weight:600;outline:none;
+  -webkit-appearance:none;appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='white'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right .5rem center;
 }
-.topbar-btn:hover{background:rgba(255,255,255,.25);}
-.topbar-btn.active{background:rgba(255,255,255,.35);}
+.lang-select option{background:#667eea;color:white;}
+.icon-btn{
+  background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);
+  color:white;width:32px;height:32px;border-radius:50%;cursor:pointer;
+  font-size:1rem;display:flex;align-items:center;justify-content:center;
+  transition:background .2s;flex-shrink:0;
+}
+.icon-btn:hover{background:rgba(255,255,255,.3);}
 
-.layout{display:flex;min-height:calc(100vh - 50px);}
+.layout{display:flex;min-height:calc(100vh - 48px);}
 
 .sidebar{
-  width:250px;flex-shrink:0;background:var(--surface);
+  width:245px;flex-shrink:0;background:var(--surface);
   border-right:1px solid var(--border);padding:1.25rem 0;
-  position:sticky;top:50px;height:calc(100vh - 50px);overflow-y:auto;
+  position:sticky;top:48px;height:calc(100vh - 48px);overflow-y:auto;
 }
-.sidebar h3{padding:0 1.25rem .5rem;font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);}
+.sidebar-label{padding:.25rem 1.25rem .5rem;font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:700;}
 .sidebar-link{
   display:block;padding:.55rem 1.25rem;color:var(--text);text-decoration:none;
   font-size:.88rem;border-left:3px solid transparent;transition:all .15s;
@@ -57,19 +66,19 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 .doc-section{background:var(--surface);border-radius:12px;margin-bottom:1.5rem;box-shadow:var(--shadow);border:1px solid var(--border);overflow:hidden;}
 .doc-header{
   display:flex;align-items:center;justify-content:space-between;
-  padding:.9rem 1.25rem;background:var(--feature-bg);border-bottom:1px solid var(--border);
+  padding:.85rem 1.25rem;background:var(--feature-bg);border-bottom:1px solid var(--border);
   cursor:pointer;user-select:none;
 }
-.doc-header:hover{background:rgba(102,126,234,.08);}
+.doc-header:hover{background:rgba(102,126,234,.07);}
 .doc-title{font-weight:600;color:var(--text);font-size:.92rem;display:flex;align-items:center;gap:.5rem;}
-.file-badge{font-size:.72rem;background:rgba(102,126,234,.15);color:var(--accent);padding:.1rem .45rem;border-radius:4px;font-family:monospace;}
+.file-badge{font-size:.72rem;background:rgba(102,126,234,.12);color:var(--accent);padding:.1rem .45rem;border-radius:4px;font-family:monospace;}
 .doc-actions{display:flex;gap:.5rem;align-items:center;}
 .toggle{color:var(--muted);font-size:.75rem;transition:transform .2s;}
 .doc-section.collapsed .toggle{transform:rotate(-90deg);}
-.copy-btn{padding:.3rem .7rem;font-size:.78rem;background:var(--accent);color:white;border:none;border-radius:6px;cursor:pointer;transition:background .2s;white-space:nowrap;}
+.copy-btn{padding:.28rem .65rem;font-size:.78rem;background:var(--accent);color:white;border:none;border-radius:6px;cursor:pointer;transition:background .2s;white-space:nowrap;}
 .copy-btn:hover{background:var(--accent2);}
 .copy-btn.ok{background:#28a745;}
-.doc-body{padding:1.75rem 2rem;display:block;}
+.doc-body{padding:1.75rem 2rem;}
 .doc-section.collapsed .doc-body{display:none;}
 
 /* markdown */
@@ -81,7 +90,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 .doc-body ul,.doc-body ol{margin:.4rem 0 .9rem 1.4rem;}
 .doc-body li{margin-bottom:.25rem;line-height:1.65;}
 .doc-body code{background:rgba(102,126,234,.12);color:var(--accent);padding:.1rem .35rem;border-radius:4px;font-family:'Courier New',monospace;font-size:.88em;}
-.doc-body pre{background:var(--code-bg);border-radius:8px;padding:1.1rem 1.25rem;overflow-x:auto;margin:.9rem 0;}
+.doc-body pre{background:var(--code-bg);border-radius:8px;padding:1.1rem 1.25rem;overflow-x:auto;margin:.9rem 0;position:relative;}
 .doc-body pre code{background:none;color:#d4d4d4;padding:0;font-size:.88rem;}
 .doc-body blockquote{border-left:4px solid var(--accent);padding:.5rem 1rem;background:rgba(102,126,234,.07);border-radius:0 8px 8px 0;margin:.9rem 0;color:var(--muted);}
 .doc-body table{width:100%;border-collapse:collapse;margin:.9rem 0;font-size:.9rem;}
@@ -91,23 +100,34 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 .doc-body a{color:var(--accent);}
 .doc-body hr{border:none;border-top:1px solid var(--border);margin:1.5rem 0;}
 
+/* copy button on pre blocks */
+.pre-copy{
+  position:absolute;top:.5rem;right:.5rem;
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);
+  color:rgba(255,255,255,.6);padding:.2rem .45rem;border-radius:5px;
+  cursor:pointer;font-size:.75rem;transition:background .2s,color .2s;
+}
+.pre-copy:hover{background:rgba(255,255,255,.2);color:white;}
+.pre-copy.ok{background:rgba(40,167,69,.4);color:#7fff7f;}
+
 [data-lang="en"] .it{display:none;}
 [data-lang="it"] .en{display:none;}
-
 @media(max-width:768px){.sidebar{display:none;}.main{padding:1rem;}}
 </style>
 </head>
 <body>
 
 <nav class="topnav">
-  <a href="index.html">← <span class="en">Home</span><span class="it">Home</span></a>
+  <a href="index.html">&#8592; Home</a>
   <span style="color:rgba(255,255,255,.3)">|</span>
-  <a href="index.html" class="brand">🧵 Loom Framework</a>
+  <a href="index.html" style="font-size:1rem;">&#129525; Loom Framework</a>
   <div class="topnav-spacer"></div>
-  <button class="topbar-btn active" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
-  <button class="topbar-btn" id="btn-it" onclick="setLang('it')">🇮🇹 IT</button>
-  <button class="topbar-btn" id="btn-dark" onclick="toggleDark()">🌙</button>
-  <a href="https://github.com/otto78/loom-framework" style="color:white;opacity:.8;font-size:.85rem;margin-left:.5rem;">GitHub ↗</a>
+  <select class="lang-select" id="lang-select" onchange="setLang(this.value)">
+    <option value="en">&#127468;&#127463; English</option>
+    <option value="it">&#127470;&#127481; Italiano</option>
+  </select>
+  <button class="icon-btn" id="btn-dark" onclick="toggleDark()">&#127769;</button>
+  <a href="https://github.com/otto78/loom-framework" style="color:white;opacity:.8;font-size:.82rem;margin-left:.25rem;">GitHub &#8599;</a>
 </nav>
 
 <div class="layout">
@@ -116,60 +136,43 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 </div>
 
 <script>
-// ── EMBEDDED DOCS ──────────────────────────────────────────────────────────────
-const DOCS = [
+function setLang(l){
+  document.documentElement.dataset.lang=l;
+  document.getElementById('lang-select').value=l;
+  localStorage.setItem('loom-lang',l);
+}
+function toggleDark(){
+  const dark=document.documentElement.dataset.theme==='dark';
+  document.documentElement.dataset.theme=dark?'light':'dark';
+  document.getElementById('btn-dark').innerHTML=dark?'&#127769;':'&#9728;&#65039;';
+  localStorage.setItem('loom-dark',!dark);
+}
+
+marked.use({breaks:true,gfm:true});
+
+const DOCS=[
 {
-  id:'readme', icon:'📖',
-  label:{en:'README',it:'README'},
-  content:`# Loom Framework 🧵
+  id:'readme',icon:'&#128214;',labelEn:'README',labelIt:'README',file:'README.md',
+  content:`# Loom Framework
 
 > **Weave intelligent agents into your development workflow**
 
-A complete operational framework for AI-powered development across multiple IDEs. Loom provides structure, automation, and best practices for teams working with AI agents.
+A complete operational framework for AI-powered development across multiple IDEs.
 
 ---
 
-## 🎯 What is Loom?
+## What is Loom?
 
-Loom is an operational framework that brings structure to AI-assisted development. It provides:
-
-- ⚡ **Quick Setup** — Interactive wizard + automated scripts
-- 🤖 **Multi-IDE Support** — 7 IDEs (Windsurf, Claude, Cursor, Gemini, VS Code, Copilot, IntelliJ)
-- 📋 **Task Management** — Complete system with TASKS.md + BACKLOG.md
-- 🧪 **TDD Workflow** — Test-Driven Development integrated
-- 📝 **Integrated Versioning** — Automatic STORY.md + CHANGELOG.md
-- 🔄 **Automated Workflow** — Python scripts for complete task lifecycle
-- 📚 **3-Level Framework** — Directives / Orchestration / Execution
-- 🔀 **Handoff Protocol** — Seamless agent-to-agent transitions
-- 🧩 **Adaptable** — Works with new and existing projects
+- **Quick Setup** — Interactive wizard + automated scripts
+- **Multi-IDE Support** — 7 IDEs (Windsurf, Claude, Cursor, Gemini, VS Code, Copilot, IntelliJ)
+- **Task Management** — TASKS.md + BACKLOG.md
+- **TDD Workflow** — Test-Driven Development integrated
+- **3-Level Framework** — Directives / Orchestration / Execution
+- **Handoff Protocol** — Seamless agent-to-agent transitions
 
 ---
 
-## 🚀 Quick Start
-
-\`\`\`bash
-git clone https://github.com/otto78/loom-framework.git
-cd /path/to/your-project
-python /path/to/loom-framework/loom/scripts/setup.py
-\`\`\`
-
-Or just tell your AI agent: **"setup loom framework"**
-
----
-
-## 🏗️ The 3-Level Framework
-
-| Level | Name | Description |
-|-------|------|-------------|
-| 1 | **Directives** | SOPs in natural language — what to do |
-| 2 | **Orchestration** | Intelligent routing between directives and scripts |
-| 3 | **Execution** | Deterministic Python scripts — do the work |
-
-**Why it works**: LLMs are probabilistic (90% accuracy = 59% over 5 steps). Pushing complexity into deterministic code reduces errors.
-
----
-
-## 🎨 Supported IDEs
+## Supported IDEs
 
 | IDE/Tool | Config File | Location |
 |----------|-------------|----------|
@@ -183,26 +186,25 @@ Or just tell your AI agent: **"setup loom framework"**
 
 ---
 
-## 🌟 Why Loom?
+## Why Loom?
 
-**Before Loom:** inconsistent AI behavior, no task tracking, lost context, no testing workflow.
+**Before:** inconsistent AI behavior, no task tracking, lost context between sessions.
 
-**After Loom:** structured workflows, automatic task management, seamless handoffs, integrated TDD.
+**After:** structured workflows, automatic task management, seamless handoffs, integrated TDD.
 
 ---
 
 **Version**: 1.0.0 | **Author**: Andrea Mazzarotto | **License**: MIT`
 },
 {
-  id:'quickstart', icon:'🚀',
-  label:{en:'Quick Start',it:'Avvio Rapido'},
-  content:`# Quick Start 🚀
+  id:'quickstart',icon:'&#128640;',labelEn:'Quick Start',labelIt:'Avvio Rapido',file:'QUICKSTART.md',
+  content:`# Quick Start
 
 Get started with Loom in 5 minutes!
 
 ---
 
-## 📦 Installation
+## Installation
 
 \`\`\`bash
 git clone https://github.com/otto78/loom-framework.git
@@ -211,7 +213,7 @@ cd loom-framework
 
 ---
 
-## ⚡ Setup Your Project
+## Setup Your Project
 
 ### Method 1: Natural Language (Recommended)
 
@@ -221,8 +223,6 @@ Tell your AI agent:
 "setup loom framework"
 \`\`\`
 
-Done! The agent executes everything automatically.
-
 ### Method 2: Interactive Wizard
 
 \`\`\`bash
@@ -230,11 +230,7 @@ cd /path/to/your-project
 python /path/to/loom-framework/loom/scripts/setup.py
 \`\`\`
 
-The wizard will:
-1. Detect your programming languages
-2. Detect your frameworks
-3. Detect your IDEs
-4. Create all necessary files
+The wizard will detect your languages, frameworks, and IDEs automatically.
 
 ### Method 3: Automated
 
@@ -244,7 +240,7 @@ python loom/scripts/setup.py --auto --project-name "MyProject" --ide windsurf,cu
 
 ---
 
-## 📋 Your First Task
+## Your First Task
 
 \`\`\`bash
 python loom/scripts/task.py start TASK-001 "Implement user login"
@@ -258,7 +254,7 @@ Or tell your AI agent:
 
 ---
 
-## 🎯 Daily Workflow
+## Daily Workflow
 
 \`\`\`bash
 python loom/scripts/task.py list
@@ -276,7 +272,7 @@ Or with natural language:
 
 ---
 
-## 📚 Key Files After Setup
+## Key Files After Setup
 
 - **\`AGENT.md\`** — Source of truth for your project
 - **\`docs/TASKS.md\`** — Active tasks
@@ -289,19 +285,18 @@ Or with natural language:
 **Time to setup**: ~5 minutes | **Time to first task**: ~2 minutes`
 },
 {
-  id:'natural-lang', icon:'💬',
-  label:{en:'Natural Language Guide',it:'Guida Linguaggio Naturale'},
+  id:'natural-lang',icon:'&#128172;',labelEn:'Natural Language Guide',labelIt:'Guida Linguaggio Naturale',file:'NATURAL-LANGUAGE-GUIDE.md',
   content:`# Natural Language Guide
 
 > No need to run Python scripts manually. Just talk to your AI agent!
 
 ---
 
-## 🎯 Core Idea
+## Core Idea
 
 Instead of:
 \`\`\`bash
-python agentic-framework/scripts/setup.py
+python loom/scripts/setup.py
 \`\`\`
 
 Just say:
@@ -313,19 +308,10 @@ The agent understands and executes automatically!
 
 ---
 
-## 🚀 Setup
-
-| You say | Agent does |
-|---------|-----------|
-| "setup loom framework" | Runs setup wizard, creates all files |
-| "configura il framework" | Same in Italian |
-
----
-
-## 📋 Task Management
+## Task Management Commands
 
 | You say | Agent executes |
-|---------|---------------|
+|---------|----------------|
 | "start task TASK-001 'feature X'" | \`task.py start TASK-001 "feature X"\` |
 | "list tasks" | \`task.py list\` |
 | "complete task TASK-001" | \`task.py complete TASK-001\` |
@@ -334,22 +320,22 @@ The agent understands and executes automatically!
 
 ---
 
-## 🧪 TDD with Natural Language
+## TDD with Natural Language
 
 \`\`\`
 "start TDD task TASK-001 'add email validation'"
-→ Creates test file, runs tests (Red phase)
+-> Creates test file, runs tests (Red phase)
 
 "run tests"
-→ Shows test results
+-> Shows test results
 
 "complete task TASK-001"
-→ Verifies all tests pass, commits
+-> Verifies all tests pass, commits
 \`\`\`
 
 ---
 
-## 🌍 Multilingual Support
+## Multilingual Support
 
 ### Italiano
 \`\`\`
@@ -371,22 +357,21 @@ The agent understands and executes automatically!
 
 ---
 
-## 🎓 Best Practices
+## Best Practices
 
-1. **Use natural language** — the agent understands variations: "start task" = "create task" = "begin task"
+1. **Use natural language** — "start task" = "create task" = "begin task"
 2. **Let the agent suggest** — it will recommend TDD for critical features
 3. **Use abbreviations** — "list", "complete TASK-001" all work`
 },
 {
-  id:'tdd', icon:'🧪',
-  label:{en:'TDD Workflow',it:'Workflow TDD'},
+  id:'tdd',icon:'&#129514;',labelEn:'TDD Workflow',labelIt:'Workflow TDD',file:'TDD-WORKFLOW.md',
   content:`# TDD Workflow — Test-Driven Development
 
 > Complete Test-Driven Development workflow integrated in the framework.
 
 ---
 
-## 🎯 What is TDD?
+## What is TDD?
 
 1. **Write tests FIRST** — before any code
 2. **Run tests** — they must fail (Red phase)
@@ -395,18 +380,18 @@ The agent understands and executes automatically!
 
 ---
 
-## 🔄 Red-Green-Refactor Cycle
+## Red-Green-Refactor Cycle
 
 \`\`\`
-🔴 RED    → Write failing test
-🟢 GREEN  → Write minimal code to pass
-🔵 REFACTOR → Clean up, tests stay green
-↩️  Repeat for next feature
+RED    -> Write failing test
+GREEN  -> Write minimal code to pass
+REFACTOR -> Clean up, tests stay green
+Repeat for next feature
 \`\`\`
 
 ---
 
-## 🚀 Commands
+## Commands
 
 \`\`\`bash
 # Start TDD task (creates test file, runs tests - Red phase)
@@ -421,7 +406,7 @@ python scripts/task-tdd.py complete TASK-001
 
 ---
 
-## 📝 Example Test File
+## Example Test File
 
 \`\`\`python
 # tests/test_task_001.py
@@ -442,19 +427,19 @@ def test_empty_email():
 
 ---
 
-## 📊 TASKS.md TDD Checklist
+## TASKS.md TDD Checklist
 
 \`\`\`markdown
 **TDD Workflow:**
-- [x] 🔴 Red: Tests created and failing
-- [ ] 🟢 Green: Implement feature to pass tests
-- [ ] 🔵 Refactor: Clean up code
-- [ ] ✅ Complete: All tests passing
+- [x] Red: Tests created and failing
+- [ ] Green: Implement feature to pass tests
+- [ ] Refactor: Clean up code
+- [ ] Complete: All tests passing
 \`\`\`
 
 ---
 
-## 🎓 Best Practices
+## Best Practices
 
 - **Small focused tests** — one test, one behavior
 - **Descriptive names** — \`test_empty_email_returns_false\`
@@ -463,15 +448,14 @@ def test_empty_email():
 - **Cover edge cases** — empty, null, boundary values`
 },
 {
-  id:'setup-instructions', icon:'⚙️',
-  label:{en:'Setup Instructions (for AI)',it:'Istruzioni Setup (per AI)'},
+  id:'setup-instructions',icon:'&#9881;&#65039;',labelEn:'Setup Instructions (AI)',labelIt:'Istruzioni Setup (AI)',file:'SETUP-INSTRUCTIONS.md',
   content:`# Setup Instructions — For AI Agents
 
 > This file is read by AI agents to understand how to setup the framework.
 
 ---
 
-## 🤖 Trigger Phrases
+## Trigger Phrases
 
 When user says any of these, execute the setup wizard:
 
@@ -481,7 +465,7 @@ When user says any of these, execute the setup wizard:
 
 ---
 
-## 📋 Setup Procedure
+## Setup Procedure
 
 ### Step 1: Detect Project Context
 
@@ -509,13 +493,9 @@ Do you want me to setup Loom Framework?
 python loom/scripts/setup.py --auto --project-name "[name]" --ide [ides]
 \`\`\`
 
-### Step 4: Report Results
-
-Tell user what was created: AGENT.md, IDE configs, docs/TASKS.md, etc.
-
 ---
 
-## 🔧 Command Mapping
+## Command Mapping
 
 | User Says | Execute |
 |-----------|---------|
@@ -528,23 +508,22 @@ Tell user what was created: AGENT.md, IDE configs, docs/TASKS.md, etc.
 
 ---
 
-## ⚠️ Important Notes
+## Important Notes
 
 1. **Always read AGENT.md first** — it contains project context
-2. **Respect existing files** — don't overwrite TASKS.md, README.md
+2. **Respect existing files** — do not overwrite TASKS.md, README.md
 3. **Suggest TDD** for critical features (auth, payments, validation)
 4. **Auto-sync** IDE configs after AGENT.md changes`
 },
 {
-  id:'contributing', icon:'🤝',
-  label:{en:'Contributing',it:'Contribuire'},
-  content:`# Contributing to Loom Framework 🧵
+  id:'contributing',icon:'&#129309;',labelEn:'Contributing',labelIt:'Contribuire',file:'CONTRIBUTING.md',
+  content:`# Contributing to Loom Framework
 
 Thank you for your interest in contributing!
 
 ---
 
-## 🎯 How to Contribute
+## How to Contribute
 
 ### Report Issues
 1. Check [existing issues](https://github.com/otto78/loom-framework/issues)
@@ -556,12 +535,9 @@ Thank you for your interest in contributing!
 3. Add to README.md IDE support table
 4. Submit a pull request
 
-### Improve Documentation
-- Fix typos, add examples, clarify explanations, translate
-
 ---
 
-## 🔧 Development Setup
+## Development Setup
 
 \`\`\`bash
 git clone https://github.com/otto78/loom-framework.git
@@ -574,7 +550,7 @@ pytest tests/
 
 ---
 
-## 📝 Pull Request Process
+## Pull Request Process
 
 1. Fork the repository
 2. Create branch: \`git checkout -b feature/amazing-feature\`
@@ -582,7 +558,7 @@ pytest tests/
 4. Commit: \`git commit -m "feat: add amazing feature"\`
 5. Push and open a pull request
 
-### Commit Format (Conventional Commits)
+### Commit Format
 
 \`\`\`
 feat: add support for PyCharm IDE
@@ -593,43 +569,31 @@ test: add tests for setup wizard
 
 ---
 
-## ✅ Code Standards
+## Code Standards
 
 - Python: PEP 8, type hints, docstrings
-- Scripts: error handling, \`--dry-run\` support, \`--help\` docs
+- Scripts: error handling, \`--dry-run\` support
 - Tests required for new features
 
 ---
 
-## 💬 Community
-
-- [GitHub Discussions](https://github.com/otto78/loom-framework/discussions)
-- [GitHub Issues](https://github.com/otto78/loom-framework/issues)
-
----
-
-**Every contribution, no matter how small, makes Loom better for everyone.** 🧵`
+**Every contribution makes Loom better for everyone.**`
 }
 ];
 
-// ── RENDER ─────────────────────────────────────────────────────────────────────
-marked.use({ breaks:true, gfm:true });
-
-function getLang(){ return document.documentElement.dataset.lang || 'en'; }
-
 function renderAll(){
-  const sidebar = document.getElementById('sidebar');
-  const main = document.getElementById('main');
-  sidebar.innerHTML = '<h3 class="en">Documentation</h3><h3 class="it">Documentazione</h3>';
-  main.innerHTML = '';
+  const sidebar=document.getElementById('sidebar');
+  const main=document.getElementById('main');
+  sidebar.innerHTML='<div class="sidebar-label"><span class="en">Documentation</span><span class="it">Documentazione</span></div>';
+  main.innerHTML='';
 
-  DOCS.forEach(doc => {
-    // sidebar link
-    const link = document.createElement('a');
-    link.href = '#'+doc.id;
-    link.className = 'sidebar-link';
-    link.innerHTML = `${doc.icon} <span class="en">${doc.label.en}</span><span class="it">${doc.label.it}</span>`;
-    link.addEventListener('click', ()=>{
+  DOCS.forEach(doc=>{
+    // sidebar
+    const link=document.createElement('a');
+    link.href='#'+doc.id;
+    link.className='sidebar-link';
+    link.innerHTML=doc.icon+' <span class="en">'+doc.labelEn+'</span><span class="it">'+doc.labelIt+'</span>';
+    link.addEventListener('click',()=>{
       document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));
       link.classList.add('active');
       document.getElementById(doc.id)?.classList.remove('collapsed');
@@ -637,82 +601,84 @@ function renderAll(){
     sidebar.appendChild(link);
 
     // section
-    const section = document.createElement('div');
-    section.className = 'doc-section';
-    section.id = doc.id;
+    const sec=document.createElement('div');
+    sec.className='doc-section';
+    sec.id=doc.id;
 
-    const header = document.createElement('div');
-    header.className = 'doc-header';
-    header.innerHTML = `
-      <div class="doc-title">
-        ${doc.icon}
-        <span class="en">${doc.label.en}</span><span class="it">${doc.label.it}</span>
-      </div>
-      <div class="doc-actions">
-        <button class="copy-btn">📋 <span class="en">Copy for AI</span><span class="it">Copia per AI</span></button>
-        <span class="toggle">▼</span>
-      </div>`;
+    const hdr=document.createElement('div');
+    hdr.className='doc-header';
+    hdr.innerHTML=
+      '<div class="doc-title">'+doc.icon+
+      ' <span class="en">'+doc.labelEn+'</span><span class="it">'+doc.labelIt+'</span>'+
+      ' <span class="file-badge">'+doc.file+'</span></div>'+
+      '<div class="doc-actions">'+
+      '<button class="copy-btn" data-content="'+encodeURIComponent(doc.content)+'">&#128203; <span class="en">Copy for AI</span><span class="it">Copia per AI</span></button>'+
+      '<span class="toggle">&#9660;</span>'+
+      '</div>';
 
-    const body = document.createElement('div');
-    body.className = 'doc-body';
-    body.innerHTML = marked.parse(doc.content);
+    const body=document.createElement('div');
+    body.className='doc-body';
+    body.innerHTML=marked.parse(doc.content);
 
-    header.querySelector('.copy-btn').addEventListener('click', e=>{
+    hdr.querySelector('.copy-btn').addEventListener('click',function(e){
       e.stopPropagation();
-      const btn = e.currentTarget;
-      navigator.clipboard.writeText(doc.content).then(()=>{
-        btn.innerHTML = '✅ <span class="en">Copied!</span><span class="it">Copiato!</span>';
+      const btn=this;
+      navigator.clipboard.writeText(decodeURIComponent(btn.dataset.content)).then(()=>{
+        btn.innerHTML='&#9989; <span class="en">Copied!</span><span class="it">Copiato!</span>';
         btn.classList.add('ok');
         setTimeout(()=>{
-          btn.innerHTML = '📋 <span class="en">Copy for AI</span><span class="it">Copia per AI</span>';
+          btn.innerHTML='&#128203; <span class="en">Copy for AI</span><span class="it">Copia per AI</span>';
           btn.classList.remove('ok');
-        }, 2000);
+        },2000);
       });
     });
 
-    header.addEventListener('click', ()=> section.classList.toggle('collapsed'));
-
-    section.appendChild(header);
-    section.appendChild(body);
-    main.appendChild(section);
+    hdr.addEventListener('click',()=>sec.classList.toggle('collapsed'));
+    sec.appendChild(hdr);
+    sec.appendChild(body);
+    main.appendChild(sec);
   });
 
+  // add copy buttons to all pre blocks
+  document.querySelectorAll('.doc-body pre').forEach(pre=>{
+    const btn=document.createElement('button');
+    btn.className='pre-copy';
+    btn.textContent='copy';
+    btn.addEventListener('click',function(){
+      navigator.clipboard.writeText(pre.querySelector('code')?.textContent||pre.textContent).then(()=>{
+        btn.textContent='ok!';
+        btn.classList.add('ok');
+        setTimeout(()=>{btn.textContent='copy';btn.classList.remove('ok');},2000);
+      });
+    });
+    pre.style.position='relative';
+    pre.appendChild(btn);
+  });
+
+  // syntax highlight
+  document.querySelectorAll('pre code').forEach(el=>hljs.highlightElement(el));
+
   // scroll spy
-  const observer = new IntersectionObserver(entries=>{
+  const obs=new IntersectionObserver(entries=>{
     entries.forEach(e=>{
       if(e.isIntersecting){
         document.querySelectorAll('.sidebar-link').forEach(l=>{
-          l.classList.toggle('active', l.getAttribute('href')==='#'+e.target.id);
+          l.classList.toggle('active',l.getAttribute('href')==='#'+e.target.id);
         });
       }
     });
   },{rootMargin:'-20% 0px -70% 0px'});
-  DOCS.forEach(d=>{ const el=document.getElementById(d.id); if(el) observer.observe(el); });
-
-  // syntax highlight
-  document.querySelectorAll('pre code').forEach(el=>hljs.highlightElement(el));
+  DOCS.forEach(d=>{const el=document.getElementById(d.id);if(el)obs.observe(el);});
 }
 
-function setLang(l){
-  document.documentElement.dataset.lang=l;
-  document.getElementById('btn-en').classList.toggle('active',l==='en');
-  document.getElementById('btn-it').classList.toggle('active',l==='it');
-  localStorage.setItem('loom-lang',l);
-}
-function toggleDark(){
-  const d=document.documentElement;
-  const dark=d.dataset.theme==='dark';
-  d.dataset.theme=dark?'light':'dark';
-  document.getElementById('btn-dark').textContent=dark?'🌙':'☀️';
-  localStorage.setItem('loom-dark',!dark);
-}
-
-// init
 (function(){
   const lang=localStorage.getItem('loom-lang')||'en';
   const dark=localStorage.getItem('loom-dark')==='true';
   setLang(lang);
-  if(dark){document.documentElement.dataset.theme='dark';document.getElementById('btn-dark').textContent='☀️';}
+  if(dark){
+    document.documentElement.dataset.theme='dark';
+    document.getElementById('btn-dark').innerHTML='&#9728;&#65039;';
+  }
   renderAll();
 })();
 </script>

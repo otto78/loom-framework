@@ -7,125 +7,122 @@
 <meta name="description" content="A complete operational framework for AI-powered development across multiple IDEs">
 <style>
 :root {
-  --bg: #f5f6fa;
-  --surface: #ffffff;
-  --border: #e1e4e8;
-  --text: #333;
-  --text-muted: #666;
-  --accent: #667eea;
-  --accent2: #764ba2;
-  --feature-bg: #f8f9fa;
-  --code-bg: #1e1e1e;
-  --code-text: #d4d4d4;
-  --ide-bg: #f8f9fa;
-  --ide-border: transparent;
-  --shadow: 0 20px 60px rgba(0,0,0,0.12);
+  --bg:#f5f6fa; --surface:#fff; --border:#e1e4e8; --text:#333; --muted:#666;
+  --accent:#667eea; --accent2:#764ba2; --feature-bg:#f8f9fa;
+  --code-bg:#1e1e1e; --code-text:#d4d4d4; --shadow:0 20px 60px rgba(0,0,0,.12);
 }
 [data-theme="dark"] {
-  --bg: #0d1117;
-  --surface: #161b22;
-  --border: #30363d;
-  --text: #e6edf3;
-  --text-muted: #8b949e;
-  --accent: #818cf8;
-  --accent2: #a78bfa;
-  --feature-bg: #1c2128;
-  --code-bg: #0d1117;
-  --code-text: #e6edf3;
-  --ide-bg: #1c2128;
-  --ide-border: #30363d;
-  --shadow: 0 20px 60px rgba(0,0,0,0.5);
+  --bg:#0d1117; --surface:#161b22; --border:#30363d; --text:#e6edf3; --muted:#8b949e;
+  --accent:#818cf8; --accent2:#a78bfa; --feature-bg:#1c2128;
+  --code-bg:#010409; --code-text:#e6edf3; --shadow:0 20px 60px rgba(0,0,0,.5);
 }
-
-* { margin:0; padding:0; box-sizing:border-box; }
-body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); line-height:1.6; transition: background .3s, color .3s; }
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;transition:background .3s,color .3s;}
 
 /* TOPBAR */
-.topbar {
-  position: sticky; top:0; z-index:100;
-  background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
-  display: flex; align-items: center; justify-content: flex-end;
-  gap: .75rem; padding: .6rem 2rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+.topbar{
+  position:sticky;top:0;z-index:100;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  display:flex;align-items:center;justify-content:flex-end;
+  gap:.6rem;padding:.55rem 1.5rem;
+  box-shadow:0 2px 8px rgba(0,0,0,.2);
 }
-.topbar-btn {
-  background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3);
-  color: white; padding: .3rem .8rem; border-radius: 20px; cursor: pointer;
-  font-size: .85rem; font-weight:600; transition: background .2s;
+.lang-select{
+  background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);
+  color:white;padding:.28rem .6rem;border-radius:20px;cursor:pointer;
+  font-size:.82rem;font-weight:600;outline:none;
+  appearance:none;-webkit-appearance:none;
+  padding-right:1.4rem;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='white'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right .5rem center;
 }
-.topbar-btn:hover { background: rgba(255,255,255,0.25); }
-.topbar-btn.active { background: rgba(255,255,255,0.35); }
+.lang-select option{background:#667eea;color:white;}
+.icon-btn{
+  background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);
+  color:white;width:32px;height:32px;border-radius:50%;cursor:pointer;
+  font-size:1rem;display:flex;align-items:center;justify-content:center;
+  transition:background .2s;
+}
+.icon-btn:hover{background:rgba(255,255,255,.3);}
 
 /* HERO */
-header {
-  background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
-  text-align: center; padding: 5rem 2rem 4rem; color: white;
+header{
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  text-align:center;padding:5rem 2rem 4rem;color:white;
 }
-.logo { font-size: 5rem; margin-bottom: 1rem; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3)); }
-h1 { font-size: 3.2rem; font-weight:800; margin-bottom:.75rem; }
-.tagline { font-size: 1.4rem; opacity:.9; margin-bottom:2.5rem; }
-.cta-buttons { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
-.btn {
-  padding:.9rem 2rem; font-size:1.05rem; border:none; border-radius:10px;
-  cursor:pointer; text-decoration:none; display:inline-block;
-  transition: transform .2s, box-shadow .2s; font-weight:600;
+.logo{font-size:5rem;margin-bottom:1rem;filter:drop-shadow(0 4px 8px rgba(0,0,0,.3));}
+h1{font-size:3.2rem;font-weight:800;margin-bottom:.75rem;}
+.tagline{font-size:1.4rem;opacity:.9;margin-bottom:2.5rem;}
+.cta-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+.btn{
+  padding:.9rem 2rem;font-size:1.05rem;border:none;border-radius:10px;
+  cursor:pointer;text-decoration:none;display:inline-block;
+  transition:transform .2s,box-shadow .2s;font-weight:600;
 }
-.btn-primary { background:white; color: var(--accent); }
-.btn-secondary { background:rgba(255,255,255,.15); color:white; border:2px solid white; }
-.btn:hover { transform:translateY(-3px); box-shadow:0 12px 24px rgba(0,0,0,.25); }
+.btn-primary{background:white;color:var(--accent);}
+.btn-secondary{background:rgba(255,255,255,.15);color:white;border:2px solid white;}
+.btn:hover{transform:translateY(-3px);box-shadow:0 12px 24px rgba(0,0,0,.25);}
 
-/* SECTIONS */
-.container { max-width:1200px; margin:0 auto; padding:2rem; }
-.card {
-  background: var(--surface); border-radius:16px; padding:3rem;
-  margin:2rem 0; box-shadow: var(--shadow); border:1px solid var(--border);
-}
-.card h2 { text-align:center; font-size:2.2rem; margin-bottom:2.5rem; color: var(--accent); }
+/* LAYOUT */
+.container{max-width:1200px;margin:0 auto;padding:2rem;}
+.card{background:var(--surface);border-radius:16px;padding:3rem;margin:2rem 0;box-shadow:var(--shadow);border:1px solid var(--border);}
+.card h2{text-align:center;font-size:2.2rem;margin-bottom:2.5rem;color:var(--accent);}
 
 /* FEATURES */
-.feature-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; }
-.feature { padding:1.5rem; border-radius:10px; background: var(--feature-bg); border:1px solid var(--border); }
-.feature-icon { font-size:2.2rem; margin-bottom:.75rem; }
-.feature h3 { font-size:1.2rem; margin-bottom:.4rem; color: var(--accent); }
-.feature p { color: var(--text-muted); font-size:.95rem; }
+.feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;}
+.feature{padding:1.5rem;border-radius:10px;background:var(--feature-bg);border:1px solid var(--border);}
+.feature-icon{font-size:2.2rem;margin-bottom:.75rem;}
+.feature h3{font-size:1.2rem;margin-bottom:.4rem;color:var(--accent);}
+.feature p{color:var(--muted);font-size:.95rem;}
 
 /* IDE GRID */
-.ide-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:1.25rem; }
-.ide-card {
-  display:flex; flex-direction:column; align-items:center; gap:.6rem;
-  padding:1.5rem 1rem; border-radius:12px; background: var(--ide-bg);
-  border:2px solid var(--ide-border); transition: border-color .2s, transform .2s;
-  cursor:default;
+.ide-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:1.25rem;}
+.ide-card{
+  display:flex;flex-direction:column;align-items:center;gap:.6rem;
+  padding:1.5rem 1rem;border-radius:12px;background:var(--feature-bg);
+  border:2px solid transparent;transition:border-color .2s,transform .2s;
 }
-.ide-card:hover { border-color: var(--accent); transform:translateY(-4px); }
-.ide-card svg, .ide-card img { width:44px; height:44px; }
-.ide-card span { font-weight:600; font-size:.85rem; color: var(--text); text-align:center; }
-.ide-card small { color: var(--text-muted); font-size:.75rem; }
+.ide-card:hover{border-color:var(--accent);transform:translateY(-4px);}
+.ide-card img{width:48px;height:48px;object-fit:contain;}
+.ide-card span{font-weight:600;font-size:.85rem;color:var(--text);text-align:center;}
+.ide-card small{color:var(--muted);font-size:.75rem;}
 
-/* CODE */
-.code-block {
-  background: var(--code-bg); color: var(--code-text);
-  padding:1.25rem 1.5rem; border-radius:10px; overflow-x:auto;
-  margin:1rem 0; font-family:'Courier New',monospace; font-size:.9rem; line-height:1.6;
+/* CODE BLOCKS */
+.code-wrap{position:relative;margin:1rem 0;}
+.code-block{
+  background:var(--code-bg);color:var(--code-text);
+  padding:1.1rem 1.25rem;border-radius:10px;overflow-x:auto;
+  font-family:'Courier New',monospace;font-size:.88rem;line-height:1.6;
 }
-.step-title { color: var(--accent); font-size:1.1rem; font-weight:700; margin:1.5rem 0 .5rem; }
+.code-copy{
+  position:absolute;top:.5rem;right:.5rem;
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);
+  color:rgba(255,255,255,.7);padding:.25rem .5rem;border-radius:6px;
+  cursor:pointer;font-size:.8rem;transition:background .2s,color .2s;
+}
+.code-copy:hover{background:rgba(255,255,255,.2);color:white;}
+.code-copy.ok{background:rgba(40,167,69,.4);color:#7fff7f;border-color:rgba(40,167,69,.5);}
+
+.step-title{color:var(--accent);font-size:1.1rem;font-weight:700;margin:1.5rem 0 .4rem;}
 
 /* FOOTER */
-footer { text-align:center; padding:3rem 2rem; color: var(--text-muted); border-top:1px solid var(--border); }
-footer a { color: var(--accent); text-decoration:none; }
-footer a:hover { text-decoration:underline; }
+footer{text-align:center;padding:3rem 2rem;color:var(--muted);border-top:1px solid var(--border);}
+footer a{color:var(--accent);text-decoration:none;}
+footer a:hover{text-decoration:underline;}
 
 /* I18N */
-[data-lang="en"] .it { display:none; }
-[data-lang="it"] .en { display:none; }
+[data-lang="en"] .it{display:none;}
+[data-lang="it"] .en{display:none;}
 </style>
 </head>
 <body>
 
 <div class="topbar">
-  <button class="topbar-btn active" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
-  <button class="topbar-btn" id="btn-it" onclick="setLang('it')">🇮🇹 IT</button>
-  <button class="topbar-btn" id="btn-dark" onclick="toggleDark()">🌙 <span class="en">Dark</span><span class="it">Scuro</span></button>
+  <select class="lang-select" id="lang-select" onchange="setLang(this.value)">
+    <option value="en">🇬🇧 English</option>
+    <option value="it">🇮🇹 Italiano</option>
+  </select>
+  <button class="icon-btn" id="btn-dark" onclick="toggleDark()" title="Toggle dark mode">🌙</button>
 </div>
 
 <header>
@@ -154,45 +151,39 @@ footer a:hover { text-decoration:underline; }
     <div class="feature-grid">
       <div class="feature">
         <div class="feature-icon">⚡</div>
-        <h3 class="en">Quick Setup</h3>
-        <h3 class="it">Setup Rapido</h3>
+        <h3 class="en">Quick Setup</h3><h3 class="it">Setup Rapido</h3>
         <p class="en">Interactive wizard detects your project and configures everything in minutes.</p>
-        <p class="it">Il wizard interattivo rileva il tuo progetto e configura tutto in pochi minuti.</p>
+        <p class="it">Il wizard rileva il tuo progetto e configura tutto in pochi minuti.</p>
       </div>
       <div class="feature">
         <div class="feature-icon">🤖</div>
-        <h3 class="en">Multi-IDE Support</h3>
-        <h3 class="it">Multi-IDE</h3>
+        <h3 class="en">Multi-IDE Support</h3><h3 class="it">Multi-IDE</h3>
         <p class="en">Works with 7 IDEs: Windsurf, Claude, Cursor, Gemini, VS Code, Copilot, IntelliJ.</p>
         <p class="it">Funziona con 7 IDE: Windsurf, Claude, Cursor, Gemini, VS Code, Copilot, IntelliJ.</p>
       </div>
       <div class="feature">
         <div class="feature-icon">📋</div>
-        <h3 class="en">Task Management</h3>
-        <h3 class="it">Gestione Task</h3>
+        <h3 class="en">Task Management</h3><h3 class="it">Gestione Task</h3>
         <p class="en">Complete system with TASKS.md, BACKLOG.md, and automated workflows.</p>
         <p class="it">Sistema completo con TASKS.md, BACKLOG.md e workflow automatizzati.</p>
       </div>
       <div class="feature">
         <div class="feature-icon">🧪</div>
-        <h3 class="en">TDD Workflow</h3>
-        <h3 class="it">Workflow TDD</h3>
-        <p class="en">Test-Driven Development integrated with Red-Green-Refactor cycle.</p>
-        <p class="it">Test-Driven Development integrato con ciclo Red-Green-Refactor.</p>
+        <h3 class="en">TDD Workflow</h3><h3 class="it">Workflow TDD</h3>
+        <p class="en">Test-Driven Development with Red-Green-Refactor cycle.</p>
+        <p class="it">Test-Driven Development con ciclo Red-Green-Refactor.</p>
       </div>
       <div class="feature">
         <div class="feature-icon">💬</div>
-        <h3 class="en">Natural Language</h3>
-        <h3 class="it">Linguaggio Naturale</h3>
+        <h3 class="en">Natural Language</h3><h3 class="it">Linguaggio Naturale</h3>
         <p class="en">Say "start task" or "run tests" — no script paths needed.</p>
         <p class="it">Dì "avvia task" o "esegui test" — nessun comando da ricordare.</p>
       </div>
       <div class="feature">
         <div class="feature-icon">🏗️</div>
-        <h3 class="en">3-Level Framework</h3>
-        <h3 class="it">Framework a 3 Livelli</h3>
-        <p class="en">Structured approach: Directives → Orchestration → Execution.</p>
-        <p class="it">Approccio strutturato: Direttive → Orchestrazione → Esecuzione.</p>
+        <h3 class="en">3-Level Framework</h3><h3 class="it">Framework a 3 Livelli</h3>
+        <p class="en">Directives → Orchestration → Execution.</p>
+        <p class="it">Direttive → Orchestrazione → Esecuzione.</p>
       </div>
     </div>
   </section>
@@ -203,95 +194,45 @@ footer a:hover { text-decoration:underline; }
     <h2 class="it">IDE Supportati</h2>
     <div class="ide-grid">
 
-      <!-- VS Code -->
       <div class="ide-card">
-        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <mask id="m1"><rect width="100" height="100" rx="15" fill="white"/></mask>
-          <rect width="100" height="100" rx="15" fill="#007ACC"/>
-          <g mask="url(#m1)" fill="white">
-            <path d="M70.9 8.2L52.1 26.4 36.3 13.1 28 17.5v65l8.3 4.4 15.8-13.3 18.8 18.2 13.1-5.5V13.7L70.9 8.2zM70 72.6L52.5 57.5 70 42.4v30.2zM36.3 64.5L28 71.5V28.5l8.3 7V64.5z"/>
-          </g>
-        </svg>
+        <!-- VS Code official SVG from Microsoft -->
+        <img src="https://code.visualstudio.com/favicon.ico" alt="VS Code"
+             onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/512px-Visual_Studio_Code_1.35_icon.svg.png'">
         <span>VS Code</span>
         <small>+ Cline</small>
       </div>
 
-      <!-- Cursor -->
       <div class="ide-card">
-        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <rect width="100" height="100" rx="15" fill="#1a1a1a"/>
-          <text x="50" y="68" font-size="58" text-anchor="middle" fill="white" font-family="Arial Black, sans-serif" font-weight="900">⌥</text>
-        </svg>
+        <img src="https://www.cursor.com/favicon.ico" alt="Cursor"
+             onerror="this.outerHTML='<svg viewBox=\'0 0 48 48\' width=\'48\' height=\'48\'><rect width=\'48\' height=\'48\' rx=\'8\' fill=\'#000\'/><text x=\'24\' y=\'33\' font-size=\'26\' text-anchor=\'middle\' fill=\'white\' font-family=\'Arial Black\'>C</text></svg>'">
         <span>Cursor</span>
       </div>
 
-      <!-- Claude / Anthropic -->
       <div class="ide-card">
-        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <rect width="100" height="100" rx="15" fill="#D97757"/>
-          <text x="50" y="68" font-size="52" text-anchor="middle" fill="white" font-family="serif">✦</text>
-        </svg>
+        <img src="https://claude.ai/favicon.ico" alt="Claude Code"
+             onerror="this.src='https://www.anthropic.com/favicon.ico'">
         <span>Claude Code</span>
       </div>
 
-      <!-- Gemini -->
       <div class="ide-card">
-        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <rect width="100" height="100" rx="15" fill="#1a73e8"/>
-          <path d="M50 15 C50 15 65 35 65 50 C65 65 50 85 50 85 C50 85 35 65 35 50 C35 35 50 15 50 15Z" fill="white" opacity="0.9"/>
-          <path d="M15 50 C15 50 35 35 50 35 C65 35 85 50 85 50 C85 50 65 65 50 65 C35 65 15 50 15 50Z" fill="white" opacity="0.6"/>
-        </svg>
+        <img src="https://www.gstatic.com/lamda/images/gemini_favicon_f069958c85030456e93de685481c559f160ea06.svg" alt="Gemini CLI">
         <span>Gemini CLI</span>
       </div>
 
-      <!-- GitHub Copilot -->
       <div class="ide-card">
-        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <rect width="100" height="100" rx="15" fill="#24292e"/>
-          <circle cx="50" cy="42" r="18" fill="white"/>
-          <circle cx="42" cy="38" r="4" fill="#24292e"/>
-          <circle cx="58" cy="38" r="4" fill="#24292e"/>
-          <path d="M34 55 Q50 70 66 55" stroke="white" stroke-width="3" fill="none" stroke-linecap="round"/>
-          <rect x="30" y="62" width="40" height="18" rx="9" fill="white"/>
-          <circle cx="40" cy="71" r="3" fill="#24292e"/>
-          <circle cx="60" cy="71" r="3" fill="#24292e"/>
-        </svg>
+        <img src="https://github.githubassets.com/favicons/favicon.svg" alt="GitHub Copilot">
         <span>GitHub Copilot</span>
       </div>
 
-      <!-- IntelliJ IDEA -->
       <div class="ide-card">
-        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="ij" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style="stop-color:#FC801D"/>
-              <stop offset="50%" style="stop-color:#FF318C"/>
-              <stop offset="100%" style="stop-color:#7B68EE"/>
-            </linearGradient>
-          </defs>
-          <rect width="100" height="100" rx="15" fill="url(#ij)"/>
-          <rect x="18" y="18" width="64" height="64" rx="4" fill="black"/>
-          <rect x="24" y="72" width="30" height="5" rx="2" fill="white"/>
-          <text x="30" y="62" font-size="28" fill="white" font-family="Arial Black" font-weight="900">IJ</text>
-        </svg>
+        <img src="https://www.jetbrains.com/favicon.ico" alt="IntelliJ IDEA"
+             onerror="this.src='https://resources.jetbrains.com/storage/products/intellij-idea/img/meta/intellij-idea_logo_300x300.png'">
         <span>IntelliJ IDEA</span>
       </div>
 
-      <!-- Windsurf -->
       <div class="ide-card">
-        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="ws" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style="stop-color:#09B6A2"/>
-              <stop offset="100%" style="stop-color:#0077B6"/>
-            </linearGradient>
-          </defs>
-          <rect width="100" height="100" rx="15" fill="url(#ws)"/>
-          <!-- sail shape -->
-          <path d="M50 15 L80 75 L50 65 Z" fill="white" opacity="0.95"/>
-          <path d="M50 15 L20 75 L50 65 Z" fill="white" opacity="0.6"/>
-          <line x1="50" y1="15" x2="50" y2="82" stroke="white" stroke-width="3" stroke-linecap="round"/>
-        </svg>
+        <img src="https://codeium.com/favicon.ico" alt="Windsurf"
+             onerror="this.src='https://windsurf.com/favicon.ico'">
         <span>Windsurf</span>
         <small>by Codeium</small>
       </div>
@@ -306,30 +247,45 @@ footer a:hover { text-decoration:underline; }
 
     <p class="step-title en">① Natural Language (easiest)</p>
     <p class="step-title it">① Linguaggio Naturale (più semplice)</p>
-    <p style="color:var(--text-muted);margin-bottom:.5rem" class="en">Just tell your AI agent:</p>
-    <p style="color:var(--text-muted);margin-bottom:.5rem" class="it">Dì al tuo agente AI:</p>
-    <div class="code-block">"setup loom framework"</div>
+    <p style="color:var(--muted);margin-bottom:.4rem" class="en">Just tell your AI agent:</p>
+    <p style="color:var(--muted);margin-bottom:.4rem" class="it">Dì al tuo agente AI:</p>
+    <div class="code-wrap">
+      <div class="code-block">"setup loom framework"</div>
+      <button class="code-copy" onclick="copyCode(this)">📋</button>
+    </div>
 
     <p class="step-title en">② Interactive Wizard</p>
     <p class="step-title it">② Wizard Interattivo</p>
-    <div class="code-block">git clone https://github.com/otto78/loom-framework.git
+    <div class="code-wrap">
+      <div class="code-block">git clone https://github.com/otto78/loom-framework.git
 cd /path/to/your-project
 python /path/to/loom-framework/loom/scripts/setup.py</div>
+      <button class="code-copy" onclick="copyCode(this)">📋</button>
+    </div>
 
     <p class="step-title en">③ Automated (no prompts)</p>
     <p class="step-title it">③ Automatico (senza prompt)</p>
-    <div class="code-block">python loom/scripts/setup.py --auto --project-name "MyProject" --ide windsurf,cursor</div>
+    <div class="code-wrap">
+      <div class="code-block">python loom/scripts/setup.py --auto --project-name "MyProject" --ide windsurf,cursor</div>
+      <button class="code-copy" onclick="copyCode(this)">📋</button>
+    </div>
 
-    <p style="color:var(--text-muted);margin:1.5rem 0 .5rem" class="en">Then use natural language with your agent:</p>
-    <p style="color:var(--text-muted);margin:1.5rem 0 .5rem" class="it">Poi usa il linguaggio naturale con il tuo agente:</p>
-    <div class="code-block en">"start task TASK-001 'implement user login'"
+    <p style="color:var(--muted);margin:1.5rem 0 .4rem" class="en">Then use natural language with your agent:</p>
+    <p style="color:var(--muted);margin:1.5rem 0 .4rem" class="it">Poi usa il linguaggio naturale con il tuo agente:</p>
+    <div class="code-wrap en">
+      <div class="code-block">"start task TASK-001 'implement user login'"
 "list tasks"
 "run tests"
 "complete task TASK-001"</div>
-    <div class="code-block it">"avvia task TASK-001 'implementa login utente'"
+      <button class="code-copy" onclick="copyCode(this)">📋</button>
+    </div>
+    <div class="code-wrap it">
+      <div class="code-block">"avvia task TASK-001 'implementa login utente'"
 "mostra i task"
 "esegui i test"
 "completa task TASK-001"</div>
+      <button class="code-copy" onclick="copyCode(this)">📋</button>
+    </div>
 
     <div style="text-align:center;margin-top:2rem;">
       <a href="docs.html" class="btn btn-primary" style="background:var(--accent);color:white;">
@@ -345,7 +301,7 @@ python /path/to/loom-framework/loom/scripts/setup.py</div>
   <p>Loom Framework v1.0.0 — MIT License</p>
   <p style="margin:.3rem 0">
     <span class="en">Created by</span><span class="it">Creato da</span>
-    <strong>Andrea Mazzarotto</strong>
+    <strong> Andrea Mazzarotto</strong>
   </p>
   <p style="margin-top:.75rem">
     <a href="https://github.com/otto78/loom-framework">GitHub</a> ·
@@ -357,23 +313,34 @@ python /path/to/loom-framework/loom/scripts/setup.py</div>
 <script>
 function setLang(l) {
   document.documentElement.dataset.lang = l;
-  document.getElementById('btn-en').classList.toggle('active', l==='en');
-  document.getElementById('btn-it').classList.toggle('active', l==='it');
+  document.getElementById('lang-select').value = l;
   localStorage.setItem('loom-lang', l);
 }
+
 function toggleDark() {
-  const d = document.documentElement;
-  const isDark = d.dataset.theme === 'dark';
-  d.dataset.theme = isDark ? 'light' : 'dark';
-  document.getElementById('btn-dark').textContent = isDark ? '🌙 Dark / Scuro' : '☀️ Light / Chiaro';
-  localStorage.setItem('loom-dark', !isDark);
+  const dark = document.documentElement.dataset.theme === 'dark';
+  document.documentElement.dataset.theme = dark ? 'light' : 'dark';
+  document.getElementById('btn-dark').textContent = dark ? '🌙' : '☀️';
+  localStorage.setItem('loom-dark', !dark);
 }
-// restore prefs
-(function(){
+
+function copyCode(btn) {
+  const code = btn.previousElementSibling.textContent;
+  navigator.clipboard.writeText(code).then(() => {
+    btn.textContent = '✅';
+    btn.classList.add('ok');
+    setTimeout(() => { btn.textContent = '📋'; btn.classList.remove('ok'); }, 2000);
+  });
+}
+
+(function () {
   const lang = localStorage.getItem('loom-lang') || 'en';
   const dark = localStorage.getItem('loom-dark') === 'true';
   setLang(lang);
-  if(dark){ document.documentElement.dataset.theme='dark'; document.getElementById('btn-dark').textContent='☀️ Light / Chiaro'; }
+  if (dark) {
+    document.documentElement.dataset.theme = 'dark';
+    document.getElementById('btn-dark').textContent = '☀️';
+  }
 })();
 </script>
 </body>
