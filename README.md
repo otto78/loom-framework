@@ -11,7 +11,7 @@ A complete operational framework for AI-powered development across multiple IDEs
 Loom is an operational framework that brings structure to AI-assisted development. It provides:
 
 - ⚡ **Quick Setup** — Interactive wizard + automated scripts
-- 🤖 **Multi-IDE Support** — 7 IDEs (Windsurf, Claude, Cursor, Gemini, VS Code, Copilot, IntelliJ)
+- 🤖 **Multi-IDE Support** — 6 IDEs (Windsurf, Claude Code, Cursor, Gemini CLI, VS Code, IntelliJ IDEA)
 - 📋 **Task Management** — Complete system with TASKS.md + BACKLOG.md
 - 🧪 **TDD Workflow** — Test-Driven Development integrated
 - 📝 **Integrated Versioning** — Automatic STORY.md + CHANGELOG.md
@@ -202,8 +202,7 @@ python loom/scripts/task-tdd.py complete TASK-001
 | Claude Code | `CLAUDE.md` | Root |
 | Cursor | `.cursorrules` | Root |
 | Gemini CLI | `GEMINI.md` | Root |
-| GitHub Copilot | `copilot-instructions.md` | `.github/` |
-| Cline (VS Code) | `.clinerules` | Root |
+| VS Code | `.clinerules` | Root |
 | IntelliJ IDEA | `agentic-framework.md` | `.idea/` |
 
 ---
