@@ -198,12 +198,12 @@ python loom/scripts/task-tdd.py complete TASK-001
 
 | IDE/Tool | Config File | Location |
 |----------|-------------|----------|
-| Windsurf | `.windsurfrules` | Root |
-| Claude Code | `CLAUDE.md` | Root |
-| Cursor | `.cursorrules` | Root |
-| Gemini CLI | `GEMINI.md` | Root |
-| VS Code | `.clinerules` | Root |
-| IntelliJ IDEA | `agentic-framework.md` | `.idea/` |
+| 🌊 Windsurf | `.windsurfrules` | Root |
+| 🤖 Claude Code | `CLAUDE.md` | Root |
+| ↗️ Cursor | `.cursorrules` | Root |
+| ✨ Gemini CLI | `GEMINI.md` | Root |
+| 💻 VS Code (Cline) | `.clinerules` | Root |
+| 💡 IntelliJ IDEA | `agentic-framework.md` | `.idea/` |
 
 ---
 
