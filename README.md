@@ -5,7 +5,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/otto78/loom-framework/releases)
 [![Python](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/)
-[![IDEs](https://img.shields.io/badge/IDEs-6%20supported-green.svg)](#-supported-ides)
+[![IDEs](https://img.shields.io/badge/IDEs-7%20supported-green.svg)](#-supported-ides)
 [![GitHub Stars](https://img.shields.io/github/stars/otto78/loom-framework?style=social)](https://github.com/otto78/loom-framework)
 
 A complete operational framework for AI-powered development across multiple IDEs. Loom provides structure, automation, and best practices for teams working with AI agents.
@@ -43,7 +43,7 @@ your-project/
 Loom is an operational framework that brings structure to AI-assisted development. It provides:
 
 - ⚡ **Quick Setup** — Interactive wizard + automated scripts
-- 🤖 **Multi-IDE Support** — 6 IDEs (Windsurf, Claude Code, Cursor, Gemini CLI, VS Code, IntelliJ IDEA)
+- 🤖 **Multi-IDE Support** — 7 IDEs (Windsurf, Claude Code, Cursor, Gemini CLI, VS Code, IntelliJ IDEA, GitHub Copilot)
 - 📋 **Task Management** — Complete system with TASKS.md + BACKLOG.md
 - 🧪 **TDD Workflow** — Test-Driven Development integrated
 - 📝 **Integrated Versioning** — Automatic STORY.md + CHANGELOG.md
@@ -253,6 +253,7 @@ python loom/scripts/task-tdd.py complete TASK-001
 | ✨ Gemini CLI | `GEMINI.md` | Root |
 | 💻 VS Code (Cline) | `.clinerules` | Root |
 | 💡 IntelliJ IDEA | `agentic-framework.md` | `.idea/` |
+| 🐙 GitHub Copilot | `copilot-instructions.md` | `.github/` |
 
 ---
 
@@ -289,7 +290,7 @@ python loom/scripts/task-tdd.py complete TASK-001
 ## 🆚 Why Not X?
 
 ### vs. Cursor Rules / `.cursorrules`
-Cursor rules are a single config file for one IDE. Loom is a full workflow system: task tracking, versioning, TDD, handoffs, and configs for 6 IDEs — all kept in sync.
+Cursor rules are a single config file for one IDE. Loom is a full workflow system: task tracking, versioning, TDD, handoffs, and configs for 7 IDEs — all kept in sync.
 
 ### vs. aider
 aider is a CLI coding assistant. Loom is not a coding tool — it's the **operational layer** that sits on top of any AI agent (including aider). You can use aider inside a Loom-managed project.
@@ -325,7 +326,7 @@ MIT — Use, modify, share freely.
 
 ## 🔗 Links
 
-- **Website**: [loom-framework.dev](https://loom-framework.dev)
+- **Website**: [otto78.github.io/loom-framework](https://otto78.github.io/loom-framework)
 - **Documentation**: [otto78.github.io/loom-framework/docs.html](https://otto78.github.io/loom-framework/docs.html)
 - **GitHub**: [github.com/otto78/loom-framework](https://github.com/otto78/loom-framework)
 - **Issues**: [github.com/otto78/loom-framework/issues](https://github.com/otto78/loom-framework/issues)
