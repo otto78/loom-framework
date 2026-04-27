@@ -2,7 +2,39 @@
 
 > **Weave intelligent agents into your development workflow**
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/otto78/loom-framework/releases)
+[![Python](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/)
+[![IDEs](https://img.shields.io/badge/IDEs-6%20supported-green.svg)](#-supported-ides)
+[![GitHub Stars](https://img.shields.io/github/stars/otto78/loom-framework?style=social)](https://github.com/otto78/loom-framework)
+
 A complete operational framework for AI-powered development across multiple IDEs. Loom provides structure, automation, and best practices for teams working with AI agents.
+
+---
+
+## 📂 What Gets Created in Your Project
+
+After running `python loom/scripts/setup.py` in your project, Loom creates:
+
+```
+your-project/
+├── AGENT.md                  # ⭐ Source of truth — project context for every agent session
+├── .windsurfrules            # IDE config (only for selected IDEs)
+├── .cursorrules              #
+├── CLAUDE.md                 #
+├── GEMINI.md                 #
+├── .clinerules               #
+├── .idea/
+│   └── agentic-framework.md  # IntelliJ config
+└── docs/
+    ├── TASKS.md              # Active task tracking
+    ├── BACKLOG.md            # Future ideas
+    ├── STORY.md              # Operational history (auto-updated)
+    ├── CHANGELOG.md          # Version changelog (auto-updated)
+    └── HANDOFF.md            # Agent handoff protocol
+```
+
+**Your existing files are never overwritten.** Loom only creates files that don't exist yet.
 
 ---
 
@@ -24,7 +56,24 @@ Loom is an operational framework that brings structure to AI-assisted developmen
 
 ## 🚀 Quick Start
 
-### Method 1: Interactive Wizard (Recommended)
+### Method 1: One-Liner Install (Easiest)
+
+**Windows (PowerShell):**
+```powershell
+irm https://raw.githubusercontent.com/otto78/loom-framework/main/install.ps1 | iex
+```
+
+**Unix/Linux/macOS:**
+```bash
+curl -fsSL https://raw.githubusercontent.com/otto78/loom-framework/main/install.sh | bash
+```
+
+The installer will:
+- Clone Loom to `~/.loom-framework`
+- Detect if you're in a project directory
+- Offer to run setup automatically
+
+### Method 2: Interactive Wizard
 
 ```bash
 # 1. Clone Loom
@@ -41,7 +90,7 @@ python /path/to/loom-framework/loom/scripts/setup.py
 # And create all necessary files
 ```
 
-### Method 2: Natural Language (with AI Agent)
+### Method 3: Natural Language (with AI Agent)
 
 Simply tell your AI agent:
 
@@ -53,7 +102,7 @@ The agent will automatically execute the setup wizard!
 
 See **[NATURAL-LANGUAGE-GUIDE.md](./NATURAL-LANGUAGE-GUIDE.md)** for complete guide.
 
-### Method 3: Automated Setup
+### Method 4: Automated Setup
 
 ```bash
 # Auto-setup without interaction
@@ -212,6 +261,7 @@ python loom/scripts/task-tdd.py complete TASK-001
 - **[QUICKSTART.md](./QUICKSTART.md)** — 5-minute quick start
 - **[NATURAL-LANGUAGE-GUIDE.md](./NATURAL-LANGUAGE-GUIDE.md)** — Use framework by talking
 - **[TDD-WORKFLOW.md](./TDD-WORKFLOW.md)** — Test-Driven Development guide
+- **[MONOREPO-GUIDE.md](./MONOREPO-GUIDE.md)** — Using Loom in monorepos
 - **[SETUP-INSTRUCTIONS.md](./SETUP-INSTRUCTIONS.md)** — For AI agents
 - **[docs/framework-guide.md](./docs/framework-guide.md)** — 3-level architecture
 - **[docs/workflow-guide.md](./docs/workflow-guide.md)** — Complete workflow guide
@@ -236,6 +286,25 @@ python loom/scripts/task-tdd.py complete TASK-001
 
 ---
 
+## 🆚 Why Not X?
+
+### vs. Cursor Rules / `.cursorrules`
+Cursor rules are a single config file for one IDE. Loom is a full workflow system: task tracking, versioning, TDD, handoffs, and configs for 6 IDEs — all kept in sync.
+
+### vs. aider
+aider is a CLI coding assistant. Loom is not a coding tool — it's the **operational layer** that sits on top of any AI agent (including aider). You can use aider inside a Loom-managed project.
+
+### vs. Copilot Instructions / `CLAUDE.md` alone
+Dropping a single instruction file in your repo gives the agent context, but no structure. Loom adds task lifecycle management, TDD workflow, automated versioning, and agent-to-agent handoff protocol on top.
+
+### vs. writing your own system prompt
+Custom prompts work for one agent, one session. Loom is persistent, multi-agent, multi-IDE, and version-controlled. It survives context resets and team handoffs.
+
+### vs. doing nothing
+LLMs are probabilistic. Without structure, accuracy degrades with every chained decision. Loom pushes complexity into deterministic scripts so agents only make decisions — not do the work.
+
+---
+
 ## 🤝 Contributing
 
 Loom is a living system. Improve it continuously:
@@ -257,7 +326,7 @@ MIT — Use, modify, share freely.
 ## 🔗 Links
 
 - **Website**: [loom-framework.dev](https://loom-framework.dev)
-- **Documentation**: [docs.loom-framework.dev](https://docs.loom-framework.dev)
+- **Documentation**: [otto78.github.io/loom-framework/docs.html](https://otto78.github.io/loom-framework/docs.html)
 - **GitHub**: [github.com/otto78/loom-framework](https://github.com/otto78/loom-framework)
 - **Issues**: [github.com/otto78/loom-framework/issues](https://github.com/otto78/loom-framework/issues)
 

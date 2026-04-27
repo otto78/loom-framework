@@ -5,8 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Loom Framework — Weave intelligent agents into your workflow</title>
 <meta name="description" content="A complete operational framework for AI-powered development across multiple IDEs">
+<link rel="icon" type="image/png" sizes="32x32" href="loom-logo.png">
 <link rel="icon" type="image/svg+xml" href="loom-logo.svg">
-<link rel="alternate icon" type="image/png" href="loom-logo.png">
+<link rel="icon" href="loom-logo.png">
+<link rel="apple-touch-icon" href="loom-logo.png">
 <style>
 :root {
   --bg:#f5f6fa; --surface:#fff; --border:#e1e4e8; --text:#333; --muted:#666;
@@ -128,7 +130,7 @@ footer a:hover{text-decoration:underline;}
 </div>
 
 <header>
-  <img src="loom-logo.svg" alt="Loom Framework" style="width:120px;height:120px;margin-bottom:1rem;filter:drop-shadow(0 4px 8px rgba(0,0,0,.3));">
+  <img src="loom-logo.svg" alt="Loom Framework" style="width:200px;height:200px;margin-bottom:1.5rem;filter:drop-shadow(0 4px 8px rgba(0,0,0,.3));">
   <h1>Loom Framework</h1>
   <p class="tagline en">Weave intelligent agents into your development workflow</p>
   <p class="tagline it">Integra agenti AI nel tuo workflow di sviluppo</p>
@@ -187,6 +189,55 @@ footer a:hover{text-decoration:underline;}
         <p class="en">Directives → Orchestration → Execution.</p>
         <p class="it">Direttive → Orchestrazione → Esecuzione.</p>
       </div>
+    </div>
+  </section>
+
+  <!-- 3-LEVEL FRAMEWORK -->
+  <section class="card">
+    <h2 class="en">How It Works: 3-Level Framework</h2>
+    <h2 class="it">Come Funziona: Framework a 3 Livelli</h2>
+    <p class="en" style="text-align:center;color:var(--muted);margin-bottom:2rem">LLMs are probabilistic — 90% accuracy per step means 35% success over 10 steps. Loom pushes complexity into deterministic code so the agent only makes decisions.</p>
+    <p class="it" style="text-align:center;color:var(--muted);margin-bottom:2rem">Gli LLM sono probabilistici — 90% di accuratezza per step significa 35% di successo su 10 step. Loom sposta la complessità in codice deterministico.</p>
+    <div class="feature-grid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
+      <div class="feature" style="border-left:4px solid var(--accent)">
+        <div class="feature-icon">📋</div>
+        <h3 class="en">Level 1 — Directives</h3><h3 class="it">Livello 1 — Direttive</h3>
+        <p class="en"><code>directives/*.md</code> — SOPs in natural language. Define what to do, inputs, outputs, edge cases.</p>
+        <p class="it"><code>directives/*.md</code> — SOP in linguaggio naturale. Definiscono cosa fare, input, output, casi limite.</p>
+      </div>
+      <div class="feature" style="border-left:4px solid var(--accent2)">
+        <div class="feature-icon">🤖</div>
+        <h3 class="en">Level 2 — Orchestration</h3><h3 class="it">Livello 2 — Orchestrazione</h3>
+        <p class="en">The AI agent's job: interpret intent, choose the right directive, collect inputs, call scripts, handle errors.</p>
+        <p class="it">Il lavoro dell'agente AI: interpretare l'intento, scegliere la direttiva, raccogliere input, chiamare script.</p>
+      </div>
+      <div class="feature" style="border-left:4px solid #28a745">
+        <div class="feature-icon">⚙️</div>
+        <h3 class="en">Level 3 — Execution</h3><h3 class="it">Livello 3 — Esecuzione</h3>
+        <p class="en"><code>execution/*.py</code> — Deterministic scripts. Same input = same output. JSON output, exit codes, no surprises.</p>
+        <p class="it"><code>execution/*.py</code> — Script deterministici. Stesso input = stesso output. JSON output, exit code, nessuna sorpresa.</p>
+      </div>
+    </div>
+    <div class="code-wrap" style="margin-top:2rem">
+      <div class="code-block en">User: "Send welcome email to user@example.com"
+  └─ Agent reads directives/send-email.md          ← Level 1
+  └─ Agent collects inputs, chooses template        ← Level 2
+  └─ Calls execution/send_email.py --recipient ...  ← Level 3
+  └─ Script returns {"status": "sent"}              ← deterministic
+  └─ Agent replies: "✅ Welcome email sent"          ← Level 2</div>
+      <div class="code-block it">Utente: "Invia email di benvenuto a user@example.com"
+  └─ Agente legge directives/send-email.md          ← Livello 1
+  └─ Agente raccoglie input, sceglie template       ← Livello 2
+  └─ Chiama execution/send_email.py --recipient ... ← Livello 3
+  └─ Script ritorna {"status": "sent"}              ← deterministico
+  └─ Agente risponde: "✅ Email inviata"             ← Livello 2</div>
+      <button class="code-copy" onclick="copyCode(this)">📋</button>
+    </div>
+    <div style="text-align:center;margin-top:1.5rem">
+      <a href="docs.html#framework" class="btn btn-primary" style="background:var(--accent);color:white;font-size:.95rem;padding:.7rem 1.5rem">
+        <span class="en">Read full framework docs →</span>
+        <span class="it">Leggi la documentazione completa →</span>
+      </a>
     </div>
   </section>
 
@@ -287,6 +338,58 @@ python /path/to/loom-framework/loom/scripts/setup.py</div>
         <span class="en">Read Full Documentation →</span>
         <span class="it">Leggi la Documentazione Completa →</span>
       </a>
+    </div>
+  </section>
+
+  <!-- WHAT GETS CREATED -->
+  <section class="card">
+    <h2 class="en">What Gets Created</h2>
+    <h2 class="it">Cosa Viene Creato</h2>
+    <p class="en" style="text-align:center;color:var(--muted);margin-bottom:2rem">After setup, your project gets these files. Existing files are never overwritten.</p>
+    <p class="it" style="text-align:center;color:var(--muted);margin-bottom:2rem">Dopo il setup, il tuo progetto ottiene questi file. I file esistenti non vengono mai sovrascritti.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem">
+      <div>
+        <p class="step-title en">Project structure</p>
+        <p class="step-title it">Struttura progetto</p>
+        <div class="code-wrap">
+          <div class="code-block">your-project/
+├── AGENT.md          ⭐ source of truth
+├── .cursorrules      IDE config
+├── .windsurfrules    IDE config
+├── CLAUDE.md         IDE config
+└── docs/
+    ├── TASKS.md
+    ├── BACKLOG.md
+    ├── STORY.md
+    ├── CHANGELOG.md
+    └── HANDOFF.md</div>
+        </div>
+      </div>
+      <div>
+        <p class="step-title">TASKS.md</p>
+        <div class="code-wrap">
+          <div class="code-block"># Project Tasks — MyApp
+
+## 🚀 In Progress
+
+- [ ] **TASK-001**: Implement login
+  - Status: In Progress
+  - Priority: High
+  - Started: 2025-06-01
+  - Progress: 60%
+  - Next steps:
+    - [x] Create route
+    - [ ] Add validation
+    - [ ] Write tests
+
+## ✅ Completed
+
+- [x] **TASK-000**: Project setup
+  - Completed: 2025-05-30
+  - Version: v0.1.0</div>
+          <button class="code-copy" onclick="copyCode(this)">📋</button>
+        </div>
+      </div>
     </div>
   </section>
 

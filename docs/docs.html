@@ -4,8 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Loom Framework - Documentation</title>
+<link rel="icon" type="image/png" sizes="32x32" href="loom-logo.png">
 <link rel="icon" type="image/svg+xml" href="loom-logo.svg">
-<link rel="alternate icon" type="image/png" href="loom-logo.png">
+<link rel="icon" href="loom-logo.png">
+<link rel="apple-touch-icon" href="loom-logo.png">
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github-dark.min.css">
 <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
@@ -142,6 +144,7 @@ function setLang(l){
   document.documentElement.dataset.lang=l;
   document.getElementById('lang-select').value=l;
   localStorage.setItem('loom-lang',l);
+  renderAll(); // Re-render to apply language change
 }
 function toggleDark(){
   const dark=document.documentElement.dataset.theme==='dark';
@@ -283,7 +286,92 @@ Or with natural language:
 
 ---
 
-**Time to setup**: ~5 minutes | **Time to first task**: ~2 minutes`
+**Time to setup**: ~5 minutes | **Time to first task**: ~2 minutes`,
+  contentIt:`# Avvio Rapido
+
+Inizia con Loom in 5 minuti!
+
+---
+
+## Installazione
+
+\`\`\`bash
+git clone https://github.com/otto78/loom-framework.git
+cd loom-framework
+\`\`\`
+
+---
+
+## Configura il Tuo Progetto
+
+### Metodo 1: Linguaggio Naturale (Consigliato)
+
+Di' al tuo agente AI:
+
+\`\`\`
+"configura loom framework"
+\`\`\`
+
+### Metodo 2: Wizard Interattivo
+
+\`\`\`bash
+cd /percorso/al/tuo-progetto
+python /percorso/a/loom-framework/loom/scripts/setup.py
+\`\`\`
+
+Il wizard rileverà automaticamente linguaggi, framework e IDE.
+
+### Metodo 3: Automatico
+
+\`\`\`bash
+python loom/scripts/setup.py --auto --project-name "MioProgetto" --ide windsurf,cursor
+\`\`\`
+
+---
+
+## Il Tuo Primo Task
+
+\`\`\`bash
+python loom/scripts/task.py start TASK-001 "Implementa login utente"
+\`\`\`
+
+Oppure di' al tuo agente AI:
+
+\`\`\`
+"avvia task TASK-001 'implementa login utente'"
+\`\`\`
+
+---
+
+## Workflow Quotidiano
+
+\`\`\`bash
+python loom/scripts/task.py list
+python loom/scripts/task.py start TASK-042 "Correggi bug login"
+python loom/scripts/task.py complete TASK-042 "Bug corretto" --bump patch
+\`\`\`
+
+Oppure con linguaggio naturale:
+
+\`\`\`
+"mostra i task"
+"avvia task TASK-042 'correggi bug login'"
+"completa task TASK-042"
+\`\`\`
+
+---
+
+## File Chiave Dopo il Setup
+
+- **\`AGENT.md\`** — Fonte di verità per il tuo progetto
+- **\`docs/TASKS.md\`** — Task attivi
+- **\`docs/BACKLOG.md\`** — Idee future
+- **\`docs/STORY.md\`** — Storia del progetto
+- **File config IDE** — \`.windsurfrules\`, \`.cursorrules\`, ecc.
+
+---
+
+**Tempo setup**: ~5 minuti | **Tempo primo task**: ~2 minuti`
 },
 {
   id:'natural-lang',icon:'&#128172;',labelEn:'Natural Language Guide',labelIt:'Guida Linguaggio Naturale',file:'NATURAL-LANGUAGE-GUIDE.md',
@@ -362,7 +450,83 @@ The agent understands and executes automatically!
 
 1. **Use natural language** — "start task" = "create task" = "begin task"
 2. **Let the agent suggest** — it will recommend TDD for critical features
-3. **Use abbreviations** — "list", "complete TASK-001" all work`
+3. **Use abbreviations** — "list", "complete TASK-001" all work`,
+  contentIt:`# Guida Linguaggio Naturale
+
+> Non serve eseguire script Python manualmente. Parla semplicemente con il tuo agente AI!
+
+---
+
+## Idea di Base
+
+Invece di:
+\`\`\`bash
+python loom/scripts/setup.py
+\`\`\`
+
+Di' semplicemente:
+\`\`\`
+"configura loom framework"
+\`\`\`
+
+L'agente capisce ed esegue automaticamente!
+
+---
+
+## Comandi Gestione Task
+
+| Tu dici | L'agente esegue |
+|---------|----------------|
+| "avvia task TASK-001 'feature X'" | \`task.py start TASK-001 "feature X"\` |
+| "mostra i task" | \`task.py list\` |
+| "completa task TASK-001" | \`task.py complete TASK-001\` |
+| "esegui i test" | \`task-tdd.py test\` |
+| "sincronizza config" | \`sync-configs.sh\` |
+
+---
+
+## TDD con Linguaggio Naturale
+
+\`\`\`
+"avvia task TDD TASK-001 'aggiungi validazione email'"
+-> Crea file test, esegue test (fase Red)
+
+"esegui i test"
+-> Mostra risultati test
+
+"completa task TASK-001"
+-> Verifica che tutti i test passino, fa commit
+\`\`\`
+
+---
+
+## Supporto Multilingua
+
+### Italiano
+\`\`\`
+"configura il framework"
+"avvia task TASK-001 'descrizione'"
+"mostra i task"
+"completa task TASK-001"
+"esegui i test"
+\`\`\`
+
+### English
+\`\`\`
+"setup the framework"
+"start task TASK-001 'description'"
+"show tasks"
+"complete task TASK-001"
+"run tests"
+\`\`\`
+
+---
+
+## Best Practice
+
+1. **Usa linguaggio naturale** — "avvia task" = "crea task" = "inizia task"
+2. **Lascia suggerire l'agente** — consiglierà TDD per feature critiche
+3. **Usa abbreviazioni** — "lista", "completa TASK-001" funzionano tutti`
 },
 {
   id:'tdd',icon:'&#129514;',labelEn:'TDD Workflow',labelIt:'Workflow TDD',file:'TDD-WORKFLOW.md',
@@ -517,6 +681,156 @@ python loom/scripts/setup.py --auto --project-name "[name]" --ide [ides]
 4. **Auto-sync** IDE configs after AGENT.md changes`
 },
 {
+  id:'framework',icon:'&#127959;&#65039;',labelEn:'3-Level Framework',labelIt:'Framework a 3 Livelli',file:'3-level-framework.md',
+  content:`# 3-Level Framework
+
+> Separate responsibilities to maximize reliability and reduce LLM errors.
+
+---
+
+## The Problem
+
+LLMs are probabilistic. Each decision has ~90% accuracy.
+
+**The math:**
+- 1 step: 90% success
+- 2 steps: 81% (0.9 × 0.9)
+- 5 steps: 59%
+- 10 steps: 35%
+
+Chaining LLM decisions leads to frequent failures. The solution: push complexity into deterministic code.
+
+---
+
+## Architecture
+
+\`\`\`
+┌─────────────────────────────────────────┐
+│ Level 1: DIRECTIVES (What to do)       │
+│ directives/*.md — SOPs in natural      │
+│ language, objectives, inputs, outputs   │
+├─────────────────────────────────────────┤
+│ Level 2: ORCHESTRATION (How to decide) │
+│ Intelligent routing between directives │
+│ and execution scripts                   │
+├─────────────────────────────────────────┤
+│ Level 3: EXECUTION (Do the work)       │
+│ execution/*.py — Deterministic scripts │
+│ Environment variables in .env           │
+└─────────────────────────────────────────┘
+\`\`\`
+
+---
+
+## Level 1 — Directives (What to do)
+
+SOPs written in Markdown that define **what** to do. They live in \`directives/*.md\`.
+
+Each directive contains: Objective, Inputs, Tool/Script to use, Expected output, Edge cases, Examples.
+
+### Example: \`directives/send-email.md\`
+
+\`\`\`markdown
+# Directive: Send Email
+
+## Objective
+Send transactional emails to users.
+
+## Inputs
+- recipient_email (string)
+- subject (string)
+- body (string — HTML or plain text)
+- template_id (optional string)
+
+## Tool
+execution/send_email.py
+
+## Output
+- Success: {"status": "sent", "message_id": "abc123"}
+- Failure: {"status": "error", "reason": "..."}
+
+## Edge Cases
+1. Invalid email → validate with regex before calling script
+2. Rate limit → retry with exponential backoff (max 3 attempts)
+3. Template not found → fallback to plain text body
+\`\`\`
+
+---
+
+## Level 2 — Orchestration (How to decide)
+
+The AI agent's job: intelligent routing between directives and scripts.
+
+**Responsibilities:** interpret intent, choose directive, collect inputs, call scripts, handle errors, report results.
+
+### Example flow: "Send welcome email"
+
+\`\`\`
+1. User: "Send welcome email to user@example.com"
+2. Agent reads: directives/send-email.md
+3. Agent collects: recipient="user@example.com", template_id="welcome"
+4. Agent calls: execution/send_email.py
+5. Script returns: {"status": "sent", "message_id": "xyz789"}
+6. Agent replies: "✅ Welcome email sent to user@example.com"
+\`\`\`
+
+---
+
+## Level 3 — Execution (Do the work)
+
+Deterministic scripts in \`execution/*.py\`. Same input always produces same output.
+
+\`\`\`python
+#!/usr/bin/env python3
+"""
+Input (CLI): --recipient, --subject, --body, --template-id
+Output (JSON): {"status": "sent"|"error", ...}
+Env: SENDGRID_API_KEY
+"""
+import argparse, json, os, sys
+
+def send_email(recipient, subject, body, template_id=None):
+    api_key = os.getenv("SENDGRID_API_KEY")
+    if not api_key:
+        return {"status": "error", "reason": "SENDGRID_API_KEY not set"}
+    # ... call API ...
+    return {"status": "sent", "message_id": "xyz789"}
+
+def main():
+    p = argparse.ArgumentParser()
+    p.add_argument("--recipient", required=True)
+    p.add_argument("--subject", required=True)
+    p.add_argument("--body", required=True)
+    p.add_argument("--template-id", default=None)
+    args = p.parse_args()
+    result = send_email(args.recipient, args.subject, args.body, args.template_id)
+    print(json.dumps(result))
+    sys.exit(0 if result["status"] == "sent" else 1)
+
+if __name__ == "__main__":
+    main()
+\`\`\`
+
+**Rules:** deterministic, JSON output, exit code 0/1, credentials in env vars, full docstring.
+
+---
+
+## Results
+
+| Metric | Before (all LLM) | After (Loom) |
+|--------|------------------|--------------|
+| Accuracy over 10 steps | 35% | ~90% |
+| Debugging | Hard | Easy — isolated by level |
+| Maintenance | Everything in prompts | Directives + scripts separated |
+
+---
+
+## Templates
+
+- New directive: \`directives/_template.md\`
+- New script: \`execution/_template.py\``
+},
+{
   id:'contributing',icon:'&#129309;',labelEn:'Contributing',labelIt:'Contribuire',file:'CONTRIBUTING.md',
   content:`# Contributing to Loom Framework
 
@@ -619,7 +933,9 @@ function renderAll(){
 
     const body=document.createElement('div');
     body.className='doc-body';
-    body.innerHTML=marked.parse(doc.content);
+    const currentLang = document.documentElement.dataset.lang || 'en';
+    const contentToRender = (currentLang === 'it' && doc.contentIt) ? doc.contentIt : doc.content;
+    body.innerHTML=marked.parse(contentToRender);
 
     hdr.querySelector('.copy-btn').addEventListener('click',function(e){
       e.stopPropagation();

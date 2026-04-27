@@ -277,6 +277,69 @@ def list_tasks():
         print(f"   Status: {status.strip()}\n")
 
 
+def show_status():
+    """Mostra lo stato corrente del progetto e dei task."""
+    print("\n📊 Loom Framework Status\n")
+    print("=" * 50)
+    
+    # Project info
+    print(f"\n📁 Project root: {PROJECT_ROOT}")
+    print(f"📂 Docs directory: {DOCS_DIR}")
+    
+    # Check files
+    print("\n📄 Files:")
+    files_status = [
+        ("TASKS.md", TASKS_FILE),
+        ("STORY.md", STORY_FILE),
+        ("CHANGELOG.md", CHANGELOG_FILE),
+        ("HANDOFF.md", HANDOFF_FILE),
+    ]
+    
+    for name, path in files_status:
+        exists = "✅" if path.exists() else "❌"
+        print(f"  {exists} {name}")
+    
+    # Git status
+    print("\n🔀 Git:")
+    success, output = run_git_command(["status", "--porcelain"])
+    if success:
+        if output.strip():
+            print("  ⚠️  Uncommitted changes:")
+            for line in output.strip().split("\n")[:5]:
+                print(f"     {line}")
+        else:
+            print("  ✅ Working tree clean")
+    else:
+        print("  ❌ Not a git repository")
+    
+    # Current branch
+    success, branch = run_git_command(["branch", "--show-current"])
+    if success:
+        print(f"  🌿 Branch: {branch.strip()}")
+    
+    # Tasks summary
+    if TASKS_FILE.exists():
+        content = TASKS_FILE.read_text(encoding="utf-8")
+        tasks = re.findall(r'###\s+([A-Z]+-\d+)\s+—\s+([^\n]+)\n.*?\*\*Status:\*\*\s+([^\n]+)', content, re.DOTALL)
+        
+        in_progress = sum(1 for _, _, status in tasks if "In Progress" in status)
+        done = sum(1 for _, _, status in tasks if "Done" in status)
+        total = len(tasks)
+        
+        print(f"\n📋 Tasks:")
+        print(f"  🔄 In Progress: {in_progress}")
+        print(f"  ✅ Done: {done}")
+        print(f"  📊 Total: {total}")
+        
+        if in_progress > 0:
+            print("\n  Current tasks:")
+            for task_id, desc, status in tasks:
+                if "In Progress" in status:
+                    print(f"    • {task_id}: {desc[:50]}..." if len(desc) > 50 else f"    • {task_id}: {desc}")
+    
+    print("\n" + "=" * 50 + "\n")
+
+
 def main():
     parser = argparse.ArgumentParser(description="Task Workflow Manager")
     parser.add_argument("--dry-run", action="store_true", help="Simula operazioni senza eseguirle")
@@ -302,6 +365,9 @@ def main():
     # List
     subparsers.add_parser("list", help="Lista tutti i task")
     
+    # Status
+    subparsers.add_parser("status", help="Mostra stato del progetto e task correnti")
+    
     args = parser.parse_args()
     
     try:
@@ -317,6 +383,9 @@ def main():
         
         elif args.command == "list":
             list_tasks()
+        
+        elif args.command == "status":
+            show_status()
         
         else:
             parser.print_help()
