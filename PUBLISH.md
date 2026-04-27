@@ -1,4 +1,4 @@
-# 🚀 Come Pubblicare Loom Framework su GitHub
+﻿# 🚀 Come Pubblicare Loom Framework su GitHub
 
 ## 📋 Passi da Seguire
 
@@ -111,7 +111,7 @@ See [CONTRIBUTING.md](https://github.com/TUO_USERNAME/loom-framework/blob/main/C
 
 ### 6. Aggiorna Link nei File
 
-Sostituisci `yourusername` con il tuo username GitHub in:
+Sostituisci `otto78` con il tuo username GitHub in:
 
 - `README.md`
 - `QUICKSTART.md`
@@ -123,11 +123,11 @@ Sostituisci `yourusername` con il tuo username GitHub in:
 Comando rapido:
 ```bash
 # Su Unix/Linux/macOS
-find . -type f -name "*.md" -o -name "*.py" -o -name "*.toml" -o -name "*.html" | xargs sed -i 's/yourusername/TUO_USERNAME/g'
+find . -type f -name "*.md" -o -name "*.py" -o -name "*.toml" -o -name "*.html" | xargs sed -i 's/otto78/TUO_USERNAME/g'
 
 # Su Windows (PowerShell)
 Get-ChildItem -Recurse -Include *.md,*.py,*.toml,*.html | ForEach-Object {
-    (Get-Content $_.FullName) -replace 'yourusername', 'TUO_USERNAME' | Set-Content $_.FullName
+    (Get-Content $_.FullName) -replace 'otto78', 'TUO_USERNAME' | Set-Content $_.FullName
 }
 ```
 

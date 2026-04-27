@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loom Framework — Documentation</title>
+    <meta name="description" content="Complete documentation for Loom Framework">
+    <!-- marked.js for markdown rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- highlight.js for code blocks -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github-dark.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f6fa;
+            color: #333;
+        }
+
+        /* Top nav */
+        .topnav {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        .topnav a { color: white; text-decoration: none; font-weight: 600; }
+        .topnav .brand { font-size: 1.3rem; }
+        .topnav .back { opacity: 0.8; font-size: 0.9rem; }
+        .topnav .back:hover { opacity: 1; }
+        .topnav-spacer { flex: 1; }
+
+        /* Layout */
+        .layout { display: flex; min-height: calc(100vh - 60px); }
+
+        /* Sidebar */
+        .sidebar {
+            width: 260px;
+            flex-shrink: 0;
+            background: white;
+            border-right: 1px solid #e1e4e8;
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 60px;
+            height: calc(100vh - 60px);
+            overflow-y: auto;
+        }
+        .sidebar h3 {
+            padding: 0 1.5rem 0.5rem;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #888;
+        }
+        .sidebar-link {
+            display: block;
+            padding: 0.6rem 1.5rem;
+            color: #444;
+            text-decoration: none;
+            font-size: 0.9rem;
+            border-left: 3px solid transparent;
+            transition: all 0.15s;
+        }
+        .sidebar-link:hover { background: #f0f2ff; color: #667eea; border-left-color: #667eea; }
+        .sidebar-link.active { background: #f0f2ff; color: #667eea; border-left-color: #667eea; font-weight: 600; }
+
+        /* Main content */
+        .main { flex: 1; padding: 2rem; max-width: 900px; }
+
+        /* Doc section */
+        .doc-section {
+            background: white;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            overflow: hidden;
+        }
+        .doc-section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 1.5rem;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e1e4e8;
+            cursor: pointer;
+            user-select: none;
+        }
+        .doc-section-header:hover { background: #f0f2ff; }
+        .doc-section-title { font-weight: 600; color: #444; font-size: 0.95rem; display: flex; align-items: center; gap: 0.5rem; }
+        .doc-section-title .file-badge {
+            font-size: 0.75rem;
+            background: #e8eaf6;
+            color: #667eea;
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        .doc-section-actions { display: flex; gap: 0.5rem; align-items: center; }
+        .toggle-icon { color: #888; transition: transform 0.2s; font-size: 0.8rem; }
+        .doc-section.collapsed .toggle-icon { transform: rotate(-90deg); }
+
+        .copy-btn {
+            padding: 0.35rem 0.8rem;
+            font-size: 0.8rem;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s;
+            white-space: nowrap;
+        }
+        .copy-btn:hover { background: #5a6fd6; }
+        .copy-btn.copied { background: #28a745; }
+
+        .doc-section-body { padding: 2rem; display: block; }
+        .doc-section.collapsed .doc-section-body { display: none; }
+
+        /* Markdown styles */
+        .doc-section-body h1 { font-size: 2rem; margin-bottom: 1rem; color: #1a1a2e; border-bottom: 2px solid #667eea; padding-bottom: 0.5rem; }
+        .doc-section-body h2 { font-size: 1.5rem; margin: 2rem 0 0.75rem; color: #2d3748; border-bottom: 1px solid #e1e4e8; padding-bottom: 0.3rem; }
+        .doc-section-body h3 { font-size: 1.2rem; margin: 1.5rem 0 0.5rem; color: #4a5568; }
+        .doc-section-body h4 { font-size: 1rem; margin: 1rem 0 0.4rem; color: #667eea; }
+        .doc-section-body p { margin-bottom: 1rem; line-height: 1.7; }
+        .doc-section-body ul, .doc-section-body ol { margin: 0.5rem 0 1rem 1.5rem; }
+        .doc-section-body li { margin-bottom: 0.3rem; line-height: 1.6; }
+        .doc-section-body code {
+            background: #f0f2ff;
+            color: #667eea;
+            padding: 0.15rem 0.4rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        .doc-section-body pre {
+            background: #1e1e1e;
+            border-radius: 8px;
+            padding: 1.25rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+        .doc-section-body pre code {
+            background: none;
+            color: #d4d4d4;
+            padding: 0;
+            font-size: 0.9rem;
+        }
+        .doc-section-body blockquote {
+            border-left: 4px solid #667eea;
+            padding: 0.5rem 1rem;
+            background: #f0f2ff;
+            border-radius: 0 8px 8px 0;
+            margin: 1rem 0;
+            color: #555;
+        }
+        .doc-section-body table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+        .doc-section-body th { background: #667eea; color: white; padding: 0.6rem 1rem; text-align: left; }
+        .doc-section-body td { padding: 0.6rem 1rem; border-bottom: 1px solid #e1e4e8; }
+        .doc-section-body tr:hover td { background: #f8f9fa; }
+        .doc-section-body a { color: #667eea; }
+        .doc-section-body hr { border: none; border-top: 1px solid #e1e4e8; margin: 2rem 0; }
+
+        /* Loading state */
+        .loading { text-align: center; padding: 3rem; color: #888; }
+        .error-msg { color: #e53e3e; background: #fff5f5; padding: 1rem; border-radius: 8px; border: 1px solid #fed7d7; }
+
+        @media (max-width: 768px) {
+            .sidebar { display: none; }
+            .main { padding: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="topnav">
+    <a href="index.html" class="back">← Home</a>
+    <span style="color:rgba(255,255,255,0.4)">|</span>
+    <a href="index.html" class="brand">🧵 Loom Framework</a>
+    <div class="topnav-spacer"></div>
+    <a href="https://github.com/otto78/loom-framework" style="color:white;opacity:0.8;font-size:0.9rem;">GitHub ↗</a>
+</nav>
+
+<div class="layout">
+    <aside class="sidebar" id="sidebar">
+        <h3>Documentation</h3>
+        <!-- populated by JS -->
+    </aside>
+
+    <main class="main" id="main">
+        <div class="loading">Loading documentation…</div>
+    </main>
+</div>
+
+<script>
+// All docs to load — path relative to docs/ folder (raw GitHub or relative)
+// We embed the content directly since GitHub Pages serves static files.
+// The markdown files are in the repo root, so we fetch them relatively.
+const DOCS = [
+    { id: 'readme',       file: '../README.md',                  label: 'README',                icon: '📖' },
+    { id: 'quickstart',   file: '../QUICKSTART.md',              label: 'Quick Start',           icon: '🚀' },
+    { id: 'natural-lang', file: '../NATURAL-LANGUAGE-GUIDE.md',  label: 'Natural Language Guide',icon: '💬' },
+    { id: 'tdd',          file: '../TDD-WORKFLOW.md',            label: 'TDD Workflow',          icon: '🧪' },
+    { id: 'setup',        file: '../SETUP-INSTRUCTIONS.md',      label: 'Setup Instructions',    icon: '⚙️' },
+    { id: 'contributing', file: '../CONTRIBUTING.md',            label: 'Contributing',          icon: '🤝' },
+];
+
+marked.setOptions({
+    highlight: (code, lang) => {
+        if (lang && hljs.getLanguage(lang)) {
+            return hljs.highlight(code, { language: lang }).value;
+        }
+        return hljs.highlightAuto(code).value;
+    },
+    breaks: true,
+    gfm: true,
+});
+
+async function fetchDoc(file) {
+    const res = await fetch(file);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    return res.text();
+}
+
+function buildCopyText(rawMarkdown, label) {
+    return `# ${label}\n\n${rawMarkdown}`;
+}
+
+function createSection(doc, rawMarkdown) {
+    const html = marked.parse(rawMarkdown);
+
+    const section = document.createElement('div');
+    section.className = 'doc-section';
+    section.id = doc.id;
+
+    const header = document.createElement('div');
+    header.className = 'doc-section-header';
+    header.innerHTML = `
+        <div class="doc-section-title">
+            <span>${doc.icon} ${doc.label}</span>
+            <span class="file-badge">${doc.file.replace('../', '')}</span>
+        </div>
+        <div class="doc-section-actions">
+            <button class="copy-btn" title="Copy full content for AI">📋 Copy for AI</button>
+            <span class="toggle-icon">▼</span>
+        </div>
+    `;
+
+    const body = document.createElement('div');
+    body.className = 'doc-section-body';
+    body.innerHTML = html;
+
+    // Copy button
+    header.querySelector('.copy-btn').addEventListener('click', (e) => {
+        e.stopPropagation();
+        const btn = e.currentTarget;
+        navigator.clipboard.writeText(buildCopyText(rawMarkdown, doc.label)).then(() => {
+            btn.textContent = '✅ Copied!';
+            btn.classList.add('copied');
+            setTimeout(() => {
+                btn.textContent = '📋 Copy for AI';
+                btn.classList.remove('copied');
+            }, 2000);
+        });
+    });
+
+    // Toggle collapse
+    header.addEventListener('click', () => {
+        section.classList.toggle('collapsed');
+    });
+
+    section.appendChild(header);
+    section.appendChild(body);
+    return section;
+}
+
+function buildSidebar(docs) {
+    const sidebar = document.getElementById('sidebar');
+    docs.forEach(doc => {
+        const link = document.createElement('a');
+        link.href = `#${doc.id}`;
+        link.className = 'sidebar-link';
+        link.textContent = `${doc.icon} ${doc.label}`;
+        link.addEventListener('click', () => {
+            document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
+            link.classList.add('active');
+            // Expand section if collapsed
+            const section = document.getElementById(doc.id);
+            if (section) section.classList.remove('collapsed');
+        });
+        sidebar.appendChild(link);
+    });
+}
+
+// Highlight active sidebar link on scroll
+function setupScrollSpy() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.id;
+                document.querySelectorAll('.sidebar-link').forEach(l => {
+                    l.classList.toggle('active', l.getAttribute('href') === `#${id}`);
+                });
+            }
+        });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+
+    DOCS.forEach(doc => {
+        const el = document.getElementById(doc.id);
+        if (el) observer.observe(el);
+    });
+}
+
+async function init() {
+    const main = document.getElementById('main');
+    main.innerHTML = '';
+
+    buildSidebar(DOCS);
+
+    for (const doc of DOCS) {
+        try {
+            const raw = await fetchDoc(doc.file);
+            const section = createSection(doc, raw);
+            main.appendChild(section);
+        } catch (err) {
+            const errDiv = document.createElement('div');
+            errDiv.className = 'doc-section';
+            errDiv.id = doc.id;
+            errDiv.innerHTML = `
+                <div class="doc-section-header">
+                    <div class="doc-section-title">${doc.icon} ${doc.label}</div>
+                </div>
+                <div class="doc-section-body">
+                    <div class="error-msg">Could not load <code>${doc.file}</code>: ${err.message}</div>
+                </div>`;
+            main.appendChild(errDiv);
+        }
+    }
+
+    setupScrollSpy();
+}
+
+init();
+</script>
+</body>
+</html>

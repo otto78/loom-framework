@@ -1,4 +1,4 @@
-# ✅ Loom Framework — Progetto Creato con Successo!
+﻿# ✅ Loom Framework — Progetto Creato con Successo!
 
 ## 🎉 Cosa è Stato Fatto
 
@@ -152,7 +152,7 @@ git push -u origin master
 #    Settings → Pages → Source: GitHub Actions
 
 # 4. Aggiorna username in tutti i file
-#    Sostituisci "yourusername" con il tuo username
+#    Sostituisci "otto78" con il tuo username
 
 # 5. Crea release v1.0.0
 #    Releases → Create new release → v1.0.0
@@ -162,7 +162,7 @@ git push -u origin master
 
 Prima di pubblicare, aggiorna:
 - [ ] Email in `setup.py` e `pyproject.toml`
-- [ ] Username GitHub in tutti i file (cerca "yourusername")
+- [ ] Username GitHub in tutti i file (cerca "otto78")
 - [ ] URL repository in tutti i file
 - [ ] Social preview image (opzionale)
 

@@ -1,4 +1,4 @@
-# Project Story — [NOME_PROGETTO]
+﻿# Project Story — [NOME_PROGETTO]
 
 Storia operativa del progetto con versioni, milestone e decisioni chiave.
 

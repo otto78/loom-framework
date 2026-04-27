@@ -1,4 +1,4 @@
-# Coding Standards — Agentic Framework
+﻿# Coding Standards — Agentic Framework
 
 > Letto da tutti gli agenti AI prima di scrivere qualsiasi codice.
 > Questi standard si applicano a tutto il codebase.

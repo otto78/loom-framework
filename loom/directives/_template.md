@@ -1,4 +1,4 @@
-# Direttiva: [Nome Direttiva]
+﻿# Direttiva: [Nome Direttiva]
 
 > Breve descrizione (1 frase) di cosa fa questa direttiva.
 

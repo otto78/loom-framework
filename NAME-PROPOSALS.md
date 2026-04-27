@@ -1,4 +1,4 @@
-# 🎨 Proposte di Nome per il Framework
+﻿# 🎨 Proposte di Nome per il Framework
 
 ## ✅ Nome Scelto: **Loom** 🧵
 

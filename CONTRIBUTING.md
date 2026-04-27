@@ -10,8 +10,8 @@ Thank you for your interest in contributing to Loom! 🧵
 
 Found a bug or have a feature request?
 
-1. Check [existing issues](https://github.com/yourusername/loom-framework/issues)
-2. If not found, [create a new issue](https://github.com/yourusername/loom-framework/issues/new)
+1. Check [existing issues](https://github.com/otto78/loom-framework/issues)
+2. If not found, [create a new issue](https://github.com/otto78/loom-framework/issues/new)
 3. Use the issue templates provided
 
 ### 2. Improve Documentation
@@ -54,7 +54,7 @@ Improve existing scripts or add new ones:
 
 ```bash
 # Clone repository
-git clone https://github.com/yourusername/loom-framework.git
+git clone https://github.com/otto78/loom-framework.git
 cd loom-framework
 
 # Create virtual environment
@@ -187,8 +187,8 @@ Help translate Loom:
 
 ## 💬 Community
 
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/loom-framework/discussions)
-- **Issues**: [GitHub Issues](https://github.com/yourusername/loom-framework/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/otto78/loom-framework/discussions)
+- **Issues**: [GitHub Issues](https://github.com/otto78/loom-framework/issues)
 - **Twitter**: [@loomframework](https://twitter.com/loomframework)
 
 ---
@@ -210,7 +210,7 @@ Contributors are recognized in:
 
 ## ❓ Questions?
 
-Not sure where to start? Open a [discussion](https://github.com/yourusername/loom-framework/discussions) and ask!
+Not sure where to start? Open a [discussion](https://github.com/otto78/loom-framework/discussions) and ask!
 
 ---
 

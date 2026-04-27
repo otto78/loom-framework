@@ -28,7 +28,7 @@ Loom is an operational framework that brings structure to AI-assisted developmen
 
 ```bash
 # 1. Clone Loom
-git clone https://github.com/yourusername/loom-framework.git
+git clone https://github.com/otto78/loom-framework.git
 
 # 2. Run setup wizard in your project
 cd /path/to/your-project
@@ -259,8 +259,8 @@ MIT — Use, modify, share freely.
 
 - **Website**: [loom-framework.dev](https://loom-framework.dev)
 - **Documentation**: [docs.loom-framework.dev](https://docs.loom-framework.dev)
-- **GitHub**: [github.com/yourusername/loom-framework](https://github.com/yourusername/loom-framework)
-- **Issues**: [github.com/yourusername/loom-framework/issues](https://github.com/yourusername/loom-framework/issues)
+- **GitHub**: [github.com/otto78/loom-framework](https://github.com/otto78/loom-framework)
+- **Issues**: [github.com/otto78/loom-framework/issues](https://github.com/otto78/loom-framework/issues)
 
 ---
 

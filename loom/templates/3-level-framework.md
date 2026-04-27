@@ -1,4 +1,4 @@
-# Framework a 3 Livelli — Architettura Operativa
+﻿# Framework a 3 Livelli — Architettura Operativa
 
 > Separazione delle responsabilità per massimizzare affidabilità e ridurre errori LLM.
 

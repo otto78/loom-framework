@@ -1,4 +1,4 @@
-# Directives — Standard Operating Procedures
+﻿# Directives — Standard Operating Procedures
 
 Questa cartella contiene le SOP (Standard Operating Procedures) del progetto.
 

@@ -9,13 +9,13 @@ Get started with Loom in 5 minutes!
 ### Option 1: Clone Repository
 
 ```bash
-git clone https://github.com/yourusername/loom-framework.git
+git clone https://github.com/otto78/loom-framework.git
 cd loom-framework
 ```
 
 ### Option 2: Download ZIP
 
-Download from [GitHub Releases](https://github.com/yourusername/loom-framework/releases) and extract.
+Download from [GitHub Releases](https://github.com/otto78/loom-framework/releases) and extract.
 
 ---
 
@@ -210,8 +210,8 @@ Don't memorize commands. Just talk to your AI agent:
 
 ## 🆘 Need Help?
 
-- **Issues**: [GitHub Issues](https://github.com/yourusername/loom-framework/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/loom-framework/discussions)
+- **Issues**: [GitHub Issues](https://github.com/otto78/loom-framework/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/otto78/loom-framework/discussions)
 - **Documentation**: [loom-framework.dev](https://loom-framework.dev)
 
 ---

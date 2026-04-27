@@ -1,4 +1,4 @@
-# Project Backlog — [NOME_PROGETTO]
+﻿# Project Backlog — [NOME_PROGETTO]
 
 Questo file contiene idee, feature future, esperimenti e miglioramenti non ancora strutturati come task.
 

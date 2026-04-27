@@ -1,4 +1,4 @@
-# Handoff Protocol — [NOME_PROGETTO]
+﻿# Handoff Protocol — [NOME_PROGETTO]
 
 Questo file documenta il passaggio di consegne tra agenti AI o tra sessioni di lavoro.
 
