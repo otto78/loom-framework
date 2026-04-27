@@ -1,213 +1,380 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light" data-lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loom Framework — Weave intelligent agents into your workflow</title>
-    <meta name="description" content="A complete operational framework for AI-powered development across multiple IDEs">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loom Framework — Weave intelligent agents into your workflow</title>
+<meta name="description" content="A complete operational framework for AI-powered development across multiple IDEs">
+<style>
+:root {
+  --bg: #f5f6fa;
+  --surface: #ffffff;
+  --border: #e1e4e8;
+  --text: #333;
+  --text-muted: #666;
+  --accent: #667eea;
+  --accent2: #764ba2;
+  --feature-bg: #f8f9fa;
+  --code-bg: #1e1e1e;
+  --code-text: #d4d4d4;
+  --ide-bg: #f8f9fa;
+  --ide-border: transparent;
+  --shadow: 0 20px 60px rgba(0,0,0,0.12);
+}
+[data-theme="dark"] {
+  --bg: #0d1117;
+  --surface: #161b22;
+  --border: #30363d;
+  --text: #e6edf3;
+  --text-muted: #8b949e;
+  --accent: #818cf8;
+  --accent2: #a78bfa;
+  --feature-bg: #1c2128;
+  --code-bg: #0d1117;
+  --code-text: #e6edf3;
+  --ide-bg: #1c2128;
+  --ide-border: #30363d;
+  --shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-        }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); line-height:1.6; transition: background .3s, color .3s; }
 
-        .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+/* TOPBAR */
+.topbar {
+  position: sticky; top:0; z-index:100;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+  display: flex; align-items: center; justify-content: flex-end;
+  gap: .75rem; padding: .6rem 2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+.topbar-btn {
+  background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3);
+  color: white; padding: .3rem .8rem; border-radius: 20px; cursor: pointer;
+  font-size: .85rem; font-weight:600; transition: background .2s;
+}
+.topbar-btn:hover { background: rgba(255,255,255,0.25); }
+.topbar-btn.active { background: rgba(255,255,255,0.35); }
 
-        header { text-align: center; padding: 4rem 0; color: white; }
-        .logo { font-size: 4rem; margin-bottom: 1rem; }
-        h1 { font-size: 3rem; margin-bottom: 1rem; font-weight: 700; }
-        .tagline { font-size: 1.5rem; opacity: 0.9; margin-bottom: 2rem; }
+/* HERO */
+header {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+  text-align: center; padding: 5rem 2rem 4rem; color: white;
+}
+.logo { font-size: 5rem; margin-bottom: 1rem; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3)); }
+h1 { font-size: 3.2rem; font-weight:800; margin-bottom:.75rem; }
+.tagline { font-size: 1.4rem; opacity:.9; margin-bottom:2.5rem; }
+.cta-buttons { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+.btn {
+  padding:.9rem 2rem; font-size:1.05rem; border:none; border-radius:10px;
+  cursor:pointer; text-decoration:none; display:inline-block;
+  transition: transform .2s, box-shadow .2s; font-weight:600;
+}
+.btn-primary { background:white; color: var(--accent); }
+.btn-secondary { background:rgba(255,255,255,.15); color:white; border:2px solid white; }
+.btn:hover { transform:translateY(-3px); box-shadow:0 12px 24px rgba(0,0,0,.25); }
 
-        .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+/* SECTIONS */
+.container { max-width:1200px; margin:0 auto; padding:2rem; }
+.card {
+  background: var(--surface); border-radius:16px; padding:3rem;
+  margin:2rem 0; box-shadow: var(--shadow); border:1px solid var(--border);
+}
+.card h2 { text-align:center; font-size:2.2rem; margin-bottom:2.5rem; color: var(--accent); }
 
-        .btn {
-            padding: 1rem 2rem;
-            font-size: 1.1rem;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .btn-primary { background: white; color: #667eea; font-weight: 600; }
-        .btn-secondary { background: rgba(255,255,255,0.2); color: white; border: 2px solid white; }
-        .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+/* FEATURES */
+.feature-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; }
+.feature { padding:1.5rem; border-radius:10px; background: var(--feature-bg); border:1px solid var(--border); }
+.feature-icon { font-size:2.2rem; margin-bottom:.75rem; }
+.feature h3 { font-size:1.2rem; margin-bottom:.4rem; color: var(--accent); }
+.feature p { color: var(--text-muted); font-size:.95rem; }
 
-        .card {
-            background: white;
-            border-radius: 16px;
-            padding: 3rem;
-            margin: 2rem 0;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-        }
-        .card h2 { text-align: center; font-size: 2.5rem; margin-bottom: 3rem; color: #667eea; }
+/* IDE GRID */
+.ide-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:1.25rem; }
+.ide-card {
+  display:flex; flex-direction:column; align-items:center; gap:.6rem;
+  padding:1.5rem 1rem; border-radius:12px; background: var(--ide-bg);
+  border:2px solid var(--ide-border); transition: border-color .2s, transform .2s;
+  cursor:default;
+}
+.ide-card:hover { border-color: var(--accent); transform:translateY(-4px); }
+.ide-card svg, .ide-card img { width:44px; height:44px; }
+.ide-card span { font-weight:600; font-size:.85rem; color: var(--text); text-align:center; }
+.ide-card small { color: var(--text-muted); font-size:.75rem; }
 
-        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-        .feature { padding: 1.5rem; border-radius: 8px; background: #f8f9fa; }
-        .feature-icon { font-size: 2.5rem; margin-bottom: 1rem; }
-        .feature h3 { font-size: 1.5rem; margin-bottom: 0.5rem; color: #667eea; }
+/* CODE */
+.code-block {
+  background: var(--code-bg); color: var(--code-text);
+  padding:1.25rem 1.5rem; border-radius:10px; overflow-x:auto;
+  margin:1rem 0; font-family:'Courier New',monospace; font-size:.9rem; line-height:1.6;
+}
+.step-title { color: var(--accent); font-size:1.1rem; font-weight:700; margin:1.5rem 0 .5rem; }
 
-        .code-block {
-            background: #1e1e1e;
-            color: #d4d4d4;
-            padding: 1.5rem;
-            border-radius: 8px;
-            overflow-x: auto;
-            margin: 1rem 0;
-            font-family: 'Courier New', monospace;
-            font-size: 0.95rem;
-        }
+/* FOOTER */
+footer { text-align:center; padding:3rem 2rem; color: var(--text-muted); border-top:1px solid var(--border); }
+footer a { color: var(--accent); text-decoration:none; }
+footer a:hover { text-decoration:underline; }
 
-        /* IDE logos grid */
-        .ide-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1rem;
-        }
-        .ide-card {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 1.5rem 1rem;
-            border-radius: 12px;
-            background: #f8f9fa;
-            border: 2px solid transparent;
-            transition: border-color 0.2s, transform 0.2s;
-        }
-        .ide-card:hover { border-color: #667eea; transform: translateY(-3px); }
-        .ide-card img { width: 48px; height: 48px; object-fit: contain; }
-        .ide-card span { font-weight: 600; font-size: 0.9rem; color: #444; text-align: center; }
-
-        footer { text-align: center; padding: 2rem; color: white; opacity: 0.8; }
-        footer a { color: white; }
-    </style>
+/* I18N */
+[data-lang="en"] .it { display:none; }
+[data-lang="it"] .en { display:none; }
+</style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="logo">🧵</div>
-            <h1>Loom Framework</h1>
-            <p class="tagline">Weave intelligent agents into your development workflow</p>
-            <div class="cta-buttons">
-                <a href="#quickstart" class="btn btn-primary">🚀 Get Started</a>
-                <a href="docs.html" class="btn btn-secondary">📚 Documentation</a>
-            </div>
-        </header>
 
-        <section class="card">
-            <h2>Why Loom?</h2>
-            <div class="feature-grid">
-                <div class="feature">
-                    <div class="feature-icon">⚡</div>
-                    <h3>Quick Setup</h3>
-                    <p>Interactive wizard detects your project and configures everything in minutes.</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">🤖</div>
-                    <h3>Multi-IDE Support</h3>
-                    <p>Works with 7 IDEs: Windsurf, Claude, Cursor, Gemini, VS Code, Copilot, and IntelliJ.</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">📋</div>
-                    <h3>Task Management</h3>
-                    <p>Complete system with TASKS.md, BACKLOG.md, and automated workflows.</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">🧪</div>
-                    <h3>TDD Workflow</h3>
-                    <p>Test-Driven Development integrated with Red-Green-Refactor cycle.</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">💬</div>
-                    <h3>Natural Language</h3>
-                    <p>Use commands like "start task" or "run tests" — no script paths needed.</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">🏗️</div>
-                    <h3>3-Level Framework</h3>
-                    <p>Structured approach: Directives → Orchestration → Execution.</p>
-                </div>
-            </div>
-        </section>
+<div class="topbar">
+  <button class="topbar-btn active" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+  <button class="topbar-btn" id="btn-it" onclick="setLang('it')">🇮🇹 IT</button>
+  <button class="topbar-btn" id="btn-dark" onclick="toggleDark()">🌙 <span class="en">Dark</span><span class="it">Scuro</span></button>
+</div>
 
-        <section class="card">
-            <h2>Supported IDEs</h2>
-            <div class="ide-grid">
-                <div class="ide-card">
-                    <img src="https://cdn.simpleicons.org/visualstudiocode/007ACC" alt="VS Code">
-                    <span>VS Code<br><small style="font-weight:400;color:#888">+ Cline</small></span>
-                </div>
-                <div class="ide-card">
-                    <img src="https://cdn.simpleicons.org/cursor/000000" alt="Cursor" onerror="this.src='https://www.cursor.com/favicon.ico'">
-                    <span>Cursor</span>
-                </div>
-                <div class="ide-card">
-                    <img src="https://cdn.simpleicons.org/anthropic/D97757" alt="Claude Code">
-                    <span>Claude Code</span>
-                </div>
-                <div class="ide-card">
-                    <img src="https://cdn.simpleicons.org/google/4285F4" alt="Gemini CLI">
-                    <span>Gemini CLI</span>
-                </div>
-                <div class="ide-card">
-                    <img src="https://cdn.simpleicons.org/github/181717" alt="GitHub Copilot">
-                    <span>GitHub Copilot</span>
-                </div>
-                <div class="ide-card">
-                    <img src="https://cdn.simpleicons.org/jetbrains/000000" alt="IntelliJ IDEA">
-                    <span>IntelliJ IDEA</span>
-                </div>
-                <div class="ide-card">
-                    <!-- Windsurf logo via Codeium -->
-                    <img src="https://cdn.simpleicons.org/codeium/09B6A2" alt="Windsurf">
-                    <span>Windsurf</span>
-                </div>
-            </div>
-        </section>
+<header>
+  <div class="logo">🧵</div>
+  <h1>Loom Framework</h1>
+  <p class="tagline en">Weave intelligent agents into your development workflow</p>
+  <p class="tagline it">Integra agenti AI nel tuo workflow di sviluppo</p>
+  <div class="cta-buttons">
+    <a href="#quickstart" class="btn btn-primary">
+      <span class="en">🚀 Get Started</span>
+      <span class="it">🚀 Inizia Ora</span>
+    </a>
+    <a href="docs.html" class="btn btn-secondary">
+      <span class="en">📚 Documentation</span>
+      <span class="it">📚 Documentazione</span>
+    </a>
+  </div>
+</header>
 
-        <section class="card" id="quickstart">
-            <h2>Quick Start</h2>
-            <p style="text-align:center;margin-bottom:2rem;color:#666;">Get started in 5 minutes — 3 ways to set up Loom:</p>
+<div class="container">
 
-            <h3 style="color:#667eea;margin-bottom:0.5rem;">① Natural Language (easiest)</h3>
-            <p style="margin-bottom:0.5rem;color:#555;">Just tell your AI agent:</p>
-            <div class="code-block">"setup loom framework"</div>
+  <!-- WHY LOOM -->
+  <section class="card">
+    <h2 class="en">Why Loom?</h2>
+    <h2 class="it">Perché Loom?</h2>
+    <div class="feature-grid">
+      <div class="feature">
+        <div class="feature-icon">⚡</div>
+        <h3 class="en">Quick Setup</h3>
+        <h3 class="it">Setup Rapido</h3>
+        <p class="en">Interactive wizard detects your project and configures everything in minutes.</p>
+        <p class="it">Il wizard interattivo rileva il tuo progetto e configura tutto in pochi minuti.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🤖</div>
+        <h3 class="en">Multi-IDE Support</h3>
+        <h3 class="it">Multi-IDE</h3>
+        <p class="en">Works with 7 IDEs: Windsurf, Claude, Cursor, Gemini, VS Code, Copilot, IntelliJ.</p>
+        <p class="it">Funziona con 7 IDE: Windsurf, Claude, Cursor, Gemini, VS Code, Copilot, IntelliJ.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">📋</div>
+        <h3 class="en">Task Management</h3>
+        <h3 class="it">Gestione Task</h3>
+        <p class="en">Complete system with TASKS.md, BACKLOG.md, and automated workflows.</p>
+        <p class="it">Sistema completo con TASKS.md, BACKLOG.md e workflow automatizzati.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🧪</div>
+        <h3 class="en">TDD Workflow</h3>
+        <h3 class="it">Workflow TDD</h3>
+        <p class="en">Test-Driven Development integrated with Red-Green-Refactor cycle.</p>
+        <p class="it">Test-Driven Development integrato con ciclo Red-Green-Refactor.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">💬</div>
+        <h3 class="en">Natural Language</h3>
+        <h3 class="it">Linguaggio Naturale</h3>
+        <p class="en">Say "start task" or "run tests" — no script paths needed.</p>
+        <p class="it">Dì "avvia task" o "esegui test" — nessun comando da ricordare.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🏗️</div>
+        <h3 class="en">3-Level Framework</h3>
+        <h3 class="it">Framework a 3 Livelli</h3>
+        <p class="en">Structured approach: Directives → Orchestration → Execution.</p>
+        <p class="it">Approccio strutturato: Direttive → Orchestrazione → Esecuzione.</p>
+      </div>
+    </div>
+  </section>
 
-            <h3 style="color:#667eea;margin:1.5rem 0 0.5rem;">② Interactive Wizard</h3>
-            <div class="code-block">git clone https://github.com/otto78/loom-framework.git
+  <!-- SUPPORTED IDEs -->
+  <section class="card">
+    <h2 class="en">Supported IDEs</h2>
+    <h2 class="it">IDE Supportati</h2>
+    <div class="ide-grid">
+
+      <!-- VS Code -->
+      <div class="ide-card">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <mask id="m1"><rect width="100" height="100" rx="15" fill="white"/></mask>
+          <rect width="100" height="100" rx="15" fill="#007ACC"/>
+          <g mask="url(#m1)" fill="white">
+            <path d="M70.9 8.2L52.1 26.4 36.3 13.1 28 17.5v65l8.3 4.4 15.8-13.3 18.8 18.2 13.1-5.5V13.7L70.9 8.2zM70 72.6L52.5 57.5 70 42.4v30.2zM36.3 64.5L28 71.5V28.5l8.3 7V64.5z"/>
+          </g>
+        </svg>
+        <span>VS Code</span>
+        <small>+ Cline</small>
+      </div>
+
+      <!-- Cursor -->
+      <div class="ide-card">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <rect width="100" height="100" rx="15" fill="#1a1a1a"/>
+          <text x="50" y="68" font-size="58" text-anchor="middle" fill="white" font-family="Arial Black, sans-serif" font-weight="900">⌥</text>
+        </svg>
+        <span>Cursor</span>
+      </div>
+
+      <!-- Claude / Anthropic -->
+      <div class="ide-card">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <rect width="100" height="100" rx="15" fill="#D97757"/>
+          <text x="50" y="68" font-size="52" text-anchor="middle" fill="white" font-family="serif">✦</text>
+        </svg>
+        <span>Claude Code</span>
+      </div>
+
+      <!-- Gemini -->
+      <div class="ide-card">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <rect width="100" height="100" rx="15" fill="#1a73e8"/>
+          <path d="M50 15 C50 15 65 35 65 50 C65 65 50 85 50 85 C50 85 35 65 35 50 C35 35 50 15 50 15Z" fill="white" opacity="0.9"/>
+          <path d="M15 50 C15 50 35 35 50 35 C65 35 85 50 85 50 C85 50 65 65 50 65 C35 65 15 50 15 50Z" fill="white" opacity="0.6"/>
+        </svg>
+        <span>Gemini CLI</span>
+      </div>
+
+      <!-- GitHub Copilot -->
+      <div class="ide-card">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <rect width="100" height="100" rx="15" fill="#24292e"/>
+          <circle cx="50" cy="42" r="18" fill="white"/>
+          <circle cx="42" cy="38" r="4" fill="#24292e"/>
+          <circle cx="58" cy="38" r="4" fill="#24292e"/>
+          <path d="M34 55 Q50 70 66 55" stroke="white" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <rect x="30" y="62" width="40" height="18" rx="9" fill="white"/>
+          <circle cx="40" cy="71" r="3" fill="#24292e"/>
+          <circle cx="60" cy="71" r="3" fill="#24292e"/>
+        </svg>
+        <span>GitHub Copilot</span>
+      </div>
+
+      <!-- IntelliJ IDEA -->
+      <div class="ide-card">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="ij" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#FC801D"/>
+              <stop offset="50%" style="stop-color:#FF318C"/>
+              <stop offset="100%" style="stop-color:#7B68EE"/>
+            </linearGradient>
+          </defs>
+          <rect width="100" height="100" rx="15" fill="url(#ij)"/>
+          <rect x="18" y="18" width="64" height="64" rx="4" fill="black"/>
+          <rect x="24" y="72" width="30" height="5" rx="2" fill="white"/>
+          <text x="30" y="62" font-size="28" fill="white" font-family="Arial Black" font-weight="900">IJ</text>
+        </svg>
+        <span>IntelliJ IDEA</span>
+      </div>
+
+      <!-- Windsurf -->
+      <div class="ide-card">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="ws" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#09B6A2"/>
+              <stop offset="100%" style="stop-color:#0077B6"/>
+            </linearGradient>
+          </defs>
+          <rect width="100" height="100" rx="15" fill="url(#ws)"/>
+          <!-- sail shape -->
+          <path d="M50 15 L80 75 L50 65 Z" fill="white" opacity="0.95"/>
+          <path d="M50 15 L20 75 L50 65 Z" fill="white" opacity="0.6"/>
+          <line x1="50" y1="15" x2="50" y2="82" stroke="white" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <span>Windsurf</span>
+        <small>by Codeium</small>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- QUICK START -->
+  <section class="card" id="quickstart">
+    <h2 class="en">Quick Start</h2>
+    <h2 class="it">Inizia in 5 Minuti</h2>
+
+    <p class="step-title en">① Natural Language (easiest)</p>
+    <p class="step-title it">① Linguaggio Naturale (più semplice)</p>
+    <p style="color:var(--text-muted);margin-bottom:.5rem" class="en">Just tell your AI agent:</p>
+    <p style="color:var(--text-muted);margin-bottom:.5rem" class="it">Dì al tuo agente AI:</p>
+    <div class="code-block">"setup loom framework"</div>
+
+    <p class="step-title en">② Interactive Wizard</p>
+    <p class="step-title it">② Wizard Interattivo</p>
+    <div class="code-block">git clone https://github.com/otto78/loom-framework.git
 cd /path/to/your-project
 python /path/to/loom-framework/loom/scripts/setup.py</div>
 
-            <h3 style="color:#667eea;margin:1.5rem 0 0.5rem;">③ Automated (no prompts)</h3>
-            <div class="code-block">python loom/scripts/setup.py --auto --project-name "MyProject" --ide windsurf,cursor</div>
+    <p class="step-title en">③ Automated (no prompts)</p>
+    <p class="step-title it">③ Automatico (senza prompt)</p>
+    <div class="code-block">python loom/scripts/setup.py --auto --project-name "MyProject" --ide windsurf,cursor</div>
 
-            <p style="text-align:center;margin-top:2rem;color:#666;">Then use natural language with your agent:</p>
-            <div class="code-block">"start task TASK-001 'implement user login'"
+    <p style="color:var(--text-muted);margin:1.5rem 0 .5rem" class="en">Then use natural language with your agent:</p>
+    <p style="color:var(--text-muted);margin:1.5rem 0 .5rem" class="it">Poi usa il linguaggio naturale con il tuo agente:</p>
+    <div class="code-block en">"start task TASK-001 'implement user login'"
 "list tasks"
 "run tests"
 "complete task TASK-001"</div>
+    <div class="code-block it">"avvia task TASK-001 'implementa login utente'"
+"mostra i task"
+"esegui i test"
+"completa task TASK-001"</div>
 
-            <div style="text-align:center;margin-top:2rem;">
-                <a href="docs.html" class="btn btn-primary" style="background:#667eea;color:white;">Read Full Documentation →</a>
-            </div>
-        </section>
-
-        <footer>
-            <p>Loom Framework v1.0.0 — MIT License — Created by Andrea Mazzarotto</p>
-            <p style="margin-top:0.5rem;">
-                <a href="https://github.com/otto78/loom-framework">GitHub</a> •
-                <a href="https://github.com/otto78/loom-framework/issues">Issues</a> •
-                <a href="https://github.com/otto78/loom-framework/discussions">Discussions</a>
-            </p>
-        </footer>
+    <div style="text-align:center;margin-top:2rem;">
+      <a href="docs.html" class="btn btn-primary" style="background:var(--accent);color:white;">
+        <span class="en">Read Full Documentation →</span>
+        <span class="it">Leggi la Documentazione Completa →</span>
+      </a>
     </div>
+  </section>
+
+</div>
+
+<footer>
+  <p>Loom Framework v1.0.0 — MIT License</p>
+  <p style="margin:.3rem 0">
+    <span class="en">Created by</span><span class="it">Creato da</span>
+    <strong>Andrea Mazzarotto</strong>
+  </p>
+  <p style="margin-top:.75rem">
+    <a href="https://github.com/otto78/loom-framework">GitHub</a> ·
+    <a href="https://github.com/otto78/loom-framework/issues">Issues</a> ·
+    <a href="https://github.com/otto78/loom-framework/discussions">Discussions</a>
+  </p>
+</footer>
+
+<script>
+function setLang(l) {
+  document.documentElement.dataset.lang = l;
+  document.getElementById('btn-en').classList.toggle('active', l==='en');
+  document.getElementById('btn-it').classList.toggle('active', l==='it');
+  localStorage.setItem('loom-lang', l);
+}
+function toggleDark() {
+  const d = document.documentElement;
+  const isDark = d.dataset.theme === 'dark';
+  d.dataset.theme = isDark ? 'light' : 'dark';
+  document.getElementById('btn-dark').textContent = isDark ? '🌙 Dark / Scuro' : '☀️ Light / Chiaro';
+  localStorage.setItem('loom-dark', !isDark);
+}
+// restore prefs
+(function(){
+  const lang = localStorage.getItem('loom-lang') || 'en';
+  const dark = localStorage.getItem('loom-dark') === 'true';
+  setLang(lang);
+  if(dark){ document.documentElement.dataset.theme='dark'; document.getElementById('btn-dark').textContent='☀️ Light / Chiaro'; }
+})();
+</script>
 </body>
 </html>
