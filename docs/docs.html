@@ -1,352 +1,720 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light" data-lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loom Framework — Documentation</title>
-    <meta name="description" content="Complete documentation for Loom Framework">
-    <!-- marked.js for markdown rendering -->
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <!-- highlight.js for code blocks -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github-dark.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loom Framework — Documentation</title>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github-dark.min.css">
+<script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+<style>
+:root {
+  --bg:#f5f6fa; --surface:#fff; --border:#e1e4e8; --text:#333; --muted:#666;
+  --accent:#667eea; --accent2:#764ba2; --feature-bg:#f8f9fa;
+  --code-bg:#1e1e1e; --shadow:0 2px 12px rgba(0,0,0,.08);
+}
+[data-theme="dark"] {
+  --bg:#0d1117; --surface:#161b22; --border:#30363d; --text:#e6edf3; --muted:#8b949e;
+  --accent:#818cf8; --accent2:#a78bfa; --feature-bg:#1c2128;
+  --code-bg:#0d1117; --shadow:0 2px 12px rgba(0,0,0,.4);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);transition:background .3s,color .3s;}
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #f5f6fa;
-            color: #333;
-        }
+.topnav{
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  display:flex;align-items:center;gap:.75rem;padding:.7rem 1.5rem;
+  position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.2);
+}
+.topnav a{color:white;text-decoration:none;font-weight:600;}
+.topnav .brand{font-size:1.1rem;}
+.topnav-spacer{flex:1;}
+.topbar-btn{
+  background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);
+  color:white;padding:.3rem .75rem;border-radius:20px;cursor:pointer;
+  font-size:.8rem;font-weight:600;transition:background .2s;
+}
+.topbar-btn:hover{background:rgba(255,255,255,.25);}
+.topbar-btn.active{background:rgba(255,255,255,.35);}
 
-        /* Top nav */
-        .topnav {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 1rem 2rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-        }
-        .topnav a { color: white; text-decoration: none; font-weight: 600; }
-        .topnav .brand { font-size: 1.3rem; }
-        .topnav .back { opacity: 0.8; font-size: 0.9rem; }
-        .topnav .back:hover { opacity: 1; }
-        .topnav-spacer { flex: 1; }
+.layout{display:flex;min-height:calc(100vh - 50px);}
 
-        /* Layout */
-        .layout { display: flex; min-height: calc(100vh - 60px); }
+.sidebar{
+  width:250px;flex-shrink:0;background:var(--surface);
+  border-right:1px solid var(--border);padding:1.25rem 0;
+  position:sticky;top:50px;height:calc(100vh - 50px);overflow-y:auto;
+}
+.sidebar h3{padding:0 1.25rem .5rem;font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);}
+.sidebar-link{
+  display:block;padding:.55rem 1.25rem;color:var(--text);text-decoration:none;
+  font-size:.88rem;border-left:3px solid transparent;transition:all .15s;
+}
+.sidebar-link:hover,.sidebar-link.active{background:rgba(102,126,234,.1);color:var(--accent);border-left-color:var(--accent);}
+.sidebar-link.active{font-weight:600;}
 
-        /* Sidebar */
-        .sidebar {
-            width: 260px;
-            flex-shrink: 0;
-            background: white;
-            border-right: 1px solid #e1e4e8;
-            padding: 1.5rem 0;
-            position: sticky;
-            top: 60px;
-            height: calc(100vh - 60px);
-            overflow-y: auto;
-        }
-        .sidebar h3 {
-            padding: 0 1.5rem 0.5rem;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: #888;
-        }
-        .sidebar-link {
-            display: block;
-            padding: 0.6rem 1.5rem;
-            color: #444;
-            text-decoration: none;
-            font-size: 0.9rem;
-            border-left: 3px solid transparent;
-            transition: all 0.15s;
-        }
-        .sidebar-link:hover { background: #f0f2ff; color: #667eea; border-left-color: #667eea; }
-        .sidebar-link.active { background: #f0f2ff; color: #667eea; border-left-color: #667eea; font-weight: 600; }
+.main{flex:1;padding:2rem;max-width:860px;}
 
-        /* Main content */
-        .main { flex: 1; padding: 2rem; max-width: 900px; }
+.doc-section{background:var(--surface);border-radius:12px;margin-bottom:1.5rem;box-shadow:var(--shadow);border:1px solid var(--border);overflow:hidden;}
+.doc-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.9rem 1.25rem;background:var(--feature-bg);border-bottom:1px solid var(--border);
+  cursor:pointer;user-select:none;
+}
+.doc-header:hover{background:rgba(102,126,234,.08);}
+.doc-title{font-weight:600;color:var(--text);font-size:.92rem;display:flex;align-items:center;gap:.5rem;}
+.file-badge{font-size:.72rem;background:rgba(102,126,234,.15);color:var(--accent);padding:.1rem .45rem;border-radius:4px;font-family:monospace;}
+.doc-actions{display:flex;gap:.5rem;align-items:center;}
+.toggle{color:var(--muted);font-size:.75rem;transition:transform .2s;}
+.doc-section.collapsed .toggle{transform:rotate(-90deg);}
+.copy-btn{padding:.3rem .7rem;font-size:.78rem;background:var(--accent);color:white;border:none;border-radius:6px;cursor:pointer;transition:background .2s;white-space:nowrap;}
+.copy-btn:hover{background:var(--accent2);}
+.copy-btn.ok{background:#28a745;}
+.doc-body{padding:1.75rem 2rem;display:block;}
+.doc-section.collapsed .doc-body{display:none;}
 
-        /* Doc section */
-        .doc-section {
-            background: white;
-            border-radius: 12px;
-            margin-bottom: 2rem;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-            overflow: hidden;
-        }
-        .doc-section-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1rem 1.5rem;
-            background: #f8f9fa;
-            border-bottom: 1px solid #e1e4e8;
-            cursor: pointer;
-            user-select: none;
-        }
-        .doc-section-header:hover { background: #f0f2ff; }
-        .doc-section-title { font-weight: 600; color: #444; font-size: 0.95rem; display: flex; align-items: center; gap: 0.5rem; }
-        .doc-section-title .file-badge {
-            font-size: 0.75rem;
-            background: #e8eaf6;
-            color: #667eea;
-            padding: 0.15rem 0.5rem;
-            border-radius: 4px;
-            font-family: monospace;
-        }
-        .doc-section-actions { display: flex; gap: 0.5rem; align-items: center; }
-        .toggle-icon { color: #888; transition: transform 0.2s; font-size: 0.8rem; }
-        .doc-section.collapsed .toggle-icon { transform: rotate(-90deg); }
+/* markdown */
+.doc-body h1{font-size:1.9rem;margin-bottom:1rem;color:var(--text);border-bottom:2px solid var(--accent);padding-bottom:.4rem;}
+.doc-body h2{font-size:1.4rem;margin:1.8rem 0 .6rem;color:var(--text);border-bottom:1px solid var(--border);padding-bottom:.25rem;}
+.doc-body h3{font-size:1.15rem;margin:1.3rem 0 .4rem;color:var(--accent);}
+.doc-body h4{font-size:1rem;margin:1rem 0 .3rem;color:var(--muted);}
+.doc-body p{margin-bottom:.9rem;line-height:1.75;}
+.doc-body ul,.doc-body ol{margin:.4rem 0 .9rem 1.4rem;}
+.doc-body li{margin-bottom:.25rem;line-height:1.65;}
+.doc-body code{background:rgba(102,126,234,.12);color:var(--accent);padding:.1rem .35rem;border-radius:4px;font-family:'Courier New',monospace;font-size:.88em;}
+.doc-body pre{background:var(--code-bg);border-radius:8px;padding:1.1rem 1.25rem;overflow-x:auto;margin:.9rem 0;}
+.doc-body pre code{background:none;color:#d4d4d4;padding:0;font-size:.88rem;}
+.doc-body blockquote{border-left:4px solid var(--accent);padding:.5rem 1rem;background:rgba(102,126,234,.07);border-radius:0 8px 8px 0;margin:.9rem 0;color:var(--muted);}
+.doc-body table{width:100%;border-collapse:collapse;margin:.9rem 0;font-size:.9rem;}
+.doc-body th{background:var(--accent);color:white;padding:.55rem 1rem;text-align:left;}
+.doc-body td{padding:.55rem 1rem;border-bottom:1px solid var(--border);}
+.doc-body tr:hover td{background:rgba(102,126,234,.05);}
+.doc-body a{color:var(--accent);}
+.doc-body hr{border:none;border-top:1px solid var(--border);margin:1.5rem 0;}
 
-        .copy-btn {
-            padding: 0.35rem 0.8rem;
-            font-size: 0.8rem;
-            background: #667eea;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: background 0.2s;
-            white-space: nowrap;
-        }
-        .copy-btn:hover { background: #5a6fd6; }
-        .copy-btn.copied { background: #28a745; }
+[data-lang="en"] .it{display:none;}
+[data-lang="it"] .en{display:none;}
 
-        .doc-section-body { padding: 2rem; display: block; }
-        .doc-section.collapsed .doc-section-body { display: none; }
-
-        /* Markdown styles */
-        .doc-section-body h1 { font-size: 2rem; margin-bottom: 1rem; color: #1a1a2e; border-bottom: 2px solid #667eea; padding-bottom: 0.5rem; }
-        .doc-section-body h2 { font-size: 1.5rem; margin: 2rem 0 0.75rem; color: #2d3748; border-bottom: 1px solid #e1e4e8; padding-bottom: 0.3rem; }
-        .doc-section-body h3 { font-size: 1.2rem; margin: 1.5rem 0 0.5rem; color: #4a5568; }
-        .doc-section-body h4 { font-size: 1rem; margin: 1rem 0 0.4rem; color: #667eea; }
-        .doc-section-body p { margin-bottom: 1rem; line-height: 1.7; }
-        .doc-section-body ul, .doc-section-body ol { margin: 0.5rem 0 1rem 1.5rem; }
-        .doc-section-body li { margin-bottom: 0.3rem; line-height: 1.6; }
-        .doc-section-body code {
-            background: #f0f2ff;
-            color: #667eea;
-            padding: 0.15rem 0.4rem;
-            border-radius: 4px;
-            font-family: 'Courier New', monospace;
-            font-size: 0.9em;
-        }
-        .doc-section-body pre {
-            background: #1e1e1e;
-            border-radius: 8px;
-            padding: 1.25rem;
-            overflow-x: auto;
-            margin: 1rem 0;
-        }
-        .doc-section-body pre code {
-            background: none;
-            color: #d4d4d4;
-            padding: 0;
-            font-size: 0.9rem;
-        }
-        .doc-section-body blockquote {
-            border-left: 4px solid #667eea;
-            padding: 0.5rem 1rem;
-            background: #f0f2ff;
-            border-radius: 0 8px 8px 0;
-            margin: 1rem 0;
-            color: #555;
-        }
-        .doc-section-body table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
-        .doc-section-body th { background: #667eea; color: white; padding: 0.6rem 1rem; text-align: left; }
-        .doc-section-body td { padding: 0.6rem 1rem; border-bottom: 1px solid #e1e4e8; }
-        .doc-section-body tr:hover td { background: #f8f9fa; }
-        .doc-section-body a { color: #667eea; }
-        .doc-section-body hr { border: none; border-top: 1px solid #e1e4e8; margin: 2rem 0; }
-
-        /* Loading state */
-        .loading { text-align: center; padding: 3rem; color: #888; }
-        .error-msg { color: #e53e3e; background: #fff5f5; padding: 1rem; border-radius: 8px; border: 1px solid #fed7d7; }
-
-        @media (max-width: 768px) {
-            .sidebar { display: none; }
-            .main { padding: 1rem; }
-        }
-    </style>
+@media(max-width:768px){.sidebar{display:none;}.main{padding:1rem;}}
+</style>
 </head>
 <body>
 
 <nav class="topnav">
-    <a href="index.html" class="back">← Home</a>
-    <span style="color:rgba(255,255,255,0.4)">|</span>
-    <a href="index.html" class="brand">🧵 Loom Framework</a>
-    <div class="topnav-spacer"></div>
-    <a href="https://github.com/otto78/loom-framework" style="color:white;opacity:0.8;font-size:0.9rem;">GitHub ↗</a>
+  <a href="index.html">← <span class="en">Home</span><span class="it">Home</span></a>
+  <span style="color:rgba(255,255,255,.3)">|</span>
+  <a href="index.html" class="brand">🧵 Loom Framework</a>
+  <div class="topnav-spacer"></div>
+  <button class="topbar-btn active" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+  <button class="topbar-btn" id="btn-it" onclick="setLang('it')">🇮🇹 IT</button>
+  <button class="topbar-btn" id="btn-dark" onclick="toggleDark()">🌙</button>
+  <a href="https://github.com/otto78/loom-framework" style="color:white;opacity:.8;font-size:.85rem;margin-left:.5rem;">GitHub ↗</a>
 </nav>
 
 <div class="layout">
-    <aside class="sidebar" id="sidebar">
-        <h3>Documentation</h3>
-        <!-- populated by JS -->
-    </aside>
-
-    <main class="main" id="main">
-        <div class="loading">Loading documentation…</div>
-    </main>
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="main" id="main"></main>
 </div>
 
 <script>
-// All docs to load — path relative to docs/ folder (raw GitHub or relative)
-// We embed the content directly since GitHub Pages serves static files.
-// The markdown files are in the repo root, so we fetch them relatively.
+// ── EMBEDDED DOCS ──────────────────────────────────────────────────────────────
 const DOCS = [
-    { id: 'readme',       file: '../README.md',                  label: 'README',                icon: '📖' },
-    { id: 'quickstart',   file: '../QUICKSTART.md',              label: 'Quick Start',           icon: '🚀' },
-    { id: 'natural-lang', file: '../NATURAL-LANGUAGE-GUIDE.md',  label: 'Natural Language Guide',icon: '💬' },
-    { id: 'tdd',          file: '../TDD-WORKFLOW.md',            label: 'TDD Workflow',          icon: '🧪' },
-    { id: 'setup',        file: '../SETUP-INSTRUCTIONS.md',      label: 'Setup Instructions',    icon: '⚙️' },
-    { id: 'contributing', file: '../CONTRIBUTING.md',            label: 'Contributing',          icon: '🤝' },
+{
+  id:'readme', icon:'📖',
+  label:{en:'README',it:'README'},
+  content:`# Loom Framework 🧵
+
+> **Weave intelligent agents into your development workflow**
+
+A complete operational framework for AI-powered development across multiple IDEs. Loom provides structure, automation, and best practices for teams working with AI agents.
+
+---
+
+## 🎯 What is Loom?
+
+Loom is an operational framework that brings structure to AI-assisted development. It provides:
+
+- ⚡ **Quick Setup** — Interactive wizard + automated scripts
+- 🤖 **Multi-IDE Support** — 7 IDEs (Windsurf, Claude, Cursor, Gemini, VS Code, Copilot, IntelliJ)
+- 📋 **Task Management** — Complete system with TASKS.md + BACKLOG.md
+- 🧪 **TDD Workflow** — Test-Driven Development integrated
+- 📝 **Integrated Versioning** — Automatic STORY.md + CHANGELOG.md
+- 🔄 **Automated Workflow** — Python scripts for complete task lifecycle
+- 📚 **3-Level Framework** — Directives / Orchestration / Execution
+- 🔀 **Handoff Protocol** — Seamless agent-to-agent transitions
+- 🧩 **Adaptable** — Works with new and existing projects
+
+---
+
+## 🚀 Quick Start
+
+\`\`\`bash
+git clone https://github.com/otto78/loom-framework.git
+cd /path/to/your-project
+python /path/to/loom-framework/loom/scripts/setup.py
+\`\`\`
+
+Or just tell your AI agent: **"setup loom framework"**
+
+---
+
+## 🏗️ The 3-Level Framework
+
+| Level | Name | Description |
+|-------|------|-------------|
+| 1 | **Directives** | SOPs in natural language — what to do |
+| 2 | **Orchestration** | Intelligent routing between directives and scripts |
+| 3 | **Execution** | Deterministic Python scripts — do the work |
+
+**Why it works**: LLMs are probabilistic (90% accuracy = 59% over 5 steps). Pushing complexity into deterministic code reduces errors.
+
+---
+
+## 🎨 Supported IDEs
+
+| IDE/Tool | Config File | Location |
+|----------|-------------|----------|
+| Windsurf | \`.windsurfrules\` | Root |
+| Claude Code | \`CLAUDE.md\` | Root |
+| Cursor | \`.cursorrules\` | Root |
+| Gemini CLI | \`GEMINI.md\` | Root |
+| GitHub Copilot | \`copilot-instructions.md\` | \`.github/\` |
+| Cline (VS Code) | \`.clinerules\` | Root |
+| IntelliJ IDEA | \`agentic-framework.md\` | \`.idea/\` |
+
+---
+
+## 🌟 Why Loom?
+
+**Before Loom:** inconsistent AI behavior, no task tracking, lost context, no testing workflow.
+
+**After Loom:** structured workflows, automatic task management, seamless handoffs, integrated TDD.
+
+---
+
+**Version**: 1.0.0 | **Author**: Andrea Mazzarotto | **License**: MIT`
+},
+{
+  id:'quickstart', icon:'🚀',
+  label:{en:'Quick Start',it:'Avvio Rapido'},
+  content:`# Quick Start 🚀
+
+Get started with Loom in 5 minutes!
+
+---
+
+## 📦 Installation
+
+\`\`\`bash
+git clone https://github.com/otto78/loom-framework.git
+cd loom-framework
+\`\`\`
+
+---
+
+## ⚡ Setup Your Project
+
+### Method 1: Natural Language (Recommended)
+
+Tell your AI agent:
+
+\`\`\`
+"setup loom framework"
+\`\`\`
+
+Done! The agent executes everything automatically.
+
+### Method 2: Interactive Wizard
+
+\`\`\`bash
+cd /path/to/your-project
+python /path/to/loom-framework/loom/scripts/setup.py
+\`\`\`
+
+The wizard will:
+1. Detect your programming languages
+2. Detect your frameworks
+3. Detect your IDEs
+4. Create all necessary files
+
+### Method 3: Automated
+
+\`\`\`bash
+python loom/scripts/setup.py --auto --project-name "MyProject" --ide windsurf,cursor
+\`\`\`
+
+---
+
+## 📋 Your First Task
+
+\`\`\`bash
+python loom/scripts/task.py start TASK-001 "Implement user login"
+\`\`\`
+
+Or tell your AI agent:
+
+\`\`\`
+"start task TASK-001 'implement user login'"
+\`\`\`
+
+---
+
+## 🎯 Daily Workflow
+
+\`\`\`bash
+python loom/scripts/task.py list
+python loom/scripts/task.py start TASK-042 "Fix login bug"
+python loom/scripts/task.py complete TASK-042 "Bug fixed" --bump patch
+\`\`\`
+
+Or with natural language:
+
+\`\`\`
+"list tasks"
+"start task TASK-042 'fix login bug'"
+"complete task TASK-042"
+\`\`\`
+
+---
+
+## 📚 Key Files After Setup
+
+- **\`AGENT.md\`** — Source of truth for your project
+- **\`docs/TASKS.md\`** — Active tasks
+- **\`docs/BACKLOG.md\`** — Future ideas
+- **\`docs/STORY.md\`** — Project history
+- **IDE config files** — \`.windsurfrules\`, \`.cursorrules\`, etc.
+
+---
+
+**Time to setup**: ~5 minutes | **Time to first task**: ~2 minutes`
+},
+{
+  id:'natural-lang', icon:'💬',
+  label:{en:'Natural Language Guide',it:'Guida Linguaggio Naturale'},
+  content:`# Natural Language Guide
+
+> No need to run Python scripts manually. Just talk to your AI agent!
+
+---
+
+## 🎯 Core Idea
+
+Instead of:
+\`\`\`bash
+python agentic-framework/scripts/setup.py
+\`\`\`
+
+Just say:
+\`\`\`
+"setup loom framework"
+\`\`\`
+
+The agent understands and executes automatically!
+
+---
+
+## 🚀 Setup
+
+| You say | Agent does |
+|---------|-----------|
+| "setup loom framework" | Runs setup wizard, creates all files |
+| "configura il framework" | Same in Italian |
+
+---
+
+## 📋 Task Management
+
+| You say | Agent executes |
+|---------|---------------|
+| "start task TASK-001 'feature X'" | \`task.py start TASK-001 "feature X"\` |
+| "list tasks" | \`task.py list\` |
+| "complete task TASK-001" | \`task.py complete TASK-001\` |
+| "run tests" | \`task-tdd.py test\` |
+| "sync configs" | \`sync-configs.sh\` |
+
+---
+
+## 🧪 TDD with Natural Language
+
+\`\`\`
+"start TDD task TASK-001 'add email validation'"
+→ Creates test file, runs tests (Red phase)
+
+"run tests"
+→ Shows test results
+
+"complete task TASK-001"
+→ Verifies all tests pass, commits
+\`\`\`
+
+---
+
+## 🌍 Multilingual Support
+
+### Italiano
+\`\`\`
+"configura il framework"
+"avvia task TASK-001 'descrizione'"
+"mostra i task"
+"completa task TASK-001"
+"esegui i test"
+\`\`\`
+
+### English
+\`\`\`
+"setup the framework"
+"start task TASK-001 'description'"
+"show tasks"
+"complete task TASK-001"
+"run tests"
+\`\`\`
+
+---
+
+## 🎓 Best Practices
+
+1. **Use natural language** — the agent understands variations: "start task" = "create task" = "begin task"
+2. **Let the agent suggest** — it will recommend TDD for critical features
+3. **Use abbreviations** — "list", "complete TASK-001" all work`
+},
+{
+  id:'tdd', icon:'🧪',
+  label:{en:'TDD Workflow',it:'Workflow TDD'},
+  content:`# TDD Workflow — Test-Driven Development
+
+> Complete Test-Driven Development workflow integrated in the framework.
+
+---
+
+## 🎯 What is TDD?
+
+1. **Write tests FIRST** — before any code
+2. **Run tests** — they must fail (Red phase)
+3. **Write minimal code** — to make tests pass (Green phase)
+4. **Refactor** — clean up while keeping tests green
+
+---
+
+## 🔄 Red-Green-Refactor Cycle
+
+\`\`\`
+🔴 RED    → Write failing test
+🟢 GREEN  → Write minimal code to pass
+🔵 REFACTOR → Clean up, tests stay green
+↩️  Repeat for next feature
+\`\`\`
+
+---
+
+## 🚀 Commands
+
+\`\`\`bash
+# Start TDD task (creates test file, runs tests - Red phase)
+python scripts/task-tdd.py start TASK-001 "Add email validation"
+
+# Run tests
+python scripts/task-tdd.py test
+
+# Complete task (only if all tests pass)
+python scripts/task-tdd.py complete TASK-001
+\`\`\`
+
+---
+
+## 📝 Example Test File
+
+\`\`\`python
+# tests/test_task_001.py
+
+def test_valid_email():
+    from myapp import validate_email
+    assert validate_email("user@example.com") == True
+
+def test_invalid_email():
+    from myapp import validate_email
+    assert validate_email("invalid") == False
+
+def test_empty_email():
+    from myapp import validate_email
+    assert validate_email("") == False
+    assert validate_email(None) == False
+\`\`\`
+
+---
+
+## 📊 TASKS.md TDD Checklist
+
+\`\`\`markdown
+**TDD Workflow:**
+- [x] 🔴 Red: Tests created and failing
+- [ ] 🟢 Green: Implement feature to pass tests
+- [ ] 🔵 Refactor: Clean up code
+- [ ] ✅ Complete: All tests passing
+\`\`\`
+
+---
+
+## 🎓 Best Practices
+
+- **Small focused tests** — one test, one behavior
+- **Descriptive names** — \`test_empty_email_returns_false\`
+- **Arrange-Act-Assert** pattern
+- **Independent tests** — no shared state
+- **Cover edge cases** — empty, null, boundary values`
+},
+{
+  id:'setup-instructions', icon:'⚙️',
+  label:{en:'Setup Instructions (for AI)',it:'Istruzioni Setup (per AI)'},
+  content:`# Setup Instructions — For AI Agents
+
+> This file is read by AI agents to understand how to setup the framework.
+
+---
+
+## 🤖 Trigger Phrases
+
+When user says any of these, execute the setup wizard:
+
+- "setup loom framework" / "setup agentic framework"
+- "configure loom" / "initialize loom"
+- "configura il framework" / "avvia il framework"
+
+---
+
+## 📋 Setup Procedure
+
+### Step 1: Detect Project Context
+
+\`\`\`python
+project_root = current_working_directory
+languages = detect_languages()    # Python, JavaScript, etc.
+frameworks = detect_frameworks()  # FastAPI, React, etc.
+existing_ides = detect_ide_configs()
+\`\`\`
+
+### Step 2: Ask Confirmation
+
+\`\`\`
+I detected:
+- Project: [name]
+- Languages: [python, javascript]
+- IDEs in use: [cursor, vscode]
+
+Do you want me to setup Loom Framework?
+\`\`\`
+
+### Step 3: Run Setup
+
+\`\`\`bash
+python loom/scripts/setup.py --auto --project-name "[name]" --ide [ides]
+\`\`\`
+
+### Step 4: Report Results
+
+Tell user what was created: AGENT.md, IDE configs, docs/TASKS.md, etc.
+
+---
+
+## 🔧 Command Mapping
+
+| User Says | Execute |
+|-----------|---------|
+| "setup framework" | \`python loom/scripts/setup.py\` |
+| "start task TASK-XXX 'desc'" | \`python loom/scripts/task.py start TASK-XXX "desc"\` |
+| "list tasks" | \`python loom/scripts/task.py list\` |
+| "run tests" | \`python loom/scripts/task-tdd.py test\` |
+| "complete task TASK-XXX" | \`python loom/scripts/task.py complete TASK-XXX "done"\` |
+| "sync configs" | \`bash loom/scripts/sync-configs.sh\` |
+
+---
+
+## ⚠️ Important Notes
+
+1. **Always read AGENT.md first** — it contains project context
+2. **Respect existing files** — don't overwrite TASKS.md, README.md
+3. **Suggest TDD** for critical features (auth, payments, validation)
+4. **Auto-sync** IDE configs after AGENT.md changes`
+},
+{
+  id:'contributing', icon:'🤝',
+  label:{en:'Contributing',it:'Contribuire'},
+  content:`# Contributing to Loom Framework 🧵
+
+Thank you for your interest in contributing!
+
+---
+
+## 🎯 How to Contribute
+
+### Report Issues
+1. Check [existing issues](https://github.com/otto78/loom-framework/issues)
+2. [Create a new issue](https://github.com/otto78/loom-framework/issues/new)
+
+### Add IDE Support
+1. Create config template in \`loom/ide-configs/your-ide/\`
+2. Update \`loom/scripts/setup.py\` to detect and configure it
+3. Add to README.md IDE support table
+4. Submit a pull request
+
+### Improve Documentation
+- Fix typos, add examples, clarify explanations, translate
+
+---
+
+## 🔧 Development Setup
+
+\`\`\`bash
+git clone https://github.com/otto78/loom-framework.git
+cd loom-framework
+python -m venv venv
+source venv/bin/activate  # Windows: venv\\Scripts\\activate
+pip install -r requirements-dev.txt
+pytest tests/
+\`\`\`
+
+---
+
+## 📝 Pull Request Process
+
+1. Fork the repository
+2. Create branch: \`git checkout -b feature/amazing-feature\`
+3. Make changes and test
+4. Commit: \`git commit -m "feat: add amazing feature"\`
+5. Push and open a pull request
+
+### Commit Format (Conventional Commits)
+
+\`\`\`
+feat: add support for PyCharm IDE
+fix: resolve task completion bug
+docs: update QUICKSTART guide
+test: add tests for setup wizard
+\`\`\`
+
+---
+
+## ✅ Code Standards
+
+- Python: PEP 8, type hints, docstrings
+- Scripts: error handling, \`--dry-run\` support, \`--help\` docs
+- Tests required for new features
+
+---
+
+## 💬 Community
+
+- [GitHub Discussions](https://github.com/otto78/loom-framework/discussions)
+- [GitHub Issues](https://github.com/otto78/loom-framework/issues)
+
+---
+
+**Every contribution, no matter how small, makes Loom better for everyone.** 🧵`
+}
 ];
 
-marked.setOptions({
-    highlight: (code, lang) => {
-        if (lang && hljs.getLanguage(lang)) {
-            return hljs.highlight(code, { language: lang }).value;
-        }
-        return hljs.highlightAuto(code).value;
-    },
-    breaks: true,
-    gfm: true,
-});
+// ── RENDER ─────────────────────────────────────────────────────────────────────
+marked.use({ breaks:true, gfm:true });
 
-async function fetchDoc(file) {
-    const res = await fetch(file);
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    return res.text();
-}
+function getLang(){ return document.documentElement.dataset.lang || 'en'; }
 
-function buildCopyText(rawMarkdown, label) {
-    return `# ${label}\n\n${rawMarkdown}`;
-}
+function renderAll(){
+  const sidebar = document.getElementById('sidebar');
+  const main = document.getElementById('main');
+  sidebar.innerHTML = '<h3 class="en">Documentation</h3><h3 class="it">Documentazione</h3>';
+  main.innerHTML = '';
 
-function createSection(doc, rawMarkdown) {
-    const html = marked.parse(rawMarkdown);
+  DOCS.forEach(doc => {
+    // sidebar link
+    const link = document.createElement('a');
+    link.href = '#'+doc.id;
+    link.className = 'sidebar-link';
+    link.innerHTML = `${doc.icon} <span class="en">${doc.label.en}</span><span class="it">${doc.label.it}</span>`;
+    link.addEventListener('click', ()=>{
+      document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));
+      link.classList.add('active');
+      document.getElementById(doc.id)?.classList.remove('collapsed');
+    });
+    sidebar.appendChild(link);
 
+    // section
     const section = document.createElement('div');
     section.className = 'doc-section';
     section.id = doc.id;
 
     const header = document.createElement('div');
-    header.className = 'doc-section-header';
+    header.className = 'doc-header';
     header.innerHTML = `
-        <div class="doc-section-title">
-            <span>${doc.icon} ${doc.label}</span>
-            <span class="file-badge">${doc.file.replace('../', '')}</span>
-        </div>
-        <div class="doc-section-actions">
-            <button class="copy-btn" title="Copy full content for AI">📋 Copy for AI</button>
-            <span class="toggle-icon">▼</span>
-        </div>
-    `;
+      <div class="doc-title">
+        ${doc.icon}
+        <span class="en">${doc.label.en}</span><span class="it">${doc.label.it}</span>
+      </div>
+      <div class="doc-actions">
+        <button class="copy-btn">📋 <span class="en">Copy for AI</span><span class="it">Copia per AI</span></button>
+        <span class="toggle">▼</span>
+      </div>`;
 
     const body = document.createElement('div');
-    body.className = 'doc-section-body';
-    body.innerHTML = html;
+    body.className = 'doc-body';
+    body.innerHTML = marked.parse(doc.content);
 
-    // Copy button
-    header.querySelector('.copy-btn').addEventListener('click', (e) => {
-        e.stopPropagation();
-        const btn = e.currentTarget;
-        navigator.clipboard.writeText(buildCopyText(rawMarkdown, doc.label)).then(() => {
-            btn.textContent = '✅ Copied!';
-            btn.classList.add('copied');
-            setTimeout(() => {
-                btn.textContent = '📋 Copy for AI';
-                btn.classList.remove('copied');
-            }, 2000);
-        });
+    header.querySelector('.copy-btn').addEventListener('click', e=>{
+      e.stopPropagation();
+      const btn = e.currentTarget;
+      navigator.clipboard.writeText(doc.content).then(()=>{
+        btn.innerHTML = '✅ <span class="en">Copied!</span><span class="it">Copiato!</span>';
+        btn.classList.add('ok');
+        setTimeout(()=>{
+          btn.innerHTML = '📋 <span class="en">Copy for AI</span><span class="it">Copia per AI</span>';
+          btn.classList.remove('ok');
+        }, 2000);
+      });
     });
 
-    // Toggle collapse
-    header.addEventListener('click', () => {
-        section.classList.toggle('collapsed');
-    });
+    header.addEventListener('click', ()=> section.classList.toggle('collapsed'));
 
     section.appendChild(header);
     section.appendChild(body);
-    return section;
-}
+    main.appendChild(section);
+  });
 
-function buildSidebar(docs) {
-    const sidebar = document.getElementById('sidebar');
-    docs.forEach(doc => {
-        const link = document.createElement('a');
-        link.href = `#${doc.id}`;
-        link.className = 'sidebar-link';
-        link.textContent = `${doc.icon} ${doc.label}`;
-        link.addEventListener('click', () => {
-            document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
-            link.classList.add('active');
-            // Expand section if collapsed
-            const section = document.getElementById(doc.id);
-            if (section) section.classList.remove('collapsed');
+  // scroll spy
+  const observer = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        document.querySelectorAll('.sidebar-link').forEach(l=>{
+          l.classList.toggle('active', l.getAttribute('href')==='#'+e.target.id);
         });
-        sidebar.appendChild(link);
+      }
     });
+  },{rootMargin:'-20% 0px -70% 0px'});
+  DOCS.forEach(d=>{ const el=document.getElementById(d.id); if(el) observer.observe(el); });
+
+  // syntax highlight
+  document.querySelectorAll('pre code').forEach(el=>hljs.highlightElement(el));
 }
 
-// Highlight active sidebar link on scroll
-function setupScrollSpy() {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const id = entry.target.id;
-                document.querySelectorAll('.sidebar-link').forEach(l => {
-                    l.classList.toggle('active', l.getAttribute('href') === `#${id}`);
-                });
-            }
-        });
-    }, { rootMargin: '-20% 0px -70% 0px' });
-
-    DOCS.forEach(doc => {
-        const el = document.getElementById(doc.id);
-        if (el) observer.observe(el);
-    });
+function setLang(l){
+  document.documentElement.dataset.lang=l;
+  document.getElementById('btn-en').classList.toggle('active',l==='en');
+  document.getElementById('btn-it').classList.toggle('active',l==='it');
+  localStorage.setItem('loom-lang',l);
+}
+function toggleDark(){
+  const d=document.documentElement;
+  const dark=d.dataset.theme==='dark';
+  d.dataset.theme=dark?'light':'dark';
+  document.getElementById('btn-dark').textContent=dark?'🌙':'☀️';
+  localStorage.setItem('loom-dark',!dark);
 }
 
-async function init() {
-    const main = document.getElementById('main');
-    main.innerHTML = '';
-
-    buildSidebar(DOCS);
-
-    for (const doc of DOCS) {
-        try {
-            const raw = await fetchDoc(doc.file);
-            const section = createSection(doc, raw);
-            main.appendChild(section);
-        } catch (err) {
-            const errDiv = document.createElement('div');
-            errDiv.className = 'doc-section';
-            errDiv.id = doc.id;
-            errDiv.innerHTML = `
-                <div class="doc-section-header">
-                    <div class="doc-section-title">${doc.icon} ${doc.label}</div>
-                </div>
-                <div class="doc-section-body">
-                    <div class="error-msg">Could not load <code>${doc.file}</code>: ${err.message}</div>
-                </div>`;
-            main.appendChild(errDiv);
-        }
-    }
-
-    setupScrollSpy();
-}
-
-init();
+// init
+(function(){
+  const lang=localStorage.getItem('loom-lang')||'en';
+  const dark=localStorage.getItem('loom-dark')==='true';
+  setLang(lang);
+  if(dark){document.documentElement.dataset.theme='dark';document.getElementById('btn-dark').textContent='☀️';}
+  renderAll();
+})();
 </script>
 </body>
 </html>
