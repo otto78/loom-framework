@@ -54,3 +54,6 @@ site/
 
 # Logs
 *.log
+
+# Distribution ZIPs
+loom-framework*.zip
