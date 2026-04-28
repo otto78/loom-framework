@@ -1,4 +1,4 @@
-# Loom Framework 🧵
+﻿# Loom Framework 🧵
 
 > **Weave intelligent agents into your development workflow**  
 > **Integra agenti intelligenti nel tuo workflow di sviluppo**
@@ -89,12 +89,12 @@ your-project/
 Loom is an operational framework that brings structure to AI-assisted development. It provides:
 
 - ⚡ **Quick Setup** — Interactive wizard + automated scripts
-- 🤖 **Multi-IDE Support** — 7 IDEs (Windsurf, Claude Code, Cursor, Antigravity, VS Code, IntelliJ IDEA, GitHub Copilot)
+- 🤖 **Multi-IDE Support** — 7 IDEs (Windsurf, Claude Code, Cursor, Antigravity, VS Code, IntelliJ IDEA, VS Code Insider)
 - 📋 **Task Management** — Complete system with TASKS.md + BACKLOG.md
 - 🧪 **TDD Workflow** — Test-Driven Development integrated
 - 📝 **Integrated Versioning** — Automatic STORY.md + CHANGELOG.md
 - 🔄 **Automated Workflow** — Python scripts for complete task lifecycle
-- 📚 **3-Level Framework** — Directives / Orchestration / Execution
+- 📚 **DOE Architecture** — Directives / Orchestration / Execution
 - 🔀 **Handoff Protocol** — Seamless agent-to-agent transitions
 - 🧩 **Adaptable** — Works with new and existing projects
 
@@ -196,7 +196,7 @@ No need to remember Python script paths or command syntax!
 
 ---
 
-## 🏗️ The 3-Level Framework
+## 🏗️ The DOE Architecture
 
 ```
 ┌─────────────────────────────────────────┐
@@ -230,7 +230,7 @@ loom-framework/
 ├── docs/
 │   ├── setup-guide.md                 # Complete setup guide
 │   ├── workflow-guide.md              # Task workflow guide
-│   ├── framework-guide.md             # 3-level framework
+│   ├── framework-guide.md             # DOE Architecture
 │   └── templates/                     # Documentation templates
 │       ├── TASKS.md                   # Task tracking
 │       ├── BACKLOG.md                 # Future ideas
@@ -322,7 +322,7 @@ python loom/scripts/task-tdd.py complete TASK-001
 | ✨ Antigravity | `ANTIGRAVITY.md` | Root |
 | 💻 VS Code (Cline) | `.clinerules` | Root |
 | 💡 IntelliJ IDEA | `agentic-framework.md` | `.idea/` |
-| 🐙 GitHub Copilot | `copilot-instructions.md` | `.github/` |
+| 🐙 VS Code Insider | `copilot-instructions.md` | `.github/` |
 
 ---
 
@@ -452,7 +452,7 @@ Loom fornisce una memoria strutturata basata su file che rimane con il tuo proge
 
 Per dettagli: **[QUICKSTART.md](./QUICKSTART.md)**
 
-### 🏗️ Il Framework a 3 Livelli
+### 🏗️ Il Architettura DOE
 
 ```
 ┌─────────────────────────────────────────┐
@@ -492,7 +492,7 @@ Dopo il setup, parla con il tuo agente AI:
 | ✨ Antigravity | `ANTIGRAVITY.md` | Root |
 | 💻 VS Code (Cline) | `.clinerules` | Root |
 | 💡 IntelliJ IDEA | `agentic-framework.md` | `.idea/` |
-| 🐙 GitHub Copilot | `copilot-instructions.md` | `.github/` |
+| 🐙 VS Code Insider | `copilot-instructions.md` | `.github/` |
 
 ### 📚 Documentazione (Italiano)
 

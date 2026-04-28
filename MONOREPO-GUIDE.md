@@ -1,4 +1,4 @@
-# Loom Framework — Monorepo Usage Guide
+﻿# Loom Framework — Monorepo Usage Guide
 
 > How to use Loom in monorepo projects (multiple packages/services in one repository)
 
@@ -240,7 +240,7 @@ For detailed context on each package:
 
 ### 5. Shared Directives
 
-If using 3-level framework, directives can be shared:
+If using DOE Architecture, directives can be shared:
 
 ```
 monorepo/

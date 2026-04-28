@@ -12,7 +12,7 @@
 Leggi quel file per:
 - Contesto del progetto
 - Stack tecnologico
-- Framework a 3 livelli
+- Architettura DOE
 - Principi operativi
 - Regole specifiche del progetto
 
@@ -51,7 +51,7 @@ python scripts/task.py list
 
 ---
 
-## Framework a 3 Livelli
+## Architettura DOE
 
 ### Livello 1: Direttive
 
@@ -183,7 +183,7 @@ python scripts/task.py complete TASK-001 "..." --no-push
 
 1. **Leggi** `AGENT.md` all'inizio
 2. **Consulta** `docs/TASKS.md` per task attivi
-3. **Segui** framework a 3 livelli
+3. **Segui** Architettura DOE
 4. **Usa** script automatici per task workflow
 5. **Aggiorna** documentazione prima di push
 6. **Commit** selettivo (solo file modificati)

@@ -61,7 +61,7 @@ Questo file traccia il progresso del lavoro per garantire la continuità tra div
 1. Leggi questo file per capire lo stato attuale
 2. Leggi `docs/BACKLOG.md` se nessun task attivo
 3. Identifica il task corrente o chiedi all'utente
-4. Procedi con il lavoro seguendo il framework a 3 livelli
+4. Procedi con il lavoro seguendo il Architettura DOE
 
 ### Fine Sessione (Agente)
 

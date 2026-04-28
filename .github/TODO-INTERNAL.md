@@ -1,4 +1,4 @@
-# TODO — Manual Actions Required
+﻿# TODO — Manual Actions Required
 
 These tasks require manual action and cannot be automated:
 
@@ -104,11 +104,11 @@ These tasks require manual action and cannot be automated:
 
 - [x] Fix placeholder URLs (yourusername → otto78)
 - [x] Align IDE count to 7 everywhere
-- [x] Add GitHub Copilot to IDE tables
+- [x] Add VS Code Insider to IDE tables
 - [x] Fix domain links (loom-framework.dev → GitHub Pages)
 - [x] Add badges to README
 - [x] Add "Why Not X?" section
-- [x] Add 3-Level Framework to landing page
+- [x] Add DOE Architecture to landing page
 - [x] Add Italian translations to docs.html
 - [x] Create issue templates
 - [x] Add installer one-liners

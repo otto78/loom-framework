@@ -77,7 +77,7 @@ First public release of Loom Framework!
 - 📋 Complete task management system
 - 🧪 Integrated TDD workflow
 - 💬 Natural language commands
-- 🏗️ 3-level framework architecture
+- 🏗️ DOE Architecture architecture
 - 🔀 Handoff protocol
 - 📚 Comprehensive documentation
 

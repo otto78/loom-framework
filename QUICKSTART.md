@@ -1,4 +1,4 @@
-# Loom Framework — Quick Start 🚀
+﻿# Loom Framework — Quick Start 🚀
 # Avvio Rapido 🚀
 
 > **EN** — Get started in 2 minutes with zero commands to remember!  
@@ -71,7 +71,7 @@ The AI agent automatically:
 5. ✅ Creates `AGENT.md` (source of truth for every session)
 6. ✅ Creates `docs/TASKS.md`, `STORY.md`, `CHANGELOG.md`
 7. ✅ Creates IDE config files (`.cursorrules`, `.windsurfrules`, etc.)
-8. ✅ Initializes the 3-level framework structure
+8. ✅ Initializes the DOE Architecture structure
 
 **Result**: Your project is ready for AI-assisted development!
 
@@ -86,7 +86,7 @@ L'agente AI automaticamente:
 5. ✅ Crea `AGENT.md` (fonte di verità per ogni sessione)
 6. ✅ Crea `docs/TASKS.md`, `STORY.md`, `CHANGELOG.md`
 7. ✅ Crea i file di configurazione IDE (`.cursorrules`, `.windsurfrules`, ecc.)
-8. ✅ Inizializza la struttura del framework a 3 livelli
+8. ✅ Inizializza la struttura del Architettura DOE
 
 **Risultato**: Il tuo progetto è pronto per lo sviluppo assistito dall'AI!
 
@@ -276,7 +276,7 @@ Loom auto-configures for 7 IDEs:
 | ✨ Antigravity | `ANTIGRAVITY.md` |
 | 💻 VS Code (Cline) | `.clinerules` |
 | 💡 IntelliJ IDEA | `agentic-framework.md` |
-| 🐙 GitHub Copilot | `copilot-instructions.md` |
+| 🐙 VS Code Insider | `copilot-instructions.md` |
 
 **Switch between IDEs without losing context!**
 
@@ -292,7 +292,7 @@ Loom si auto-configura per 7 IDE:
 | ✨ Antigravity | `ANTIGRAVITY.md` |
 | 💻 VS Code (Cline) | `.clinerules` |
 | 💡 IntelliJ IDEA | `agentic-framework.md` |
-| 🐙 GitHub Copilot | `copilot-instructions.md` |
+| 🐙 VS Code Insider | `copilot-instructions.md` |
 
 **Passa da un IDE all'altro senza perdere il contesto!**
 

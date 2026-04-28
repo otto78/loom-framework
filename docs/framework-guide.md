@@ -1,4 +1,4 @@
-# Loom Framework — 3-Level Architecture Guide
+﻿# Loom Framework — 3-Level Architecture Guide
 
 > The technical foundation that makes AI-assisted development reliable.
 
@@ -18,7 +18,7 @@ Without structure, a 10-step AI workflow has a **65% chance of failure**. Loom s
 
 ---
 
-## The 3-Level Framework
+## The DOE Architecture
 
 ```
 ┌─────────────────────────────────────────┐

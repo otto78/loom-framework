@@ -1,6 +1,6 @@
-# Loom Execution Scripts
+﻿# Loom Execution Scripts
 
-This directory contains **deterministic execution scripts** — Level 3 of the Loom 3-Level Framework.
+This directory contains **deterministic execution scripts** — Level 3 of the Loom DOE Architecture.
 
 ## What Goes Here
 

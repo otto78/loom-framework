@@ -361,7 +361,7 @@ def interactive_setup():
     print("3. Cursor")
     print("4. Antigravity")
     print("5. VS Code (Cline)")
-    print("6. GitHub Copilot")
+    print("6. VS Code Insider")
     print("7. IntelliJ IDEA")
     print("8. All")
     

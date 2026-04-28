@@ -91,7 +91,7 @@ Vedi `CHANGELOG.md` per dettagli completi.
 
 - **Problema:** Necessità di coordinare più agenti AI
 - **Soluzione:** Adottato Loom Framework v1.0
-- **Motivazione:** Framework a 3 livelli riduce errori LLM
+- **Motivazione:** Architettura DOE riduce errori LLM
 - **Alternativa considerata:** Nessun framework strutturato
 - **Risultato:** Migliorata continuità tra sessioni
 

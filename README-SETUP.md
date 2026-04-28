@@ -1,4 +1,4 @@
-# ✅ Loom Framework — Progetto Creato con Successo!
+﻿# ✅ Loom Framework — Progetto Creato con Successo!
 
 ## 🎉 Cosa è Stato Fatto
 
@@ -102,7 +102,7 @@ loom-framework/
 - Tutti gli script da `agentic-framework`
 - Tutti i template
 - Tutte le configurazioni IDE
-- Framework a 3 livelli completo
+- Architettura DOE completo
 
 ### ✅ Documentazione Completa
 - README principale con branding Loom

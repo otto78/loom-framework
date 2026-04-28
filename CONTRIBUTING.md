@@ -1,4 +1,4 @@
-# Contributing to Loom Framework
+﻿# Contributing to Loom Framework
 
 Thank you for your interest in contributing to Loom! 🧵
 
@@ -164,7 +164,7 @@ When adding IDE support:
 2. Include:
    - Reference to `AGENT.md`
    - Natural language command support
-   - 3-level framework explanation
+   - DOE Architecture explanation
    - Task management commands
 3. Test with actual IDE
 4. Document in README.md

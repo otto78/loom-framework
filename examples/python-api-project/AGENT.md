@@ -1,4 +1,4 @@
-# AGENT.md — TaskFlow API
+﻿# AGENT.md — TaskFlow API
 # Source of Truth / Fonte di Verità
 
 > This file is read by all AI agents (Claude, Cursor, Windsurf, Antigravity, Copilot, Cline).
@@ -66,7 +66,7 @@ taskflow-api/
 
 ---
 
-## 3-Level Framework
+## DOE Architecture
 
 ### Level 1 — Directives (`loom/directives/`)
 SOPs for each domain: how to add an endpoint, how to write tests, coding standards.
