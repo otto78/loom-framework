@@ -1,6 +1,9 @@
 # Loom Framework 🧵
 
-> **Weave intelligent agents into your development workflow**
+> **Weave intelligent agents into your development workflow**  
+> **Integra agenti intelligenti nel tuo workflow di sviluppo**
+
+🌐 **Language / Lingua**: [🇬🇧 English](#-the-problem) | [🇮🇹 Italiano](#-italiano--versione-italiana)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/otto78/loom-framework/releases)
@@ -402,3 +405,105 @@ MIT — Use, modify, share freely.
 **Version**: 1.0.0  
 **Author**: Andrea Mazzarotto  
 **Tagline**: Weave intelligent agents into your development workflow 🧵
+
+---
+
+## 🇮🇹 Italiano — Versione Italiana
+
+> Framework operativo completo per lo sviluppo AI su più IDE. Loom fornisce struttura, automazione e best practice per chi lavora con agenti AI.
+
+### ❌ Il Problema
+
+Lo sviluppo assistito da AI è frenato da:
+
+1. **Limiti della Context Window** — Gli agenti "dimenticano" il contesto del progetto quando la storia diventa troppo lunga.
+2. **Frammentazione Multi-Agente** — Passare da Windsurf a Cursor o Claude Code azzera il modello mentale dell'agente.
+3. **Spreco di Token** — Rispiegare il progetto in ogni prompt consuma migliaia di token.
+
+**La matematica**: 90% di accuratezza per step = 59% su 5 step = 35% su 10 step.
+
+### ✅ La Soluzione: Memoria Persistente su File
+
+Loom fornisce una memoria strutturata basata su file che rimane con il tuo progetto:
+
+- 🧠 **Memoria Persistente** — TASKS.md, STORY.md sopravvivono ai reset di contesto
+- 🔄 **Supporto Multi-Agente** — Stesso stato tra 7 IDE
+- 💰 **Risparmio Token** — Script sostituiscono prompt ripetitivi
+- 🎯 **Deterministico** — 90% di accuratezza mantenuta su 10+ step
+- 🚀 **Zero-Friction** — Basta dire "leggi loom"
+
+### 🚀 Avvio Rapido
+
+**Per nuovi progetti (4 step):**
+
+```
+1. Crea cartella progetto
+2. Crea PROJECT.md con descrizione progetto
+3. Aggiungi cartella loom/ al progetto
+4. Apri qualsiasi IDE e di': "leggi loom"
+```
+
+**Per progetti esistenti (2 step):**
+
+```
+1. Aggiungi cartella loom/ al progetto
+2. Apri qualsiasi IDE e di': "leggi loom"
+```
+
+Per dettagli: **[QUICKSTART.md](./QUICKSTART.md)**
+
+### 🏗️ Il Framework a 3 Livelli
+
+```
+┌─────────────────────────────────────────┐
+│ Livello 1: DIRETTIVE (Cosa fare)        │
+│ loom/directives/*.md — SOP in           │
+│ linguaggio naturale                      │
+├─────────────────────────────────────────┤
+│ Livello 2: ORCHESTRAZIONE (Come)        │
+│ Routing intelligente tra direttive      │
+│ e script di esecuzione                  │
+├─────────────────────────────────────────┤
+│ Livello 3: ESECUZIONE (Fare il lavoro)  │
+│ loom/execution/*.py — Script            │
+│ deterministici (100% accuratezza)       │
+└─────────────────────────────────────────┘
+```
+
+### 💬 Comandi in Linguaggio Naturale
+
+Dopo il setup, parla con il tuo agente AI:
+
+```
+"avvia task TASK-001 'implementa feature X'"
+"mostra i task"
+"esegui i test"
+"completa task TASK-001"
+"sincronizza configurazioni"
+```
+
+### 🎨 IDE Supportati
+
+| IDE/Tool | File di Config | Posizione |
+|----------|---------------|----------|
+| 🌊 Windsurf | `.windsurfrules` | Root |
+| 🤖 Claude Code | `CLAUDE.md` | Root |
+| ↗️ Cursor | `.cursorrules` | Root |
+| ✨ Antigravity | `ANTIGRAVITY.md` | Root |
+| 💻 VS Code (Cline) | `.clinerules` | Root |
+| 💡 IntelliJ IDEA | `agentic-framework.md` | `.idea/` |
+| 🐙 GitHub Copilot | `copilot-instructions.md` | `.github/` |
+
+### 📚 Documentazione (Italiano)
+
+- **[QUICKSTART.md](./QUICKSTART.md)** — Avvio rapido bilingue
+- **[NATURAL-LANGUAGE-GUIDE.md](./NATURAL-LANGUAGE-GUIDE.md)** — Guida comandi bilingue
+- **[ABSTRACT.md](./ABSTRACT.md)** — Concetti fondamentali (bilingue)
+- **[TDD-WORKFLOW.md](./TDD-WORKFLOW.md)** — Workflow TDD
+- **[SETUP-INSTRUCTIONS.md](./SETUP-INSTRUCTIONS.md)** — Per agenti AI (bilingue)
+
+---
+
+**Versione**: 1.0.0  
+**Autore**: Andrea Mazzarotto  
+**Tagline**: Integra agenti intelligenti nel tuo workflow di sviluppo 🧵
