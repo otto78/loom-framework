@@ -1,6 +1,6 @@
 # AGENT.md — Fonte di Verità Unica
 
-> Questo file è letto da tutti gli agenti AI (Claude, Cursor, Windsurf, Gemini, Copilot, Cline).
+> Questo file è letto da tutti gli agenti AI (Claude, Cursor, Windsurf, Antigravity, Copilot, Cline).
 > Non duplicare queste istruzioni negli altri file — rimandano tutti qui.
 
 ---
@@ -36,7 +36,7 @@
 
 ### AI/ML (se applicabile)
 
-- **LLM:** [GPT-4 / Claude / Gemini / ...]
+- **LLM:** [GPT-4 / Claude / Antigravity / ...]
 - **Orchestrazione:** [LangChain / LangGraph / ...]
 - **Vector DB:** [Pinecone / Weaviate / ...]
 

@@ -1,4 +1,4 @@
-﻿# ✅ Loom Framework — Progetto Creato con Successo!
+# ✅ Loom Framework — Progetto Creato con Successo!
 
 ## 🎉 Cosa è Stato Fatto
 
@@ -60,7 +60,7 @@ loom-framework/
 │   │   ├── windsurf/
 │   │   ├── claude/
 │   │   ├── cursor/
-│   │   ├── gemini/
+│   │   ├── antigravity/
 │   │   ├── vscode/
 │   │   ├── copilot/
 │   │   └── intellij/

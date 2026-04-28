@@ -1,7 +1,7 @@
-# Gemini CLI Rules — Agentic Framework
+# Antigravity Rules — Loom Framework
 
 > Leggi sempre `AGENT.md` all'inizio di ogni sessione.
-> Questo file contiene solo istruzioni specifiche per Gemini CLI.
+> Questo file contiene solo istruzioni specifiche per Antigravity.
 
 ---
 
@@ -40,13 +40,13 @@ Usa gli script per gestire task:
 
 ```bash
 # Avvia task
-python scripts/task.py start TASK-001 "Descrizione"
+python loom/scripts/task.py start TASK-001 "Descrizione"
 
 # Completa task
-python scripts/task.py complete TASK-001 "Descrizione" --bump minor
+python loom/scripts/task.py complete TASK-001 "Descrizione" --bump minor
 
 # Lista task
-python scripts/task.py list
+python loom/scripts/task.py list
 ```
 
 ---
@@ -55,7 +55,7 @@ python scripts/task.py list
 
 ### Livello 1: Direttive
 
-- Leggi `directives/*.md` per capire **cosa** fare
+- Leggi `loom/directives/*.md` per capire **cosa** fare
 - Non inventare procedure, segui le direttive esistenti
 - Se manca una direttiva, chiedi se crearla
 
@@ -68,15 +68,14 @@ python scripts/task.py list
 
 ### Livello 3: Esecuzione
 
-- Usa script in `execution/*.py`
+- Usa script in `loom/scripts/`
 - Non scrivere codice inline, usa script deterministici
-- Se manca uno script, crealo seguendo `execution/_template.py`
 
 ---
 
 ## Coding Standards
 
-**IMPORTANTE:** Leggi sempre `directives/coding-standards.md` prima di scrivere codice.
+**IMPORTANTE:** Leggi sempre `loom/directives/coding-standards.md` prima di scrivere codice.
 
 ---
 
@@ -117,14 +116,14 @@ Quando passi il lavoro:
 
 ---
 
-## Best Practices Gemini CLI
+## Best Practices Antigravity
 
 ### 1. Usa context files
 
 Specifica file di contesto all'avvio:
 
 ```bash
-gemini --context AGENT.md --context docs/TASKS.md
+antigravity --context AGENT.md --context docs/TASKS.md
 ```
 
 ### 2. Leggi file prima di modificare
@@ -155,22 +154,22 @@ Quando generi codice o configurazioni, usa formato strutturato (JSON, YAML, etc.
 
 ```bash
 # Inizializza sistema task (prima volta)
-python scripts/task.py init
+python loom/scripts/task.py init
 
 # Avvia nuovo task
-python scripts/task.py start TASK-001 "Implementare feature X"
+python loom/scripts/task.py start TASK-001 "Implementare feature X"
 
 # Lista task attivi
-python scripts/task.py list
+python loom/scripts/task.py list
 
 # Completa task con version bump
-python scripts/task.py complete TASK-001 "Feature X completata" --bump minor
+python loom/scripts/task.py complete TASK-001 "Feature X completata" --bump minor
 
 # Dry-run (simula senza eseguire)
-python scripts/task.py complete TASK-001 "..." --dry-run
+python loom/scripts/task.py complete TASK-001 "..." --dry-run
 
 # Commit senza push
-python scripts/task.py complete TASK-001 "..." --no-push
+python loom/scripts/task.py complete TASK-001 "..." --no-push
 ```
 
 ---
@@ -188,5 +187,5 @@ python scripts/task.py complete TASK-001 "..." --no-push
 
 ---
 
-**Versione:** 1.0.0  
-**Framework:** Agentic Framework v1.0
+**Version:** 1.0.0  
+**Framework:** Loom Framework v1.0

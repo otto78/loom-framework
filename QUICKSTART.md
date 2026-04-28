@@ -191,7 +191,7 @@ Loom auto-configures for:
 - 🌊 **Windsurf** (by Codeium)
 - 🤖 **Claude Code**
 - ↗️ **Cursor**
-- ✨ **Gemini CLI**
+- ✨ **Antigravity**
 - 💻 **VS Code** (Cline)
 - 💡 **IntelliJ IDEA**
 - 🐙 **GitHub Copilot**

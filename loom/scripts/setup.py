@@ -178,8 +178,8 @@ class ProjectDetector:
             ides.add("windsurf")
         if (self.project_root / "CLAUDE.md").exists():
             ides.add("claude")
-        if (self.project_root / "GEMINI.md").exists():
-            ides.add("gemini")
+        if (self.project_root / "ANTIGRAVITY.md").exists():
+            ides.add("antigravity")
         if (self.project_root / ".github" / "copilot-instructions.md").exists():
             ides.add("copilot")
         
@@ -262,7 +262,7 @@ class FrameworkSetup:
             "windsurf": (".windsurfrules", "ide-configs/windsurf/windsurfrules.template"),
             "claude": ("CLAUDE.md", "ide-configs/claude/CLAUDE.md.template"),
             "cursor": (".cursorrules", "ide-configs/cursor/cursorrules.template"),
-            "gemini": ("GEMINI.md", "ide-configs/gemini/GEMINI.md.template"),
+            "antigravity": ("ANTIGRAVITY.md", "ide-configs/antigravity/ANTIGRAVITY.md.template"),
             "vscode": (".clinerules", "ide-configs/vscode/clinerules.template"),
             "copilot": (".github/copilot-instructions.md", "ide-configs/copilot/copilot-instructions.md.template"),
             "intellij": (".idea/agentic-framework.md", "ide-configs/intellij/agentic-framework.md.template"),
@@ -357,7 +357,7 @@ def interactive_setup():
     print("1. Windsurf")
     print("2. Claude Code")
     print("3. Cursor")
-    print("4. Gemini CLI")
+    print("4. Antigravity")
     print("5. VS Code (Cline)")
     print("6. GitHub Copilot")
     print("7. IntelliJ IDEA")
@@ -369,7 +369,7 @@ def interactive_setup():
         "1": "windsurf",
         "2": "claude",
         "3": "cursor",
-        "4": "gemini",
+        "4": "antigravity",
         "5": "vscode",
         "6": "copilot",
         "7": "intellij",
@@ -378,7 +378,7 @@ def interactive_setup():
     
     selected_ides = set()
     if "8" in ide_choice:
-        selected_ides = {"windsurf", "claude", "cursor", "gemini", "vscode", "copilot", "intellij"}
+        selected_ides = {"windsurf", "claude", "cursor", "antigravity", "vscode", "copilot", "intellij"}
     else:
         for num in ide_choice.split(","):
             num = num.strip()

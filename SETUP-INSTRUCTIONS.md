@@ -92,5 +92,5 @@ When starting tasks related to security, auth, or core logic, always suggest usi
 ---
 
 **Version:** 1.0.0  
-**For:** AI Agents (Windsurf, Claude, Cursor, Gemini, VS Code, Copilot, IntelliJ)  
+**For:** AI Agents (Windsurf, Claude, Cursor, Antigravity, VS Code, Copilot, IntelliJ)  
 **Purpose:** Enable zero-friction setup and persistent task management.

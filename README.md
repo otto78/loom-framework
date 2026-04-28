@@ -65,7 +65,7 @@ your-project/
 ├── .windsurfrules            # IDE config (only for selected IDEs)
 ├── .cursorrules              #
 ├── CLAUDE.md                 #
-├── GEMINI.md                 #
+├── ANTIGRAVITY.md            #
 ├── .clinerules               #
 ├── .idea/
 │   └── agentic-framework.md  # IntelliJ config
@@ -86,7 +86,7 @@ your-project/
 Loom is an operational framework that brings structure to AI-assisted development. It provides:
 
 - ⚡ **Quick Setup** — Interactive wizard + automated scripts
-- 🤖 **Multi-IDE Support** — 7 IDEs (Windsurf, Claude Code, Cursor, Gemini CLI, VS Code, IntelliJ IDEA, GitHub Copilot)
+- 🤖 **Multi-IDE Support** — 7 IDEs (Windsurf, Claude Code, Cursor, Antigravity, VS Code, IntelliJ IDEA, GitHub Copilot)
 - 📋 **Task Management** — Complete system with TASKS.md + BACKLOG.md
 - 🧪 **TDD Workflow** — Test-Driven Development integrated
 - 📝 **Integrated Versioning** — Automatic STORY.md + CHANGELOG.md
@@ -253,7 +253,7 @@ loom-framework/
 │   │   ├── windsurf/                  # .windsurfrules
 │   │   ├── claude/                    # CLAUDE.md
 │   │   ├── cursor/                    # .cursorrules
-│   │   ├── gemini/                    # GEMINI.md
+│   │   ├── antigravity/               # Antigravity template
 │   │   ├── vscode/                    # .clinerules
 │   │   ├── copilot/                   # copilot-instructions.md
 │   │   └── intellij/                  # agentic-framework.md
@@ -316,7 +316,7 @@ python loom/scripts/task-tdd.py complete TASK-001
 | 🌊 Windsurf | `.windsurfrules` | Root |
 | 🤖 Claude Code | `CLAUDE.md` | Root |
 | ↗️ Cursor | `.cursorrules` | Root |
-| ✨ Gemini CLI | `GEMINI.md` | Root |
+| ✨ Antigravity | `ANTIGRAVITY.md` | Root |
 | 💻 VS Code (Cline) | `.clinerules` | Root |
 | 💡 IntelliJ IDEA | `agentic-framework.md` | `.idea/` |
 | 🐙 GitHub Copilot | `copilot-instructions.md` | `.github/` |
