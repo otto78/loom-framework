@@ -5,9 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Loom Framework — Weave intelligent agents into your workflow</title>
 <meta name="description" content="A complete operational framework for AI-powered development across multiple IDEs">
-<link rel="icon" type="image/png" sizes="32x32" href="loom-logo.png">
 <link rel="icon" type="image/svg+xml" href="loom-logo.svg">
-<link rel="icon" href="loom-logo.png">
+<link rel="icon" type="image/png" sizes="32x32" href="loom-logo.png">
 <link rel="apple-touch-icon" href="loom-logo.png">
 <style>
 :root {
@@ -134,6 +133,10 @@ footer a:hover{text-decoration:underline;}
   <h1>Loom Framework</h1>
   <p class="tagline en">Weave intelligent agents into your development workflow</p>
   <p class="tagline it">Integra agenti AI nel tuo workflow di sviluppo</p>
+  <p style="font-size:1.1rem;margin:1rem 0 2rem;opacity:.95;max-width:600px;margin-left:auto;margin-right:auto;">
+    <span class="en">Just say <strong>"read loom"</strong> — that's it. No commands to remember.</span>
+    <span class="it">Basta dire <strong>"leggi loom"</strong> — tutto qui. Nessun comando da ricordare.</span>
+  </p>
   <div class="cta-buttons">
     <a href="#quickstart" class="btn btn-primary">
       <span class="en">🚀 Get Started</span>
@@ -147,6 +150,34 @@ footer a:hover{text-decoration:underline;}
 </header>
 
 <div class="container">
+
+  <!-- THE PROBLEM -->
+  <section class="card">
+    <h2 class="en">The Problem</h2>
+    <h2 class="it">Il Problema</h2>
+    <p class="en" style="text-align:center;color:var(--muted);margin-bottom:2rem">AI-assisted development faces three critical challenges that make agents unreliable and expensive.</p>
+    <p class="it" style="text-align:center;color:var(--muted);margin-bottom:2rem">Lo sviluppo assistito da AI affronta tre sfide critiche che rendono gli agenti inaffidabili e costosi.</p>
+    <div class="feature-grid">
+      <div class="feature" style="border-left:4px solid #dc3545">
+        <div class="feature-icon">🚨</div>
+        <h3 class="en">Context Window Limits</h3><h3 class="it">Limiti Finestra Contesto</h3>
+        <p class="en">Agents lose memory when context resets. Long conversations hit token limits. Critical knowledge gets forgotten.</p>
+        <p class="it">Gli agenti perdono memoria quando il contesto si resetta. Le conversazioni lunghe raggiungono i limiti di token. La conoscenza critica viene dimenticata.</p>
+      </div>
+      <div class="feature" style="border-left:4px solid #fd7e14">
+        <div class="feature-icon">🔀</div>
+        <h3 class="en">Multi-Agent Chaos</h3><h3 class="it">Caos Multi-Agente</h3>
+        <p class="en">Switching IDEs loses context. Different agents can't share state. Handoffs between sessions fail.</p>
+        <p class="it">Cambiare IDE perde il contesto. Agenti diversi non possono condividere lo stato. I passaggi tra sessioni falliscono.</p>
+      </div>
+      <div class="feature" style="border-left:4px solid #ffc107">
+        <div class="feature-icon">💸</div>
+        <h3 class="en">Token Waste</h3><h3 class="it">Spreco Token</h3>
+        <p class="en">Agents repeat prompts over and over. <strong>90% accuracy per step = 35% success over 10 steps.</strong> Complex tasks chain failures exponentially.</p>
+        <p class="it">Gli agenti ripetono prompt continuamente. <strong>90% accuratezza per step = 35% successo su 10 step.</strong> Task complessi accumulano fallimenti esponenzialmente.</p>
+      </div>
+    </div>
+  </section>
 
   <!-- WHY LOOM -->
   <section class="card">
@@ -295,28 +326,51 @@ footer a:hover{text-decoration:underline;}
   <!-- QUICK START -->
   <section class="card" id="quickstart">
     <h2 class="en">Quick Start</h2>
-    <h2 class="it">Inizia in 5 Minuti</h2>
+    <h2 class="it">Inizia in 2 Minuti</h2>
 
-    <p class="step-title en">① Natural Language (easiest)</p>
-    <p class="step-title it">① Linguaggio Naturale (più semplice)</p>
-    <p style="color:var(--muted);margin-bottom:.4rem" class="en">Just tell your AI agent:</p>
-    <p style="color:var(--muted);margin-bottom:.4rem" class="it">Dì al tuo agente AI:</p>
-    <div class="code-wrap">
-      <div class="code-block">"setup loom framework"</div>
+    <p class="step-title en">① Zero-Friction Setup (easiest)</p>
+    <p class="step-title it">① Setup Zero-Friction (più semplice)</p>
+    <p style="color:var(--muted);margin-bottom:.4rem" class="en">For new projects — 4 steps:</p>
+    <p style="color:var(--muted);margin-bottom:.4rem" class="it">Per nuovi progetti — 4 step:</p>
+    <div class="code-wrap en">
+      <div class="code-block">1. Create project folder
+2. Create PROJECT.md with project description
+3. Add loom/ folder to your project
+4. Open any IDE and say: "read loom"</div>
+      <button class="code-copy" onclick="copyCode(this)">📋</button>
+    </div>
+    <div class="code-wrap it">
+      <div class="code-block">1. Crea cartella progetto
+2. Crea PROJECT.md con descrizione progetto
+3. Aggiungi cartella loom/ al progetto
+4. Apri qualsiasi IDE e di': "leggi loom"</div>
       <button class="code-copy" onclick="copyCode(this)">📋</button>
     </div>
 
-    <p class="step-title en">② Interactive Wizard</p>
-    <p class="step-title it">② Wizard Interattivo</p>
-    <div class="code-wrap">
-      <div class="code-block">git clone https://github.com/otto78/loom-framework.git
-cd /path/to/your-project
-python /path/to/loom-framework/loom/scripts/setup.py</div>
+    <p style="color:var(--muted);margin:1.5rem 0 .4rem" class="en">For existing projects — 2 steps:</p>
+    <p style="color:var(--muted);margin:1.5rem 0 .4rem" class="it">Per progetti esistenti — 2 step:</p>
+    <div class="code-wrap en">
+      <div class="code-block">1. Add loom/ folder to your project
+2. Open any IDE and say: "read loom"</div>
+      <button class="code-copy" onclick="copyCode(this)">📋</button>
+    </div>
+    <div class="code-wrap it">
+      <div class="code-block">1. Aggiungi cartella loom/ al progetto
+2. Apri qualsiasi IDE e di': "leggi loom"</div>
       <button class="code-copy" onclick="copyCode(this)">📋</button>
     </div>
 
-    <p class="step-title en">③ Automated (no prompts)</p>
-    <p class="step-title it">③ Automatico (senza prompt)</p>
+    <p class="step-title en">② One-Liner Install (alternative)</p>
+    <p class="step-title it">② Installer One-Liner (alternativo)</p>
+    <p class="step-title en">② One-Liner Install (alternative)</p>
+    <p class="step-title it">② Installer One-Liner (alternativo)</p>
+    <div class="code-wrap">
+      <div class="code-block">curl -fsSL https://raw.githubusercontent.com/otto78/loom-framework/main/install.sh | bash</div>
+      <button class="code-copy" onclick="copyCode(this)">📋</button>
+    </div>
+
+    <p class="step-title en">③ Interactive Wizard</p>
+    <p class="step-title it">③ Wizard Interattivo</p>
     <div class="code-wrap">
       <div class="code-block">python loom/scripts/setup.py --auto --project-name "MyProject" --ide windsurf,cursor</div>
       <button class="code-copy" onclick="copyCode(this)">📋</button>

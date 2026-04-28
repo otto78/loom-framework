@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """
-setup.py - Interactive Setup Wizard for Agentic Framework
+setup.py - Interactive Setup Wizard for Loom Framework
 
 This script automatically detects your project and sets up the framework:
 - Detects programming languages and frameworks
 - Detects IDEs in use
+- Auto-discovers PROJECT.md or PROGETTO.md for context
 - Creates all necessary files from templates
 - Configures IDE-specific files
 - Initializes task management system
@@ -13,6 +14,7 @@ Usage:
     python scripts/setup.py                    # Interactive mode
     python scripts/setup.py --auto             # Auto-detect everything
     python scripts/setup.py --project-name "MyProject" --ide windsurf,cursor
+    python scripts/setup.py --from-project-file PROJECT.md
 """
 
 import argparse
@@ -22,6 +24,14 @@ import shutil
 import sys
 from pathlib import Path
 from typing import Dict, List, Optional, Set
+
+# Handle encoding for Windows terminals
+if sys.platform == "win32":
+    try:
+        if hasattr(sys.stdout, 'reconfigure'):
+            sys.stdout.reconfigure(encoding='utf-8')
+    except:
+        pass
 
 # Colors for terminal output
 class Colors:
@@ -42,19 +52,31 @@ def print_header(text: str):
 
 def print_success(text: str):
     """Print success message."""
-    print(f"{Colors.GREEN}✅ {text}{Colors.END}")
+    try:
+        print(f"{Colors.GREEN}✅ {text}{Colors.END}")
+    except UnicodeEncodeError:
+        print(f"{Colors.GREEN}[OK] {text}{Colors.END}")
 
 def print_info(text: str):
     """Print info message."""
-    print(f"{Colors.CYAN}ℹ️  {text}{Colors.END}")
+    try:
+        print(f"{Colors.CYAN}ℹ️  {text}{Colors.END}")
+    except UnicodeEncodeError:
+        print(f"{Colors.CYAN}[INFO] {text}{Colors.END}")
 
 def print_warning(text: str):
     """Print warning message."""
-    print(f"{Colors.YELLOW}⚠️  {text}{Colors.END}")
+    try:
+        print(f"{Colors.YELLOW}⚠️  {text}{Colors.END}")
+    except UnicodeEncodeError:
+        print(f"{Colors.YELLOW}[WARN] {text}{Colors.END}")
 
 def print_error(text: str):
     """Print error message."""
-    print(f"{Colors.RED}❌ {text}{Colors.END}")
+    try:
+        print(f"{Colors.RED}❌ {text}{Colors.END}")
+    except UnicodeEncodeError:
+        print(f"{Colors.RED}[ERR] {text}{Colors.END}")
 
 
 class ProjectDetector:
@@ -182,6 +204,14 @@ class ProjectDetector:
         
         return docs
 
+    def detect_project_meta_file(self) -> Optional[Path]:
+        """Search for PROJECT.md or PROGETTO.md in root."""
+        for name in ["PROJECT.md", "PROGETTO.md"]:
+            path = self.project_root / name
+            if path.exists():
+                return path
+        return None
+
 
 class FrameworkSetup:
     """Sets up the agentic framework."""
@@ -200,7 +230,11 @@ class FrameworkSetup:
             return
         
         # Read template
-        content = template_path.read_text(encoding="utf-8")
+        if not template_path.exists():
+             # Fallback if template missing
+             content = f"# {project_name}\n\nStack: {', '.join(languages | frameworks)}\n"
+        else:
+             content = template_path.read_text(encoding="utf-8")
         
         # Replace placeholders
         content = content.replace("[NOME_PROGETTO]", project_name)
@@ -209,6 +243,18 @@ class FrameworkSetup:
         # Write file
         target_path.write_text(content, encoding="utf-8")
         print_success(f"Created AGENT.md")
+
+    def create_agent_md_from_meta(self, meta_path: Path):
+        """Create AGENT.md using a project meta-file as content."""
+        target_path = self.project_root / "AGENT.md"
+        
+        if target_path.exists():
+            print_warning(f"AGENT.md already exists, skipping")
+            return
+            
+        content = meta_path.read_text(encoding="utf-8")
+        target_path.write_text(content, encoding="utf-8")
+        print_success(f"Created AGENT.md from {meta_path.name}")
     
     def setup_ide_config(self, ide: str):
         """Setup IDE-specific configuration."""
@@ -276,7 +322,7 @@ class FrameworkSetup:
 
 def interactive_setup():
     """Run interactive setup wizard."""
-    print_header("Agentic Framework Setup Wizard")
+    print_header("Loom Framework Setup Wizard")
     
     # Detect project root
     project_root = Path.cwd()
@@ -355,16 +401,16 @@ def interactive_setup():
     
     # Success
     print_header("Setup Complete!")
-    print_success("Agentic Framework configured successfully!")
+    print_success("Loom Framework configured successfully!")
     print_info("\nNext steps:")
     print(f"  1. Review and customize {Colors.BOLD}AGENT.md{Colors.END}")
     print(f"  2. Start your first task: {Colors.BOLD}python scripts/task.py start TASK-001 'Setup complete'{Colors.END}")
     print(f"  3. Read {Colors.BOLD}QUICKSTART.md{Colors.END} for more info")
 
 
-def auto_setup(project_name: Optional[str] = None, ides: Optional[List[str]] = None):
+def auto_setup(project_name: Optional[str] = None, ides: Optional[List[str]] = None, project_file: Optional[str] = None):
     """Run automatic setup without interaction."""
-    print_header("Agentic Framework Auto Setup")
+    print_header("Loom Framework Auto Setup")
     
     # Detect project root
     project_root = Path.cwd()
@@ -390,7 +436,15 @@ def auto_setup(project_name: Optional[str] = None, ides: Optional[List[str]] = N
     
     # Setup
     setup = FrameworkSetup(project_root, framework_root)
-    setup.create_agent_md(project_name, languages, frameworks)
+    
+    if project_file:
+        setup.create_agent_md_from_meta(Path(project_file))
+    else:
+        meta_file = detector.detect_project_meta_file()
+        if meta_file:
+            setup.create_agent_md_from_meta(meta_file)
+        else:
+            setup.create_agent_md(project_name, languages, frameworks)
     
     for ide in ides:
         setup.setup_ide_config(ide)
@@ -405,13 +459,14 @@ def main():
     parser.add_argument("--auto", action="store_true", help="Auto-detect and setup without interaction")
     parser.add_argument("--project-name", help="Project name")
     parser.add_argument("--ide", help="IDEs to configure (comma-separated)")
+    parser.add_argument("--from-project-file", help="Path to PROJECT.md or PROGETTO.md")
     
     args = parser.parse_args()
     
     try:
         if args.auto:
             ides = args.ide.split(",") if args.ide else None
-            auto_setup(args.project_name, ides)
+            auto_setup(args.project_name, ides, args.from_project_file)
         else:
             interactive_setup()
     except KeyboardInterrupt:

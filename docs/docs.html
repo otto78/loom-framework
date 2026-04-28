@@ -4,9 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Loom Framework - Documentation</title>
-<link rel="icon" type="image/png" sizes="32x32" href="loom-logo.png">
 <link rel="icon" type="image/svg+xml" href="loom-logo.svg">
-<link rel="icon" href="loom-logo.png">
+<link rel="icon" type="image/png" sizes="32x32" href="loom-logo.png">
 <link rel="apple-touch-icon" href="loom-logo.png">
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github-dark.min.css">
@@ -162,18 +161,25 @@ const DOCS=[
 
 > **Weave intelligent agents into your development workflow**
 
-A complete operational framework for AI-powered development across multiple IDEs.
+A complete operational framework for AI-powered development across multiple IDEs. Loom provides structure, automation, and best practices for teams working with AI agents.
 
 ---
 
-## What is Loom?
+## ❌ The Problem
 
-- **Quick Setup** — Interactive wizard + automated scripts
-- **Multi-IDE Support** — 6 IDEs (Windsurf, Claude Code, Cursor, Gemini CLI, VS Code, IntelliJ IDEA)
-- **Task Management** — TASKS.md + BACKLOG.md
-- **TDD Workflow** — Test-Driven Development integrated
-- **3-Level Framework** — Directives / Orchestration / Execution
-- **Handoff Protocol** — Seamless agent-to-agent transitions
+AI-assisted development faces critical challenges:
+1. **Context Window Limitations** — Agents lose memory when context resets.
+2. **Multi-Agent Chaos** — Switching IDEs loses context.
+3. **Token Waste** — Repetitive prompts waste tokens and reduce accuracy.
+
+---
+
+## ✅ The Solution
+
+Loom solves these through **persistent file-based memory** and **deterministic architecture**:
+- 🧠 **Persistent Memory** — TASKS.md, STORY.md survive resets.
+- 🔄 **Multi-Agent Support** — Same state across 7 IDEs.
+- 🚀 **Zero-Friction** — Just say "read loom".
 
 ---
 
@@ -181,20 +187,13 @@ A complete operational framework for AI-powered development across multiple IDEs
 
 | IDE/Tool | Config File | Location |
 |----------|-------------|----------|
-| Windsurf | \`.windsurfrules\` | Root |
-| Claude Code | \`CLAUDE.md\` | Root |
-| Cursor | \`.cursorrules\` | Root |
-| Gemini CLI | \`GEMINI.md\` | Root |
-| VS Code | \`.clinerules\` | Root |
-| IntelliJ IDEA | \`agentic-framework.md\` | \`.idea/\` |
-
----
-
-## Why Loom?
-
-**Before:** inconsistent AI behavior, no task tracking, lost context between sessions.
-
-**After:** structured workflows, automatic task management, seamless handoffs, integrated TDD.
+| 🌊 Windsurf | \`.windsurfrules\` | Root |
+| 🤖 Claude Code | \`CLAUDE.md\` | Root |
+| ↗️ Cursor | \`.cursorrules\` | Root |
+| ✨ Gemini CLI | \`GEMINI.md\` | Root |
+| 💻 VS Code | \`.clinerules\` | Root |
+| 💡 IntelliJ IDEA | \`agentic-framework.md\` | \`.idea/\` |
+| 🐙 Copilot | \`copilot-instructions.md\` | \`.github/\` |
 
 ---
 
@@ -204,174 +203,96 @@ A complete operational framework for AI-powered development across multiple IDEs
   id:'quickstart',icon:'&#128640;',labelEn:'Quick Start',labelIt:'Avvio Rapido',file:'QUICKSTART.md',
   content:`# Quick Start
 
-Get started with Loom in 5 minutes!
+Get started with Loom in minutes!
 
 ---
 
-## Installation
+## 🚀 Method 1: Zero-Friction (Easiest)
 
+**For new projects (4 steps):**
+1. Create project folder.
+2. Create \`PROJECT.md\` with project description.
+3. Add \`loom/\` folder to your project.
+4. Open any IDE and say: **"read loom"**.
+
+**For existing projects (2 steps):**
+1. Add \`loom/\` folder to your project.
+2. Open any IDE and say: **"read loom"**.
+
+---
+
+## 🛠️ Alternative Methods
+
+### One-Liner Install
 \`\`\`bash
-git clone https://github.com/otto78/loom-framework.git
-cd loom-framework
+curl -fsSL https://raw.githubusercontent.com/otto78/loom-framework/main/install.sh | bash
 \`\`\`
 
----
-
-## Setup Your Project
-
-### Method 1: Natural Language (Recommended)
-
-Tell your AI agent:
-
-\`\`\`
-"setup loom framework"
-\`\`\`
-
-### Method 2: Interactive Wizard
-
+### Interactive Wizard
 \`\`\`bash
-cd /path/to/your-project
-python /path/to/loom-framework/loom/scripts/setup.py
-\`\`\`
-
-The wizard will detect your languages, frameworks, and IDEs automatically.
-
-### Method 3: Automated
-
-\`\`\`bash
-python loom/scripts/setup.py --auto --project-name "MyProject" --ide windsurf,cursor
+python loom/scripts/setup.py
 \`\`\`
 
 ---
 
-## Your First Task
+## 📋 Your First Task
 
-\`\`\`bash
-python loom/scripts/task.py start TASK-001 "Implement user login"
+Just tell your AI agent:
+\`\`\`
+"start task TASK-001 'implement feature X'"
 \`\`\`
 
-Or tell your AI agent:
-
-\`\`\`
-"start task TASK-001 'implement user login'"
-\`\`\`
+Loom will automatically update \`docs/TASKS.md\` and prepare your environment.
 
 ---
 
-## Daily Workflow
-
-\`\`\`bash
-python loom/scripts/task.py list
-python loom/scripts/task.py start TASK-042 "Fix login bug"
-python loom/scripts/task.py complete TASK-042 "Bug fixed" --bump patch
-\`\`\`
-
-Or with natural language:
-
-\`\`\`
-"list tasks"
-"start task TASK-042 'fix login bug'"
-"complete task TASK-042"
-\`\`\`
-
----
-
-## Key Files After Setup
-
-- **\`AGENT.md\`** — Source of truth for your project
-- **\`docs/TASKS.md\`** — Active tasks
-- **\`docs/BACKLOG.md\`** — Future ideas
-- **\`docs/STORY.md\`** — Project history
-- **IDE config files** — \`.windsurfrules\`, \`.cursorrules\`, etc.
-
----
-
-**Time to setup**: ~5 minutes | **Time to first task**: ~2 minutes`,
+**Time to setup**: ~10 seconds | **Time to first task**: ~1 minute`,
   contentIt:`# Avvio Rapido
 
-Inizia con Loom in 5 minuti!
+Inizia con Loom in pochi minuti!
 
 ---
 
-## Installazione
+## 🚀 Metodo 1: Zero-Friction (Più Semplice)
 
+**Per nuovi progetti (4 step):**
+1. Crea cartella progetto.
+2. Crea \`PROJECT.md\` con descrizione progetto.
+3. Aggiungi cartella \`loom/\` al progetto.
+4. Apri qualsiasi IDE e di': **"leggi loom"**.
+
+**Per progetti esistenti (2 step):**
+1. Aggiungi cartella \`loom/\` al progetto.
+2. Apri qualsiasi IDE e di': **"leggi loom"**.
+
+---
+
+## 🛠️ Metodi Alternativi
+
+### Installer One-Liner
 \`\`\`bash
-git clone https://github.com/otto78/loom-framework.git
-cd loom-framework
+curl -fsSL https://raw.githubusercontent.com/otto78/loom-framework/main/install.sh | bash
 \`\`\`
 
----
-
-## Configura il Tuo Progetto
-
-### Metodo 1: Linguaggio Naturale (Consigliato)
-
-Di' al tuo agente AI:
-
-\`\`\`
-"configura loom framework"
-\`\`\`
-
-### Metodo 2: Wizard Interattivo
-
+### Wizard Interattivo
 \`\`\`bash
-cd /percorso/al/tuo-progetto
-python /percorso/a/loom-framework/loom/scripts/setup.py
-\`\`\`
-
-Il wizard rileverà automaticamente linguaggi, framework e IDE.
-
-### Metodo 3: Automatico
-
-\`\`\`bash
-python loom/scripts/setup.py --auto --project-name "MioProgetto" --ide windsurf,cursor
+python loom/scripts/setup.py
 \`\`\`
 
 ---
 
-## Il Tuo Primo Task
+## 📋 Il Tuo Primo Task
 
-\`\`\`bash
-python loom/scripts/task.py start TASK-001 "Implementa login utente"
+Di' semplicemente al tuo agente:
+\`\`\`
+"avvia task TASK-001 'implementa feature X'"
 \`\`\`
 
-Oppure di' al tuo agente AI:
-
-\`\`\`
-"avvia task TASK-001 'implementa login utente'"
-\`\`\`
+Loom aggiornerà automaticamente \`docs/TASKS.md\` e preparerà l'ambiente.
 
 ---
 
-## Workflow Quotidiano
-
-\`\`\`bash
-python loom/scripts/task.py list
-python loom/scripts/task.py start TASK-042 "Correggi bug login"
-python loom/scripts/task.py complete TASK-042 "Bug corretto" --bump patch
-\`\`\`
-
-Oppure con linguaggio naturale:
-
-\`\`\`
-"mostra i task"
-"avvia task TASK-042 'correggi bug login'"
-"completa task TASK-042"
-\`\`\`
-
----
-
-## File Chiave Dopo il Setup
-
-- **\`AGENT.md\`** — Fonte di verità per il tuo progetto
-- **\`docs/TASKS.md\`** — Task attivi
-- **\`docs/BACKLOG.md\`** — Idee future
-- **\`docs/STORY.md\`** — Storia del progetto
-- **File config IDE** — \`.windsurfrules\`, \`.cursorrules\`, ecc.
-
----
-
-**Tempo setup**: ~5 minuti | **Tempo primo task**: ~2 minuti`
+**Tempo setup**: ~10 secondi | **Tempo primo task**: ~1 minuto`
 },
 {
   id:'natural-lang',icon:'&#128172;',labelEn:'Natural Language Guide',labelIt:'Guida Linguaggio Naturale',file:'NATURAL-LANGUAGE-GUIDE.md',

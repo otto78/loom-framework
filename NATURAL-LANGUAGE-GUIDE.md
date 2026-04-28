@@ -1,80 +1,62 @@
-# Natural Language Guide — Usa il Framework Parlando
+# Natural Language Guide — Usa il Framework Loom
 
 > Non serve lanciare script Python manualmente. Basta parlare con il tuo agente AI!
 
 ---
 
-## 🎯 Idea Principale
+## 🎯 Idea Principale: Zero Setup Friction
 
 **Ogni IDE moderno ha già un agente AI integrato.**
 
 Invece di fare:
 ```bash
-python agentic-framework/scripts/setup.py
+python loom/scripts/setup.py
 ```
 
 Basta dire:
 ```
-"setup agentic framework"
+"read loom"
 ```
 
-L'agente capisce e esegue automaticamente lo script!
+Loom si auto-configura leggendo i suoi file e il tuo `PROJECT.md`. L'agente capisce e esegue tutto automaticamente!
 
 ---
 
-## 🚀 Setup Iniziale
+## 🚀 Setup Iniziale "Zero-Friction"
 
-### Dici all'agente:
+### Dici all'agente (Qualsiasi lingua):
 
+**English:**
 ```
-"setup agentic framework"
+"read loom"
+"configure loom"
+"use loom"
 ```
 
-oppure:
-
+**Italiano:**
 ```
-"configura il framework agentico"
+"leggi loom"
+"configura loom"
+"usa loom"
+"installa loom"
 ```
 
 ### L'agente fa:
 
-1. **Rileva il progetto:**
+1. **Rileva il contesto:** Legge `loom/` e cerca `PROJECT.md` o `PROGETTO.md`.
+2. **Si auto-configura:** Inizializza `AGENT.md`, le regole dell'IDE e la struttura task.
+3. **Ti dà il via:**
    ```
-   I detected:
-   - Project: MyProject
-   - Languages: Python, JavaScript
-   - Frameworks: FastAPI, React
-   - IDEs in use: Cursor, VS Code
+   ✅ Loom configured!
    
-   Do you want me to setup Agentic Framework?
-   ```
-
-2. **Tu confermi:**
-   ```
-   "yes"
-   ```
-
-3. **L'agente esegue setup:**
-   ```bash
-   python agentic-framework/scripts/setup.py --auto
-   ```
-
-4. **L'agente ti dice:**
-   ```
-   ✅ Setup complete!
+   Project: MyApp
+   Source of Truth: AGENT.md
+   Active Tasks: docs/TASKS.md
    
-   Created:
-   - AGENT.md (customize this)
-   - .cursorrules
-   - .clinerules
-   - docs/TASKS.md
-   - docs/BACKLOG.md
-   - docs/STORY.md
-   
-   Ready to use! Try: "start task TASK-001 'my first task'"
+   Ready to start! Try: "start task TASK-001 'my first feature'"
    ```
 
-**Tempo totale:** 30 secondi
+**Tempo totale:** 10 secondi
 
 ---
 
@@ -89,7 +71,7 @@ oppure:
 
 **L'agente esegue:**
 ```bash
-python scripts/task.py start TASK-001 "implement user authentication"
+python loom/scripts/task.py start TASK-001 "implement user authentication"
 ```
 
 **L'agente risponde:**
@@ -108,23 +90,12 @@ This is a critical feature. Would you like to use TDD workflow?
 **Tu dici:**
 ```
 "list tasks"
-```
-
-oppure:
-
-```
-"show me active tasks"
-```
-
-oppure:
-
-```
-"what am I working on?"
+"mostra i task"
 ```
 
 **L'agente esegue:**
 ```bash
-python scripts/task.py list
+python loom/scripts/task.py list
 ```
 
 **L'agente risponde:**
@@ -146,17 +117,12 @@ python scripts/task.py list
 **Tu dici:**
 ```
 "complete task TASK-001"
-```
-
-oppure:
-
-```
-"finish task TASK-001"
+"completa task TASK-001"
 ```
 
 **L'agente esegue:**
 ```bash
-python scripts/task.py complete TASK-001 "task completed" --bump patch
+python loom/scripts/task.py complete TASK-001 "task completed" --bump patch
 ```
 
 **L'agente risponde:**
@@ -177,17 +143,12 @@ Version bumped: v1.0.0 → v1.0.1
 **Tu dici:**
 ```
 "start TDD task TASK-001 'add email validation'"
-```
-
-oppure:
-
-```
-"create task with TDD for email validation"
+"avvia task TDD TASK-001 'aggiungi validazione email'"
 ```
 
 **L'agente esegue:**
 ```bash
-python scripts/task-tdd.py start TASK-001 "add email validation"
+python loom/scripts/task-tdd.py start TASK-001 "add email validation"
 ```
 
 **L'agente risponde:**
@@ -213,17 +174,12 @@ Next steps:
 **Tu dici:**
 ```
 "run tests"
-```
-
-oppure:
-
-```
-"execute tests"
+"esegui i test"
 ```
 
 **L'agente esegue:**
 ```bash
-python scripts/task-tdd.py test
+python loom/scripts/task-tdd.py test
 ```
 
 **L'agente risponde:**
@@ -254,7 +210,7 @@ Next: Implement the feature to make tests pass
 
 **L'agente esegue:**
 ```bash
-python scripts/task-tdd.py complete TASK-001
+python loom/scripts/task-tdd.py complete TASK-001
 ```
 
 **L'agente risponde:**
@@ -280,15 +236,9 @@ python scripts/task-tdd.py complete TASK-001
 "sync configs"
 ```
 
-oppure:
-
-```
-"update IDE configurations"
-```
-
 **L'agente esegue:**
 ```bash
-bash scripts/sync-configs.sh
+bash loom/scripts/sync-configs.sh
 ```
 
 **L'agente risponde:**
@@ -308,17 +258,17 @@ Syncing IDE configurations...
 ### Esempio 1: Setup e Primo Task
 
 ```
-Tu: "setup agentic framework"
+Tu: "read loom"
 
 Agente: "I detected:
 - Project: MyApp
 - Languages: Python
 - Frameworks: FastAPI
-Do you want me to setup Agentic Framework?"
+Do you want me to setup Loom?"
 
 Tu: "yes"
 
-Agente: "✅ Setup complete! Created AGENT.md, .cursorrules, docs/TASKS.md
+Agente: "✅ Loom configured! Created AGENT.md, .cursorrules, docs/TASKS.md
 Ready to use!"
 
 Tu: "start task TASK-001 'implement login'"
@@ -386,85 +336,28 @@ Agente: "🧪 TDD workflow started!"
 
 ---
 
-## 🎨 Comandi Supportati per IDE
-
-### Windsurf
-```
-"setup agentic framework"
-"start task TASK-001 'description'"
-"list tasks"
-"complete task TASK-001"
-"start TDD task TASK-001 'description'"
-"run tests"
-"sync configs"
-```
-
-### Cursor
-```
-"setup agentic framework"
-"start task TASK-001 'description'"
-"list tasks"
-"complete task TASK-001"
-"start TDD task TASK-001 'description'"
-"run tests"
-"sync configs"
-```
-
-### Claude Code
-```
-"setup agentic framework"
-"start task TASK-001 'description'"
-"list tasks"
-"complete task TASK-001"
-"start TDD task TASK-001 'description'"
-"run tests"
-"sync configs"
-```
-
-### VS Code (Cline)
-```
-"setup agentic framework"
-"start task TASK-001 'description'"
-"list tasks"
-"complete task TASK-001"
-"start TDD task TASK-001 'description'"
-"run tests"
-"sync configs"
-```
-
-### IntelliJ IDEA
-```
-"setup agentic framework"
-"start task TASK-001 'description'"
-"list tasks"
-"complete task TASK-001"
-"start TDD task TASK-001 'description'"
-"run tests"
-"sync configs"
-```
-
----
-
 ## 🌍 Supporto Multilingua
+
+Loom è progettato per essere agnostico rispetto alla lingua. Puoi parlare con l'agente come preferisci:
 
 ### Italiano
 ```
+"leggi loom"
 "configura il framework"
 "avvia task TASK-001 'descrizione'"
 "mostra i task"
 "completa task TASK-001"
-"avvia task TDD TASK-001 'descrizione'"
 "esegui i test"
 "sincronizza configurazioni"
 ```
 
 ### English
 ```
+"read loom"
 "setup the framework"
 "start task TASK-001 'description'"
 "show tasks"
 "complete task TASK-001"
-"start TDD task TASK-001 'description'"
 "run tests"
 "sync configurations"
 ```

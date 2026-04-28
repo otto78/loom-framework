@@ -6,28 +6,43 @@
 
 ## 🇬🇧 English
 
-### The Problem
+## ❌ The Problem: The Triple Crisis of AI Development
 
-AI-assisted development faces three critical challenges:
+```mermaid
+graph TD
+    A[Token Waste] --> D[High Costs]
+    B[Context Reset] --> E[Memory Loss]
+    C[Multi-Agent Chaos] --> F[Inconsistent Work]
+    D --> G[Project Decay]
+    E --> G
+    F --> G
+```
 
-1. **Context Window Limitations**
-   - Agents lose memory when context resets
-   - Long conversations hit token limits
-   - Critical project knowledge gets forgotten
+### 1. Context Window Limitations
+AI agents suffer from "short-term memory." As a conversation grows, the agent begins to lose track of early project decisions, resulting in hallucinations or conflicting code.
 
-2. **Multi-Agent Chaos**
-   - Switching between IDEs loses context
-   - Different agents can't share state
-   - Handoffs between sessions fail
-   - Team collaboration becomes fragmented
+### 2. Multi-Agent & Multi-IDE Chaos
+The mental model of the AI is trapped inside a single chat thread. When a developer switches from **Windsurf** to **Cursor**, or from **Claude Code** to **Copilot**, the new agent starts with zero project context. This lack of continuity forces the developer to re-explain everything.
 
-3. **Token Waste & Probabilistic Failures**
-   - Agents repeat the same prompts over and over
-   - 90% accuracy per step = 35% success over 10 steps
-   - Complex tasks chain failures exponentially
-   - No learning between sessions
+### 3. Token Waste & Probabilistic Failures
+In complex tasks, a 90% success rate per step sounds good, but over a 10-step sequence, the probability of success drops to ~35% ($0.9^{10}$). Without deterministic guidance, agents iterate blindly, wasting thousands of tokens on failed attempts.
 
-### The Solution: Loom Framework
+---
+
+## ✅ The Solution: The Loom Framework
+
+Loom provides a structured, file-based memory that stays with your project.
+
+```mermaid
+sequenceDiagram
+    participant U as User
+    participant A as AI Agent
+    participant L as Loom Framework
+    U->>A: "read loom"
+    A->>L: Discover PROJECT.md
+    L->>A: Load Directives & State
+    A->>U: "I'm ready. TASK-001 active."
+```
 
 Loom solves these problems through **persistent file-based memory** and a **deterministic 3-level architecture**:
 
@@ -93,28 +108,43 @@ That's it. Loom auto-configures everything.
 
 ## 🇮🇹 Italiano
 
-### Il Problema
+## ❌ Il Problema: La Tripla Crisi dello Sviluppo AI
 
-Lo sviluppo assistito da AI affronta tre sfide critiche:
+```mermaid
+graph TD
+    A[Spreco Token] --> D[Costi Elevati]
+    B[Reset Contesto] --> E[Perdita Memoria]
+    C[Caos Multi-Agente] --> F[Lavoro Inconsistente]
+    D --> G[Decadimento Progetto]
+    E --> G
+    F --> G
+```
 
-1. **Limiti della Finestra di Contesto**
-   - Gli agenti perdono la memoria quando il contesto si resetta
-   - Le conversazioni lunghe raggiungono i limiti di token
-   - La conoscenza critica del progetto viene dimenticata
+### 1. Limiti della Context Window
+Gli agenti AI soffrono di "memoria a breve termine". Man mano che una conversazione cresce, l'agente inizia a perdere traccia delle decisioni iniziali, producendo allucinazioni o codice conflittuale.
 
-2. **Caos Multi-Agente**
-   - Cambiare IDE perde il contesto
-   - Agenti diversi non possono condividere lo stato
-   - I passaggi tra sessioni falliscono
-   - La collaborazione di team diventa frammentata
+### 2. Caos Multi-Agente & Multi-IDE
+Il modello mentale dell'AI è intrappolato in un singolo thread di chat. Quando uno sviluppatore passa da **Windsurf** a **Cursor**, o da **Claude Code** a **Copilot**, il nuovo agente parte da zero. Questa mancanza di continuità costringe lo sviluppatore a rispiegare tutto ogni volta.
 
-3. **Spreco di Token & Fallimenti Probabilistici**
-   - Gli agenti ripetono gli stessi prompt continuamente
-   - 90% di accuratezza per step = 35% di successo su 10 step
-   - Task complessi accumulano fallimenti esponenzialmente
-   - Nessun apprendimento tra sessioni
+### 3. Spreco di Token e Fallimenti Probabilistici
+In compiti complessi, un tasso di successo del 90% per step sembra buono, ma su una sequenza di 10 step, la probabilità di successo scende al ~35% ($0.9^{10}$). Senza una guida deterministica, gli agenti iterano alla cieca, sprecando migliaia di token in tentativi falliti.
 
-### La Soluzione: Loom Framework
+---
+
+## ✅ La Soluzione: Loom Framework
+
+Loom fornisce una memoria strutturata basata su file che rimane con il tuo progetto.
+
+```mermaid
+sequenceDiagram
+    participant U as Utente
+    participant A as Agente AI
+    participant L as Loom Framework
+    U->>A: "leggi loom"
+    A->>L: Scopre PROJECT.md
+    L->>A: Carica Direttive e Stato
+    A->>U: "Sono pronto. TASK-001 attivo."
+```
 
 Loom risolve questi problemi attraverso **memoria persistente basata su file** e un'**architettura deterministica a 3 livelli**:
 

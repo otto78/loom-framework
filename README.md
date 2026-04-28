@@ -14,28 +14,38 @@ A complete operational framework for AI-powered development across multiple IDEs
 
 ## ❌ The Problem
 
-AI-assisted development faces critical challenges:
+Current AI-assisted development is hindered by:
 
-### 1. Context Window Limitations
-- Agents **lose memory** when context resets
-- Long conversations **hit token limits**
-- Critical project knowledge **gets forgotten**
+```mermaid
+graph TD
+    A[Token Waste] --> D[High Costs]
+    B[Context Reset] --> E[Memory Loss]
+    C[Multi-Agent Chaos] --> F[Inconsistent Work]
+    D --> G[Project Decay]
+    E --> G
+    F --> G
+```
 
-### 2. Multi-Agent Chaos
-- Switching IDEs **loses context**
-- Different agents **can't share state**
-- Handoffs between sessions **fail**
-
-### 3. Token Waste & Probabilistic Failures
-- Agents **repeat prompts** over and over
-- **90% accuracy per step = 35% success over 10 steps**
-- Complex tasks **chain failures** exponentially
+1.  **Context Window Limitations**: Agents "forget" project context when history gets too long.
+2.  **Multi-Agent Fragmentation**: Moving from Windsurf to Cursor or Claude Code resets the agent's mental model.
+3.  **Token Waste**: Re-explaining the project in every prompt consumes thousands of tokens.
 
 ---
 
-## ✅ The Solution: Loom Framework
+## ✅ The Solution: Persistent File-Based Memory
 
-Loom solves these through **persistent file-based memory** and **deterministic architecture**:
+Loom provides a structured, file-based memory that stays with your project.
+
+```mermaid
+sequenceDiagram
+    participant U as User
+    participant A as AI Agent
+    participant L as Loom Framework
+    U->>A: "read loom"
+    A->>L: Discover PROJECT.md
+    L->>A: Load Directives & State
+    A->>U: "I'm ready. TASK-001 active."
+```
 
 - 🧠 **Persistent Memory** — TASKS.md, STORY.md survive context resets
 - 🔄 **Multi-Agent Support** — Same state across 7 IDEs
