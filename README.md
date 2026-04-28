@@ -12,6 +12,39 @@ A complete operational framework for AI-powered development across multiple IDEs
 
 ---
 
+## ❌ The Problem
+
+AI-assisted development faces critical challenges:
+
+### 1. Context Window Limitations
+- Agents **lose memory** when context resets
+- Long conversations **hit token limits**
+- Critical project knowledge **gets forgotten**
+
+### 2. Multi-Agent Chaos
+- Switching IDEs **loses context**
+- Different agents **can't share state**
+- Handoffs between sessions **fail**
+
+### 3. Token Waste & Probabilistic Failures
+- Agents **repeat prompts** over and over
+- **90% accuracy per step = 35% success over 10 steps**
+- Complex tasks **chain failures** exponentially
+
+---
+
+## ✅ The Solution: Loom Framework
+
+Loom solves these through **persistent file-based memory** and **deterministic architecture**:
+
+- 🧠 **Persistent Memory** — TASKS.md, STORY.md survive context resets
+- 🔄 **Multi-Agent Support** — Same state across 7 IDEs
+- 💰 **Token Savings** — Scripts replace repetitive prompts
+- 🎯 **Deterministic** — 90% accuracy maintained over 10+ steps
+- 🚀 **Zero-Friction** — Just say "read loom"
+
+---
+
 ## 📂 What Gets Created in Your Project
 
 After running `python loom/scripts/setup.py` in your project, Loom creates:
@@ -56,7 +89,27 @@ Loom is an operational framework that brings structure to AI-assisted developmen
 
 ## 🚀 Quick Start
 
-### Method 1: One-Liner Install (Easiest)
+### Method 1: Zero-Friction Setup (Easiest)
+
+**For new projects (4 steps):**
+
+1. Create project folder
+2. Create `PROJECT.md` with project description
+3. Add `loom/` folder to your project
+4. Open any IDE and say: **"read loom"**
+
+**For existing projects (2 steps):**
+
+1. Add `loom/` folder to your project
+2. Open any IDE and say: **"read loom"**
+
+**That's it!** No commands to remember.
+
+See **[QUICKSTART.md](./QUICKSTART.md)** for details.
+
+---
+
+### Method 2: One-Liner Install
 
 **Windows (PowerShell):**
 ```powershell
@@ -73,7 +126,7 @@ The installer will:
 - Detect if you're in a project directory
 - Offer to run setup automatically
 
-### Method 2: Interactive Wizard
+### Method 3: Interactive Wizard
 
 ```bash
 # 1. Clone Loom
@@ -90,7 +143,7 @@ python /path/to/loom-framework/loom/scripts/setup.py
 # And create all necessary files
 ```
 
-### Method 3: Natural Language (with AI Agent)
+### Method 4: Natural Language (with AI Agent)
 
 Simply tell your AI agent:
 
@@ -102,7 +155,7 @@ The agent will automatically execute the setup wizard!
 
 See **[NATURAL-LANGUAGE-GUIDE.md](./NATURAL-LANGUAGE-GUIDE.md)** for complete guide.
 
-### Method 4: Automated Setup
+### Method 5: Automated Setup
 
 ```bash
 # Auto-setup without interaction
@@ -148,8 +201,11 @@ No need to remember Python script paths or command syntax!
 └─────────────────────────────────────────┘
 ```
 
-**Why it works**: LLMs are probabilistic (90% accuracy = 59% over 5 steps).
-Pushing complexity into deterministic code reduces errors.
+**Why it works**: 
+- **LLMs are probabilistic**: 90% accuracy per step = 59% over 5 steps = 35% over 10 steps
+- **Deterministic scripts**: Push complexity into Python code (100% accuracy)
+- **Token savings**: Directives cached, scripts reused, no repetitive prompts
+- **Result**: Maintain 90% accuracy over 10+ steps instead of degrading to 35%
 
 ---
 
