@@ -1,0 +1,98 @@
+name: Release LOOM ZIP
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'  # Trigger on version tags like v1.0.0
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: Extract version from tag
+        id: version
+        run: |
+          VERSION=${GITHUB_REF#refs/tags/v}
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "📦 Building LOOM v$VERSION"
+      
+      - name: Build LOOM ZIP
+        run: |
+          python loom/scripts/build-zip.py --version ${{ steps.version.outputs.version }}
+      
+      - name: Verify ZIP contents
+        run: |
+          ZIP_FILE="loom-framework-${{ steps.version.outputs.version }}.zip"
+          if [ -f "$ZIP_FILE" ]; then
+            echo "✅ ZIP created successfully: $ZIP_FILE"
+            unzip -l "$ZIP_FILE" | head -20
+          else
+            echo "❌ ZIP file not found!"
+            exit 1
+          fi
+      
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v${{ steps.version.outputs.version }}
+          name: LOOM ${{ steps.version.outputs.version }}
+          body: |
+            # LOOM Framework v${{ steps.version.outputs.version }}
+            
+            ## What's Included
+            - ✅ LOOM framework (`loom/` folder)
+            - ✅ Documentation and guides
+            - ✅ IDE configurations (7 IDEs supported)
+            - ✅ Templates for PROJECT.md, TASKS.md, STORY.md, HANDOFF.md
+            - ✅ Setup instructions and quick start guide
+            
+            ## How to Use
+            
+            1. **Download** `loom-framework-${{ steps.version.outputs.version }}.zip`
+            2. **Extract** to your project folder
+            3. **Create** `PROJECT.md` with your project details (see template in ZIP)
+            4. **Tell your agent**: `"read loom"` or `"leggi loom"`
+            5. **Done!** LOOM auto-configures everything
+            
+            ## Documentation
+            - See `QUICKSTART.md` for 5-minute setup
+            - See `docs/PROJECT-MD-GUIDE.md` for project context guide
+            - See `README.md` for complete documentation
+            - See `SETUP-INSTRUCTIONS.md` for AI agent setup
+            
+            ## Supported IDEs
+            - Windsurf
+            - Cursor
+            - Claude Code
+            - VS Code
+            - IntelliJ IDEA
+            - Antigravity
+            - VS Code Insider
+            
+            ---
+            
+            For more information, visit: https://github.com/otto78/loom
+          draft: false
+          prerelease: false
+          files: |
+            loom-framework-${{ steps.version.outputs.version }}.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Upload ZIP to Release
+        if: success()
+        run: |
+          echo "✅ LOOM v${{ steps.version.outputs.version }} released successfully!"
+          echo "📥 Download: https://github.com/${{ github.repository }}/releases/download/v${{ steps.version.outputs.version }}/loom-framework-${{ steps.version.outputs.version }}.zip"
