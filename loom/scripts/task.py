@@ -1,6 +1,6 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """
-Task Workflow Manager - Agentic Framework v1.0
+Task Workflow Manager - Loom Framework v1.0
 
 Gestisce il ciclo completo di un task: start → develop → complete → handoff
 con aggiornamento automatico di TASKS.md, STORY.md, CHANGELOG.md e versioning.

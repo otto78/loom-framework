@@ -1,4 +1,4 @@
-# init-project.ps1 - Initialize new project with Agentic Framework
+﻿# init-project.ps1 - Initialize new project with Loom Framework
 #
 # Usage:
 #   .\init-project.ps1 -ProjectName "MyProject"

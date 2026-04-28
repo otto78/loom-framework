@@ -1,4 +1,4 @@
-# IntelliJ IDEA / JetBrains IDEs — Agentic Framework
+﻿# IntelliJ IDEA / JetBrains IDEs — Loom Framework
 
 > Leggi sempre `AGENT.md` all'inizio di ogni sessione.
 > Questo file contiene solo istruzioni specifiche per IntelliJ IDEA e altri IDE JetBrains.
@@ -171,4 +171,4 @@ python scripts/task.py complete TASK-001 "..." --no-push
 ---
 
 **Versione:** 1.0.0  
-**Framework:** Agentic Framework v1.0
+**Framework:** Loom Framework v1.0

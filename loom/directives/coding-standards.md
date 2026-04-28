@@ -1,4 +1,4 @@
-﻿# Coding Standards — Agentic Framework
+﻿# Coding Standards — Loom Framework
 
 > Letto da tutti gli agenti AI prima di scrivere qualsiasi codice.
 > Questi standard si applicano a tutto il codebase.
@@ -40,4 +40,4 @@ Per il contenuto completo, vedi: [framework/coding-standards.md](../framework/co
 **Per dettagli completi, vedi:** [framework/coding-standards.md](../framework/coding-standards.md)
 
 **Versione:** 1.0.0  
-**Framework:** Agentic Framework v1.0
+**Framework:** Loom Framework v1.0

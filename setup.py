@@ -20,7 +20,7 @@ setup(
     long_description_content_type="text/markdown",
     url="https://github.com/otto78/loom-framework",
     project_urls={
-        "Documentation": "https://loom-framework.dev",
+        "Documentation": "https://otto78.github.io/loom-framework",
         "Source": "https://github.com/otto78/loom-framework",
         "Issues": "https://github.com/otto78/loom-framework/issues",
     },

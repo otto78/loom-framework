@@ -58,7 +58,7 @@ La soluzione è spingere la complessità in codice deterministico. L'agente si c
 
 ### Livello 1 — Direttiva (Cosa fare)
 
-- SOP scritte in Markdown, vivono in `directives/`
+- SOP scritte in Markdown, vivono in `loom/directives/`
 - Definiscono obiettivi, input, tool/script da usare, output e casi limite
 - Istruzioni in linguaggio naturale, come le daresti a un collaboratore di medio livello
 - Esempi: `directives/feature-x.md`, `directives/api-integration.md`
@@ -72,7 +72,7 @@ La soluzione è spingere la complessità in codice deterministico. L'agente si c
 
 ### Livello 3 — Esecuzione (Fare il lavoro)
 
-- Script Python/Node/Rust deterministici in `execution/`
+- Script Python/Node/Rust deterministici in `loom/execution/`
 - Variabili d'ambiente e token API salvati in `.env`
 - Gestiscono chiamate API, elaborazione dati, interazioni con database
 - Affidabili, testabili, veloci. Sempre ben commentati.
@@ -145,13 +145,13 @@ Leggi sempre `docs/TASKS.md` all'inizio di ogni sessione per capire lo stato att
 
 ```bash
 # Avvia task
-python scripts/task.py start TASK-001 "Descrizione"
+python loom/scripts/task.py start TASK-001 "Descrizione"
 
 # Completa task
-python scripts/task.py complete TASK-001 "Descrizione" --bump minor
+python loom/scripts/task.py complete TASK-001 "Descrizione" --bump minor
 
 # Lista task
-python scripts/task.py list
+python loom/scripts/task.py list
 ```
 
 ### 8. Commit e Push dopo ogni fix (default operativo)

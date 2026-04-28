@@ -1,5 +1,5 @@
-#!/bin/bash
-# init-project.sh - Initialize new project with Agentic Framework
+﻿#!/bin/bash
+# init-project.sh - Initialize new project with Loom Framework
 #
 # Usage:
 #   bash init-project.sh "ProjectName"

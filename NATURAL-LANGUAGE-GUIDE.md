@@ -1,39 +1,76 @@
-# Natural Language Guide — Usa il Framework Loom
+# Natural Language Guide — Loom Framework
+# Guida al Linguaggio Naturale — Loom Framework
 
-> Non serve lanciare script Python manualmente. Basta parlare con il tuo agente AI!
+> **EN** — No need to run Python scripts manually. Just talk to your AI agent!  
+> **IT** — Non serve lanciare script Python manualmente. Basta parlare con il tuo agente AI!
 
 ---
 
-## 🎯 Idea Principale: Zero Setup Friction
+## 🎯 Core Idea / Idea Principale
 
-**Ogni IDE moderno ha già un agente AI integrato.**
+**EN — Zero Setup Friction**
 
-Invece di fare:
+Every modern IDE already has a built-in AI agent. Instead of typing:
 ```bash
 python loom/scripts/setup.py
 ```
-
-Basta dire:
+Just say:
 ```
 "read loom"
 ```
-
-Loom si auto-configura leggendo i suoi file e il tuo `PROJECT.md`. L'agente capisce e esegue tutto automaticamente!
+Loom self-configures by reading its files and your `PROJECT.md`. The agent understands and executes everything automatically.
 
 ---
 
-## 🚀 Setup Iniziale "Zero-Friction"
+**IT — Setup Senza Attrito**
 
-### Dici all'agente (Qualsiasi lingua):
+Ogni IDE moderno ha già un agente AI integrato. Invece di fare:
+```bash
+python loom/scripts/setup.py
+```
+Basta dire:
+```
+"leggi loom"
+```
+Loom si auto-configura leggendo i suoi file e il tuo `PROJECT.md`. L'agente capisce ed esegue tutto automaticamente.
 
-**English:**
+---
+
+## 🚀 Initial Setup / Setup Iniziale
+
+### EN — Zero-Friction Setup
+
+Tell the agent (any language works):
+
 ```
 "read loom"
 "configure loom"
 "use loom"
+"setup loom"
 ```
 
-**Italiano:**
+The agent will:
+1. **Detect context** — reads `loom/` and looks for `PROJECT.md` or `PROGETTO.md`
+2. **Self-configure** — initializes `AGENT.md`, IDE rules, task structure
+3. **Report back**:
+   ```
+   ✅ Loom configured!
+
+   Project: MyApp
+   Source of Truth: AGENT.md
+   Active Tasks: docs/TASKS.md
+
+   Ready! Try: "start task TASK-001 'my first feature'"
+   ```
+
+**Total time**: ~10 seconds
+
+---
+
+### IT — Setup Zero-Friction
+
+Di' all'agente (funziona in qualsiasi lingua):
+
 ```
 "leggi loom"
 "configura loom"
@@ -41,40 +78,38 @@ Loom si auto-configura leggendo i suoi file e il tuo `PROJECT.md`. L'agente capi
 "installa loom"
 ```
 
-### L'agente fa:
-
-1. **Rileva il contesto:** Legge `loom/` e cerca `PROJECT.md` o `PROGETTO.md`.
-2. **Si auto-configura:** Inizializza `AGENT.md`, le regole dell'IDE e la struttura task.
-3. **Ti dà il via:**
+L'agente eseguirà:
+1. **Rileva il contesto** — legge `loom/` e cerca `PROJECT.md` o `PROGETTO.md`
+2. **Si auto-configura** — inizializza `AGENT.md`, le regole IDE e la struttura task
+3. **Ti dà il via**:
    ```
-   ✅ Loom configured!
-   
-   Project: MyApp
-   Source of Truth: AGENT.md
-   Active Tasks: docs/TASKS.md
-   
-   Ready to start! Try: "start task TASK-001 'my first feature'"
+   ✅ Loom configurato!
+
+   Progetto: MyApp
+   Fonte di verità: AGENT.md
+   Task attivi: docs/TASKS.md
+
+   Pronto! Prova: "avvia task TASK-001 'mia prima feature'"
    ```
 
-**Tempo totale:** 10 secondi
+**Tempo totale**: ~10 secondi
 
 ---
 
-## 📋 Gestione Task con Linguaggio Naturale
+## 📋 Task Management / Gestione Task
 
-### Avviare un Task
+### EN — Starting a Task
 
-**Tu dici:**
 ```
 "start task TASK-001 'implement user authentication'"
 ```
 
-**L'agente esegue:**
+Agent runs:
 ```bash
 python loom/scripts/task.py start TASK-001 "implement user authentication"
 ```
 
-**L'agente risponde:**
+Agent responds:
 ```
 ✅ Task TASK-001 started!
 Status: In Progress
@@ -83,49 +118,94 @@ Updated: docs/TASKS.md
 This is a critical feature. Would you like to use TDD workflow?
 ```
 
+### IT — Avviare un Task
+
+```
+"avvia task TASK-001 'implementa autenticazione utente'"
+```
+
+L'agente esegue:
+```bash
+python loom/scripts/task.py start TASK-001 "implementa autenticazione utente"
+```
+
+L'agente risponde:
+```
+✅ Task TASK-001 avviato!
+Stato: In corso
+Aggiornato: docs/TASKS.md
+
+È una feature critica. Vuoi usare il workflow TDD?
+```
+
 ---
 
-### Vedere Task Attivi
+### EN — Listing Active Tasks
 
-**Tu dici:**
 ```
 "list tasks"
-"mostra i task"
+"show tasks"
+"what tasks are active?"
 ```
 
-**L'agente esegue:**
+Agent runs:
 ```bash
 python loom/scripts/task.py list
 ```
 
-**L'agente risponde:**
+Agent responds:
 ```
 📋 Active tasks:
 
 🔄 TASK-001: Implement user authentication
    Status: In Progress
-   Started: 2025-01-15
+   Started: 2026-01-15
 
 ⏸️ TASK-002: Add email validation
    Status: Not Started
 ```
 
+### IT — Vedere Task Attivi
+
+```
+"mostra i task"
+"lista task"
+"quali task sono attivi?"
+```
+
+L'agente esegue:
+```bash
+python loom/scripts/task.py list
+```
+
+L'agente risponde:
+```
+📋 Task attivi:
+
+🔄 TASK-001: Implementa autenticazione utente
+   Stato: In corso
+   Avviato: 15/01/2026
+
+⏸️ TASK-002: Aggiungi validazione email
+   Stato: Non avviato
+```
+
 ---
 
-### Completare un Task
+### EN — Completing a Task
 
-**Tu dici:**
 ```
 "complete task TASK-001"
-"completa task TASK-001"
+"done with TASK-001"
+"finish task TASK-001"
 ```
 
-**L'agente esegue:**
+Agent runs:
 ```bash
 python loom/scripts/task.py complete TASK-001 "task completed" --bump patch
 ```
 
-**L'agente risponde:**
+Agent responds:
 ```
 ✅ Task TASK-001 completed!
 Updated: docs/TASKS.md, docs/STORY.md
@@ -134,24 +214,45 @@ Committed and pushed to git
 Version bumped: v1.0.0 → v1.0.1
 ```
 
+### IT — Completare un Task
+
+```
+"completa task TASK-001"
+"chiudi TASK-001"
+"finisci task TASK-001"
+```
+
+L'agente esegue:
+```bash
+python loom/scripts/task.py complete TASK-001 "task completato" --bump patch
+```
+
+L'agente risponde:
+```
+✅ Task TASK-001 completato!
+Aggiornato: docs/TASKS.md, docs/STORY.md
+Commit e push eseguiti
+
+Versione aggiornata: v1.0.0 → v1.0.1
+```
+
 ---
 
-## 🧪 TDD Workflow con Linguaggio Naturale
+## 🧪 TDD Workflow
 
-### Avviare Task TDD
+### EN — Starting a TDD Task
 
-**Tu dici:**
 ```
 "start TDD task TASK-001 'add email validation'"
-"avvia task TDD TASK-001 'aggiungi validazione email'"
+"use test-driven development for TASK-001"
 ```
 
-**L'agente esegue:**
+Agent runs:
 ```bash
 python loom/scripts/task-tdd.py start TASK-001 "add email validation"
 ```
 
-**L'agente risponde:**
+Agent responds:
 ```
 🧪 TDD workflow started!
 
@@ -167,216 +268,267 @@ Next steps:
 5. Tell me "complete task TASK-001"
 ```
 
+### IT — Avviare Task TDD
+
+```
+"avvia task TDD TASK-001 'aggiungi validazione email'"
+"usa test-driven development per TASK-001"
+```
+
+L'agente esegue:
+```bash
+python loom/scripts/task-tdd.py start TASK-001 "aggiungi validazione email"
+```
+
+L'agente risponde:
+```
+🧪 Workflow TDD avviato!
+
+Creato file test: tests/test_task_001.py
+
+🔴 Fase Red: Scrivi prima i test!
+
+Prossimi step:
+1. Scrivi i test in tests/test_task_001.py
+2. Di' "esegui i test" per verificare che falliscano
+3. Implementa la feature
+4. Di' "esegui i test" di nuovo
+5. Di' "completa task TASK-001"
+```
+
 ---
 
-### Eseguire Test
+### EN — Running Tests
 
-**Tu dici:**
 ```
 "run tests"
-"esegui i test"
+"execute tests"
+"check tests"
 ```
 
-**L'agente esegue:**
+Agent runs:
 ```bash
 python loom/scripts/task-tdd.py test
 ```
 
-**L'agente risponde:**
+**Red phase** (expected failures):
 ```
-🧪 Running tests...
-
-===== test session starts =====
-collected 3 items
-
-tests/test_task_001.py FFF
-
-===== FAILURES =====
-...
-
-❌ Tests failed! (Red phase - expected)
-
-Next: Implement the feature to make tests pass
+❌ Tests failed! (Red phase — expected)
+3 tests failed. Implement the feature to make them pass.
 ```
 
----
-
-### Completare Task TDD
-
-**Tu dici:**
+**Green phase** (after implementation):
 ```
-"complete task TASK-001"
+✅ All 3 tests passed! (Green phase)
+Ready to complete task.
 ```
 
-**L'agente esegue:**
+### IT — Eseguire i Test
+
+```
+"esegui i test"
+"lancia i test"
+"controlla i test"
+```
+
+L'agente esegue:
 ```bash
-python loom/scripts/task-tdd.py complete TASK-001
+python loom/scripts/task-tdd.py test
 ```
 
-**L'agente risponde:**
+**Fase Red** (fallimenti attesi):
 ```
-🧪 Running final tests...
+❌ Test falliti! (Fase Red — atteso)
+3 test falliti. Implementa la feature per farli passare.
+```
 
-===== 3 passed in 0.12s =====
-
-✅ All tests passed!
-
-🎉 Task TASK-001 completed with TDD workflow!
-   All tests passing ✅
+**Fase Green** (dopo l'implementazione):
+```
+✅ 3 test passati! (Fase Green)
+Pronto per completare il task.
 ```
 
 ---
 
-## 🔄 Sincronizzazione Configurazioni
+## 🔄 Sync & Status / Sincronizzazione e Stato
 
-### Dopo Modifica AGENT.md
+### EN — Syncing IDE Configurations
 
-**Tu dici:**
+After editing `AGENT.md` directly:
+
 ```
 "sync configs"
+"sync IDE configs"
 ```
 
-**L'agente esegue:**
+Agent runs:
 ```bash
 bash loom/scripts/sync-configs.sh
 ```
 
-**L'agente risponde:**
 ```
-Syncing IDE configurations...
-
-✅ .windsurfrules is in sync
-⚠️  .cursorrules is out of sync
+✅ .windsurfrules — in sync
+⚠️  .cursorrules — out of sync
 ✅ Updated .cursorrules
-✅ All configurations synced!
+✅ All 7 configurations synced!
 ```
 
----
+### IT — Sincronizzare le Configurazioni IDE
 
-## 💬 Esempi di Conversazioni Complete
-
-### Esempio 1: Setup e Primo Task
+Dopo aver modificato `AGENT.md` direttamente:
 
 ```
-Tu: "read loom"
-
-Agente: "I detected:
-- Project: MyApp
-- Languages: Python
-- Frameworks: FastAPI
-Do you want me to setup Loom?"
-
-Tu: "yes"
-
-Agente: "✅ Loom configured! Created AGENT.md, .cursorrules, docs/TASKS.md
-Ready to use!"
-
-Tu: "start task TASK-001 'implement login'"
-
-Agente: "✅ Task TASK-001 started!
-This is a critical feature. Use TDD workflow?"
-
-Tu: "yes"
-
-Agente: "🧪 TDD workflow started!
-Created tests/test_task_001.py
-Write tests first (Red phase)"
-
-Tu: [scrivi test]
-
-Tu: "run tests"
-
-Agente: "❌ Tests failed (expected - Red phase)
-Now implement the feature"
-
-Tu: [implementi feature]
-
-Tu: "run tests"
-
-Agente: "✅ All tests passed! (Green phase)
-Ready to complete?"
-
-Tu: "complete task TASK-001"
-
-Agente: "🎉 Task completed with TDD!
-All tests passing ✅"
+"sincronizza le configurazioni"
+"sync configs"
 ```
 
----
-
-### Esempio 2: Workflow Quotidiano
-
-```
-Tu: "list tasks"
-
-Agente: "📋 Active tasks:
-🔄 TASK-042: Fix login timeout
-⏸️ TASK-043: Add password reset"
-
-Tu: "start task TASK-042 'fix login timeout'"
-
-Agente: "✅ Task TASK-042 started!"
-
-Tu: [lavori sul fix]
-
-Tu: "complete task TASK-042"
-
-Agente: "✅ Task completed!
-Version bumped: v1.2.3 → v1.2.4"
-
-Tu: "start task TASK-043 'add password reset'"
-
-Agente: "✅ Task TASK-043 started!
-Use TDD for this?"
-
-Tu: "yes"
-
-Agente: "🧪 TDD workflow started!"
-```
-
----
-
-## 🌍 Supporto Multilingua
-
-Loom è progettato per essere agnostico rispetto alla lingua. Puoi parlare con l'agente come preferisci:
-
-### Italiano
-```
-"leggi loom"
-"configura il framework"
-"avvia task TASK-001 'descrizione'"
-"mostra i task"
-"completa task TASK-001"
-"esegui i test"
-"sincronizza configurazioni"
-```
-
-### English
-```
-"read loom"
-"setup the framework"
-"start task TASK-001 'description'"
-"show tasks"
-"complete task TASK-001"
-"run tests"
-"sync configurations"
-```
-
----
-
-## ✅ Vantaggi
-
-### Prima (Manuale)
+L'agente esegue:
 ```bash
-# Devi ricordare i comandi
-cd /path/to/project
-python agentic-framework/scripts/setup.py
-python agentic-framework/scripts/task.py start TASK-001 "description"
-python agentic-framework/scripts/task.py list
-python agentic-framework/scripts/task.py complete TASK-001 "done" --bump patch
+bash loom/scripts/sync-configs.sh
 ```
 
-### Dopo (Naturale)
+```
+✅ .windsurfrules — sincronizzato
+⚠️  .cursorrules — non sincronizzato
+✅ Aggiornato .cursorrules
+✅ Tutte le 7 configurazioni sincronizzate!
+```
+
+---
+
+## 💬 Full Conversation Examples / Esempi di Conversazioni Complete
+
+### EN — Example 1: Setup and First Task
+
+```
+You:   "read loom"
+Agent: "Detected: Project MyApp, Python, FastAPI.
+        Setup Loom? (y/n)"
+You:   "yes"
+Agent: "✅ Loom configured! AGENT.md, .cursorrules, docs/TASKS.md created."
+
+You:   "start task TASK-001 'implement login'"
+Agent: "✅ TASK-001 started. Use TDD?"
+You:   "yes"
+Agent: "🧪 TDD started! Write tests in tests/test_task_001.py"
+
+You:   [write tests]
+You:   "run tests"
+Agent: "❌ Tests failed (Red phase — expected). Implement the feature."
+
+You:   [implement feature]
+You:   "run tests"
+Agent: "✅ All tests passed! (Green phase)"
+
+You:   "complete task TASK-001"
+Agent: "🎉 TASK-001 completed with TDD! All tests passing ✅"
+```
+
+### IT — Esempio 1: Setup e Primo Task
+
+```
+Tu:    "leggi loom"
+Agente:"Rilevato: Progetto MyApp, Python, FastAPI.
+        Configuro Loom? (s/n)"
+Tu:    "sì"
+Agente:"✅ Loom configurato! Creati AGENT.md, .cursorrules, docs/TASKS.md."
+
+Tu:    "avvia task TASK-001 'implementa login'"
+Agente:"✅ TASK-001 avviato. Uso TDD?"
+Tu:    "sì"
+Agente:"🧪 TDD avviato! Scrivi i test in tests/test_task_001.py"
+
+Tu:    [scrivi test]
+Tu:    "esegui i test"
+Agente:"❌ Test falliti (fase Red — atteso). Implementa la feature."
+
+Tu:    [implementi la feature]
+Tu:    "esegui i test"
+Agente:"✅ Tutti i test passati! (Fase Green)"
+
+Tu:    "completa task TASK-001"
+Agente:"🎉 TASK-001 completato con TDD! Tutti i test passano ✅"
+```
+
+---
+
+### EN — Example 2: Daily Workflow
+
+```
+You:   "list tasks"
+Agent: "📋 Active: TASK-042 (fix login timeout), TASK-043 (password reset)"
+
+You:   "start task TASK-042 'fix login timeout'"
+Agent: "✅ TASK-042 started!"
+
+You:   [work on fix]
+
+You:   "complete task TASK-042"
+Agent: "✅ Completed. Version bumped v1.2.3 → v1.2.4"
+
+You:   "start task TASK-043 'add password reset'"
+Agent: "✅ TASK-043 started. Use TDD?"
+You:   "yes"
+```
+
+### IT — Esempio 2: Workflow Quotidiano
+
+```
+Tu:    "mostra i task"
+Agente:"📋 Attivi: TASK-042 (fix timeout login), TASK-043 (reset password)"
+
+Tu:    "avvia task TASK-042 'fix timeout login'"
+Agente:"✅ TASK-042 avviato!"
+
+Tu:    [lavori sul fix]
+
+Tu:    "completa task TASK-042"
+Agente:"✅ Completato. Versione aggiornata v1.2.3 → v1.2.4"
+
+Tu:    "avvia task TASK-043 'aggiungi reset password'"
+Agente:"✅ TASK-043 avviato. Uso TDD?"
+Tu:    "sì"
+```
+
+---
+
+## 🌍 Command Reference / Riferimento Comandi
+
+### EN → IT Translation Table
+
+| English | Italiano |
+|---------|---------|
+| `"read loom"` | `"leggi loom"` |
+| `"configure loom"` | `"configura loom"` |
+| `"start task TASK-001 'desc'"` | `"avvia task TASK-001 'descrizione'"` |
+| `"list tasks"` | `"mostra i task"` / `"lista task"` |
+| `"complete task TASK-001"` | `"completa task TASK-001"` |
+| `"run tests"` | `"esegui i test"` |
+| `"sync configs"` | `"sincronizza configurazioni"` |
+| `"show backlog"` | `"mostra il backlog"` |
+| `"add to backlog: idea"` | `"aggiungi al backlog: idea"` |
+| `"create handoff: notes"` | `"crea handoff: note"` |
+| `"read handoff"` | `"leggi handoff"` |
+
+> **Works in any language** — The agent understands variations: "start task" = "create task" = "begin task"  
+> **Funziona in qualsiasi lingua** — L'agente capisce variazioni: "avvia task" = "crea task" = "inizia task"
+
+---
+
+## ✅ Benefits / Vantaggi
+
+### EN — Before vs After
+
+**Before Loom (Manual)**:
+```bash
+cd /path/to/project
+python loom/scripts/setup.py
+python loom/scripts/task.py start TASK-001 "description"
+python loom/scripts/task.py list
+python loom/scripts/task.py complete TASK-001 "done" --bump patch
+```
+
+**After Loom (Natural)**:
 ```
 "setup framework"
 "start task TASK-001 'description'"
@@ -384,63 +536,36 @@ python agentic-framework/scripts/task.py complete TASK-001 "done" --bump patch
 "complete task TASK-001"
 ```
 
-**Più veloce, più intuitivo, più naturale!**
+### IT — Prima vs Dopo
 
----
-
-## 🎓 Best Practices
-
-### 1. Usa Linguaggio Naturale
-Non serve ricordare sintassi esatta. L'agente capisce variazioni:
-- "start task" = "create task" = "begin task"
-- "list tasks" = "show tasks" = "what tasks"
-- "complete task" = "finish task" = "done with task"
-
-### 2. Lascia che l'Agente Suggerisca
-L'agente suggerirà TDD per feature critiche:
-```
-Agente: "This is a critical feature. Use TDD workflow?"
+**Prima di Loom (Manuale)**:
+```bash
+cd /path/to/project
+python loom/scripts/setup.py
+python loom/scripts/task.py start TASK-001 "descrizione"
+python loom/scripts/task.py list
+python loom/scripts/task.py complete TASK-001 "fatto" --bump patch
 ```
 
-### 3. Chiedi Aiuto
+**Dopo Loom (Naturale)**:
 ```
-Tu: "how do I use the framework?"
-Agente: [spiega comandi disponibili]
-```
-
-### 4. Usa Abbreviazioni
-```
-"start TASK-001 'feature'"  # Funziona
-"list"                       # Funziona
-"complete TASK-001"          # Funziona
+"configura il framework"
+"avvia task TASK-001 'descrizione'"
+"mostra i task"
+"completa task TASK-001"
 ```
 
 ---
 
-## 📚 Documentazione
+## 📚 Related Documentation / Documentazione Correlata
 
-Per dettagli tecnici:
-- **[SETUP-INSTRUCTIONS.md](./SETUP-INSTRUCTIONS.md)** — Per agenti AI
-- **[README.md](./README.md)** — Documentazione completa
-- **[QUICKSTART.md](./QUICKSTART.md)** — Guida rapida
-- **[TDD-WORKFLOW.md](./TDD-WORKFLOW.md)** — Guida TDD
-
----
-
-## 🎉 Conclusione
-
-**Non serve più lanciare script manualmente!**
-
-Basta parlare con il tuo agente AI:
-- "setup framework" → Setup automatico
-- "start task" → Crea task
-- "run tests" → Esegue test
-- "complete task" → Completa task
-
-**Più semplice, più veloce, più naturale!** 🚀
+- **[QUICKSTART.md](./QUICKSTART.md)** — 2-minute quick start / Avvio rapido in 2 minuti
+- **[README.md](./README.md)** — Full documentation / Documentazione completa
+- **[TDD-WORKFLOW.md](./TDD-WORKFLOW.md)** — TDD guide / Guida TDD
+- **[SETUP-INSTRUCTIONS.md](./SETUP-INSTRUCTIONS.md)** — For AI agents / Per agenti AI
 
 ---
 
-**Versione:** 1.0.0  
-**Framework:** Agentic Framework v1.0  
-**Supporto:** Tutti gli IDE con agenti AI integrati
+**Version / Versione**: 1.0.0  
+**Framework**: Loom Framework v1.0  
+**Support / Supporto**: All IDEs with AI agents / Tutti gli IDE con agenti AI

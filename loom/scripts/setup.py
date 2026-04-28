@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """
 setup.py - Interactive Setup Wizard for Loom Framework
 
@@ -92,7 +92,9 @@ class ProjectDetector:
         # Check for common files
         if (self.project_root / "package.json").exists():
             languages.add("javascript")
-        if (self.project_root / "requirements.txt").exists() or (self.project_root / "setup.py").exists():
+        if (self.project_root / "requirements.txt").exists() or \
+           (self.project_root / "pyproject.toml").exists() or \
+           ((self.project_root / "setup.py").exists() and not (self.project_root / "loom").exists()):
             languages.add("python")
         if (self.project_root / "Cargo.toml").exists():
             languages.add("rust")
@@ -214,7 +216,7 @@ class ProjectDetector:
 
 
 class FrameworkSetup:
-    """Sets up the agentic framework."""
+    """Sets up the Loom Framework."""
     
     def __init__(self, project_root: Path, framework_root: Path):
         self.project_root = project_root
@@ -455,7 +457,7 @@ def auto_setup(project_name: Optional[str] = None, ides: Optional[List[str]] = N
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Agentic Framework Setup Wizard")
+    parser = argparse.ArgumentParser(description="Loom Framework Setup Wizard")
     parser.add_argument("--auto", action="store_true", help="Auto-detect and setup without interaction")
     parser.add_argument("--project-name", help="Project name")
     parser.add_argument("--ide", help="IDEs to configure (comma-separated)")

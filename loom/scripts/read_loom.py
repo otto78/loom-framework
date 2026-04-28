@@ -43,9 +43,15 @@ def print_success(text: str):
 
 def print_info(text: str):
     try:
-        print(f"{Colors.CYAN}ℹ️  {text}{Colors.END}")
+        print(f"{Colors.CYAN}\u2139\ufe0f  {text}{Colors.END}")
     except:
         print(f"{Colors.CYAN}[INFO] {text}{Colors.END}")
+
+def print_warning(text: str):
+    try:
+        print(f"{Colors.YELLOW}\u26a0\ufe0f  {text}{Colors.END}")
+    except:
+        print(f"{Colors.YELLOW}[WARN] {text}{Colors.END}")
 
 def main():
     print_header("Loom Framework Discovery")

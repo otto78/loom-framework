@@ -1,4 +1,4 @@
-# TDD Workflow — Test-Driven Development
+﻿# TDD Workflow — Test-Driven Development
 
 > Workflow completo Test-Driven Development integrato nel framework.
 
@@ -51,7 +51,7 @@
 
 ---
 
-## 🚀 Workflow con Agentic Framework
+## 🚀 Workflow con Loom Framework
 
 ### Comando Principale
 
@@ -570,5 +570,5 @@ Prima di completare un task TDD:
 ---
 
 **Versione:** 1.0.0  
-**Framework:** Agentic Framework v1.0  
+**Framework:** Loom Framework v1.0  
 **Metodologia:** Test-Driven Development
