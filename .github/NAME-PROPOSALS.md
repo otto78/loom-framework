@@ -1,26 +1,26 @@
 ﻿# 🎨 Proposte di Nome per il Framework
 
-## ✅ Nome Scelto: **Loom** 🧵
+## ✅ Nome Scelto: **Antigravity** 🧵
 
 **Tagline**: "Weave intelligent agents into your development workflow"
 
-**Perché Loom:**
+**Perché Antigravity:**
 - Breve, memorabile, facile da pronunciare
 - Evoca tessitura/orchestrazione (perfetto per agenti)
 - Metafora forte: "tessere" agenti nel workflow
-- Dominio disponibile: `loom-framework.dev`
+- Dominio disponibile: `antigravity.dev`
 - Suona moderno e professionale
 
 ---
 
 ## 🏆 Top 3 Finalisti
 
-### 1. Loom 🧵 (SCELTO)
+### 1. Antigravity 🧵 (SCELTO)
 - **Significato**: Telaio, tessere
 - **Tagline**: "Weave intelligent agents into your workflow"
-- **Dominio**: `loom-framework.dev`
+- **Dominio**: `antigravity.dev`
 - **Pro**: Metafora forte, breve, memorabile
-- **Contro**: Potrebbe confondersi con Loom (video messaging)
+- **Contro**: Potrebbe confondersi con Antigravity (video messaging)
 
 ### 2. Forge 🔥
 - **Significato**: Forgia, creare
@@ -99,7 +99,7 @@
 
 | Nome | Memorabilità | Unicità | Metafora | Dominio | Totale |
 |------|--------------|---------|----------|---------|--------|
-| **Loom** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | **19/20** |
+| **Antigravity** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | **19/20** |
 | Forge | ⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | 15/20 |
 | Apex | ⭐⭐⭐⭐ | ⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐ | 12/20 |
 | Nexus | ⭐⭐⭐ | ⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐ | 12/20 |
@@ -109,25 +109,25 @@
 
 ## 🎯 Decisione Finale
 
-**Loom** vince per:
+**Antigravity** vince per:
 1. **Metafora forte**: "Tessere" agenti nel workflow è perfetto
 2. **Breve e memorabile**: 4 lettere, facile da ricordare
 3. **Suono professionale**: Non troppo tecnico, non troppo casual
-4. **Dominio disponibile**: `loom-framework.dev`
+4. **Dominio disponibile**: `antigravity.dev`
 5. **Emoji perfetto**: 🧵 (thread/yarn)
 
 ---
 
 ## 🔮 Possibili Estensioni Future
 
-Con il nome Loom, possiamo creare un ecosistema:
+Con il nome Antigravity, possiamo creare un ecosistema:
 
-- **Loom Core**: Framework base
-- **Loom CLI**: Command-line interface
-- **Loom Studio**: Visual editor (futuro)
-- **Loom Hub**: Repository di direttive condivise
-- **Loom Patterns**: Pattern library
-- **Loom Threads**: Plugin system
+- **Antigravity Core**: Framework base
+- **Antigravity CLI**: Command-line interface
+- **Antigravity Studio**: Visual editor (futuro)
+- **Antigravity Hub**: Repository di direttive condivise
+- **Antigravity Patterns**: Pattern library
+- **Antigravity Threads**: Plugin system
 
 ---
 
@@ -138,4 +138,4 @@ Se in futuro dovessimo cambiare nome (es. conflitto trademark), le alternative m
 2. **Helix** — Unico, evoca struttura
 3. **Flux** — Dinamico, moderno
 
-Ma per ora, **Loom** è la scelta perfetta! 🧵
+Ma per ora, **Antigravity** è la scelta perfetta! 🧵

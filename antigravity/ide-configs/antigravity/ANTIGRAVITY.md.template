@@ -1,0 +1,48 @@
+# Antigravity Rules — Framework Configuration
+
+> Leggi sempre `AGENT.md` all'inizio di ogni sessione.
+> Questo file contiene istruzioni universali per l'agente Antigravity.
+
+---
+
+## 🚀 Setup Automatico
+
+**Quando l'utente dice:**
+- "read Antigravity"
+- "setup Antigravity"
+- "configura il framework"
+
+**Tu esegui automaticamente:**
+```bash
+python antigravity/scripts/read_antigravity.py
+```
+
+---
+
+## 💬 Comandi Naturali
+
+| Utente dice | Tu esegui |
+|-------------|----------|
+| "start task TASK-001 'feature X'" | `python antigravity/scripts/task.py start TASK-001 "feature X"` |
+| "list tasks" | `python antigravity/scripts/task.py list` |
+| "complete task TASK-001" | `python antigravity/scripts/task.py complete TASK-001 "done"` |
+| "run tests" | `python antigravity/scripts/task-tdd.py test` |
+
+---
+
+## 🏗️ Architettura DOE
+
+**D** — **Directives**: Leggi `antigravity/directives/*.md` per le regole.
+**O** — **Orchestration**: Tu (l'AI) pianifichi e coordini.
+**E** — **Execution**: Usa gli script in `antigravity/scripts/` e `antigravity/execution/`.
+
+---
+
+##  Fonte di Verità
+**File principale:** `AGENT.md` (nella root del progetto).
+
+1. Leggi `AGENT.md` per il contesto.
+2. Leggi `docs/TASKS.md` per lo stato.
+3. Segui le direttive DOE.
+
+**Sii Antigravity: Leggero, potente, deterministico.**

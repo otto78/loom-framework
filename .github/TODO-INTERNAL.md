@@ -5,7 +5,7 @@ These tasks require manual action and cannot be automated:
 ## 🔴 HIGH PRIORITY
 
 ### Add GitHub Topics
-**Where**: https://github.com/otto78/loom-framework/settings
+**Where**: https://github.com/otto78/antigravity/settings
 
 **Topics to add** (see `.github/GITHUB-TOPICS.md` for full list):
 - `ai-agents`
@@ -27,7 +27,7 @@ These tasks require manual action and cannot be automated:
 **Issue**: Content might not render in browser due to CORS or JS issues.
 
 **How to test**:
-1. Open https://otto78.github.io/loom-framework/docs.html in browser
+1. Open https://otto78.github.io/antigravity/docs.html in browser
 2. Check if all sections render correctly
 3. Test language switcher (EN/IT)
 4. Test dark mode toggle
@@ -39,7 +39,7 @@ These tasks require manual action and cannot be automated:
 ## 🟡 MEDIUM PRIORITY
 
 ### Create Good First Issues
-**Where**: https://github.com/otto78/loom-framework/issues
+**Where**: https://github.com/otto78/antigravity/issues
 
 **Suggested issues**:
 1. "Add support for Zed IDE" (use `.github/ISSUE_TEMPLATE/ide-support.md`)
@@ -55,7 +55,7 @@ These tasks require manual action and cannot be automated:
 **Where**: README.md hero section (after badges, before "What Gets Created")
 
 **What to record**:
-- Terminal showing: `python loom/scripts/setup.py`
+- Terminal showing: `python antigravity/scripts/setup.py`
 - Wizard detecting project
 - Files being created
 - Natural language command: "start task TASK-001 'implement login'"
@@ -73,12 +73,12 @@ These tasks require manual action and cannot be automated:
 ## 🟢 NICE TO HAVE
 
 ### Register Domain (Optional)
-**Domain**: `loom-framework.dev`
+**Domain**: `antigravity.dev`
 
 **Check availability**: https://www.namecheap.com or https://domains.google
 
 **If registered**:
-1. Point to GitHub Pages: `otto78.github.io/loom-framework`
+1. Point to GitHub Pages: `otto78.github.io/antigravity`
 2. Update all links in README, pyproject.toml, docs
 3. Add CNAME file to `/docs` directory
 
@@ -90,10 +90,10 @@ These tasks require manual action and cannot be automated:
 
 ### Launch Posts
 **Platforms**:
-- dev.to — Write article "Introducing Loom Framework"
-- HackerNews — Submit as "Show HN: Loom Framework"
+- dev.to — Write article "Introducing Antigravity"
+- HackerNews — Submit as "Show HN: Antigravity"
 - Reddit r/ClaudeAI — "I built a framework for AI-assisted development"
-- Reddit r/cursor — "Loom Framework: Multi-IDE AI workflow system"
+- Reddit r/cursor — "Antigravity: Multi-IDE AI workflow system"
 - Twitter/X — Thread with screenshots
 
 **When**: After adding demo GIF and opening good first issues.
@@ -105,7 +105,7 @@ These tasks require manual action and cannot be automated:
 - [x] Fix placeholder URLs (yourusername → otto78)
 - [x] Align IDE count to 7 everywhere
 - [x] Add VS Code Insider to IDE tables
-- [x] Fix domain links (loom-framework.dev → GitHub Pages)
+- [x] Fix domain links (antigravity.dev → GitHub Pages)
 - [x] Add badges to README
 - [x] Add "Why Not X?" section
 - [x] Add DOE Architecture to landing page
@@ -113,7 +113,7 @@ These tasks require manual action and cannot be automated:
 - [x] Create issue templates
 - [x] Add installer one-liners
 - [x] Create MONOREPO-GUIDE.md
-- [x] Add `loom status` command
+- [x] Add `Antigravity status` command
 - [x] Populate CHANGELOG.md template
 - [x] Move NAME-PROPOSALS.md to .github/
 - [x] Add README to tests/ and examples/

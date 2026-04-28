@@ -1,12 +1,12 @@
-﻿# ✅ Loom Framework — Progetto Creato con Successo!
+﻿# ✅ Antigravity — Progetto Creato con Successo!
 
 ## 🎉 Cosa è Stato Fatto
 
-Ho creato **Loom Framework** come progetto separato e indipendente da MAYA, pronto per essere pubblicato come repository pubblico.
+Ho creato **Antigravity** come progetto separato e indipendente da MAYA, pronto per essere pubblicato come repository pubblico.
 
 ### 📍 Posizione
 ```
-c:/Users/andrea.mazzarotto/myJobs/loom-framework/
+c:/Users/andrea.mazzarotto/myJobs/antigravity/
 ```
 
 ---
@@ -14,7 +14,7 @@ c:/Users/andrea.mazzarotto/myJobs/loom-framework/
 ## 🏗️ Struttura Completa
 
 ```
-loom-framework/
+antigravity/
 ├── README.md                      # Documentazione principale
 ├── QUICKSTART.md                  # Guida rapida (5 minuti)
 ├── NATURAL-LANGUAGE-GUIDE.md      # Guida comandi naturali
@@ -35,7 +35,7 @@ loom-framework/
 ├── docs/
 │   └── index.html                 # ⭐ Sito web (GitHub Pages)
 │
-├── loom/
+├── antigravity/
 │   ├── __init__.py                # Package Python
 │   ├── scripts/                   # Script automazione
 │   │   ├── task.py                # Task workflow
@@ -62,7 +62,7 @@ loom-framework/
 │   │   ├── cursor/
 │   │   ├── antigravity/
 │   │   ├── vscode/
-│   │   ├── copilot/
+│   │   ├── VS Code Insider/
 │   │   └── intellij/
 │   │
 │   ├── directives/                # SOP
@@ -80,15 +80,15 @@ loom-framework/
 
 ---
 
-## 🎯 Nome Scelto: **Loom** 🧵
+## 🎯 Nome Scelto: **Antigravity** 🧵
 
 **Tagline**: "Weave intelligent agents into your development workflow"
 
-**Perché Loom:**
+**Perché Antigravity:**
 - Breve, memorabile (4 lettere)
 - Metafora forte: "tessere" agenti nel workflow
 - Suona professionale e moderno
-- Dominio disponibile: `loom-framework.dev`
+- Dominio disponibile: `antigravity.dev`
 - Emoji perfetto: 🧵
 
 **Alternative considerate**: Forge, Apex, Nexus, Prism, Flux, Ember, Helix
@@ -99,13 +99,13 @@ loom-framework/
 ## 📦 Cosa Include
 
 ### ✅ Codice Completo
-- Tutti gli script da `agentic-framework`
+- Tutti gli script da `antigravity`
 - Tutti i template
 - Tutte le configurazioni IDE
 - Architettura DOE completo
 
 ### ✅ Documentazione Completa
-- README principale con branding Loom
+- README principale con branding Antigravity
 - Quick Start guide
 - Natural Language guide
 - TDD workflow guide
@@ -116,7 +116,7 @@ loom-framework/
 - `setup.py` per installazione
 - `pyproject.toml` per configurazione moderna
 - `__init__.py` per package
-- Entry points per CLI: `loom-setup`, `loom-task`, `loom-tdd`
+- Entry points per CLI: `Antigravity-setup`, `Antigravity-task`, `Antigravity-tdd`
 
 ### ✅ GitHub Pages
 - `docs/index.html` — Sito web moderno con design gradient
@@ -140,12 +140,12 @@ Leggi **`PUBLISH.md`** per istruzioni dettagliate.
 In breve:
 ```bash
 # 1. Crea repository su github.com/new
-#    Nome: loom-framework
+#    Nome: antigravity
 #    Visibilità: Public
 
 # 2. Collega repository
-cd c:/Users/andrea.mazzarotto/myJobs/loom-framework
-git remote add origin https://github.com/TUO_USERNAME/loom-framework.git
+cd c:/Users/andrea.mazzarotto/myJobs/antigravity
+git remote add origin https://github.com/TUO_USERNAME/antigravity.git
 git push -u origin master
 
 # 3. Configura GitHub Pages
@@ -185,7 +185,7 @@ Il sito `docs/index.html` include:
 - Responsive design
 - Pronto per GitHub Pages
 
-**URL dopo pubblicazione**: `https://TUO_USERNAME.github.io/loom-framework`
+**URL dopo pubblicazione**: `https://TUO_USERNAME.github.io/antigravity`
 
 ---
 
@@ -198,17 +198,17 @@ Il sito `docs/index.html` include:
 ## 🔗 Link Utili
 
 Dopo pubblicazione, il progetto sarà disponibile a:
-- **Repository**: `https://github.com/TUO_USERNAME/loom-framework`
-- **Website**: `https://TUO_USERNAME.github.io/loom-framework`
-- **Releases**: `https://github.com/TUO_USERNAME/loom-framework/releases`
-- **Issues**: `https://github.com/TUO_USERNAME/loom-framework/issues`
-- **Discussions**: `https://github.com/TUO_USERNAME/loom-framework/discussions`
+- **Repository**: `https://github.com/TUO_USERNAME/antigravity`
+- **Website**: `https://TUO_USERNAME.github.io/antigravity`
+- **Releases**: `https://github.com/TUO_USERNAME/antigravity/releases`
+- **Issues**: `https://github.com/TUO_USERNAME/antigravity/issues`
+- **Discussions**: `https://github.com/TUO_USERNAME/antigravity/discussions`
 
 ---
 
 ## 💡 Differenze da MAYA
 
-| Aspetto | MAYA | Loom Framework |
+| Aspetto | MAYA | Antigravity |
 |---------|------|----------------|
 | **Scopo** | Assistente AI per utenti italiani | Framework per sviluppatori |
 | **Visibilità** | Privato | Pubblico |
@@ -222,7 +222,7 @@ Dopo pubblicazione, il progetto sarà disponibile a:
 ## ✅ Checklist Pre-Pubblicazione
 
 - [x] Codice copiato e adattato
-- [x] Branding Loom applicato
+- [x] Branding Antigravity applicato
 - [x] Documentazione completa
 - [x] Setup Python package
 - [x] GitHub Pages configurato
@@ -240,7 +240,7 @@ Dopo pubblicazione, il progetto sarà disponibile a:
 
 ## 🎉 Conclusione
 
-**Loom Framework è pronto per essere pubblicato!**
+**Antigravity è pronto per essere pubblicato!**
 
 Hai un framework completo, professionale e ben documentato che può aiutare migliaia di sviluppatori a lavorare meglio con agenti AI.
 
@@ -251,4 +251,4 @@ Hai un framework completo, professionale e ben documentato che può aiutare migl
 **Creato**: 2025-01-XX  
 **Versione**: 1.0.0  
 **Autore**: Andrea Mazzarotto  
-**Framework**: Loom 🧵
+**Framework**: Antigravity 🧵

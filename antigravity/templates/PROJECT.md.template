@@ -1,0 +1,79 @@
+﻿# [NOME PROGETTO / PROJECT NAME]
+
+> **IT**: Sostituisci tutti i campi tra `[...]` con i dettagli del tuo progetto.  
+> **EN**: Replace all fields in `[...]` with your project's details.
+
+---
+
+## Goal / Obiettivo
+
+**IT**: Descrivi cosa questo progetto cerca di ottenere. 2-3 frasi chiare.  
+**EN**: Describe what this project is trying to achieve. 2-3 clear sentences.
+
+[Descrizione del progetto — es: "Una API REST per gestire task personali e di team, con autenticazione JWT e notifiche via email."]
+
+---
+
+## Stack
+
+> **IT**: Specifica solo ciò che usi realmente. Rimuovi le righe non applicabili.  
+> **EN**: Specify only what you actually use. Remove non-applicable lines.
+
+- **Backend**: [es: Python 3.11 / FastAPI]
+- **Frontend**: [es: React 18 / Next.js 14 — oppure: N/A]
+- **Database**: [es: PostgreSQL via SQLAlchemy / Supabase]
+- **Auth**: [es: JWT / OAuth2 / Supabase Auth]
+- **Hosting**: [es: Render.com / Vercel / AWS]
+- **CI/CD**: [es: GitHub Actions]
+- **Testing**: [es: pytest / Jest]
+
+---
+
+## Architecture / Architettura
+
+> **IT**: Descrive le scelte architetturali chiave che l'agente deve rispettare.  
+> **EN**: Describe key architectural decisions the agent must respect.
+
+- [es: Stateless REST API — nessun frontend, solo JSON]
+- [es: Business logic nei service layer, mai nelle route]
+- [es: Async throughout — sempre asyncpg, mai SQLAlchemy sync]
+- [es: Monorepo con packages separati per api/worker/shared]
+
+---
+
+## Rules / Regole
+
+> **IT**: Regole che l'agente deve seguire SEMPRE. Sii specifico.  
+> **EN**: Rules the agent must ALWAYS follow. Be specific.
+
+- [es: Ogni endpoint deve avere un test corrispondente]
+- [es: Nessuna query DB diretta nelle route — sempre tramite service]
+- [es: Tutte le funzioni devono avere docstrings]
+- [es: Conventional commits: feat/fix/docs/refactor/test: descrizione [TASK-XXX]]
+- [es: Non committare mai .env o segreti]
+- [es: Non usare `git add -A` — commit selettivo sempre]
+
+---
+
+## Notes / Note
+
+> **IT**: Contesto specifico del progetto — vincoli API, decisioni tecniche passate, cose da NON fare.  
+> **EN**: Project-specific context — API constraints, past decisions, things NOT to do.
+
+- [es: L'API di Stripe usa webhook — testare con stripe-cli in locale]
+- [es: Il DB ha 2M di record — evitare query senza indice su user_id]
+- [es: Questo progetto usa Antigravity — leggere AGENT.md prima di iniziare]
+
+---
+
+## Quick Commands / Comandi Rapidi
+
+> **IT**: Dopo aver creato questo file, di' al tuo agente AI: **"leggi Antigravity"**  
+> **EN**: After creating this file, tell your AI agent: **"read Antigravity"**
+
+```
+"read Antigravity"       → configura tutto automaticamente
+"leggi Antigravity"      → stessa cosa in italiano
+"list tasks"      → mostra i task attivi
+"mostra i task"   → stessa cosa in italiano
+```

@@ -1,6 +1,6 @@
-# GitHub Topics to Add
+﻿# GitHub Topics to Add
 
-Go to: https://github.com/otto78/loom-framework/settings
+Go to: https://github.com/otto78/antigravity/settings
 
 Add these topics:
 - `ai-agents`
@@ -13,7 +13,7 @@ Add these topics:
 - `workflow-automation`
 - `python`
 - `ide-integration`
-- `copilot`
+- `VS Code Insider`
 - `gemini`
 
 This improves discoverability on GitHub.

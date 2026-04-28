@@ -1,11 +1,11 @@
-﻿# 🚀 Come Pubblicare Loom Framework su GitHub
+﻿# 🚀 Come Pubblicare Antigravity su GitHub
 
 ## 📋 Passi da Seguire
 
 ### 1. Crea Repository su GitHub
 
 1. Vai su [github.com/new](https://github.com/new)
-2. Nome repository: `loom-framework`
+2. Nome repository: `antigravity`
 3. Descrizione: `Weave intelligent agents into your development workflow`
 4. Visibilità: **Public**
 5. **NON** inizializzare con README, .gitignore o license (già presenti)
@@ -14,10 +14,10 @@
 ### 2. Collega Repository Locale
 
 ```bash
-cd c:/Users/andrea.mazzarotto/myJobs/loom-framework
+cd c:/Users/andrea.mazzarotto/myJobs/antigravity
 
 # Aggiungi remote
-git remote add origin https://github.com/TUO_USERNAME/loom-framework.git
+git remote add origin https://github.com/TUO_USERNAME/antigravity.git
 
 # Verifica
 git remote -v
@@ -49,7 +49,7 @@ Settings → General → Topics:
 #### About Section
 Settings → General → About:
 - Description: `Weave intelligent agents into your development workflow`
-- Website: `https://TUO_USERNAME.github.io/loom-framework`
+- Website: `https://TUO_USERNAME.github.io/antigravity`
 - Topics: (aggiunti sopra)
 
 #### Features
@@ -63,12 +63,12 @@ Settings → General → Features:
 
 1. Vai su **Releases** → **Create a new release**
 2. Tag: `v1.0.0`
-3. Title: `Loom Framework v1.0.0 — Initial Release`
+3. Title: `Antigravity v1.0.0 — Initial Release`
 4. Description:
 ```markdown
-# 🎉 Loom Framework v1.0.0
+# 🎉 Antigravity v1.0.0
 
-First public release of Loom Framework!
+First public release of Antigravity!
 
 ## 🌟 Features
 
@@ -84,23 +84,23 @@ First public release of Loom Framework!
 ## 🚀 Quick Start
 
 ```bash
-git clone https://github.com/TUO_USERNAME/loom-framework.git
-cd loom-framework
-python loom/scripts/setup.py
+git clone https://github.com/TUO_USERNAME/antigravity.git
+cd antigravity
+python antigravity/scripts/setup.py
 ```
 
-Or just tell your AI agent: "setup loom framework"
+Or just tell your AI agent: "setup Antigravity"
 
 ## 📚 Documentation
 
-- [README](https://github.com/TUO_USERNAME/loom-framework#readme)
-- [Quick Start](https://github.com/TUO_USERNAME/loom-framework/blob/main/QUICKSTART.md)
-- [Natural Language Guide](https://github.com/TUO_USERNAME/loom-framework/blob/main/NATURAL-LANGUAGE-GUIDE.md)
-- [Website](https://TUO_USERNAME.github.io/loom-framework)
+- [README](https://github.com/TUO_USERNAME/antigravity#readme)
+- [Quick Start](https://github.com/TUO_USERNAME/antigravity/blob/main/QUICKSTART.md)
+- [Natural Language Guide](https://github.com/TUO_USERNAME/antigravity/blob/main/NATURAL-LANGUAGE-GUIDE.md)
+- [Website](https://TUO_USERNAME.github.io/antigravity)
 
 ## 🤝 Contributing
 
-See [CONTRIBUTING.md](https://github.com/TUO_USERNAME/loom-framework/blob/main/CONTRIBUTING.md)
+See [CONTRIBUTING.md](https://github.com/TUO_USERNAME/antigravity/blob/main/CONTRIBUTING.md)
 
 ---
 
@@ -142,19 +142,19 @@ git push
 
 Dopo il push, vai su:
 - **Actions** → Verifica che il workflow "Deploy to GitHub Pages" sia completato
-- Visita: `https://TUO_USERNAME.github.io/loom-framework`
+- Visita: `https://TUO_USERNAME.github.io/antigravity`
 
 ### 8. Aggiungi Social Preview
 
 1. Crea un'immagine 1280x640px con:
    - Logo 🧵
-   - Titolo "Loom Framework"
+   - Titolo "Antigravity"
    - Tagline "Weave intelligent agents into your workflow"
 2. Settings → General → Social preview → Upload image
 
 ### 9. Opzionale: Custom Domain
 
-Se hai un dominio `loom-framework.dev`:
+Se hai un dominio `antigravity.dev`:
 
 1. Configura DNS:
    ```
@@ -163,7 +163,7 @@ Se hai un dominio `loom-framework.dev`:
    Value: TUO_USERNAME.github.io
    ```
 
-2. Settings → Pages → Custom domain: `loom-framework.dev`
+2. Settings → Pages → Custom domain: `antigravity.dev`
 
 3. ✅ Enforce HTTPS
 
@@ -195,8 +195,8 @@ Se hai un dominio `loom-framework.dev`:
 ## 🎉 Fatto!
 
 Il tuo framework è ora pubblico e accessibile a:
-- **Repository**: `https://github.com/TUO_USERNAME/loom-framework`
-- **Website**: `https://TUO_USERNAME.github.io/loom-framework`
-- **Releases**: `https://github.com/TUO_USERNAME/loom-framework/releases`
+- **Repository**: `https://github.com/TUO_USERNAME/antigravity`
+- **Website**: `https://TUO_USERNAME.github.io/antigravity`
+- **Releases**: `https://github.com/TUO_USERNAME/antigravity/releases`
 
 Buona condivisione! 🧵

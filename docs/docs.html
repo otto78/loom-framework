@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Loom Framework - Documentation</title>
-<link rel="icon" type="image/svg+xml" href="loom-logo.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="loom-logo.png">
-<link rel="apple-touch-icon" href="loom-logo.png">
+<title>Antigravity - Documentation</title>
+<link rel="icon" type="image/svg+xml" href="Antigravity-logo.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="Antigravity-logo.png">
+<link rel="apple-touch-icon" href="Antigravity-logo.png">
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github-dark.min.css">
 <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
@@ -123,14 +123,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 <nav class="topnav">
   <a href="index.html">&#8592; Home</a>
   <span style="color:rgba(255,255,255,.3)">|</span>
-  <a href="index.html" style="font-size:1rem;">&#129525; Loom Framework</a>
+  <a href="index.html" style="font-size:1rem;">&#129525; Antigravity</a>
   <div class="topnav-spacer"></div>
   <select class="lang-select" id="lang-select" onchange="setLang(this.value)">
     <option value="en">&#127468;&#127463; English</option>
     <option value="it">&#127470;&#127481; Italiano</option>
   </select>
   <button class="icon-btn" id="btn-dark" onclick="toggleDark()">&#127769;</button>
-  <a href="https://github.com/otto78/loom-framework" style="color:white;opacity:.8;font-size:.82rem;margin-left:.25rem;">GitHub &#8599;</a>
+  <a href="https://github.com/otto78/antigravity" style="color:white;opacity:.8;font-size:.82rem;margin-left:.25rem;">GitHub &#8599;</a>
 </nav>
 
 <div class="layout">
@@ -142,14 +142,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 function setLang(l){
   document.documentElement.dataset.lang=l;
   document.getElementById('lang-select').value=l;
-  localStorage.setItem('loom-lang',l);
+  localStorage.setItem('Antigravity-lang',l);
   renderAll(); // Re-render to apply language change
 }
 function toggleDark(){
   const dark=document.documentElement.dataset.theme==='dark';
   document.documentElement.dataset.theme=dark?'light':'dark';
   document.getElementById('btn-dark').innerHTML=dark?'&#127769;':'&#9728;&#65039;';
-  localStorage.setItem('loom-dark',!dark);
+  localStorage.setItem('Antigravity-dark',!dark);
 }
 
 marked.use({breaks:true,gfm:true});
@@ -157,11 +157,11 @@ marked.use({breaks:true,gfm:true});
 const DOCS=[
 {
   id:'readme',icon:'&#128214;',labelEn:'README',labelIt:'README',file:'README.md',
-  content:`# Loom Framework
+  content:`# Antigravity
 
 > **Weave intelligent agents into your development workflow**
 
-A complete operational framework for AI-powered development across multiple IDEs. Loom provides structure, automation, and best practices for teams working with AI agents.
+A complete operational framework for AI-powered development across multiple IDEs. Antigravity provides structure, automation, and best practices for teams working with AI agents.
 
 ---
 
@@ -176,10 +176,10 @@ AI-assisted development faces critical challenges:
 
 ## ✅ The Solution
 
-Loom solves these through **persistent file-based memory** and **deterministic architecture**:
+Antigravity solves these through **persistent file-based memory** and **DOE architecture**:
 - 🧠 **Persistent Memory** — TASKS.md, STORY.md survive resets.
-- 🔄 **Multi-Agent Support** — Same state across 7 IDEs.
-- 🚀 **Zero-Friction** — Just say "read loom".
+- 🔄 **Multi-Agent Support** — Same state across multiple IDEs.
+- 🚀 **Zero-Friction** — Just say "read Antigravity".
 
 ---
 
@@ -192,18 +192,59 @@ Loom solves these through **persistent file-based memory** and **deterministic a
 | ↗️ Cursor | \`.cursorrules\` | Root |
 | ✨ Antigravity | \`ANTIGRAVITY.md\` | Root |
 | 💻 VS Code | \`.clinerules\` | Root |
+| 🧪 VS Code Insider | \`.clinerules\` | Root |
 | 💡 IntelliJ IDEA | \`agentic-framework.md\` | \`.idea/\` |
-| 🐙 Copilot | \`copilot-instructions.md\` | \`.github/\` |
 
 ---
 
-**Version**: 1.0.0 | **Author**: Andrea Mazzarotto | **License**: MIT`
+**Version**: 1.0.0 | **Author**: Andrea Mazzarotto | **License**: MIT`,
+  contentIt:`# Antigravity
+
+> **Integra agenti intelligenti nel tuo workflow di sviluppo**
+
+Un framework operativo completo per lo sviluppo assistito da AI su più IDE. Antigravity fornisce struttura, automazione e best practice per i team che lavorano con agenti AI.
+
+---
+
+## ❌ Il Problema
+
+Lo sviluppo assistito da AI affronta sfide critiche:
+1. **Limiti della Finestra di Contesto** — Gli agenti perdono memoria quando il contesto si resetta.
+2. **Caos Multi-Agente** — Cambiare IDE fa perdere il contesto.
+3. **Spreco di Token** — Prompt ripetitivi sprecano token e riducono l'accuratezza.
+
+---
+
+## ✅ La Soluzione
+
+Antigravity risolve questi problemi attraverso la **memoria persistente su file** e l'**architettura DOE**:
+- 🧠 **Memoria Persistente** — TASKS.md, STORY.md sopravvivono ai reset.
+- 🔄 **Supporto Multi-Agente** — Stesso stato su più IDE.
+- 🚀 **Zero-Friction** — Basta dire "leggi Antigravity".
+
+---
+
+## IDE Supportati
+
+| IDE/Tool | File di Config | Posizione |
+|----------|----------------|-----------|
+| 🌊 Windsurf | \`.windsurfrules\` | Root |
+| 🤖 Claude Code | \`CLAUDE.md\` | Root |
+| ↗️ Cursor | \`.cursorrules\` | Root |
+| ✨ Antigravity | \`ANTIGRAVITY.md\` | Root |
+| 💻 VS Code | \`.clinerules\` | Root |
+| 🧪 VS Code Insider | \`.clinerules\` | Root |
+| 💡 IntelliJ IDEA | \`agentic-framework.md\` | \`.idea/\` |
+
+---
+
+**Versione**: 1.0.0 | **Autore**: Andrea Mazzarotto | **Licenza**: MIT`
 },
 {
   id:'quickstart',icon:'&#128640;',labelEn:'Quick Start',labelIt:'Avvio Rapido',file:'QUICKSTART.md',
   content:`# Quick Start
 
-Get started with Loom in minutes!
+Get started with Antigravity in minutes!
 
 ---
 
@@ -212,12 +253,12 @@ Get started with Loom in minutes!
 **For new projects (4 steps):**
 1. Create project folder.
 2. Create \`PROJECT.md\` with project description.
-3. Add \`loom/\` folder to your project.
-4. Open any IDE and say: **"read loom"**.
+3. Add \`Antigravity/\` folder to your project.
+4. Open any IDE and say: **"read Antigravity"**.
 
 **For existing projects (2 steps):**
-1. Add \`loom/\` folder to your project.
-2. Open any IDE and say: **"read loom"**.
+1. Add \`Antigravity/\` folder to your project.
+2. Open any IDE and say: **"read Antigravity"**.
 
 ---
 
@@ -225,12 +266,12 @@ Get started with Loom in minutes!
 
 ### One-Liner Install
 \`\`\`bash
-curl -fsSL https://raw.githubusercontent.com/otto78/loom-framework/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/otto78/antigravity/main/install.sh | bash
 \`\`\`
 
 ### Interactive Wizard
 \`\`\`bash
-python loom/scripts/setup.py
+python Antigravity/scripts/setup.py
 \`\`\`
 
 ---
@@ -242,14 +283,14 @@ Just tell your AI agent:
 "start task TASK-001 'implement feature X'"
 \`\`\`
 
-Loom will automatically update \`docs/TASKS.md\` and prepare your environment.
+Antigravity will automatically update \`docs/TASKS.md\` and prepare your environment.
 
 ---
 
 **Time to setup**: ~10 seconds | **Time to first task**: ~1 minute`,
   contentIt:`# Avvio Rapido
 
-Inizia con Loom in pochi minuti!
+Inizia con Antigravity in pochi minuti!
 
 ---
 
@@ -258,12 +299,12 @@ Inizia con Loom in pochi minuti!
 **Per nuovi progetti (4 step):**
 1. Crea cartella progetto.
 2. Crea \`PROJECT.md\` con descrizione progetto.
-3. Aggiungi cartella \`loom/\` al progetto.
-4. Apri qualsiasi IDE e di': **"leggi loom"**.
+3. Aggiungi cartella \`Antigravity/\` al progetto.
+4. Apri qualsiasi IDE e di': **"leggi Antigravity"**.
 
 **Per progetti esistenti (2 step):**
-1. Aggiungi cartella \`loom/\` al progetto.
-2. Apri qualsiasi IDE e di': **"leggi loom"**.
+1. Aggiungi cartella \`Antigravity/\` al progetto.
+2. Apri qualsiasi IDE e di': **"leggi Antigravity"**.
 
 ---
 
@@ -271,12 +312,12 @@ Inizia con Loom in pochi minuti!
 
 ### Installer One-Liner
 \`\`\`bash
-curl -fsSL https://raw.githubusercontent.com/otto78/loom-framework/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/otto78/antigravity/main/install.sh | bash
 \`\`\`
 
 ### Wizard Interattivo
 \`\`\`bash
-python loom/scripts/setup.py
+python Antigravity/scripts/setup.py
 \`\`\`
 
 ---
@@ -288,7 +329,7 @@ Di' semplicemente al tuo agente:
 "avvia task TASK-001 'implementa feature X'"
 \`\`\`
 
-Loom aggiornerà automaticamente \`docs/TASKS.md\` e preparerà l'ambiente.
+Antigravity aggiornerà automaticamente \`docs/TASKS.md\` e preparerà l'ambiente.
 
 ---
 
@@ -306,12 +347,12 @@ Loom aggiornerà automaticamente \`docs/TASKS.md\` e preparerà l'ambiente.
 
 Instead of:
 \`\`\`bash
-python loom/scripts/setup.py
+python Antigravity/scripts/setup.py
 \`\`\`
 
 Just say:
 \`\`\`
-"setup loom framework"
+"setup Antigravity"
 \`\`\`
 
 The agent understands and executes automatically!
@@ -382,12 +423,12 @@ The agent understands and executes automatically!
 
 Invece di:
 \`\`\`bash
-python loom/scripts/setup.py
+python Antigravity/scripts/setup.py
 \`\`\`
 
 Di' semplicemente:
 \`\`\`
-"configura loom framework"
+"configura Antigravity"
 \`\`\`
 
 L'agente capisce ed esegue automaticamente!
@@ -545,8 +586,8 @@ def test_empty_email():
 
 When user says any of these, execute the setup wizard:
 
-- "setup loom framework" / "setup Loom Framework"
-- "configure loom" / "initialize loom"
+- "setup Antigravity" / "setup Antigravity"
+- "configure Antigravity" / "initialize Antigravity"
 - "configura il framework" / "avvia il framework"
 
 ---
@@ -570,13 +611,13 @@ I detected:
 - Languages: [python, javascript]
 - IDEs in use: [cursor, vscode]
 
-Do you want me to setup Loom Framework?
+Do you want me to setup Antigravity?
 \`\`\`
 
 ### Step 3: Run Setup
 
 \`\`\`bash
-python loom/scripts/setup.py --auto --project-name "[name]" --ide [ides]
+python Antigravity/scripts/setup.py --auto --project-name "[name]" --ide [ides]
 \`\`\`
 
 ---
@@ -585,12 +626,12 @@ python loom/scripts/setup.py --auto --project-name "[name]" --ide [ides]
 
 | User Says | Execute |
 |-----------|---------|
-| "setup framework" | \`python loom/scripts/setup.py\` |
-| "start task TASK-XXX 'desc'" | \`python loom/scripts/task.py start TASK-XXX "desc"\` |
-| "list tasks" | \`python loom/scripts/task.py list\` |
-| "run tests" | \`python loom/scripts/task-tdd.py test\` |
-| "complete task TASK-XXX" | \`python loom/scripts/task.py complete TASK-XXX "done"\` |
-| "sync configs" | \`bash loom/scripts/sync-configs.sh\` |
+| "setup framework" | \`python Antigravity/scripts/setup.py\` |
+| "start task TASK-XXX 'desc'" | \`python Antigravity/scripts/task.py start TASK-XXX "desc"\` |
+| "list tasks" | \`python Antigravity/scripts/task.py list\` |
+| "run tests" | \`python Antigravity/scripts/task-tdd.py test\` |
+| "complete task TASK-XXX" | \`python Antigravity/scripts/task.py complete TASK-XXX "done"\` |
+| "sync configs" | \`bash Antigravity/scripts/sync-configs.sh\` |
 
 ---
 
@@ -623,31 +664,30 @@ Chaining LLM decisions leads to frequent failures. The solution: push complexity
 
 ---
 
-## Architecture
+## Architecture: DOE
+
+DOE stands for **D**irectives, **O**rchestration, and **E**xecution.
 
 \`\`\`
 ┌─────────────────────────────────────────┐
-│ Level 1: DIRECTIVES (What to do)       │
+│ D — DIRECTIVES (What to do)            │
 │ directives/*.md — SOPs in natural      │
 │ language, objectives, inputs, outputs   │
 ├─────────────────────────────────────────┤
-│ Level 2: ORCHESTRATION (How to decide) │
+│ O — ORCHESTRATION (How to decide)      │
 │ Intelligent routing between directives │
 │ and execution scripts                   │
 ├─────────────────────────────────────────┤
-│ Level 3: EXECUTION (Do the work)       │
+│ E — EXECUTION (Do the work)            │
 │ execution/*.py — Deterministic scripts │
-│ Environment variables in .env           │
 └─────────────────────────────────────────┘
 \`\`\`
 
 ---
 
-## Level 1 — Directives (What to do)
+## D — Directives (What to do)
 
 SOPs written in Markdown that define **what** to do. They live in \`directives/*.md\`.
-
-Each directive contains: Objective, Inputs, Tool/Script to use, Expected output, Edge cases, Examples.
 
 ### Example: \`directives/send-email.md\`
 
@@ -657,103 +697,81 @@ Each directive contains: Objective, Inputs, Tool/Script to use, Expected output,
 ## Objective
 Send transactional emails to users.
 
-## Inputs
-- recipient_email (string)
-- subject (string)
-- body (string — HTML or plain text)
-- template_id (optional string)
-
 ## Tool
 execution/send_email.py
-
-## Output
-- Success: {"status": "sent", "message_id": "abc123"}
-- Failure: {"status": "error", "reason": "..."}
-
-## Edge Cases
-1. Invalid email → validate with regex before calling script
-2. Rate limit → retry with exponential backoff (max 3 attempts)
-3. Template not found → fallback to plain text body
 \`\`\`
 
 ---
 
-## Level 2 — Orchestration (How to decide)
+## O — Orchestration (How to decide)
 
 The AI agent's job: intelligent routing between directives and scripts.
 
-**Responsibilities:** interpret intent, choose directive, collect inputs, call scripts, handle errors, report results.
+---
 
-### Example flow: "Send welcome email"
+## E — Execution (Do the work)
+
+Deterministic scripts in \`execution/*.py\`. Same input always produces same output.`,
+  contentIt:`# Architettura DOE
+
+> Separa le responsabilità per massimizzare l'affidabilità e ridurre gli errori degli LLM.
+
+---
+
+## Il Problema
+
+Gli LLM sono probabilistici. Ogni decisione ha un'accuratezza di circa il 90%.
+
+**La matematica:**
+- 1 step: 90% successo
+- 2 step: 81% (0.9 × 0.9)
+- 5 step: 59%
+- 10 step: 35%
+
+Concatenare decisioni degli LLM porta a fallimenti frequenti. La soluzione: spostare la complessità in codice deterministico.
+
+---
+
+## Architettura: DOE
+
+DOE sta per **D**irectives (Direttive), **O**rchestration (Orchestrazione) ed **E**xecution (Esecuzione).
 
 \`\`\`
-1. User: "Send welcome email to user@example.com"
-2. Agent reads: directives/send-email.md
-3. Agent collects: recipient="user@example.com", template_id="welcome"
-4. Agent calls: execution/send_email.py
-5. Script returns: {"status": "sent", "message_id": "xyz789"}
-6. Agent replies: "✅ Welcome email sent to user@example.com"
+┌─────────────────────────────────────────┐
+│ D — DIRECTIVES (Cosa fare)             │
+│ directives/*.md — SOP in linguaggio    │
+│ naturale, obiettivi, input, output     │
+├─────────────────────────────────────────┤
+│ O — ORCHESTRATION (Come decidere)      │
+│ Routing intelligente tra direttive     │
+│ e script di esecuzione                  │
+├─────────────────────────────────────────┤
+│ E — EXECUTION (Fare il lavoro)         │
+│ execution/*.py — Script deterministici │
+└─────────────────────────────────────────┘
 \`\`\`
 
 ---
 
-## Level 3 — Execution (Do the work)
+## D — Directives (Cosa fare)
 
-Deterministic scripts in \`execution/*.py\`. Same input always produces same output.
-
-\`\`\`python
-#!/usr/bin/env python3
-"""
-Input (CLI): --recipient, --subject, --body, --template-id
-Output (JSON): {"status": "sent"|"error", ...}
-Env: SENDGRID_API_KEY
-"""
-import argparse, json, os, sys
-
-def send_email(recipient, subject, body, template_id=None):
-    api_key = os.getenv("SENDGRID_API_KEY")
-    if not api_key:
-        return {"status": "error", "reason": "SENDGRID_API_KEY not set"}
-    # ... call API ...
-    return {"status": "sent", "message_id": "xyz789"}
-
-def main():
-    p = argparse.ArgumentParser()
-    p.add_argument("--recipient", required=True)
-    p.add_argument("--subject", required=True)
-    p.add_argument("--body", required=True)
-    p.add_argument("--template-id", default=None)
-    args = p.parse_args()
-    result = send_email(args.recipient, args.subject, args.body, args.template_id)
-    print(json.dumps(result))
-    sys.exit(0 if result["status"] == "sent" else 1)
-
-if __name__ == "__main__":
-    main()
-\`\`\`
-
-**Rules:** deterministic, JSON output, exit code 0/1, credentials in env vars, full docstring.
+SOP scritte in Markdown che definiscono **cosa** fare. Si trovano in \`directives/*.md\`.
 
 ---
 
-## Results
+## O — Orchestration (Come decidere)
 
-| Metric | Before (all LLM) | After (Loom) |
-|--------|------------------|--------------|
-| Accuracy over 10 steps | 35% | ~90% |
-| Debugging | Hard | Easy — isolated by level |
-| Maintenance | Everything in prompts | Directives + scripts separated |
+Il compito dell'agente AI: routing intelligente tra direttive e script.
 
 ---
 
-## Templates
+## E — Execution (Fare il lavoro)
 
-- New directive: \`directives/_template.md\`
-- New script: \`execution/_template.py\``
+Script deterministici in \`execution/*.py\`. Stesso input = stesso output.`
 },
 {
   id:'contributing',icon:'&#129309;',labelEn:'Contributing',labelIt:'Contribuire',file:'CONTRIBUTING.md',
-  content:`# Contributing to Loom Framework
+  content:`# Contributing to Antigravity
 
 Thank you for your interest in contributing!
 
@@ -762,12 +780,12 @@ Thank you for your interest in contributing!
 ## How to Contribute
 
 ### Report Issues
-1. Check [existing issues](https://github.com/otto78/loom-framework/issues)
-2. [Create a new issue](https://github.com/otto78/loom-framework/issues/new)
+1. Check [existing issues](https://github.com/otto78/antigravity/issues)
+2. [Create a new issue](https://github.com/otto78/antigravity/issues/new)
 
 ### Add IDE Support
-1. Create config template in \`loom/ide-configs/your-ide/\`
-2. Update \`loom/scripts/setup.py\` to detect and configure it
+1. Create config template in \`Antigravity/ide-configs/your-ide/\`
+2. Update \`Antigravity/scripts/setup.py\` to detect and configure it
 3. Add to README.md IDE support table
 4. Submit a pull request
 
@@ -776,8 +794,8 @@ Thank you for your interest in contributing!
 ## Development Setup
 
 \`\`\`bash
-git clone https://github.com/otto78/loom-framework.git
-cd loom-framework
+git clone https://github.com/otto78/antigravity.git
+cd antigravity
 python -m venv venv
 source venv/bin/activate  # Windows: venv\\Scripts\\activate
 pip install -r requirements-dev.txt
@@ -813,7 +831,7 @@ test: add tests for setup wizard
 
 ---
 
-**Every contribution makes Loom better for everyone.**`
+**Every contribution makes Antigravity better for everyone.**`
 }
 ];
 
@@ -910,8 +928,8 @@ function renderAll(){
 }
 
 (function(){
-  const lang=localStorage.getItem('loom-lang')||'en';
-  const dark=localStorage.getItem('loom-dark')==='true';
+  const lang=localStorage.getItem('Antigravity-lang')||'en';
+  const dark=localStorage.getItem('Antigravity-dark')==='true';
   setLang(lang);
   if(dark){
     document.documentElement.dataset.theme='dark';
