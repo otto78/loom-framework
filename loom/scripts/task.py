@@ -1,6 +1,6 @@
 ﻿#!/usr/bin/env python3
 """
-Task Workflow Manager - Loom Framework v1.0
+Task Workflow Manager - Antigravity v1.0
 
 Gestisce il ciclo completo di un task: start → develop → complete → handoff
 con aggiornamento automatico di TASKS.md, STORY.md, CHANGELOG.md e versioning.
@@ -279,7 +279,7 @@ def list_tasks():
 
 def show_status():
     """Mostra lo stato corrente del progetto e dei task."""
-    print("\n📊 Loom Framework Status\n")
+    print("\n📊 Antigravity Status\n")
     print("=" * 50)
     
     # Project info

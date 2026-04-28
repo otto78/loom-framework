@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-read_loom.py - Zero-Friction Entry Point for Loom Framework
+read_Antigravity.py - Zero-Friction Entry Point for Antigravity
 
-This script is triggered by phrases like "read loom" or "leggi loom".
+This script is triggered by phrases like "read Antigravity" or "leggi Antigravity".
 It performs auto-discovery and ensures the project is properly configured.
 """
 
@@ -54,18 +54,18 @@ def print_warning(text: str):
         print(f"{Colors.YELLOW}[WARN] {text}{Colors.END}")
 
 def main():
-    print_header("Loom Framework Discovery")
+    print_header("Antigravity Discovery")
     
     project_root = Path.cwd()
-    loom_dir = project_root / "loom"
+    antigravity_dir = project_root / "antigravity"
     
-    if not loom_dir.exists():
-        # Maybe we are inside loom/scripts?
-        if (project_root.parent / "loom").exists():
+    if not antigravity_dir.exists():
+        # Maybe we are inside antigravity/scripts?
+        if (project_root.parent / "antigravity").exists():
             project_root = project_root.parent
-            loom_dir = project_root / "loom"
+            antigravity_dir = project_root / "antigravity"
         else:
-            print(f"{Colors.RED}Error: 'loom/' folder not found in {project_root}{Colors.END}")
+            print(f"{Colors.RED}Error: 'antigravity/' folder not found in {project_root}{Colors.END}")
             sys.exit(1)
 
     # 1. Search for PROJECT.md / PROGETTO.md
@@ -82,15 +82,15 @@ def main():
         print_warning("No PROJECT.md or PROGETTO.md found in root.")
         create = input(f"{Colors.CYAN}Would you like me to create a PROJECT.md template for you? (y/n): {Colors.END}").lower()
         if create == 'y':
-            template_path = loom_dir / "templates" / "PROJECT.md.template"
+            template_path = antigravity_dir / "templates" / "PROJECT.md.template"
             target_path = project_root / "PROJECT.md"
             if template_path.exists():
                 shutil.copy2(template_path, target_path)
-                print_success("Created PROJECT.md template. Please fill it and run 'read loom' again.")
+                print_success("Created PROJECT.md template. Please fill it and run 'read Antigravity' again.")
                 sys.exit(0)
             else:
                 target_path.write_text("# New Project\n\nGoal: Describe your project here.\n", encoding="utf-8")
-                print_success("Created basic PROJECT.md. Please fill it and run 'read loom' again.")
+                print_success("Created basic PROJECT.md. Please fill it and run 'read Antigravity' again.")
                 sys.exit(0)
         else:
             print_info("Proceeding without project meta-file...")
@@ -99,7 +99,7 @@ def main():
     agent_md = project_root / "AGENT.md"
     if not agent_md.exists():
         print_info("AGENT.md not found. Initializing auto-setup...")
-        setup_script = loom_dir / "scripts" / "setup.py"
+        setup_script = antigravity_dir / "scripts" / "setup.py"
         cmd = [sys.executable, str(setup_script), "--auto"]
         if meta_file:
             cmd.extend(["--from-project-file", str(meta_file)])
@@ -109,14 +109,14 @@ def main():
         print_success("AGENT.md already exists.")
         # Optional: Sync configs if needed
         print_info("Refreshing IDE configurations...")
-        setup_script = loom_dir / "scripts" / "setup.py"
+        setup_script = antigravity_dir / "scripts" / "setup.py"
         subprocess.run([sys.executable, str(setup_script), "--auto"], check=True)
 
     # 3. Final Report
-    print_header("Loom Ready")
+    print_header("Antigravity Ready")
     print_info(f"Project: {project_root.name}")
     print_info(f"Tasks: docs/TASKS.md")
-    print_info(f"Directives: loom/directives/")
+    print_info(f"Directives: antigravity/directives/")
     
     print(f"\n{Colors.BOLD}You can now start working. Try:{Colors.END}")
     print(f"  - 'start task TASK-001 \"description\"'")

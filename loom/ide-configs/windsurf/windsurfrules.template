@@ -1,4 +1,4 @@
-﻿# Windsurf IDE Rules — Loom Framework
+﻿# Windsurf IDE Rules — Antigravity
 
 > Leggi sempre `AGENT.md` all'inizio di ogni sessione.
 > Questo file contiene solo istruzioni specifiche per Windsurf.
@@ -8,7 +8,7 @@
 ## 🚀 Setup Automatico
 
 **Quando l'utente dice:**
-- "setup Loom Framework"
+- "setup Antigravity"
 - "configura il framework"
 - "inizializza il framework"
 
@@ -212,4 +212,4 @@ python scripts/task.py complete TASK-001 "..." --no-push
 ---
 
 **Versione:** 1.0.0  
-**Framework:** Loom Framework v1.0
+**Framework:** Antigravity v1.0

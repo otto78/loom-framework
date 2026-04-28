@@ -1,4 +1,4 @@
-# [NOME PROGETTO / PROJECT NAME]
+﻿# [NOME PROGETTO / PROJECT NAME]
 
 > **IT**: Sostituisci tutti i campi tra `[...]` con i dettagli del tuo progetto.  
 > **EN**: Replace all fields in `[...]` with your project's details.
@@ -62,18 +62,18 @@
 
 - [es: L'API di Stripe usa webhook — testare con stripe-cli in locale]
 - [es: Il DB ha 2M di record — evitare query senza indice su user_id]
-- [es: Questo progetto usa Loom Framework — leggere AGENT.md prima di iniziare]
+- [es: Questo progetto usa Antigravity — leggere AGENT.md prima di iniziare]
 
 ---
 
 ## Quick Commands / Comandi Rapidi
 
-> **IT**: Dopo aver creato questo file, di' al tuo agente AI: **"leggi loom"**  
-> **EN**: After creating this file, tell your AI agent: **"read loom"**
+> **IT**: Dopo aver creato questo file, di' al tuo agente AI: **"leggi Antigravity"**  
+> **EN**: After creating this file, tell your AI agent: **"read Antigravity"**
 
 ```
-"read loom"       → configura tutto automaticamente
-"leggi loom"      → stessa cosa in italiano
+"read Antigravity"       → configura tutto automaticamente
+"leggi Antigravity"      → stessa cosa in italiano
 "list tasks"      → mostra i task attivi
 "mostra i task"   → stessa cosa in italiano
 ```

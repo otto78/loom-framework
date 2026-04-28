@@ -1,4 +1,4 @@
-﻿# VS Code Insider Instructions — Loom Framework
+﻿# VS Code Insider Instructions — Antigravity
 
 > Leggi sempre `AGENT.md` all'inizio di ogni sessione.
 > Questo file contiene solo istruzioni specifiche per VS Code Insider.
@@ -136,12 +136,12 @@ Scrivi commenti chiari prima di generare codice:
 # Input: email (string)
 # Output: True se valida, False altrimenti
 def validate_email(email: str) -> bool:
-    # Copilot genererà implementazione
+    # VS Code Insider genererà implementazione
 ```
 
 ### 2. Segui pattern esistenti
 
-Copilot impara dai file esistenti. Mantieni consistenza con il codice già presente.
+VS Code Insider impara dai file esistenti. Mantieni consistenza con il codice già presente.
 
 ### 3. Rivedi suggerimenti
 
@@ -155,9 +155,9 @@ Esegui test dopo aver accettato suggerimenti:
 pytest tests/
 ```
 
-### 5. Usa Copilot Chat per domande
+### 5. Usa VS Code Insider Chat per domande
 
-Usa Copilot Chat per chiedere spiegazioni o alternative.
+Usa VS Code Insider Chat per chiedere spiegazioni o alternative.
 
 ---
 
@@ -193,11 +193,11 @@ python scripts/task.py complete TASK-001 "..." --no-push
 4. **Usa** script automatici per task workflow
 5. **Aggiorna** documentazione prima di push
 6. **Commit** selettivo (solo file modificati)
-7. **Rivedi** sempre codice generato da Copilot
+7. **Rivedi** sempre codice generato da VS Code Insider
 
 **Sii pragmatico. Sii affidabile. Auto-correggiti.**
 
 ---
 
 **Versione:** 1.0.0  
-**Framework:** Loom Framework v1.0
+**Framework:** Antigravity v1.0

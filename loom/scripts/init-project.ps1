@@ -1,4 +1,4 @@
-﻿# init-project.ps1 - Initialize new project with Loom Framework
+﻿# init-project.ps1 - Initialize new project with Antigravity
 #
 # Usage:
 #   .\init-project.ps1 -ProjectName "MyProject"

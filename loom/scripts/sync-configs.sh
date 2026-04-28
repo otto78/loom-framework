@@ -113,13 +113,13 @@ fi
 
 # IDE configurations
 declare -A IDE_CONFIGS=(
-    ["windsurf"]=".windsurfrules|agentic-framework/ide-configs/windsurf/windsurfrules.template"
-    ["claude"]="CLAUDE.md|agentic-framework/ide-configs/claude/CLAUDE.md.template"
-    ["cursor"]=".cursorrules|agentic-framework/ide-configs/cursor/cursorrules.template"
-    ["antigravity"]="ANTIGRAVITY.md|loom/ide-configs/antigravity/ANTIGRAVITY.md.template"
-    ["vscode"]=".clinerules|agentic-framework/ide-configs/vscode/clinerules.template"
-    ["copilot"]=".github/copilot-instructions.md|agentic-framework/ide-configs/copilot/copilot-instructions.md.template"
-    ["intellij"]=".idea/agentic-framework.md|agentic-framework/ide-configs/intellij/agentic-framework.md.template"
+    ["windsurf"]=".windsurfrules|antigravity/ide-configs/windsurf/windsurfrules.template"
+    ["claude"]="CLAUDE.md|antigravity/ide-configs/claude/CLAUDE.md.template"
+    ["cursor"]=".cursorrules|antigravity/ide-configs/cursor/cursorrules.template"
+    ["antigravity"]="ANTIGRAVITY.md|antigravity/ide-configs/antigravity/ANTIGRAVITY.md.template"
+    ["vscode"]=".clinerules|antigravity/ide-configs/vscode/clinerules.template"
+    ["vscode-insider"]=".github/vscode-insider-instructions.md|antigravity/ide-configs/vscode-insider/vscode-insider-instructions.md.template"
+    ["intellij"]=".idea/antigravity.md|antigravity/ide-configs/intellij/antigravity.md.template"
 )
 
 # Sync configurations

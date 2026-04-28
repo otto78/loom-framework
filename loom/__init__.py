@@ -1,5 +1,5 @@
-"""
-Loom Framework — Weave intelligent agents into your development workflow
+﻿"""
+Antigravity — Weave intelligent agents into your development workflow
 
 A complete operational framework for AI-powered development across multiple IDEs.
 """

@@ -1,5 +1,5 @@
-# Natural Language Guide — Loom Framework
-# Guida al Linguaggio Naturale — Loom Framework
+﻿# Natural Language Guide — Antigravity
+# Guida al Linguaggio Naturale — Antigravity
 
 > **EN** — No need to run Python scripts manually. Just talk to your AI agent!  
 > **IT** — Non serve lanciare script Python manualmente. Basta parlare con il tuo agente AI!
@@ -12,13 +12,13 @@
 
 Every modern IDE already has a built-in AI agent. Instead of typing:
 ```bash
-python loom/scripts/setup.py
+python antigravity/scripts/setup.py
 ```
 Just say:
 ```
-"read loom"
+"read Antigravity"
 ```
-Loom self-configures by reading its files and your `PROJECT.md`. The agent understands and executes everything automatically.
+Antigravity self-configures by reading its files and your `PROJECT.md`. The agent understands and executes everything automatically.
 
 ---
 
@@ -26,13 +26,13 @@ Loom self-configures by reading its files and your `PROJECT.md`. The agent under
 
 Ogni IDE moderno ha già un agente AI integrato. Invece di fare:
 ```bash
-python loom/scripts/setup.py
+python antigravity/scripts/setup.py
 ```
 Basta dire:
 ```
-"leggi loom"
+"leggi Antigravity"
 ```
-Loom si auto-configura leggendo i suoi file e il tuo `PROJECT.md`. L'agente capisce ed esegue tutto automaticamente.
+Antigravity si auto-configura leggendo i suoi file e il tuo `PROJECT.md`. L'agente capisce ed esegue tutto automaticamente.
 
 ---
 
@@ -43,18 +43,18 @@ Loom si auto-configura leggendo i suoi file e il tuo `PROJECT.md`. L'agente capi
 Tell the agent (any language works):
 
 ```
-"read loom"
-"configure loom"
-"use loom"
-"setup loom"
+"read Antigravity"
+"configure Antigravity"
+"use Antigravity"
+"setup Antigravity"
 ```
 
 The agent will:
-1. **Detect context** — reads `loom/` and looks for `PROJECT.md` or `PROGETTO.md`
+1. **Detect context** — reads `Antigravity/` and looks for `PROJECT.md` or `PROGETTO.md`
 2. **Self-configure** — initializes `AGENT.md`, IDE rules, task structure
 3. **Report back**:
    ```
-   ✅ Loom configured!
+   ✅ Antigravity configured!
 
    Project: MyApp
    Source of Truth: AGENT.md
@@ -72,18 +72,18 @@ The agent will:
 Di' all'agente (funziona in qualsiasi lingua):
 
 ```
-"leggi loom"
-"configura loom"
-"usa loom"
-"installa loom"
+"leggi Antigravity"
+"configura Antigravity"
+"usa Antigravity"
+"installa Antigravity"
 ```
 
 L'agente eseguirà:
-1. **Rileva il contesto** — legge `loom/` e cerca `PROJECT.md` o `PROGETTO.md`
+1. **Rileva il contesto** — legge `Antigravity/` e cerca `PROJECT.md` o `PROGETTO.md`
 2. **Si auto-configura** — inizializza `AGENT.md`, le regole IDE e la struttura task
 3. **Ti dà il via**:
    ```
-   ✅ Loom configurato!
+   ✅ Antigravity configurato!
 
    Progetto: MyApp
    Fonte di verità: AGENT.md
@@ -106,7 +106,7 @@ L'agente eseguirà:
 
 Agent runs:
 ```bash
-python loom/scripts/task.py start TASK-001 "implement user authentication"
+python antigravity/scripts/task.py start TASK-001 "implement user authentication"
 ```
 
 Agent responds:
@@ -126,7 +126,7 @@ This is a critical feature. Would you like to use TDD workflow?
 
 L'agente esegue:
 ```bash
-python loom/scripts/task.py start TASK-001 "implementa autenticazione utente"
+python antigravity/scripts/task.py start TASK-001 "implementa autenticazione utente"
 ```
 
 L'agente risponde:
@@ -150,7 +150,7 @@ Aggiornato: docs/TASKS.md
 
 Agent runs:
 ```bash
-python loom/scripts/task.py list
+python antigravity/scripts/task.py list
 ```
 
 Agent responds:
@@ -175,7 +175,7 @@ Agent responds:
 
 L'agente esegue:
 ```bash
-python loom/scripts/task.py list
+python antigravity/scripts/task.py list
 ```
 
 L'agente risponde:
@@ -202,7 +202,7 @@ L'agente risponde:
 
 Agent runs:
 ```bash
-python loom/scripts/task.py complete TASK-001 "task completed" --bump patch
+python antigravity/scripts/task.py complete TASK-001 "task completed" --bump patch
 ```
 
 Agent responds:
@@ -224,7 +224,7 @@ Version bumped: v1.0.0 → v1.0.1
 
 L'agente esegue:
 ```bash
-python loom/scripts/task.py complete TASK-001 "task completato" --bump patch
+python antigravity/scripts/task.py complete TASK-001 "task completato" --bump patch
 ```
 
 L'agente risponde:
@@ -249,7 +249,7 @@ Versione aggiornata: v1.0.0 → v1.0.1
 
 Agent runs:
 ```bash
-python loom/scripts/task-tdd.py start TASK-001 "add email validation"
+python antigravity/scripts/task-tdd.py start TASK-001 "add email validation"
 ```
 
 Agent responds:
@@ -277,7 +277,7 @@ Next steps:
 
 L'agente esegue:
 ```bash
-python loom/scripts/task-tdd.py start TASK-001 "aggiungi validazione email"
+python antigravity/scripts/task-tdd.py start TASK-001 "aggiungi validazione email"
 ```
 
 L'agente risponde:
@@ -308,7 +308,7 @@ Prossimi step:
 
 Agent runs:
 ```bash
-python loom/scripts/task-tdd.py test
+python antigravity/scripts/task-tdd.py test
 ```
 
 **Red phase** (expected failures):
@@ -333,7 +333,7 @@ Ready to complete task.
 
 L'agente esegue:
 ```bash
-python loom/scripts/task-tdd.py test
+python antigravity/scripts/task-tdd.py test
 ```
 
 **Fase Red** (fallimenti attesi):
@@ -363,7 +363,7 @@ After editing `AGENT.md` directly:
 
 Agent runs:
 ```bash
-bash loom/scripts/sync-configs.sh
+bash antigravity/scripts/sync-configs.sh
 ```
 
 ```
@@ -384,7 +384,7 @@ Dopo aver modificato `AGENT.md` direttamente:
 
 L'agente esegue:
 ```bash
-bash loom/scripts/sync-configs.sh
+bash antigravity/scripts/sync-configs.sh
 ```
 
 ```
@@ -401,11 +401,11 @@ bash loom/scripts/sync-configs.sh
 ### EN — Example 1: Setup and First Task
 
 ```
-You:   "read loom"
+You:   "read Antigravity"
 Agent: "Detected: Project MyApp, Python, FastAPI.
-        Setup Loom? (y/n)"
+        Setup Antigravity? (y/n)"
 You:   "yes"
-Agent: "✅ Loom configured! AGENT.md, .cursorrules, docs/TASKS.md created."
+Agent: "✅ Antigravity configured! AGENT.md, .cursorrules, docs/TASKS.md created."
 
 You:   "start task TASK-001 'implement login'"
 Agent: "✅ TASK-001 started. Use TDD?"
@@ -427,11 +427,11 @@ Agent: "🎉 TASK-001 completed with TDD! All tests passing ✅"
 ### IT — Esempio 1: Setup e Primo Task
 
 ```
-Tu:    "leggi loom"
+Tu:    "leggi Antigravity"
 Agente:"Rilevato: Progetto MyApp, Python, FastAPI.
-        Configuro Loom? (s/n)"
+        Configuro Antigravity? (s/n)"
 Tu:    "sì"
-Agente:"✅ Loom configurato! Creati AGENT.md, .cursorrules, docs/TASKS.md."
+Agente:"✅ Antigravity configurato! Creati AGENT.md, .cursorrules, docs/TASKS.md."
 
 Tu:    "avvia task TASK-001 'implementa login'"
 Agente:"✅ TASK-001 avviato. Uso TDD?"
@@ -498,8 +498,8 @@ Tu:    "sì"
 
 | English | Italiano |
 |---------|---------|
-| `"read loom"` | `"leggi loom"` |
-| `"configure loom"` | `"configura loom"` |
+| `"read Antigravity"` | `"leggi Antigravity"` |
+| `"configure Antigravity"` | `"configura Antigravity"` |
 | `"start task TASK-001 'desc'"` | `"avvia task TASK-001 'descrizione'"` |
 | `"list tasks"` | `"mostra i task"` / `"lista task"` |
 | `"complete task TASK-001"` | `"completa task TASK-001"` |
@@ -519,16 +519,16 @@ Tu:    "sì"
 
 ### EN — Before vs After
 
-**Before Loom (Manual)**:
+**Before Antigravity (Manual)**:
 ```bash
 cd /path/to/project
-python loom/scripts/setup.py
-python loom/scripts/task.py start TASK-001 "description"
-python loom/scripts/task.py list
-python loom/scripts/task.py complete TASK-001 "done" --bump patch
+python antigravity/scripts/setup.py
+python antigravity/scripts/task.py start TASK-001 "description"
+python antigravity/scripts/task.py list
+python antigravity/scripts/task.py complete TASK-001 "done" --bump patch
 ```
 
-**After Loom (Natural)**:
+**After Antigravity (Natural)**:
 ```
 "setup framework"
 "start task TASK-001 'description'"
@@ -538,16 +538,16 @@ python loom/scripts/task.py complete TASK-001 "done" --bump patch
 
 ### IT — Prima vs Dopo
 
-**Prima di Loom (Manuale)**:
+**Prima di Antigravity (Manuale)**:
 ```bash
 cd /path/to/project
-python loom/scripts/setup.py
-python loom/scripts/task.py start TASK-001 "descrizione"
-python loom/scripts/task.py list
-python loom/scripts/task.py complete TASK-001 "fatto" --bump patch
+python antigravity/scripts/setup.py
+python antigravity/scripts/task.py start TASK-001 "descrizione"
+python antigravity/scripts/task.py list
+python antigravity/scripts/task.py complete TASK-001 "fatto" --bump patch
 ```
 
-**Dopo Loom (Naturale)**:
+**Dopo Antigravity (Naturale)**:
 ```
 "configura il framework"
 "avvia task TASK-001 'descrizione'"
@@ -567,5 +567,5 @@ python loom/scripts/task.py complete TASK-001 "fatto" --bump patch
 ---
 
 **Version / Versione**: 1.0.0  
-**Framework**: Loom Framework v1.0  
+**Framework**: Antigravity v1.0  
 **Support / Supporto**: All IDEs with AI agents / Tutti gli IDE con agenti AI

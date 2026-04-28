@@ -1,4 +1,4 @@
-# Changelog — [PROJECT_NAME]
+﻿# Changelog — [PROJECT_NAME]
 
 All notable changes to this project will be documented in this file.
 
@@ -19,7 +19,7 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ## [0.1.0] — YYYY-MM-DD
 
 ### Added
-- Initial project setup with Loom Framework
+- Initial project setup with Antigravity
 - AGENT.md — project source of truth
 - TASKS.md — task tracking
 - BACKLOG.md — future ideas

@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """
 task_status.py - Read and update task status in docs/TASKS.md
 
@@ -6,9 +6,9 @@ Provides a simple interface for agents to check and update task status
 without having to parse TASKS.md manually.
 
 Usage:
-    python loom/execution/task_status.py --action list
-    python loom/execution/task_status.py --action get --task-id TASK-001
-    python loom/execution/task_status.py --action set-status --task-id TASK-001 --status "In Progress"
+    python antigravity/execution/task_status.py --action list
+    python antigravity/execution/task_status.py --action get --task-id TASK-001
+    python antigravity/execution/task_status.py --action set-status --task-id TASK-001 --status "In Progress"
 
 Returns (JSON to stdout):
     {"tasks": [...]}

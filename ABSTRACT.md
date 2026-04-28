@@ -1,4 +1,4 @@
-# Loom Framework — Abstract
+﻿# LOOM — Abstract
 
 > **The operational framework that makes AI agents reliable, persistent, and token-efficient**
 
@@ -22,29 +22,29 @@ graph TD
 AI agents suffer from "short-term memory." As a conversation grows, the agent begins to lose track of early project decisions, resulting in hallucinations or conflicting code.
 
 ### 2. Multi-Agent & Multi-IDE Chaos
-The mental model of the AI is trapped inside a single chat thread. When a developer switches from **Windsurf** to **Cursor**, or from **Claude Code** to **Copilot**, the new agent starts with zero project context. This lack of continuity forces the developer to re-explain everything.
+The mental model of the AI is trapped inside a single chat thread. When a developer switches from **Windsurf** to **Cursor**, or from **Claude Code** to **VS Code Insider**, the new agent starts with zero project context. This lack of continuity forces the developer to re-explain everything.
 
 ### 3. Token Waste & Probabilistic Failures
 In complex tasks, a 90% success rate per step sounds good, but over a 10-step sequence, the probability of success drops to ~35% ($0.9^{10}$). Without deterministic guidance, agents iterate blindly, wasting thousands of tokens on failed attempts.
 
 ---
 
-## ✅ The Solution: The Loom Framework
+## ✅ The Solution: LOOM
 
-Loom provides a structured, file-based memory that stays with your project.
+LOOM provides a structured, file-based memory that stays with your project.
 
 ```mermaid
 sequenceDiagram
     participant U as User
     participant A as AI Agent
-    participant L as Loom Framework
+    participant L as LOOM
     U->>A: "read loom"
     A->>L: Discover PROJECT.md
     L->>A: Load Directives & State
     A->>U: "I'm ready. TASK-001 active."
 ```
 
-Loom solves these problems through **persistent file-based memory** and a **deterministic 3-level architecture**:
+LOOM solves these problems through **persistent file-based memory** and a **deterministic 3-level architecture**:
 
 #### 1. Persistent Memory (Beats Context Limits)
 - **TASKS.md** — Active work tracking that survives context resets
@@ -60,7 +60,7 @@ These files create a **shared memory layer** that:
 
 #### 2. Multi-IDE & Multi-Agent Support
 - **7 IDE configs** kept in sync automatically
-- Same workflow in Cursor, Windsurf, Claude Code, VS Code, IntelliJ, Antigravity, Copilot
+- Same workflow in Cursor, Windsurf, Claude Code, VS Code, IntelliJ, Antigravity (IDE), VS Code Insider
 - Agents read the same files regardless of IDE
 - Switch tools without losing context
 
@@ -93,7 +93,7 @@ No commands to remember. Just:
 4. Open any IDE and say: "read loom"
 ```
 
-That's it. Loom auto-configures everything.
+That's it. LOOM auto-configures everything.
 
 ### Key Benefits
 
@@ -124,29 +124,29 @@ graph TD
 Gli agenti AI soffrono di "memoria a breve termine". Man mano che una conversazione cresce, l'agente inizia a perdere traccia delle decisioni iniziali, producendo allucinazioni o codice conflittuale.
 
 ### 2. Caos Multi-Agente & Multi-IDE
-Il modello mentale dell'AI è intrappolato in un singolo thread di chat. Quando uno sviluppatore passa da **Windsurf** a **Cursor**, o da **Claude Code** a **Copilot**, il nuovo agente parte da zero. Questa mancanza di continuità costringe lo sviluppatore a rispiegare tutto ogni volta.
+Il modello mentale dell'AI è intrappolato in un singolo thread di chat. Quando uno sviluppatore passa da **Windsurf** a **Cursor**, o da **Claude Code** a **VS Code Insider**, il nuovo agente parte da zero. Questa mancanza di continuità costringe lo sviluppatore a rispiegare tutto ogni volta.
 
 ### 3. Spreco di Token e Fallimenti Probabilistici
 In compiti complessi, un tasso di successo del 90% per step sembra buono, ma su una sequenza di 10 step, la probabilità di successo scende al ~35% ($0.9^{10}$). Senza una guida deterministica, gli agenti iterano alla cieca, sprecando migliaia di token in tentativi falliti.
 
 ---
 
-## ✅ La Soluzione: Loom Framework
+## ✅ La Soluzione: LOOM
 
-Loom fornisce una memoria strutturata basata su file che rimane con il tuo progetto.
+LOOM fornisce una memoria strutturata basata su file che rimane con il tuo progetto.
 
 ```mermaid
 sequenceDiagram
     participant U as Utente
     participant A as Agente AI
-    participant L as Loom Framework
+    participant L as LOOM
     U->>A: "leggi loom"
     A->>L: Scopre PROJECT.md
     L->>A: Carica Direttive e Stato
     A->>U: "Sono pronto. TASK-001 attivo."
 ```
 
-Loom risolve questi problemi attraverso **memoria persistente basata su file** e un'**architettura deterministica a 3 livelli**:
+LOOM risolve questi problemi attraverso **memoria persistente basata su file** e un'**architettura deterministica a 3 livelli**:
 
 #### 1. Memoria Persistente (Supera i Limiti di Contesto)
 - **TASKS.md** — Tracciamento lavoro che sopravvive ai reset
@@ -162,7 +162,7 @@ Questi file creano un **layer di memoria condivisa** che:
 
 #### 2. Supporto Multi-IDE & Multi-Agente
 - **7 config IDE** mantenute sincronizzate automaticamente
-- Stesso workflow in Cursor, Windsurf, Claude Code, VS Code, IntelliJ, Antigravity, Copilot
+- Stesso workflow in Cursor, Windsurf, Claude Code, VS Code, IntelliJ, Antigravity (IDE), VS Code Insider
 - Gli agenti leggono gli stessi file indipendentemente dall'IDE
 - Cambia strumenti senza perdere contesto
 
@@ -195,7 +195,7 @@ Nessun comando da ricordare. Semplicemente:
 4. Apri qualsiasi IDE e di': "leggi loom"
 ```
 
-Tutto qui. Loom auto-configura tutto.
+Tutto qui. LOOM auto-configura tutto.
 
 ### Benefici Chiave
 

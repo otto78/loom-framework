@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """
 git_commit.py - Selective Git Commit and Push
 
@@ -6,8 +6,8 @@ Performs a selective git add, commit, and optional push.
 Safer than 'git add -A' in concurrent multi-agent environments.
 
 Usage:
-    python loom/execution/git_commit.py --files "file1.py,file2.md" --message "feat: description [TASK-001]"
-    python loom/execution/git_commit.py --files "src/auth.py" --message "fix: login bug" --no-push
+    python antigravity/execution/git_commit.py --files "file1.py,file2.md" --message "feat: description [TASK-001]"
+    python antigravity/execution/git_commit.py --files "src/auth.py" --message "fix: login bug" --no-push
 
 Returns (JSON to stdout):
     {"success": true, "commit": "abc1234", "pushed": true}
@@ -82,7 +82,7 @@ def selective_commit(files: list[str], message: str, push: bool = True) -> dict:
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Selective git commit and push for Loom Framework"
+        description="Selective git commit and push for Antigravity"
     )
     parser.add_argument(
         "--files",

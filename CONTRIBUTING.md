@@ -1,6 +1,6 @@
-﻿# Contributing to Loom Framework
+﻿# Contributing to Antigravity
 
-Thank you for your interest in contributing to Loom! 🧵
+Thank you for your interest in contributing to Antigravity! 🧵
 
 ---
 
@@ -10,8 +10,8 @@ Thank you for your interest in contributing to Loom! 🧵
 
 Found a bug or have a feature request?
 
-1. Check [existing issues](https://github.com/otto78/loom-framework/issues)
-2. If not found, [create a new issue](https://github.com/otto78/loom-framework/issues/new)
+1. Check [existing issues](https://github.com/otto78/antigravity/issues)
+2. If not found, [create a new issue](https://github.com/otto78/antigravity/issues/new)
 3. Use the issue templates provided
 
 ### 2. Improve Documentation
@@ -27,8 +27,8 @@ Documentation improvements are always welcome:
 
 Using an IDE not yet supported?
 
-1. Create config template in `loom/ide-configs/your-ide/`
-2. Update `loom/scripts/setup.py` to detect and configure it
+1. Create config template in `Antigravity/ide-configs/your-ide/`
+2. Update `Antigravity/scripts/setup.py` to detect and configure it
 3. Add to README.md IDE support table
 4. Submit a pull request
 
@@ -54,8 +54,8 @@ Improve existing scripts or add new ones:
 
 ```bash
 # Clone repository
-git clone https://github.com/otto78/loom-framework.git
-cd loom-framework
+git clone https://github.com/otto78/antigravity.git
+cd antigravity
 
 # Create virtual environment
 python -m venv venv
@@ -68,7 +68,7 @@ pip install -r requirements-dev.txt
 pytest tests/
 
 # Run linter
-flake8 loom/
+flake8 antigravity/
 ```
 
 ---
@@ -134,7 +134,7 @@ pytest tests/
 pytest tests/test_task.py
 
 # Run with coverage
-pytest --cov=loom tests/
+pytest --cov=Antigravity tests/
 ```
 
 ---
@@ -160,7 +160,7 @@ Files to update:
 
 When adding IDE support:
 
-1. Create template in `loom/ide-configs/your-ide/`
+1. Create template in `Antigravity/ide-configs/your-ide/`
 2. Include:
    - Reference to `AGENT.md`
    - Natural language command support
@@ -173,7 +173,7 @@ When adding IDE support:
 
 ## 🌍 Internationalization
 
-Help translate Loom:
+Help translate Antigravity:
 
 1. Create `docs/i18n/[language]/` directory
 2. Translate key documents:
@@ -187,15 +187,15 @@ Help translate Loom:
 
 ## 💬 Community
 
-- **Discussions**: [GitHub Discussions](https://github.com/otto78/loom-framework/discussions)
-- **Issues**: [GitHub Issues](https://github.com/otto78/loom-framework/issues)
-- **Twitter**: [@loomframework](https://twitter.com/loomframework)
+- **Discussions**: [GitHub Discussions](https://github.com/otto78/antigravity/discussions)
+- **Issues**: [GitHub Issues](https://github.com/otto78/antigravity/issues)
+- **Twitter**: [@Antigravityframework](https://twitter.com/Antigravityframework)
 
 ---
 
 ## 📜 Code of Conduct
 
-Be respectful, inclusive, and constructive. We're all here to improve Loom together.
+Be respectful, inclusive, and constructive. We're all here to improve Antigravity together.
 
 ---
 
@@ -210,10 +210,10 @@ Contributors are recognized in:
 
 ## ❓ Questions?
 
-Not sure where to start? Open a [discussion](https://github.com/otto78/loom-framework/discussions) and ask!
+Not sure where to start? Open a [discussion](https://github.com/otto78/antigravity/discussions) and ask!
 
 ---
 
-**Thank you for contributing to Loom!** 🧵
+**Thank you for contributing to Antigravity!** 🧵
 
-Every contribution, no matter how small, makes Loom better for everyone.
+Every contribution, no matter how small, makes Antigravity better for everyone.

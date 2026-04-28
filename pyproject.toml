@@ -3,7 +3,7 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "loom-framework"
+name = "loom"
 version = "1.0.0"
 description = "Weave intelligent agents into your development workflow"
 readme = "README.md"
@@ -27,10 +27,10 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://otto78.github.io/loom-framework"
-Documentation = "https://otto78.github.io/loom-framework/docs.html"
-Repository = "https://github.com/otto78/loom-framework"
-Issues = "https://github.com/otto78/loom-framework/issues"
+Homepage = "https://otto78.github.io/antigravity"
+Documentation = "https://otto78.github.io/antigravity/docs.html"
+Repository = "https://github.com/otto78/antigravity"
+Issues = "https://github.com/otto78/antigravity/issues"
 
 [project.optional-dependencies]
 dev = [
@@ -42,16 +42,16 @@ dev = [
 ]
 
 [project.scripts]
-loom-setup = "loom.scripts.setup:main"
-loom-task = "loom.scripts.task:main"
-loom-tdd = "loom.scripts.task_tdd:main"
+antigravity-setup = "antigravity.scripts.setup:main"
+antigravity-task = "antigravity.scripts.task:main"
+antigravity-tdd = "antigravity.scripts.task_tdd:main"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 python_files = ["test_*.py"]
 python_classes = ["Test*"]
 python_functions = ["test_*"]
-addopts = "-v --cov=loom --cov-report=html --cov-report=term"
+addopts = "-v --cov=antigravity --cov-report=html --cov-report=term"
 
 [tool.black]
 line-length = 100
@@ -77,3 +77,5 @@ ignore_missing_imports = true
 max-line-length = 100
 exclude = [".git", "__pycache__", "build", "dist", ".venv"]
 ignore = ["E203", "W503"]
+
+

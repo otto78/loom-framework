@@ -1,4 +1,4 @@
-﻿# Coding Standards — Loom Framework
+﻿# Coding Standards — Antigravity
 
 > Letto da tutti gli agenti AI prima di scrivere qualsiasi codice.
 > Questi standard si applicano a tutto il codebase.
@@ -368,4 +368,4 @@ Quando esegui git operations su Windows:
 ---
 
 **Versione:** 1.0.0  
-**Framework:** Loom Framework v1.0
+**Framework:** Antigravity v1.0

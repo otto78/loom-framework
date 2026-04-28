@@ -1,6 +1,6 @@
 ﻿#!/usr/bin/env python3
 """
-setup.py - Interactive Setup Wizard for Loom Framework
+setup.py - Interactive Setup Wizard for Antigravity
 
 This script automatically detects your project and sets up the framework:
 - Detects programming languages and frameworks
@@ -94,7 +94,7 @@ class ProjectDetector:
             languages.add("javascript")
         if (self.project_root / "requirements.txt").exists() or \
            (self.project_root / "pyproject.toml").exists() or \
-           ((self.project_root / "setup.py").exists() and not (self.project_root / "loom").exists()):
+           ((self.project_root / "setup.py").exists() and not (self.project_root / "antigravity").exists()):
             languages.add("python")
         if (self.project_root / "Cargo.toml").exists():
             languages.add("rust")
@@ -182,8 +182,8 @@ class ProjectDetector:
             ides.add("claude")
         if (self.project_root / "ANTIGRAVITY.md").exists():
             ides.add("antigravity")
-        if (self.project_root / ".github" / "copilot-instructions.md").exists():
-            ides.add("copilot")
+        if (self.project_root / ".github" / "vscode-insider-instructions.md").exists():
+            ides.add("vscode-insider")
         
         return ides
     
@@ -216,7 +216,7 @@ class ProjectDetector:
 
 
 class FrameworkSetup:
-    """Sets up the Loom Framework."""
+    """Sets up the Antigravity."""
     
     def __init__(self, project_root: Path, framework_root: Path):
         self.project_root = project_root
@@ -266,8 +266,8 @@ class FrameworkSetup:
             "cursor": (".cursorrules", "ide-configs/cursor/cursorrules.template"),
             "antigravity": ("ANTIGRAVITY.md", "ide-configs/antigravity/ANTIGRAVITY.md.template"),
             "vscode": (".clinerules", "ide-configs/vscode/clinerules.template"),
-            "copilot": (".github/copilot-instructions.md", "ide-configs/copilot/copilot-instructions.md.template"),
-            "intellij": (".idea/agentic-framework.md", "ide-configs/intellij/agentic-framework.md.template"),
+            "vscode-insider": (".github/vscode-insider-instructions.md", "ide-configs/vscode-insider/vscode-insider-instructions.md.template"),
+            "intellij": (".idea/antigravity.md", "ide-configs/intellij/antigravity.md.template"),
         }
         
         if ide not in ide_map:
@@ -324,7 +324,7 @@ class FrameworkSetup:
 
 def interactive_setup():
     """Run interactive setup wizard."""
-    print_header("Loom Framework Setup Wizard")
+    print_header("Antigravity Setup Wizard")
     
     # Detect project root
     project_root = Path.cwd()
@@ -373,14 +373,14 @@ def interactive_setup():
         "3": "cursor",
         "4": "antigravity",
         "5": "vscode",
-        "6": "copilot",
+        "6": "vscode-insider",
         "7": "intellij",
         "8": "all",
     }
     
     selected_ides = set()
     if "8" in ide_choice:
-        selected_ides = {"windsurf", "claude", "cursor", "antigravity", "vscode", "copilot", "intellij"}
+        selected_ides = {"windsurf", "claude", "cursor", "antigravity", "vscode", "vscode-insider", "intellij"}
     else:
         for num in ide_choice.split(","):
             num = num.strip()
@@ -403,7 +403,7 @@ def interactive_setup():
     
     # Success
     print_header("Setup Complete!")
-    print_success("Loom Framework configured successfully!")
+    print_success("Antigravity configured successfully!")
     print_info("\nNext steps:")
     print(f"  1. Review and customize {Colors.BOLD}AGENT.md{Colors.END}")
     print(f"  2. Start your first task: {Colors.BOLD}python scripts/task.py start TASK-001 'Setup complete'{Colors.END}")
@@ -412,7 +412,7 @@ def interactive_setup():
 
 def auto_setup(project_name: Optional[str] = None, ides: Optional[List[str]] = None, project_file: Optional[str] = None):
     """Run automatic setup without interaction."""
-    print_header("Loom Framework Auto Setup")
+    print_header("Antigravity Auto Setup")
     
     # Detect project root
     project_root = Path.cwd()
@@ -457,7 +457,7 @@ def auto_setup(project_name: Optional[str] = None, ides: Optional[List[str]] = N
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Loom Framework Setup Wizard")
+    parser = argparse.ArgumentParser(description="Antigravity Setup Wizard")
     parser.add_argument("--auto", action="store_true", help="Auto-detect and setup without interaction")
     parser.add_argument("--project-name", help="Project name")
     parser.add_argument("--ide", help="IDEs to configure (comma-separated)")

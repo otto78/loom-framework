@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Loom Framework — Setup Configuration
+Antigravity — Setup Configuration
 """
 
 from setuptools import setup, find_packages
@@ -11,18 +11,18 @@ readme_file = Path(__file__).parent / "README.md"
 long_description = readme_file.read_text(encoding="utf-8") if readme_file.exists() else ""
 
 setup(
-    name="loom-framework",
+    name="loom",
     version="1.0.0",
     author="Andrea Mazzarotto",
     author_email="your.email@example.com",
     description="Weave intelligent agents into your development workflow",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/otto78/loom-framework",
+    url="https://github.com/otto78/antigravity",
     project_urls={
-        "Documentation": "https://otto78.github.io/loom-framework",
-        "Source": "https://github.com/otto78/loom-framework",
-        "Issues": "https://github.com/otto78/loom-framework/issues",
+        "Documentation": "https://otto78.github.io/antigravity",
+        "Source": "https://github.com/otto78/antigravity",
+        "Issues": "https://github.com/otto78/antigravity/issues",
     },
     packages=find_packages(),
     include_package_data=True,
@@ -61,11 +61,12 @@ setup(
     },
     entry_points={
         "console_scripts": [
-            "loom-setup=loom.scripts.setup:main",
-            "loom-task=loom.scripts.task:main",
-            "loom-tdd=loom.scripts.task_tdd:main",
+            "Antigravity-setup=Antigravity.scripts.setup:main",
+            "Antigravity-task=Antigravity.scripts.task:main",
+            "Antigravity-tdd=Antigravity.scripts.task_tdd:main",
         ],
     },
     keywords="ai agents framework development workflow automation tdd",
     zip_safe=False,
 )
+
