@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>loom - Documentation</title>
+<title>Loom Framework - Documentation</title>
 <link rel="icon" type="image/svg+xml" href="loom-logo.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="loom-logo.png">
 <link rel="apple-touch-icon" href="loom-logo.png">
@@ -130,7 +130,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
     <option value="it">&#127470;&#127481; Italiano</option>
   </select>
   <button class="icon-btn" id="btn-dark" onclick="toggleDark()">&#127769;</button>
-  <a href="https://github.com/otto78/loom" style="color:white;opacity:.8;font-size:.82rem;margin-left:.25rem;">GitHub &#8599;</a>
 </nav>
 
 <div class="layout">
@@ -190,7 +189,7 @@ loom solves these through **persistent file-based memory** and **DOE architectur
 | 🌊 Windsurf | \`.windsurfrules\` | Root |
 | 🤖 Claude Code | \`CLAUDE.md\` | Root |
 | ↗️ Cursor | \`.cursorrules\` | Root |
-| ✨ loom | \`loom.md\` | Root |
+| 🚀 Antigravity | \`ANTIGRAVITY.md\` | Root |
 | 💻 VS Code | \`.clinerules\` | Root |
 | 🧪 VS Code Insider | \`.clinerules\` | Root |
 | 💡 IntelliJ IDEA | \`agentic-framework.md\` | \`.idea/\` |
@@ -231,7 +230,7 @@ loom risolve questi problemi attraverso la **memoria persistente su file** e l'*
 | 🌊 Windsurf | \`.windsurfrules\` | Root |
 | 🤖 Claude Code | \`CLAUDE.md\` | Root |
 | ↗️ Cursor | \`.cursorrules\` | Root |
-| ✨ loom | \`loom.md\` | Root |
+| 🚀 Antigravity | \`ANTIGRAVITY.md\` | Root |
 | 💻 VS Code | \`.clinerules\` | Root |
 | 🧪 VS Code Insider | \`.clinerules\` | Root |
 | 💡 IntelliJ IDEA | \`agentic-framework.md\` | \`.idea/\` |
@@ -572,7 +571,88 @@ def test_empty_email():
 - **Descriptive names** — \`test_empty_email_returns_false\`
 - **Arrange-Act-Assert** pattern
 - **Independent tests** — no shared state
-- **Cover edge cases** — empty, null, boundary values`
+- **Cover edge cases** — empty, null, boundary values`,
+  contentIt:`# Workflow TDD — Test-Driven Development
+
+> Workflow completo di Test-Driven Development integrato nel framework.
+
+---
+
+## Cos'è TDD?
+
+1. **Scrivi i test PRIMA** — prima di qualsiasi codice
+2. **Esegui i test** — devono fallire (fase Red)
+3. **Scrivi codice minimo** — per far passare i test (fase Green)
+4. **Refactor** — pulisci mantenendo i test verdi
+
+---
+
+## Ciclo Red-Green-Refactor
+
+\`\`\`
+RED    -> Scrivi test che fallisce
+GREEN  -> Scrivi codice minimo per passare
+REFACTOR -> Pulisci, i test rimangono verdi
+Ripeti per la prossima feature
+\`\`\`
+
+---
+
+## Comandi
+
+\`\`\`bash
+# Avvia task TDD (crea file test, esegue test - fase Red)
+python scripts/task-tdd.py start TASK-001 "Aggiungi validazione email"
+
+# Esegui test
+python scripts/task-tdd.py test
+
+# Completa task (solo se tutti i test passano)
+python scripts/task-tdd.py complete TASK-001
+\`\`\`
+
+---
+
+## Esempio File Test
+
+\`\`\`python
+# tests/test_task_001.py
+
+def test_email_valido():
+    from myapp import validate_email
+    assert validate_email("user@example.com") == True
+
+def test_email_non_valido():
+    from myapp import validate_email
+    assert validate_email("invalid") == False
+
+def test_email_vuoto():
+    from myapp import validate_email
+    assert validate_email("") == False
+    assert validate_email(None) == False
+\`\`\`
+
+---
+
+## Checklist TDD in TASKS.md
+
+\`\`\`markdown
+**Workflow TDD:**
+- [x] Red: Test creati e fallenti
+- [ ] Green: Implementa feature per passare i test
+- [ ] Refactor: Pulisci il codice
+- [ ] Complete: Tutti i test passano
+\`\`\`
+
+---
+
+## Best Practice
+
+- **Test piccoli e focalizzati** — un test, un comportamento
+- **Nomi descrittivi** — \`test_email_vuoto_restituisce_false\`
+- **Pattern Arrange-Act-Assert**
+- **Test indipendenti** — nessuno stato condiviso
+- **Copri edge cases** — vuoto, null, valori limite`
 },
 {
   id:'setup-instructions',icon:'&#9881;&#65039;',labelEn:'Setup Instructions (AI)',labelIt:'Istruzioni Setup (AI)',file:'SETUP-INSTRUCTIONS.md',
@@ -640,7 +720,72 @@ python loom/scripts/setup.py --auto --project-name "[name]" --ide [ides]
 1. **Always read AGENT.md first** — it contains project context
 2. **Respect existing files** — do not overwrite TASKS.md, README.md
 3. **Suggest TDD** for critical features (auth, payments, validation)
-4. **Auto-sync** IDE configs after AGENT.md changes`
+4. **Auto-sync** IDE configs after AGENT.md changes`,
+  contentIt:`# Istruzioni Setup — Per Agenti AI
+
+> Questo file viene letto dagli agenti AI per capire come configurare il framework.
+
+---
+
+## Frasi di Attivazione
+
+Quando l'utente dice una di queste, esegui il wizard di setup:
+
+- "setup loom" / "configura loom"
+- "configure loom" / "initialize loom"
+- "configura il framework" / "avvia il framework"
+
+---
+
+## Procedura di Setup
+
+### Step 1: Rileva Contesto Progetto
+
+\`\`\`python
+project_root = current_working_directory
+languages = detect_languages()    # Python, JavaScript, etc.
+frameworks = detect_frameworks()  # FastAPI, React, etc.
+existing_ides = detect_ide_configs()
+\`\`\`
+
+### Step 2: Chiedi Conferma
+
+\`\`\`
+Ho rilevato:
+- Progetto: [name]
+- Linguaggi: [python, javascript]
+- IDE in uso: [cursor, vscode]
+
+Vuoi che configuri loom?
+\`\`\`
+
+### Step 3: Esegui Setup
+
+\`\`\`bash
+python loom/scripts/setup.py --auto --project-name "[name]" --ide [ides]
+\`\`\`
+
+---
+
+## Mappatura Comandi
+
+| Utente Dice | Esegui |
+|-----------|---------|
+| "setup framework" | \`python loom/scripts/setup.py\` |
+| "start task TASK-XXX 'desc'" | \`python loom/scripts/task.py start TASK-XXX "desc"\` |
+| "list tasks" | \`python loom/scripts/task.py list\` |
+| "run tests" | \`python loom/scripts/task-tdd.py test\` |
+| "complete task TASK-XXX" | \`python loom/scripts/task.py complete TASK-XXX "done"\` |
+| "sync configs" | \`bash loom/scripts/sync-configs.sh\` |
+
+---
+
+## Note Importanti
+
+1. **Leggi sempre AGENT.md prima** — contiene il contesto del progetto
+2. **Rispetta i file esistenti** — non sovrascrivere TASKS.md, README.md
+3. **Suggerisci TDD** per feature critiche (auth, pagamenti, validazione)
+4. **Auto-sync** delle configurazioni IDE dopo modifiche ad AGENT.md`
 },
 {
   id:'framework',icon:'&#127959;&#65039;',labelEn:'DOE Architecture',labelIt:'Architettura DOE',file:'3-level-framework.md',
@@ -831,8 +976,69 @@ test: add tests for setup wizard
 
 ---
 
-**Every contribution makes loom better for everyone.**`
-}
+**Every contribution makes loom better for everyone.**`,
+  contentIt:`# Come Contribuire a loom
+
+Grazie per il tuo interesse nel contribuire!
+
+---
+
+## Come Contribuire
+
+### Segnala Problemi
+1. Controlla [issue esistenti](https://github.com/otto78/loom/issues)
+2. [Crea una nuova issue](https://github.com/otto78/loom/issues/new)
+
+### Aggiungi Supporto IDE
+1. Crea template config in \`loom/ide-configs/tuo-ide/\`
+2. Aggiorna \`loom/scripts/setup.py\` per rilevarlo e configurarlo
+3. Aggiungi alla tabella IDE supportate in README.md
+4. Invia una pull request
+
+---
+
+## Setup Sviluppo
+
+\`\`\`bash
+git clone https://github.com/otto78/loom.git
+cd loom
+python -m venv venv
+source venv/bin/activate  # Windows: venv\\Scripts\\activate
+pip install -r requirements-dev.txt
+pytest tests/
+\`\`\`
+
+---
+
+## Processo Pull Request
+
+1. Fork il repository
+2. Crea branch: \`git checkout -b feature/nuova-feature\`
+3. Apporta modifiche e testa
+4. Commit: \`git commit -m "feat: aggiunge nuova feature"\`
+5. Push e apri una pull request
+
+### Formato Commit
+
+\`\`\`
+feat: aggiungi supporto per PyCharm IDE
+fix: risolvi bug completamento task
+docs: aggiorna guida QUICKSTART
+test: aggiungi test per setup wizard
+\`\`\`
+
+---
+
+## Standard di Codice
+
+- Python: PEP 8, type hints, docstrings
+- Script: gestione errori, supporto \`--dry-run\`
+- Test richiesti per nuove feature
+
+---
+
+**Ogni contributo rende loom migliore per tutti.**`
+},
 ];
 
 function renderAll(){
