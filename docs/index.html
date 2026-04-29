@@ -143,16 +143,16 @@ footer a:hover{text-decoration:underline;}
 </head>
 <body>
 
-<div class="topbar">
+<div class="topbar" style="display:flex;justify-content:flex-end;align-items:center;gap:.5rem;">
+  <a href="https://github.com/otto78/loom-framework/releases/download/latest/loom-framework.zip" class="btn btn-primary" style="padding:.4rem 1rem;font-size:.85rem;">
+    <span class="en">📥 Download</span>
+    <span class="it">📥 Scarica</span>
+  </a>
   <select class="lang-select" id="lang-select" onchange="setLang(this.value)">
     <option value="en">🇬🇧 English</option>
     <option value="it">🇮🇹 Italiano</option>
   </select>
   <button class="icon-btn" id="btn-dark" onclick="toggleDark()" title="Toggle dark mode">🌙</button>
-  <a href="https://github.com/otto78/loom-framework/releases/latest/download/loom-framework.zip" class="btn btn-primary" style="padding:.4rem 1rem;font-size:.85rem;margin-left:.5rem;">
-    <span class="en">📥 Download</span>
-    <span class="it">📥 Scarica</span>
-  </a>
 </div>
 
 <header>
@@ -165,7 +165,7 @@ footer a:hover{text-decoration:underline;}
     <span class="it">Basta dire <strong>"leggi loom"</strong> — tutto qui. Nessun comando da ricordare.</span>
   </p>
   <div class="cta-buttons">
-    <a href="https://github.com/otto78/loom-framework/releases/latest/download/loom-framework.zip" class="btn btn-primary">
+    <a href="https://github.com/otto78/loom-framework/releases/download/latest/loom-framework.zip" class="btn btn-primary">
       <span class="en">📥 Download</span>
       <span class="it">📥 Scarica</span>
     </a>
