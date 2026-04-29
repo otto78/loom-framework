@@ -2,8 +2,10 @@ name: Release LOOM ZIP
 
 on:
   push:
+    branches:
+      - main  # Trigger on every push to main for latest.zip
     tags:
-      - 'v*.*.*'  # Trigger on version tags like v1.0.0
+      - 'v*.*.*'  # Trigger on version tags for versioned releases
 
 jobs:
   build-and-release:
@@ -21,16 +23,30 @@ jobs:
         with:
           python-version: '3.11'
       
-      - name: Extract version from tag
+      - name: Determine version
         id: version
         run: |
-          VERSION=${GITHUB_REF#refs/tags/v}
-          echo "version=$VERSION" >> $GITHUB_OUTPUT
-          echo "📦 Building LOOM v$VERSION"
+          if [[ "$GITHUB_REF" == refs/tags/v* ]]; then
+            VERSION=${GITHUB_REF#refs/tags/v}
+            echo "is_tag=true" >> $GITHUB_OUTPUT
+            echo "version=$VERSION" >> $GITHUB_OUTPUT
+            echo "📦 Building LOOM release v$VERSION"
+          else
+            VERSION=$(python -c "import re; print(re.search(r'version = \"([^\"]+)\"', open('pyproject.toml').read()).group(1))")
+            echo "is_tag=false" >> $GITHUB_OUTPUT
+            echo "version=$VERSION" >> $GITHUB_OUTPUT
+            echo "📦 Building LOOM latest (v$VERSION)"
+          fi
       
       - name: Build LOOM ZIP
         run: |
           python loom/scripts/build-zip.py --version ${{ steps.version.outputs.version }}
+      
+      - name: Create generic loom-framework.zip
+        run: |
+          # Create a copy without version for /latest/download/loom-framework.zip
+          cp "loom-framework-${{ steps.version.outputs.version }}.zip" "loom-framework.zip"
+          echo "✅ Created loom-framework.zip for latest download link"
       
       - name: Verify ZIP contents
         run: |
@@ -42,57 +58,62 @@ jobs:
             echo "❌ ZIP file not found!"
             exit 1
           fi
+          
+          if [ -f "loom-framework.zip" ]; then
+            echo "✅ Generic ZIP created: loom-framework.zip"
+          fi
       
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: v${{ steps.version.outputs.version }}
-          name: LOOM ${{ steps.version.outputs.version }}
+          tag_name: ${{ steps.version.outputs.is_tag == 'true' && format('v{0}', steps.version.outputs.version) || 'latest' }}
+          name: ${{ steps.version.outputs.is_tag == 'true' && format('LOOM {0}', steps.version.outputs.version) || format('LOOM Latest (v{0})', steps.version.outputs.version) }}
           body: |
-            # LOOM Framework v${{ steps.version.outputs.version }}
-            
+            # LOOM Framework ${{ steps.version.outputs.is_tag == 'true' && format('v{0}', steps.version.outputs.version) || format('Latest (v{0})', steps.version.outputs.version) }}
+
             ## What's Included
             - ✅ LOOM framework (`loom/` folder)
             - ✅ Documentation and guides
             - ✅ IDE configurations (7 IDEs supported)
             - ✅ Templates for PROJECT.md, TASKS.md, STORY.md, HANDOFF.md
             - ✅ Setup instructions and quick start guide
-            
+
             ## How to Use
-            
-            1. **Download** `loom-framework-${{ steps.version.outputs.version }}.zip`
+
+            1. **Download** `loom-framework.zip` (always the latest version)
             2. **Extract** to your project folder
             3. **Create** `PROJECT.md` with your project details (see template in ZIP)
             4. **Tell your agent**: `"read loom"` or `"leggi loom"`
             5. **Done!** LOOM auto-configures everything
-            
+
             ## Documentation
             - See `QUICKSTART.md` for 5-minute setup
             - See `docs/PROJECT-MD-GUIDE.md` for project context guide
             - See `README.md` for complete documentation
             - See `SETUP-INSTRUCTIONS.md` for AI agent setup
-            
+
             ## Supported IDEs
             - Windsurf
             - Cursor
             - Claude Code
             - VS Code
             - IntelliJ IDEA
-            - loom
+            - Antigravity
             - VS Code Insider
-            
+
             ---
-            
-            For more information, visit: https://github.com/otto78/loom
+
+            For more information, visit: https://github.com/otto78/loom-framework
           draft: false
-          prerelease: false
+          prerelease: ${{ steps.version.outputs.is_tag == 'false' }}
           files: |
             loom-framework-${{ steps.version.outputs.version }}.zip
+            loom-framework.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      
+
       - name: Upload ZIP to Release
         if: success()
         run: |
           echo "✅ LOOM v${{ steps.version.outputs.version }} released successfully!"
-          echo "📥 Download: https://github.com/${{ github.repository }}/releases/download/v${{ steps.version.outputs.version }}/loom-framework-${{ steps.version.outputs.version }}.zip"
+          echo "📥 Download: https://github.com/${{ github.repository }}/releases/download/latest/loom-framework.zip"
