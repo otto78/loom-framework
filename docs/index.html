@@ -413,6 +413,128 @@ footer a:hover{text-decoration:underline;}
     </div>
   </section>
 
+  <!-- PROJECT.md SECTION -->
+  <section class="card" id="project">
+    <h2 class="en">📋 PROJECT.md — Your Project's Brain</h2>
+    <h2 class="it">📋 PROJECT.md — Il Cervello del Tuo Progetto</h2>
+    
+    <p class="en" style="text-align:center;color:var(--muted);margin-bottom:2rem">The single source of truth that makes AI agents understand your project.</p>
+    <p class="it" style="text-align:center;color:var(--muted);margin-bottom:2rem">La fonte unica di verità che fa capire agli agenti AI il tuo progetto.</p>
+
+    <div class="feature-grid" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr));margin-bottom:2rem">
+      <div class="feature" style="border-left:4px solid var(--accent)">
+        <div class="feature-icon">🎯</div>
+        <h3 class="en">Goal</h3><h3 class="it">Goal</h3>
+        <p class="en">What you're building in 2-3 sentences</p>
+        <p class="it">Cosa stai costruendo in 2-3 frasi</p>
+      </div>
+      <div class="feature" style="border-left:4px solid var(--accent2)">
+        <div class="feature-icon">🛠️</div>
+        <h3 class="en">Stack</h3><h3 class="it">Stack</h3>
+        <p class="en">Technologies with versions (Python 3.11, React 18)</p>
+        <p class="it">Tecnologie con versioni (Python 3.11, React 18)</p>
+      </div>
+      <div class="feature" style="border-left:4px solid #28a745">
+        <div class="feature-icon">🏗️</div>
+        <h3 class="en">Architecture</h3><h3 class="it">Architettura</h3>
+        <p class="en">3-5 key design decisions</p>
+        <p class="it">3-5 decisioni chiave di design</p>
+      </div>
+      <div class="feature" style="border-left:4px solid #dc3545">
+        <div class="feature-icon">📏</div>
+        <h3 class="en">Rules</h3><h3 class="it">Regole</h3>
+        <p class="en">MUST-FOLLOW coding standards</p>
+        <p class="it">Standard di codice MUST-FOLLOW</p>
+      </div>
+    </div>
+
+    <h3 class="en">The PROJECT.md Flow</h3>
+    <h3 class="it">Il Flusso PROJECT.md</h3>
+    
+    <p class="en">When you say <strong>"read loom"</strong>, here's what happens:</p>
+    <p class="it">Quando dici <strong>"leggi loom"</strong>, ecco cosa succede:</p>
+    
+    <div class="code-wrap">
+      <div class="code-block en">1. Agent checks for PROJECT.md
+   ├── EXISTS? → Read it and configure everything
+   └── MISSING? → Ask you what to do:
+       ├── "Create it for me" → Agent analyzes codebase & creates PROJECT.md
+       ├── "Help me write it" → Agent asks questions, you answer
+       └── "I'll do it myself" → Agent shows template & waits</div>
+      <div class="code-block it">1. L'agente controlla se esiste PROJECT.md
+   ├── ESISTE? → Lo legge e configura tutto
+   └── MANCANTE? → Ti chiede cosa fare:
+       ├── "Crealo per me" → L'agente analizza il codebase e crea PROJECT.md
+       ├── "Aiutami a scriverlo" → L'agente fa domande, tu rispondi
+       └── "Lo faccio io" → L'agente mostra il template e aspetta</div>
+    </div>
+
+    <h3 class="en" style="margin-top:2rem">AI Prompts to Create PROJECT.md</h3>
+    <h3 class="it" style="margin-top:2rem">Prompt AI per Creare PROJECT.md</h3>
+    
+    <p class="step-title en">For existing projects (with code):</p>
+    <p class="step-title it">Per progetti esistenti (con codice):</p>
+    <div class="code-wrap">
+      <div class="code-block en">"This project already has code. Analyze it and create a PROJECT.md for me.
+Look at my stack, structure, and any existing docs."
+
+Analyze:
+- package.json / pyproject.toml → detect stack
+- README.md → extract goal  
+- Code structure → infer architecture
+- Tests → understand rules</div>
+      <div class="code-block it">"Questo progetto ha già codice. Analizzalo e crea un PROJECT.md per me.
+Guarda il mio stack, struttura, e documentazione esistente."
+
+Analizza:
+- package.json / pyproject.toml → rileva stack
+- README.md → estrai goal  
+- Struttura codice → inferisci architettura
+- Test → capisci regole</div>
+    </div>
+
+    <p class="step-title en" style="margin-top:1.5rem">For new projects (from scratch):</p>
+    <p class="step-title it" style="margin-top:1.5rem">Per nuovi progetti (da zero):</p>
+    <div class="code-wrap">
+      <div class="code-block en">"Help me write PROJECT.md. Ask me one question at a time:
+1. What does this project do?
+2. What technologies will you use?
+3. What are 3-5 key architectural decisions?
+4. What rules MUST be followed?
+5. Any constraints or gotchas?"</div>
+      <div class="code-block it">"Aiutami a scrivere PROJECT.md. Fammi una domanda alla volta:
+1. Cosa fa questo progetto?
+2. Quali tecnologie userai?
+3. Quali sono 3-5 decisioni architetturali chiave?
+4. Quali regole DEVONO essere seguite?
+5. Ci sono vincoli o gotchas?"</div>
+    </div>
+
+    <p class="step-title en" style="margin-top:1.5rem">To refine existing PROJECT.md:</p>
+    <p class="step-title it" style="margin-top:1.5rem">Per affinare un PROJECT.md esistente:</p>
+    <div class="code-wrap">
+      <div class="code-block en">"Review my PROJECT.md:
+- Is the Goal clear and specific?
+- Are Stack versions complete?
+- Are rules actionable (not vague)?
+- Did I miss important constraints?
+- Would an agent understand this?"</div>
+      <div class="code-block it">"Revisiona il mio PROJECT.md:
+- Il Goal è chiaro e specifico?
+- Lo Stack ha versioni complete?
+- Le regole sono azionabili (non vaghe)?
+- Ho perso vincoli importanti?
+- Un agente capirebbe questo?"</div>
+    </div>
+
+    <div style="text-align:center;margin-top:2rem;">
+      <a href="docs.html#project" class="btn btn-secondary">
+        <span class="en">Read Full PROJECT.md Guide →</span>
+        <span class="it">Leggi la Guida Completa PROJECT.md →</span>
+      </a>
+    </div>
+  </section>
+
   <!-- WHAT GETS CREATED -->
   <section class="card">
     <h2 class="en">What Gets Created</h2>
