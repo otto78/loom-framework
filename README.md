@@ -1,15 +1,29 @@
-# LOOM Framework 🧵
+# <div align="center">🧵 LOOM Framework 🧵</div>
+
+<div align="center">
 
 > **Weave intelligent agents into your development workflow**  
 > **Integra agenti intelligenti nel tuo workflow di sviluppo**
-
-🌐 **Language / Lingua**: [🇬🇧 English](#-the-problem) | [🇮🇹 Italiano](#-italiano--versione-italiana)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/otto78/loom/releases)
 [![Python](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/)
 [![IDEs](https://img.shields.io/badge/IDEs-7%20supported-green.svg)](#-supported-ides)
 [![GitHub Stars](https://img.shields.io/github/stars/otto78/loom?style=social)](https://github.com/otto78/loom)
+
+**🌐 [🇬🇧 English](#-the-problem) | [🇮🇹 Italiano](#-italiano--versione-italiana)**
+
+---
+
+## **[📥 Download LOOM Framework](https://github.com/otto78/loom/releases/latest/download/loom-framework.zip)**
+
+### *Scarica → Estrai nella cartella del tuo progetto → Crea PROJECT.md → Di' "read loom"*
+
+[![Download ZIP](https://img.shields.io/badge/Download-LOOM%20Framework%20ZIP-brightgreen?style=for-the-badge&logo=github)](https://github.com/otto78/loom/releases/latest/download/loom-framework.zip)
+
+</div>
+
+---
 
 A complete operational framework for AI-powered development across multiple IDEs. LOOM provides structure, automation, and best practices for teams working with AI agents.
 
@@ -89,7 +103,7 @@ your-project/
 LOOM is an operational framework that brings structure to AI-assisted development. It provides:
 
 - ⚡ **Quick Setup** — Interactive wizard + automated scripts
-- 🤖 **Multi-IDE Support** — 7 IDEs (Windsurf, Claude Code, Cursor, loom, VS Code, IntelliJ IDEA, VS Code Insider)
+- 🤖 **Multi-IDE Support** — 7 IDEs (Windsurf, Claude Code, Cursor, Antigravity, VS Code, IntelliJ IDEA, GitHub Copilot)
 - 📋 **Task Management** — Complete system with TASKS.md + BACKLOG.md
 - 🧪 **TDD Workflow** — Test-Driven Development integrated
 - 📝 **Integrated Versioning** — Automatic STORY.md + CHANGELOG.md
@@ -102,17 +116,23 @@ LOOM is an operational framework that brings structure to AI-assisted developmen
 
 ## 🚀 Quick Start
 
-### **Method 1: Download ZIP (Easiest)** 🎁
+### **Method 1: Download ZIP (Recommended)** 🎁
 
-The fastest way to get started:
+**The fastest way to get started — takes 2 minutes:**
 
-1. **[📥 Download Latest ZIP](https://github.com/otto78/loom/releases/latest/download/loom-framework.zip)**
-2. **Extract** to your project folder
-3. **Create** `PROJECT.md` (describe your project)
-4. **Open** any IDE and say: **"read loom"**
-5. **Done!** LOOM auto-configures everything
+1. **[📥 Download `loom-framework.zip`](https://github.com/otto78/loom/releases/latest/download/loom-framework.zip)** ← Click here
+2. **Extract** the ZIP into your project folder (creates `loom/` folder + files)
+3. **Create** `PROJECT.md` in your project root — describe your project in a few sentences
+4. **Open any IDE** (Windsurf, Cursor, Claude, etc.) and say: **"read loom"**
+5. **Done!** LOOM auto-configures everything and starts working
 
-See **[QUICKSTART.md](./QUICKSTART.md)** for complete instructions.
+**What you get in the ZIP:**
+- `loom/` — Framework folder with all scripts and templates
+- `setup.py` — Interactive setup wizard
+- `docs/` — Templates for TASKS.md, STORY.md, CHANGELOG.md
+- IDE configs for all 7 supported IDEs
+
+See **[QUICKSTART.md](./QUICKSTART.md)** for complete instructions and troubleshooting.
 
 ---
 
@@ -166,27 +186,44 @@ No need to remember Python script paths or command syntax!
 
 ## 🏗️ The DOE Architecture
 
+**DOE = Directives / Orchestration / Execution**
+
+A 3-layer architecture that solves the fundamental problem of AI agents: **probabilistic degradation**. Each decision an LLM makes has ~90% accuracy. Over 10 steps, accuracy drops to 35% ($0.9^{10}$). DOE solves this by pushing complexity into deterministic code.
+
 ```
-┌─────────────────────────────────────────┐
-│ Level 1: DIRECTIVES (What to do)       │
-│ directives/*.md — SOPs in natural      │
-│ language, objectives, inputs, outputs   │
-├─────────────────────────────────────────┤
-│ Level 2: ORCHESTRATION (How to decide) │
-│ Intelligent routing between directives │
-│ and execution scripts                   │
-├─────────────────────────────────────────┤
-│ Level 3: EXECUTION (Do the work)       │
-│ execution/*.py — Deterministic scripts │
-│ Environment variables in .env           │
-└─────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────┐
+│ Level 1: DIRECTIVES (What to do)                           │
+│ loom/directives/*.md — SOPs in natural language            │
+│ • Objectives, inputs, outputs defined in plain English      │
+│ • Agent reads once, cached for entire session               │
+│ • Example: "Send welcome email to new user"                 │
+├─────────────────────────────────────────────────────────────┤
+│ Level 2: ORCHESTRATION (How to decide)                     │
+│ Agent makes high-level decisions                            │
+│ • Chooses which directive to apply                            │
+│ • Determines parameters                                     │
+│ • Routes to appropriate execution script                    │
+│ • This is where the LLM thinks, not where it works          │
+├─────────────────────────────────────────────────────────────┤
+│ Level 3: EXECUTION (Do the work) — 100% Deterministic      │
+│ loom/execution/*.py — Python scripts that never hallucinate │
+│ • Send the actual HTTP request                                │
+│ • Write the actual file to disk                               │
+│ • Make the actual Git commit                                  │
+│ • Zero tokens, zero probability of error                      │
+└─────────────────────────────────────────────────────────────┘
 ```
 
-**Why it works**: 
-- **LLMs are probabilistic**: 90% accuracy per step = 59% over 5 steps = 35% over 10 steps
-- **Deterministic scripts**: Push complexity into Python code (100% accuracy)
-- **Token savings**: Directives cached, scripts reused, no repetitive prompts
-- **Result**: Maintain 90% accuracy over 10+ steps instead of degrading to 35%
+**Real Example: Sending an Email**
+
+| Step | Traditional AI | DOE Approach |
+|------|---------------|--------------|
+| 1 | Ask LLM "send email" → 90% accurate | Agent reads `directives/send-email.md` once |
+| 2 | LLM writes code → 90% accurate | Agent decides to call `execution/send_email.py` |
+| 3 | LLM executes code → 90% accurate | **Script executes deterministically** — 100% |
+| **Result** | 72% success (0.9³) | 90% success (LLM only makes 1 decision) |
+
+**Why it works**: Every line of code an LLM might write is replaced by pre-tested Python. The agent makes decisions; scripts do the work. Token usage drops 80%, accuracy stays high across long workflows.
 
 ---
 
@@ -285,12 +322,12 @@ python loom/scripts/task-tdd.py complete TASK-001
 | IDE/Tool | Config File | Location |
 |----------|-------------|----------|
 | 🌊 Windsurf | `.windsurfrules` | Root |
-| 🤖 Claude Code | `CLAUDE.md` | Root |
-| ↗️ Cursor | `.cursorrules` | Root |
-| ✨ LOOM | `LOOM.md` | Root |
-| 💻 VS Code (Cline) | `.clinerules` | Root |
+| 🎯 Claude Code | `CLAUDE.md` | Root |
+| ⚡ Cursor | `.cursorrules` | Root |
+| 🚀 Antigravity | `ANTIGRAVITY.md` | Root |
+| 💻 VS Code + Cline | `.clinerules` | Root |
 | 💡 IntelliJ IDEA | `LOOM.md` | `.idea/` |
-| 🐙 VS Code Insider | `VS Code Insider-instructions.md` | `.github/` |
+| 🤖 GitHub Copilot | `copilot-instructions.md` | `.github/` |
 
 ---
 
@@ -420,23 +457,46 @@ loom fornisce una memoria strutturata basata su file che rimane con il tuo proge
 
 Per dettagli: **[QUICKSTART.md](./QUICKSTART.md)**
 
-### 🏗️ Il Architettura DOE
+### 🏗️ L'Architettura DOE
+
+**DOE = Direttive / Orchestrazione / Esecuzione**
+
+Un'architettura a 3 livelli che risolve il problema fondamentale degli agenti AI: **il degrado probabilistico**. Ogni decisione di un LLM ha ~90% di accuratezza. Su 10 step, l'accuratezza scende al 35% ($0.9^{10}$). DOE risolve spingendo la complessità nel codice deterministico.
 
 ```
-┌─────────────────────────────────────────┐
-│ Livello 1: DIRETTIVE (Cosa fare)        │
-│ loom/directives/*.md — SOP in           │
-│ linguaggio naturale                      │
-├─────────────────────────────────────────┤
-│ Livello 2: ORCHESTRAZIONE (Come)        │
-│ Routing intelligente tra direttive      │
-│ e script di esecuzione                  │
-├─────────────────────────────────────────┤
-│ Livello 3: ESECUZIONE (Fare il lavoro)  │
-│ loom/execution/*.py — Script            │
-│ deterministici (100% accuratezza)       │
-└─────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────┐
+│ Livello 1: DIRETTIVE (Cosa fare)                           │
+│ loom/directives/*.md — SOP in linguaggio naturale           │
+│ • Obiettivi, input, output definiti in italiano/inglese    │
+│ • Agente legge una volta, cached per tutta la sessione    │
+│ • Esempio: "Invia email di benvenuto al nuovo utente"     │
+├─────────────────────────────────────────────────────────────┤
+│ Livello 2: ORCHESTRAZIONE (Come decidere)                  │
+│ Agente prende decisioni ad alto livello                     │
+│ • Sceglie quale direttiva applicare                        │
+│ • Determina i parametri                                     │
+│ • Indirizza allo script di esecuzione appropriato          │
+│ • Qui l'LLM pensa, non qui lavora                           │
+├─────────────────────────────────────────────────────────────┤
+│ Livello 3: ESECUZIONE (Fare il lavoro) — 100% Deterministico │
+│ loom/execution/*.py — Script Python che non allucinano      │
+│ • Invia la richiesta HTTP reale                             │
+│ • Scrive il file effettivo su disco                         │
+│ • Fa il commit Git effettivo                                │
+│ • Zero token, zero probabilità di errore                  │
+└─────────────────────────────────────────────────────────────┘
 ```
+
+**Esempio Reale: Inviare una Email**
+
+| Step | AI Tradizionale | Approccio DOE |
+|------|-----------------|---------------|
+| 1 | Chiedi LLM "invia email" → 90% accurato | Agente legge `directives/send-email.md` una volta |
+| 2 | LLM scrive codice → 90% accurato | Agente decide di chiamare `execution/send_email.py` |
+| 3 | LLM esegue codice → 90% accurato | **Script esegue deterministicamente** — 100% |
+| **Risultato** | 72% successo (0.9³) | 90% successo (LLM fa solo 1 decisione) |
+
+**Perché funziona**: Ogni riga di codice che un LLM potrebbe scrivere è sostituita da Python pre-testato. L'agente prende decisioni; gli script fanno il lavoro. Uso dei token cala dell'80%, l'accuratezza resta alta su workflow lunghi.
 
 ### 💬 Comandi in Linguaggio Naturale
 
@@ -455,12 +515,12 @@ Dopo il setup, parla con il tuo agente AI:
 | IDE/Tool | File di Config | Posizione |
 |----------|---------------|----------|
 | 🌊 Windsurf | `.windsurfrules` | Root |
-| 🤖 Claude Code | `CLAUDE.md` | Root |
-| ↗️ Cursor | `.cursorrules` | Root |
-| ✨ LOOM | `LOOM.md` | Root |
-| 💻 VS Code (Cline) | `.clinerules` | Root |
+| 🎯 Claude Code | `CLAUDE.md` | Root |
+| ⚡ Cursor | `.cursorrules` | Root |
+| 🚀 Antigravity | `ANTIGRAVITY.md` | Root |
+| 💻 VS Code + Cline | `.clinerules` | Root |
 | 💡 IntelliJ IDEA | `LOOM.md` | `.idea/` |
-| 🐙 VS Code Insider | `VS Code Insider-instructions.md` | `.github/` |
+| 🤖 GitHub Copilot | `copilot-instructions.md` | `.github/` |
 
 ### 📚 Documentazione (Italiano)
 
