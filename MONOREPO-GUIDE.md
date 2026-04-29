@@ -1,6 +1,6 @@
-﻿# Antigravity — Monorepo Usage Guide
+# LOOM — Monorepo Usage Guide
 
-> How to use Antigravity in monorepo projects (multiple packages/services in one repository)
+> How to use LOOM in monorepo projects (multiple packages/services in one repository)
 
 ---
 
@@ -22,15 +22,15 @@ monorepo/
 
 ---
 
-## Antigravity in Monorepos — Two Approaches
+## LOOM in Monorepos — Two Approaches
 
-### Approach 1: Root-Level Antigravity (Recommended)
+### Approach 1: Root-Level LOOM (Recommended)
 
-Setup Antigravity at the repository root to manage the entire monorepo as one project.
+Setup LOOM at the repository root to manage the entire monorepo as one project.
 
 ```bash
 cd /path/to/monorepo
-python /path/to/antigravity/Antigravity/scripts/setup.py
+python /path/to/loom/loom/scripts/setup.py
 ```
 
 **Result:**
@@ -55,16 +55,16 @@ monorepo/
 
 ---
 
-### Approach 2: Per-Package Antigravity
+### Approach 2: Per-Package LOOM
 
-Setup Antigravity independently in each package that needs it.
+Setup LOOM independently in each package that needs it.
 
 ```bash
 cd /path/to/monorepo/packages/frontend
-python /path/to/antigravity/Antigravity/scripts/setup.py
+python /path/to/loom/loom/scripts/setup.py
 
 cd /path/to/monorepo/packages/backend
-python /path/to/antigravity/Antigravity/scripts/setup.py
+python /path/to/loom/loom/scripts/setup.py
 ```
 
 **Result:**
@@ -93,7 +93,7 @@ monorepo/
 
 ## Hybrid Approach (Advanced)
 
-Root-level Antigravity for coordination + per-package Antigravity for details.
+Root-level LOOM for coordination + per-package LOOM for details.
 
 ```
 monorepo/
@@ -215,9 +215,9 @@ Don't mix approaches randomly. Decide based on your team structure.
 In root `AGENT.md`, explain which approach you're using:
 
 ```markdown
-## Antigravity Setup
+## LOOM Setup
 
-This monorepo uses **root-level Antigravity** with task prefixes (FE-, BE-, INFRA-).
+This monorepo uses **root-level LOOM** with task prefixes (FE-, BE-, INFRA-).
 All tasks are tracked in root docs/TASKS.md.
 ```
 
@@ -244,7 +244,7 @@ If using DOE Architecture, directives can be shared:
 
 ```
 monorepo/
-├── antigravity/
+├── loom/
 │   ├── directives/       # Shared across packages
 │   │   ├── deploy.md
 │   │   └── test.md
@@ -253,11 +253,11 @@ monorepo/
 │       └── test.py
 ├── packages/
 │   ├── frontend/
-│   │   └── antigravity/
+│   │   └── loom/
 │   │       ├── directives/  # Frontend-specific
 │   │       └── execution/
 │   └── backend/
-│       └── antigravity/
+│       └── loom/
 │           ├── directives/  # Backend-specific
 │           └── execution/
 ```
@@ -267,19 +267,19 @@ monorepo/
 ## Example: Root-Level Setup
 
 ```bash
-# 1. Clone Antigravity
-git clone https://github.com/otto78/antigravity.git
+# 1. Clone LOOM
+git clone https://github.com/otto78/LOOM.git
 
 # 2. Setup at monorepo root
 cd /path/to/monorepo
-python /path/to/antigravity/Antigravity/scripts/setup.py
+python /path/to/loom/loom/scripts/setup.py
 
 # 3. Start cross-package task
-python antigravity/scripts/task.py start INFRA-001 "Setup CI/CD for all packages"
+python loom/scripts/task.py start INFRA-001 "Setup CI/CD for all packages"
 
 # 4. Start package-specific tasks
-python antigravity/scripts/task.py start FE-001 "Implement login UI"
-python antigravity/scripts/task.py start BE-001 "Add auth API"
+python loom/scripts/task.py start FE-001 "Implement login UI"
+python loom/scripts/task.py start BE-001 "Add auth API"
 ```
 
 ---
@@ -289,19 +289,19 @@ python antigravity/scripts/task.py start BE-001 "Add auth API"
 ```bash
 # 1. Setup in frontend
 cd /path/to/monorepo/packages/frontend
-python /path/to/antigravity/Antigravity/scripts/setup.py
+python /path/to/loom/loom/scripts/setup.py
 
 # 2. Setup in backend
 cd /path/to/monorepo/packages/backend
-python /path/to/antigravity/Antigravity/scripts/setup.py
+python /path/to/loom/loom/scripts/setup.py
 
 # 3. Work on frontend
 cd packages/frontend
-python antigravity/scripts/task.py start TASK-001 "Implement login UI"
+python loom/scripts/task.py start TASK-001 "Implement login UI"
 
 # 4. Work on backend
 cd packages/backend
-python antigravity/scripts/task.py start TASK-001 "Add auth API"
+python loom/scripts/task.py start TASK-001 "Add auth API"
 ```
 
 ---
@@ -318,7 +318,7 @@ python antigravity/scripts/task.py start TASK-001 "Add auth API"
 
 ### "Task IDs conflict between packages"
 
-Use prefixes (FE-, BE-) or switch to per-package Antigravity.
+Use prefixes (FE-, BE-) or switch to per-package LOOM.
 
 ### "IDE config not applying to subpackage"
 
@@ -341,3 +341,4 @@ Some IDEs only read root config. Create package-specific config or use root conf
 
 **Version:** 1.0.0  
 **Last updated:** 2025-01-XX
+

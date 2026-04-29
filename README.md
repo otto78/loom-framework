@@ -1,4 +1,4 @@
-﻿# Antigravity Framework 🧵
+# LOOM Framework 🧵
 
 > **Weave intelligent agents into your development workflow**  
 > **Integra agenti intelligenti nel tuo workflow di sviluppo**
@@ -6,12 +6,12 @@
 🌐 **Language / Lingua**: [🇬🇧 English](#-the-problem) | [🇮🇹 Italiano](#-italiano--versione-italiana)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/otto78/Antigravity-framework/releases)
+[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/otto78/loom/releases)
 [![Python](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/)
 [![IDEs](https://img.shields.io/badge/IDEs-7%20supported-green.svg)](#-supported-ides)
-[![GitHub Stars](https://img.shields.io/github/stars/otto78/Antigravity-framework?style=social)](https://github.com/otto78/Antigravity-framework)
+[![GitHub Stars](https://img.shields.io/github/stars/otto78/loom?style=social)](https://github.com/otto78/loom)
 
-A complete operational framework for AI-powered development across multiple IDEs. Antigravity provides structure, automation, and best practices for teams working with AI agents.
+A complete operational framework for AI-powered development across multiple IDEs. LOOM provides structure, automation, and best practices for teams working with AI agents.
 
 ---
 
@@ -37,14 +37,14 @@ graph TD
 
 ## ✅ The Solution: Persistent File-Based Memory
 
-Antigravity provides a structured, file-based memory that stays with your project.
+LOOM provides a structured, file-based memory that stays with your project.
 
 ```mermaid
 sequenceDiagram
     participant U as User
     participant A as AI Agent
-    participant L as Antigravity Framework
-    U->>A: "read Antigravity"
+    participant L as LOOM Framework
+    U->>A: "read loom"
     A->>L: Discover PROJECT.md
     L->>A: Load Directives & State
     A->>U: "I'm ready. TASK-001 active."
@@ -54,13 +54,13 @@ sequenceDiagram
 - 🔄 **Multi-Agent Support** — Same state across 7 IDEs
 - 💰 **Token Savings** — Scripts replace repetitive prompts
 - 🎯 **Deterministic** — 90% accuracy maintained over 10+ steps
-- 🚀 **Zero-Friction** — Just say "read Antigravity"
+- 🚀 **Zero-Friction** — Just say "read loom"
 
 ---
 
 ## 📂 What Gets Created in Your Project
 
-After running `python antigravity/scripts/setup.py` in your project, Antigravity creates:
+After running `python loom/scripts/setup.py` in your project, Antigravity creates:
 
 ```
 your-project/
@@ -68,10 +68,10 @@ your-project/
 ├── .windsurfrules            # IDE config (only for selected IDEs)
 ├── .cursorrules              #
 ├── CLAUDE.md                 #
-├── ANTIGRAVITY.md            #
+├── LOOM.md            #
 ├── .clinerules               #
 ├── .idea/
-│   └── antigravity.md  # IntelliJ config
+│   └── LOOM.md  # IntelliJ config
 └── docs/
     ├── TASKS.md              # Active task tracking
     ├── BACKLOG.md            # Future ideas
@@ -84,9 +84,9 @@ your-project/
 
 ---
 
-## 🎯 What is Antigravity?
+## 🎯 What is LOOM?
 
-Antigravity is an operational framework that brings structure to AI-assisted development. It provides:
+LOOM is an operational framework that brings structure to AI-assisted development. It provides:
 
 - ⚡ **Quick Setup** — Interactive wizard + automated scripts
 - 🤖 **Multi-IDE Support** — 7 IDEs (Windsurf, Claude Code, Cursor, Antigravity, VS Code, IntelliJ IDEA, VS Code Insider)
@@ -102,80 +102,48 @@ Antigravity is an operational framework that brings structure to AI-assisted dev
 
 ## 🚀 Quick Start
 
-### Method 1: Zero-Friction Setup (Easiest)
+### **Method 1: Download ZIP (Easiest)** 🎁
 
-**For new projects (4 steps):**
+The fastest way to get started:
 
-1. Create project folder
-2. Create `PROJECT.md` with project description
-3. Add `Antigravity/` folder to your project
-4. Open any IDE and say: **"read Antigravity"**
+1. **[📥 Download Latest ZIP](https://github.com/otto78/loom/releases/latest/download/loom-framework.zip)**
+2. **Extract** to your project folder
+3. **Create** `PROJECT.md` (describe your project)
+4. **Open** any IDE and say: **"read loom"**
+5. **Done!** LOOM auto-configures everything
 
-**For existing projects (2 steps):**
-
-1. Add `Antigravity/` folder to your project
-2. Open any IDE and say: **"read Antigravity"**
-
-**That's it!** No commands to remember.
-
-See **[QUICKSTART.md](./QUICKSTART.md)** for details.
+See **[QUICKSTART.md](./QUICKSTART.md)** for complete instructions.
 
 ---
 
-### Method 2: One-Liner Install
+### Method 2: Clone from GitHub
+
+**For new projects (4 steps):**
+
+1. Clone repository
+2. Create `PROJECT.md` with project description
+3. Add `loom/` folder to your project
+4. Open any IDE and say: **"read loom"**
+
+**For existing projects (2 steps):**
+
+1. Add `loom/` folder to your project
+2. Open any IDE and say: **"read loom"**
+
+**That's it!** No commands to remember.
+
+---
+
+### Method 3: One-Liner Install
 
 **Windows (PowerShell):**
 ```powershell
-irm https://raw.githubusercontent.com/otto78/Antigravity-framework/main/install.ps1 | iex
+irm https://raw.githubusercontent.com/otto78/loom/main/install.ps1 | iex
 ```
 
 **Unix/Linux/macOS:**
 ```bash
-curl -fsSL https://raw.githubusercontent.com/otto78/Antigravity-framework/main/install.sh | bash
-```
-
-The installer will:
-- Clone Antigravity to `~/.Antigravity-framework`
-- Detect if you're in a project directory
-- Offer to run setup automatically
-
-### Method 3: Interactive Wizard
-
-```bash
-# 1. Clone Antigravity
-git clone https://github.com/otto78/Antigravity-framework.git
-
-# 2. Run setup wizard in your project
-cd /path/to/your-project
-python /path/to/Antigravity-framework/antigravity/scripts/setup.py
-
-# The wizard will automatically detect:
-# - Programming languages
-# - Frameworks in use
-# - IDEs configured
-# And create all necessary files
-```
-
-### Method 4: Natural Language (with AI Agent)
-
-Simply tell your AI agent:
-
-```
-"setup Antigravity framework"
-```
-
-The agent will automatically execute the setup wizard!
-
-See **[NATURAL-LANGUAGE-GUIDE.md](./NATURAL-LANGUAGE-GUIDE.md)** for complete guide.
-
-### Method 5: Automated Setup
-
-```bash
-# Auto-setup without interaction
-python antigravity/scripts/setup.py --auto
-
-# With specific options
-python antigravity/scripts/setup.py --auto --project-name "MyProject" --ide windsurf,cursor,intellij
+curl -fsSL https://raw.githubusercontent.com/otto78/loom/main/install.sh | bash
 ```
 
 ---
@@ -225,7 +193,7 @@ No need to remember Python script paths or command syntax!
 ## 📁 Structure
 
 ```
-Antigravity-framework/
+loom-framework/
 ├── README.md                          # This guide
 ├── docs/
 │   ├── setup-guide.md                 # Complete setup guide
@@ -256,10 +224,10 @@ Antigravity-framework/
 │   │   ├── windsurf/                  # .windsurfrules
 │   │   ├── claude/                    # CLAUDE.md
 │   │   ├── cursor/                    # .cursorrules
-│   │   ├── antigravity/               # Antigravity template
+│   │   ├── loom/               # LOOM template
 │   │   ├── vscode/                    # .clinerules
 │   │   ├── VS Code Insider/                   # VS Code Insider-instructions.md
-│   │   └── intellij/                  # antigravity.md
+│   │   └── intellij/                  # LOOM.md
 │   │
 │   ├── directives/                    # SOPs (Standard Operating Procedures)
 │   │   ├── README.md                  # How to write directives
@@ -319,9 +287,9 @@ python antigravity/scripts/task-tdd.py complete TASK-001
 | 🌊 Windsurf | `.windsurfrules` | Root |
 | 🤖 Claude Code | `CLAUDE.md` | Root |
 | ↗️ Cursor | `.cursorrules` | Root |
-| ✨ Antigravity | `ANTIGRAVITY.md` | Root |
+| ✨ LOOM | `LOOM.md` | Root |
 | 💻 VS Code (Cline) | `.clinerules` | Root |
-| 💡 IntelliJ IDEA | `antigravity.md` | `.idea/` |
+| 💡 IntelliJ IDEA | `LOOM.md` | `.idea/` |
 | 🐙 VS Code Insider | `VS Code Insider-instructions.md` | `.github/` |
 
 ---
@@ -331,23 +299,23 @@ python antigravity/scripts/task-tdd.py complete TASK-001
 - **[QUICKSTART.md](./QUICKSTART.md)** — 5-minute quick start
 - **[NATURAL-LANGUAGE-GUIDE.md](./NATURAL-LANGUAGE-GUIDE.md)** — Use framework by talking
 - **[TDD-WORKFLOW.md](./TDD-WORKFLOW.md)** — Test-Driven Development guide
-- **[MONOREPO-GUIDE.md](./MONOREPO-GUIDE.md)** — Using Antigravity in monorepos
+- **[MONOREPO-GUIDE.md](./MONOREPO-GUIDE.md)** — Using LOOM in monorepos
 - **[SETUP-INSTRUCTIONS.md](./SETUP-INSTRUCTIONS.md)** — For AI agents
 - **[docs/framework-guide.md](./docs/framework-guide.md)** — 3-level architecture
 - **[docs/workflow-guide.md](./docs/workflow-guide.md)** — Complete workflow guide
 
 ---
 
-## 🌟 Why Antigravity?
+## 🌟 Why LOOM?
 
-### Before Antigravity
+### Before LOOM
 - ❌ Inconsistent AI agent behavior
 - ❌ No task tracking
 - ❌ Manual documentation updates
 - ❌ Lost context between sessions
 - ❌ No testing workflow
 
-### After Antigravity
+### After LOOM
 - ✅ Structured agent workflows
 - ✅ Automatic task management
 - ✅ Auto-updated documentation
@@ -359,31 +327,31 @@ python antigravity/scripts/task-tdd.py complete TASK-001
 ## 🆚 Why Not X?
 
 ### vs. Cursor Rules / `.cursorrules`
-Cursor rules are a single config file for one IDE. Antigravity is a full workflow system: task tracking, versioning, TDD, handoffs, and configs for 7 IDEs — all kept in sync.
+Cursor rules are a single config file for one IDE. LOOM is a full workflow system: task tracking, versioning, TDD, handoffs, and configs for 7 IDEs — all kept in sync.
 
 ### vs. aider
-aider is a CLI coding assistant. Antigravity is not a coding tool — it's the **operational layer** that sits on top of any AI agent (including aider). You can use aider inside a Antigravity-managed project.
+aider is a CLI coding assistant. LOOM is not a coding tool — it's the **operational layer** that sits on top of any AI agent (including aider). You can use aider inside a Antigravity-managed project.
 
 ### vs. VS Code Insider Instructions / `CLAUDE.md` alone
-Dropping a single instruction file in your repo gives the agent context, but no structure. Antigravity adds task lifecycle management, TDD workflow, automated versioning, and agent-to-agent handoff protocol on top.
+Dropping a single instruction file in your repo gives the agent context, but no structure. LOOM adds task lifecycle management, TDD workflow, automated versioning, and agent-to-agent handoff protocol on top.
 
 ### vs. writing your own system prompt
-Custom prompts work for one agent, one session. Antigravity is persistent, multi-agent, multi-IDE, and version-controlled. It survives context resets and team handoffs.
+Custom prompts work for one agent, one session. LOOM is persistent, multi-agent, multi-IDE, and version-controlled. It survives context resets and team handoffs.
 
 ### vs. doing nothing
-LLMs are probabilistic. Without structure, accuracy degrades with every chained decision. Antigravity pushes complexity into deterministic scripts so agents only make decisions — not do the work.
+LLMs are probabilistic. Without structure, accuracy degrades with every chained decision. LOOM pushes complexity into deterministic scripts so agents only make decisions — not do the work.
 
 ---
 
 ## 🤝 Contributing
 
-Antigravity is a living system. Improve it continuously:
+LOOM is a living system. Improve it continuously:
 - Add new IDEs when you use them
 - Refine standards when you discover better patterns
 - Extend the framework when you need more structure
 - Share improvements with the community
 
-**Guiding principle**: Every project using Antigravity should improve it for future projects.
+**Guiding principle**: Every project using LOOM should improve it for future projects.
 
 ---
 
@@ -395,10 +363,10 @@ MIT — Use, modify, share freely.
 
 ## 🔗 Links
 
-- **Website**: [otto78.github.io/Antigravity-framework](https://otto78.github.io/Antigravity-framework)
-- **Documentation**: [otto78.github.io/Antigravity-framework/docs.html](https://otto78.github.io/Antigravity-framework/docs.html)
-- **GitHub**: [github.com/otto78/Antigravity-framework](https://github.com/otto78/Antigravity-framework)
-- **Issues**: [github.com/otto78/Antigravity-framework/issues](https://github.com/otto78/Antigravity-framework/issues)
+- **Website**: [otto78.github.io/loom](https://otto78.github.io/loom)
+- **Documentation**: [otto78.github.io/loom-framework/docs.html](https://otto78.github.io/loom-framework/docs.html)
+- **GitHub**: [github.com/otto78/loom](https://github.com/otto78/loom)
+- **Issues**: [github.com/otto78/loom-framework/issues](https://github.com/otto78/loom-framework/issues)
 
 ---
 
@@ -430,7 +398,7 @@ Antigravity fornisce una memoria strutturata basata su file che rimane con il tu
 - 🔄 **Supporto Multi-Agente** — Stesso stato tra 7 IDE
 - 💰 **Risparmio Token** — Script sostituiscono prompt ripetitivi
 - 🎯 **Deterministico** — 90% di accuratezza mantenuta su 10+ step
-- 🚀 **Zero-Friction** — Basta dire "leggi Antigravity"
+- 🚀 **Zero-Friction** — Basta dire "leggi loom"
 
 ### 🚀 Avvio Rapido
 
@@ -440,14 +408,14 @@ Antigravity fornisce una memoria strutturata basata su file che rimane con il tu
 1. Crea cartella progetto
 2. Crea PROJECT.md con descrizione progetto
 3. Aggiungi cartella antigravity/ al progetto
-4. Apri qualsiasi IDE e di': "leggi Antigravity"
+4. Apri qualsiasi IDE e di': "leggi loom"
 ```
 
 **Per progetti esistenti (2 step):**
 
 ```
 1. Aggiungi cartella antigravity/ al progetto
-2. Apri qualsiasi IDE e di': "leggi Antigravity"
+2. Apri qualsiasi IDE e di': "leggi loom"
 ```
 
 Per dettagli: **[QUICKSTART.md](./QUICKSTART.md)**
@@ -489,9 +457,9 @@ Dopo il setup, parla con il tuo agente AI:
 | 🌊 Windsurf | `.windsurfrules` | Root |
 | 🤖 Claude Code | `CLAUDE.md` | Root |
 | ↗️ Cursor | `.cursorrules` | Root |
-| ✨ Antigravity | `ANTIGRAVITY.md` | Root |
+| ✨ LOOM | `LOOM.md` | Root |
 | 💻 VS Code (Cline) | `.clinerules` | Root |
-| 💡 IntelliJ IDEA | `antigravity.md` | `.idea/` |
+| 💡 IntelliJ IDEA | `LOOM.md` | `.idea/` |
 | 🐙 VS Code Insider | `VS Code Insider-instructions.md` | `.github/` |
 
 ### 📚 Documentazione (Italiano)
@@ -507,3 +475,4 @@ Dopo il setup, parla con il tuo agente AI:
 **Versione**: 1.0.0  
 **Autore**: Andrea Mazzarotto  
 **Tagline**: Integra agenti intelligenti nel tuo workflow di sviluppo 🧵
+

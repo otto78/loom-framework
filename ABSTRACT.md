@@ -1,4 +1,4 @@
-﻿# Antigravity — Abstract
+﻿# LOOM — Abstract
 
 > **The operational framework that makes AI agents reliable, persistent, and token-efficient**
 
@@ -29,22 +29,22 @@ In complex tasks, a 90% success rate per step sounds good, but over a 10-step se
 
 ---
 
-## ✅ The Solution: The Antigravity
+## ✅ The Solution: LOOM
 
-Antigravity provides a structured, file-based memory that stays with your project.
+LOOM provides a structured, file-based memory that stays with your project.
 
 ```mermaid
 sequenceDiagram
     participant U as User
     participant A as AI Agent
-    participant L as Antigravity
-    U->>A: "read Antigravity"
+    participant L as LOOM
+    U->>A: "read loom"
     A->>L: Discover PROJECT.md
     L->>A: Load Directives & State
     A->>U: "I'm ready. TASK-001 active."
 ```
 
-Antigravity solves these problems through **persistent file-based memory** and a **deterministic 3-level architecture**:
+LOOM solves these problems through **persistent file-based memory** and a **deterministic 3-level architecture**:
 
 #### 1. Persistent Memory (Beats Context Limits)
 - **TASKS.md** — Active work tracking that survives context resets
@@ -60,7 +60,7 @@ These files create a **shared memory layer** that:
 
 #### 2. Multi-IDE & Multi-Agent Support
 - **7 IDE configs** kept in sync automatically
-- Same workflow in Cursor, Windsurf, Claude Code, VS Code, IntelliJ, Antigravity, VS Code Insider
+- Same workflow in Cursor, Windsurf, Claude Code, VS Code, IntelliJ, Antigravity (IDE), VS Code Insider
 - Agents read the same files regardless of IDE
 - Switch tools without losing context
 
@@ -89,11 +89,11 @@ No commands to remember. Just:
 ```
 1. Create your project folder
 2. Add PROJECT.md with project description
-3. Put antigravity/ folder in your project
-4. Open any IDE and say: "read Antigravity"
+3. Put loom/ folder in your project
+4. Open any IDE and say: "read loom"
 ```
 
-That's it. Antigravity auto-configures everything.
+That's it. LOOM auto-configures everything.
 
 ### Key Benefits
 
@@ -131,22 +131,22 @@ In compiti complessi, un tasso di successo del 90% per step sembra buono, ma su 
 
 ---
 
-## ✅ La Soluzione: Antigravity
+## ✅ La Soluzione: LOOM
 
-Antigravity fornisce una memoria strutturata basata su file che rimane con il tuo progetto.
+LOOM fornisce una memoria strutturata basata su file che rimane con il tuo progetto.
 
 ```mermaid
 sequenceDiagram
     participant U as Utente
     participant A as Agente AI
-    participant L as Antigravity
-    U->>A: "leggi Antigravity"
+    participant L as LOOM
+    U->>A: "leggi loom"
     A->>L: Scopre PROJECT.md
     L->>A: Carica Direttive e Stato
     A->>U: "Sono pronto. TASK-001 attivo."
 ```
 
-Antigravity risolve questi problemi attraverso **memoria persistente basata su file** e un'**architettura deterministica a 3 livelli**:
+LOOM risolve questi problemi attraverso **memoria persistente basata su file** e un'**architettura deterministica a 3 livelli**:
 
 #### 1. Memoria Persistente (Supera i Limiti di Contesto)
 - **TASKS.md** — Tracciamento lavoro che sopravvive ai reset
@@ -162,7 +162,7 @@ Questi file creano un **layer di memoria condivisa** che:
 
 #### 2. Supporto Multi-IDE & Multi-Agente
 - **7 config IDE** mantenute sincronizzate automaticamente
-- Stesso workflow in Cursor, Windsurf, Claude Code, VS Code, IntelliJ, Antigravity, VS Code Insider
+- Stesso workflow in Cursor, Windsurf, Claude Code, VS Code, IntelliJ, Antigravity (IDE), VS Code Insider
 - Gli agenti leggono gli stessi file indipendentemente dall'IDE
 - Cambia strumenti senza perdere contesto
 
@@ -191,11 +191,11 @@ Nessun comando da ricordare. Semplicemente:
 ```
 1. Crea la cartella del tuo progetto
 2. Aggiungi PROJECT.md con la descrizione del progetto
-3. Metti la cartella antigravity/ nel tuo progetto
-4. Apri qualsiasi IDE e di': "leggi Antigravity"
+3. Metti la cartella loom/ nel tuo progetto
+4. Apri qualsiasi IDE e di': "leggi loom"
 ```
 
-Tutto qui. Antigravity auto-configura tutto.
+Tutto qui. LOOM auto-configura tutto.
 
 ### Benefici Chiave
 

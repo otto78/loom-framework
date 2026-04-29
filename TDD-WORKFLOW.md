@@ -1,4 +1,4 @@
-﻿# TDD Workflow — Test-Driven Development
+# TDD Workflow — Test-Driven Development
 
 > Workflow completo Test-Driven Development integrato nel framework.
 
@@ -572,3 +572,4 @@ Prima di completare un task TDD:
 **Versione:** 1.0.0  
 **Framework:** Antigravity v1.0  
 **Metodologia:** Test-Driven Development
+
