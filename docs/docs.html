@@ -411,6 +411,386 @@ The agent understands and executes automatically!
 
 1. **Use natural language** — "start task" = "create task" = "begin task"
 2. **Let the agent suggest** — it will recommend TDD for critical features
+3. **Use abbreviations** — "list", "complete TASK-001" all work`
+},
+{
+  id:'project',icon:'&#128203;',labelEn:'PROJECT.md Guide',labelIt:'Guida PROJECT.md',file:'PROJECT-MD-GUIDE.md',
+  content:`# PROJECT.md — The Foundation of LOOM
+
+> **The single source of truth for your project.** Without it, the agent works blind. With it, the agent becomes your perfect teammate.
+
+---
+
+## What is PROJECT.md?
+
+**PROJECT.md** tells LOOM everything it needs to know:
+
+| Section | What It Contains | Why It Matters |
+|---------|------------------|----------------|
+| **Goal** | 2-3 sentences describing what you're building | Agent knows the big picture |
+| **Stack** | Technologies with versions (Python 3.11, React 18, etc.) | Agent uses correct syntax & APIs |
+| **Architecture** | 3-5 key design decisions | Agent respects your patterns |
+| **Rules** | MUST-FOLLOW coding standards | Agent follows your conventions |
+| **Notes** | Constraints, gotchas, past decisions | Agent avoids known pitfalls |
+
+---
+
+## The PROJECT.md Flow
+
+When you say **"read loom"**, here's what happens:
+
+\`\`\`
+1. Agent checks for PROJECT.md
+   ├── EXISTS? → Read it and configure everything
+   └── MISSING? → Ask you what to do:
+       ├── "Create it for me" → Agent analyzes codebase & creates PROJECT.md
+       ├── "Help me write it" → Agent asks questions, you answer
+       └── "I'll do it myself" → Agent shows template & waits
+\`\`\`
+
+### If Project Already Has Code
+
+**Loom can auto-generate PROJECT.md by analyzing:**
+- \`package.json\` / \`pyproject.toml\` / \`requirements.txt\` → detects stack
+- \`README.md\` → extracts goal
+- Directory structure → infers architecture
+- Existing tests → understands rules
+- \`.gitignore\`, CI config → detects constraints
+
+**Prompt to use:**
+\`\`\`
+"This project already has code. Analyze it and create a PROJECT.md for me.
+Look at my stack, structure, and any existing docs."
+\`\`\`
+
+### If Starting From Scratch
+
+**Let loom guide you:**
+\`\`\`
+"Help me write PROJECT.md. Ask me questions about:
+1. What does this project do?
+2. What technologies will you use?
+3. What are 3-5 key architectural decisions?
+4. What rules MUST be followed?
+5. Any constraints or gotchas I should know?"
+\`\`\`
+
+---
+
+## Real-World Example: FastAPI API
+
+\`\`\`markdown
+# TaskFlow API
+
+## Goal
+REST API for personal task management. Users create, update, and track tasks with deadlines, priorities, and team collaboration.
+
+## Stack
+- Backend: Python 3.11 + FastAPI
+- Database: PostgreSQL 15 (asyncpg + SQLAlchemy v2)
+- Auth: JWT (python-jose)
+- Testing: pytest + httpx
+- Hosting: Render.com
+
+## Architecture
+- Stateless REST API (no frontend)
+- Business logic ONLY in service layer
+- Async/await throughout
+- Models → Services → Routes pattern
+
+## Rules
+- Every endpoint MUST have a test
+- NO direct DB queries in routes
+- ALL functions MUST have docstrings
+- NEVER use git add -A (selective commits)
+- Type hints required on all functions
+
+## Notes
+- DB has 2M user records: avoid unindexed queries
+- Rate limit: 100 req/min per user token
+- API versioning: all endpoints start with /api/v1/
+\`\`\`
+
+---
+
+## AI Prompts for PROJECT.md
+
+### Prompt 1: Auto-Generate from Existing Code
+\`\`\`
+"Analyze my codebase and create a draft PROJECT.md.
+Look at:
+- package.json / pyproject.toml (detect stack)
+- README.md (extract goal)
+- Code structure (infer architecture)
+- Tests and CI config (detect rules)
+
+Then show me the draft so I can edit it."
+\`\`\`
+
+### Prompt 2: Guided Creation
+\`\`\`
+"Help me write PROJECT.md for my project.
+I'll answer questions about goal, stack, architecture, rules, and constraints.
+Ask me one question at a time."
+\`\`\`
+
+### Prompt 3: Refine Existing
+\`\`\`
+"Review my PROJECT.md:
+- Is the Goal clear and specific?
+- Are Stack versions complete?
+- Are rules actionable (not vague)?
+- Did I miss important constraints?
+- Would an agent understand this?"
+\`\`\`
+
+---
+
+## Quality Checklist
+
+✅ **Goal**: 2-3 sentences, crystal clear  
+✅ **Stack**: Specific versions (not just "Python")  
+✅ **Architecture**: Actual decisions (not "modular")  
+✅ **Rules**: MUST-FOLLOW (not "should follow")  
+✅ **Notes**: Documented constraints & gotchas  
+✅ **Length**: 50-80 lines (concise, not rambling)
+
+---
+
+## Next Steps
+
+1. **Create PROJECT.md** in your project root
+2. **Tell agent**: "read loom" or "leggi loom"
+3. **Agent auto-configures** based on YOUR PROJECT.md!
+
+**Remember**: PROJECT.md is YOUR voice telling the agent what to care about. Make it clear, make it specific, and the agent will deliver amazing work! 🎯`,
+  contentIt:`# PROJECT.md — La Fondazione di LOOM
+
+> **La fonte unica di verità per il tuo progetto.** Senza di esso, l'agente lavora alla cieca. Con esso, l'agente diventa il tuo compagno di team perfetto.
+
+---
+
+## Cos'è PROJECT.md?
+
+**PROJECT.md** dice a LOOM tutto ciò che deve sapere:
+
+| Sezione | Cosa Contiene | Perché Importa |
+|---------|---------------|----------------|
+| **Goal** | 2-3 frasi che descrivono cosa stai costruendo | L'agente conosce il quadro generale |
+| **Stack** | Tecnologie con versioni (Python 3.11, React 18, etc.) | L'agente usa sintassi & API corrette |
+| **Architettura** | 3-5 decisioni chiave di design | L'agente rispetta i tuoi pattern |
+| **Regole** | Standard di codice MUST-FOLLOW | L'agente segue le tue convenzioni |
+| **Note** | Vincoli, gotchas, decisioni passate | L'agente evita problemi noti |
+
+---
+
+## Il Flusso PROJECT.md
+
+Quando dici **"leggi loom"**, ecco cosa succede:
+
+\`\`\`
+1. L'agente controlla se esiste PROJECT.md
+   ├── ESISTE? → Lo legge e configura tutto
+   └── MANCANTE? → Ti chiede cosa fare:
+       ├── "Crealo per me" → L'agente analizza il codebase e crea PROJECT.md
+       ├── "Aiutami a scriverlo" → L'agente fa domande, tu rispondi
+       └── "Lo faccio io" → L'agente mostra il template e aspetta
+\`\`\`
+
+### Se il Progetto Ha Già Codice
+
+**Loom può auto-generare PROJECT.md analizzando:**
+- \`package.json\` / \`pyproject.toml\` / \`requirements.txt\` → rileva stack
+- \`README.md\` → estrae goal
+- Struttura directory → inferisce architettura
+- Test esistenti → capisce regole
+- \`.gitignore\`, CI config → rileva vincoli
+
+**Prompt da usare:**
+\`\`\`
+"Questo progetto ha già codice. Analizzalo e crea un PROJECT.md per me.
+Guarda il mio stack, struttura, e documentazione esistente."
+\`\`\`
+
+### Se Si Parte da Zero
+
+**Lascia che loom ti guidi:**
+\`\`\`
+"Aiutami a scrivere PROJECT.md. Fammi domande su:
+1. Cosa fa questo progetto?
+2. Quali tecnologie userai?
+3. Quali sono 3-5 decisioni architetturali chiave?
+4. Quali regole DEVONO essere seguite?
+5. Ci sono vincoli o gotchas che dovrei sapere?"
+\`\`\`
+
+---
+
+## Esempio Reale: FastAPI API
+
+\`\`\`markdown
+# TaskFlow API
+
+## Goal
+REST API per task management personale. Gli utenti creano, aggiornano e tracciano task con scadenze, priorità e collaborazione team.
+
+## Stack
+- Backend: Python 3.11 + FastAPI
+- Database: PostgreSQL 15 (asyncpg + SQLAlchemy v2)
+- Auth: JWT (python-jose)
+- Testing: pytest + httpx
+- Hosting: Render.com
+
+## Architettura
+- Stateless REST API (no frontend)
+- Business logic SOLO nel service layer
+- Async/await ovunque
+- Pattern Models → Services → Routes
+
+## Regole
+- Ogni endpoint DEVE avere un test
+- NO query DB dirette nelle routes
+- TUTTE le funzioni DEVONO avere docstrings
+- MAI usare git add -A (commit selettivi)
+- Type hints richieste su tutte le funzioni
+
+## Note
+- DB ha 2M record utente: evita query senza indici
+- Rate limit: 100 req/min per token utente
+- API versioning: tutti gli endpoint iniziano con /api/v1/
+\`\`\`
+
+---
+
+## Prompt AI per PROJECT.md
+
+### Prompt 1: Auto-Genera da Codice Esistente
+\`\`\`
+"Analizza il mio codebase e crea una bozza di PROJECT.md.
+Guarda:
+- package.json / pyproject.toml (rileva stack)
+- README.md (estrai goal)
+- Struttura del codice (inferisci architettura)
+- Test e CI config (rileva regole)
+
+Poi mostrami la bozza così posso modificarla."
+\`\`\`
+
+### Prompt 2: Creazione Guidata
+\`\`\`
+"Aiutami a scrivere PROJECT.md per il mio progetto.
+Risponderò a domande su goal, stack, architettura, regole e vincoli.
+Fammi una domanda alla volta."
+\`\`\`
+
+### Prompt 3: Affina Esistente
+\`\`\`
+"Revisiona il mio PROJECT.md:
+- Il Goal è chiaro e specifico?
+- Lo Stack ha versioni complete?
+- Le regole sono azionabili (non vaghe)?
+- Ho perso vincoli importanti?
+- Un agente capirebbe questo?"
+\`\`\`
+
+---
+
+## Checklist Qualità
+
+✅ **Goal**: 2-3 frasi, cristallino  
+✅ **Stack**: Versioni specifiche (non solo "Python")  
+✅ **Architettura**: Decisioni reali (non "modulare")  
+✅ **Regole**: MUST-FOLLOW (non "dovresti seguire")  
+✅ **Note**: Vincoli & gotchas documentati  
+✅ **Lunghezza**: 50-80 righe (conciso, non verboso)
+
+---
+
+## Prossimi Passi
+
+1. **Crea PROJECT.md** nella root del tuo progetto
+2. **Di' all'agente**: "read loom" o "leggi loom"
+3. **L'agente si auto-configura** in base al TUO PROJECT.md!
+
+**Ricorda**: PROJECT.md è la TUA voce che dice all'agente cosa deve importare. Rendiolo chiaro, rendilo specifico, e l'agente farà un lavoro straordinario! 🎯`
+},
+{
+  id:'natural-language',icon:'&#128172;',labelEn:'Natural Language Guide',labelIt:'Guida Linguaggio Naturale',file:'NATURAL-LANGUAGE-GUIDE.md',
+  content:`# Natural Language Guide
+
+> No need to manually run Python scripts. Just talk to your AI agent naturally!
+
+---
+
+## Core Idea
+
+Instead of:
+\`\`\`bash
+python loom/scripts/setup.py
+\`\`\`
+
+Just say:
+\`\`\`
+"setup loom"
+\`\`\`
+
+The agent understands and executes automatically!
+
+---
+
+## Task Management Commands
+
+| You Say | Agent Executes |
+|---------|---------------|
+| "start task TASK-001 'feature X'" | \`task.py start TASK-001 "feature X"\` |
+| "show tasks" | \`task.py list\` |
+| "complete task TASK-001" | \`task.py complete TASK-001\` |
+| "run tests" | \`task-tdd.py test\` |
+| "sync configs" | \`sync-configs.sh\` |
+
+---
+
+## TDD with Natural Language
+
+\`\`\`
+"start TDD task TASK-001 'add email validation'"
+-> Creates test file, runs tests (Red phase)
+
+"run tests"
+-> Shows test results
+
+"complete task TASK-001"
+-> Verifies all tests pass, commits
+\`\`\`
+
+---
+
+## Multilingual Support
+
+### English
+\`\`\`
+"setup the framework"
+"start task TASK-001 'description'"
+"show tasks"
+"complete task TASK-001"
+"run tests"
+\`\`\`
+
+### Italiano
+\`\`\`
+"configura il framework"
+"avvia task TASK-001 'descrizione'"
+"mostra i task"
+"completa task TASK-001"
+"esegui i test"
+\`\`\`
+
+---
+
+## Best Practices
+
+1. **Use natural language** — "start task" = "create task" = "begin task"
+2. **Let the agent suggest** — it will recommend TDD for critical features
 3. **Use abbreviations** — "list", "complete TASK-001" all work`,
   contentIt:`# Guida Linguaggio Naturale
 
