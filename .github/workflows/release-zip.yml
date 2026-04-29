@@ -78,7 +78,7 @@ jobs:
             - Claude Code
             - VS Code
             - IntelliJ IDEA
-            - Antigravity
+            - loom
             - VS Code Insider
             
             ---

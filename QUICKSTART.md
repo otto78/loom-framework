@@ -9,7 +9,7 @@
 
 ### What You'll Need
 
-- Any IDE (Windsurf, Cursor, Claude Code, VS Code, IntelliJ, Antigravity, VS Code Insider)
+- Any IDE (Windsurf, Cursor, Claude Code, VS Code, IntelliJ, loom, VS Code Insider)
 - A project folder (new or existing)
 - 2 minutes of your time
 
@@ -67,8 +67,8 @@ your-project/
 ├── .cursorrules              #
 ├── CLAUDE.md                 #
 ├── .clinerules               #
-├── ANTIGRAVITY.md            #
-├── .idea/antigravity.md      # IntelliJ config
+├── loom.md            #
+├── .idea/loom.md      # IntelliJ config
 ├── .github/vscode-insider-instructions.md
 └── docs/
     ├── TASKS.md              # ⭐ Active task tracking
@@ -120,7 +120,7 @@ After setup, you can tell your agent:
 
 ### Cosa Ti Serve
 
-- Qualsiasi IDE (Windsurf, Cursor, Claude Code, VS Code, IntelliJ, Antigravity, VS Code Insider)
+- Qualsiasi IDE (Windsurf, Cursor, Claude Code, VS Code, IntelliJ, loom, VS Code Insider)
 - Una cartella di progetto (nuova o esistente)
 - 2 minuti del tuo tempo
 
@@ -178,8 +178,8 @@ tuo-progetto/
 ├── .cursorrules              #
 ├── CLAUDE.md                 #
 ├── .clinerules               #
-├── ANTIGRAVITY.md            #
-├── .idea/antigravity.md      # Config IntelliJ
+├── loom.md            #
+├── .idea/loom.md      # Config IntelliJ
 ├── .github/vscode-insider-instructions.md
 └── docs/
     ├── TASKS.md              # ⭐ Tracciamento task attivi

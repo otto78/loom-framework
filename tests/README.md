@@ -1,6 +1,6 @@
-﻿# Antigravity Tests
+# loom Tests
 
-This directory contains tests for the Antigravity.
+This directory contains tests for the loom.
 
 ## Running Tests
 
@@ -12,7 +12,7 @@ pip install -e ".[dev]"
 pytest
 
 # Run with coverage
-pytest --cov=Antigravity --cov-report=html
+pytest --cov=loom --cov-report=html
 ```
 
 ## Test Structure

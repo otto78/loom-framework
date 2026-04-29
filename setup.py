@@ -1,6 +1,6 @@
 ﻿#!/usr/bin/env python3
 """
-Antigravity — Setup Configuration
+LOOM — Setup Configuration
 """
 
 from setuptools import setup, find_packages
@@ -18,16 +18,16 @@ setup(
     description="Weave intelligent agents into your development workflow",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/otto78/antigravity",
+    url="https://github.com/otto78/loom",
     project_urls={
-        "Documentation": "https://otto78.github.io/antigravity",
-        "Source": "https://github.com/otto78/antigravity",
-        "Issues": "https://github.com/otto78/antigravity/issues",
+        "Documentation": "https://otto78.github.io/loom",
+        "Source": "https://github.com/otto78/loom",
+        "Issues": "https://github.com/otto78/loom/issues",
     },
     packages=find_packages(),
     include_package_data=True,
     package_data={
-        "Antigravity": [
+        "loom": [
             "templates/**/*",
             "ide-configs/**/*",
             "directives/**/*",
@@ -61,9 +61,9 @@ setup(
     },
     entry_points={
         "console_scripts": [
-            "Antigravity-setup=Antigravity.scripts.setup:main",
-            "Antigravity-task=Antigravity.scripts.task:main",
-            "Antigravity-tdd=Antigravity.scripts.task_tdd:main",
+            "loom-setup=loom.scripts.setup:main",
+            "loom-task=loom.scripts.task:main",
+            "loom-tdd=loom.scripts.task_tdd:main",
         ],
     },
     keywords="ai agents framework development workflow automation tdd",

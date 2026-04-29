@@ -1,4 +1,4 @@
-﻿# TaskFlow API
+# TaskFlow API
 
 ## Goal
 A REST API for managing personal tasks and projects.
@@ -25,6 +25,6 @@ The API allows users to create, update, and track tasks with deadlines and prior
 - Never commit .env or secrets
 
 ## Notes
-- The project uses Antigravity for AI-assisted development
+- The project uses loom for AI-assisted development
 - All tasks tracked in docs/TASKS.md
-- Agent context always loaded from AGENT.md via "read Antigravity"
+- Agent context always loaded from AGENT.md via "read loom"

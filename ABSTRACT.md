@@ -1,4 +1,4 @@
-﻿# LOOM — Abstract
+# LOOM — Abstract
 
 > **The operational framework that makes AI agents reliable, persistent, and token-efficient**
 
@@ -60,7 +60,7 @@ These files create a **shared memory layer** that:
 
 #### 2. Multi-IDE & Multi-Agent Support
 - **7 IDE configs** kept in sync automatically
-- Same workflow in Cursor, Windsurf, Claude Code, VS Code, IntelliJ, Antigravity (IDE), VS Code Insider
+- Same workflow in Cursor, Windsurf, Claude Code, VS Code, IntelliJ, loom (IDE), VS Code Insider
 - Agents read the same files regardless of IDE
 - Switch tools without losing context
 
@@ -162,7 +162,7 @@ Questi file creano un **layer di memoria condivisa** che:
 
 #### 2. Supporto Multi-IDE & Multi-Agente
 - **7 config IDE** mantenute sincronizzate automaticamente
-- Stesso workflow in Cursor, Windsurf, Claude Code, VS Code, IntelliJ, Antigravity (IDE), VS Code Insider
+- Stesso workflow in Cursor, Windsurf, Claude Code, VS Code, IntelliJ, loom (IDE), VS Code Insider
 - Gli agenti leggono gli stessi file indipendentemente dall'IDE
 - Cambia strumenti senza perdere contesto
 

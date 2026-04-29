@@ -1,7 +1,7 @@
-﻿# AGENT.md — TaskFlow API
+# AGENT.md — TaskFlow API
 # Source of Truth / Fonte di Verità
 
-> This file is read by all AI agents (Claude, Cursor, Windsurf, Antigravity, VS Code Insider, Cline).
+> This file is read by all AI agents (Claude, Cursor, Windsurf, loom, VS Code Insider, Cline).
 > Do not duplicate these instructions in other files — they all reference here.
 
 ---
@@ -60,7 +60,7 @@ taskflow-api/
 │   ├── conftest.py             ← shared fixtures
 │   └── test_*.py               ← one file per route/service
 │
-├── antigravity/                       ← Antigravity
+├── loom/                       ← loom
 └── .env                        ← secrets (never commit)
 ```
 
@@ -68,13 +68,13 @@ taskflow-api/
 
 ## DOE Architecture
 
-### Level 1 — Directives (`Antigravity/directives/`)
+### Level 1 — Directives (`loom/directives/`)
 SOPs for each domain: how to add an endpoint, how to write tests, coding standards.
 
 ### Level 2 — Orchestration (this agent)
 Read directives → choose right approach → call execution scripts → handle errors → update TASKS.md.
 
-### Level 3 — Execution (`Antigravity/execution/`)
+### Level 3 — Execution (`loom/execution/`)
 Deterministic scripts: `git_commit.py`, `task_status.py`.
 
 ---
@@ -102,16 +102,16 @@ async def create_task(data: TaskCreate, db: AsyncSession = Depends(get_db)):
 "start TDD task TASK-001 'add task creation endpoint'"
 ```
 
-### 3. Use Antigravity scripts for task management
+### 3. Use loom scripts for task management
 ```bash
-python antigravity/scripts/task.py start TASK-001 "Add task creation endpoint"
-python antigravity/scripts/task.py complete TASK-001 "Endpoint implemented and tested" --bump minor
-python antigravity/scripts/task.py list
+python loom/scripts/task.py start TASK-001 "Add task creation endpoint"
+python loom/scripts/task.py complete TASK-001 "Endpoint implemented and tested" --bump minor
+python loom/scripts/task.py list
 ```
 
 ### 4. Commit only worked files (no git add -A)
 ```bash
-python antigravity/execution/git_commit.py --files "src/routes/tasks.py,tests/test_tasks.py" --message "feat: add task creation endpoint [TASK-001]"
+python loom/execution/git_commit.py --files "src/routes/tasks.py,tests/test_tasks.py" --message "feat: add task creation endpoint [TASK-001]"
 ```
 
 ### 5. Always update TASKS.md before ending a session
@@ -148,4 +148,4 @@ Read `docs/HANDOFF.md` for last session notes.
 
 **Version**: 1.0.0  
 **Last updated**: 2026-04-28  
-**Framework**: Antigravity v1.0
+**Framework**: loom v1.0

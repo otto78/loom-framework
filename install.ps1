@@ -1,12 +1,12 @@
-﻿# Antigravity - One-liner installer for Windows
-# Usage: irm https://raw.githubusercontent.com/otto78/Antigravity-framework/main/install.ps1 | iex
+# loom - One-liner installer for Windows
+# Usage: irm https://raw.githubusercontent.com/otto78/loom-framework/main/install.ps1 | iex
 
 $ErrorActionPreference = "Stop"
 
-$Antigravity_REPO = "https://github.com/otto78/Antigravity-framework.git"
-$Antigravity_DIR = "$env:USERPROFILE\.Antigravity-framework"
+$loom_REPO = "https://github.com/otto78/loom-framework.git"
+$loom_DIR = "$env:USERPROFILE\.loom-framework"
 
-Write-Host "🧵 Antigravity Installer" -ForegroundColor Cyan
+Write-Host "🧵 loom Installer" -ForegroundColor Cyan
 Write-Host "============================" -ForegroundColor Cyan
 Write-Host ""
 
@@ -28,17 +28,17 @@ try {
     exit 1
 }
 
-# Clone or update Antigravity
-if (Test-Path $Antigravity_DIR) {
-    Write-Host "📦 Updating existing Antigravity installation..." -ForegroundColor Yellow
-    Set-Location $Antigravity_DIR
+# Clone or update loom
+if (Test-Path $loom_DIR) {
+    Write-Host "📦 Updating existing loom installation..." -ForegroundColor Yellow
+    Set-Location $loom_DIR
     git pull --quiet
 } else {
-    Write-Host "📦 Cloning Antigravity..." -ForegroundColor Yellow
-    git clone --quiet $Antigravity_REPO $Antigravity_DIR
+    Write-Host "📦 Cloning loom..." -ForegroundColor Yellow
+    git clone --quiet $loom_REPO $loom_DIR
 }
 
-Write-Host "✅ Antigravity installed to $Antigravity_DIR" -ForegroundColor Green
+Write-Host "✅ loom installed to $loom_DIR" -ForegroundColor Green
 Write-Host ""
 
 # Detect project
@@ -47,21 +47,21 @@ if ((Test-Path "pyproject.toml") -or (Test-Path "package.json") -or (Test-Path "
     $projectDetected = $true
     Write-Host "🔍 Project detected in current directory: $(Get-Location)" -ForegroundColor Cyan
     Write-Host ""
-    $response = Read-Host "Setup Antigravity in this project? (y/n)"
+    $response = Read-Host "Setup loom in this project? (y/n)"
     if ($response -eq "y" -or $response -eq "Y") {
-        python "$Antigravity_DIR\Antigravity\scripts\setup.py"
+        python "$loom_DIR\loom\scripts\setup.py"
     } else {
-        Write-Host "ℹ️  To setup Antigravity later, run:" -ForegroundColor Blue
-        Write-Host "   python $Antigravity_DIR\Antigravity\scripts\setup.py"
+        Write-Host "ℹ️  To setup loom later, run:" -ForegroundColor Blue
+        Write-Host "   python $loom_DIR\loom\scripts\setup.py"
     }
 } else {
     Write-Host "ℹ️  No project detected in current directory." -ForegroundColor Blue
     Write-Host "   Navigate to your project and run:"
-    Write-Host "   python $Antigravity_DIR\Antigravity\scripts\setup.py"
+    Write-Host "   python $loom_DIR\loom\scripts\setup.py"
 }
 
 Write-Host ""
 Write-Host "✨ Installation complete!" -ForegroundColor Green
 Write-Host ""
-Write-Host "📚 Documentation: https://otto78.github.io/Antigravity-framework/docs.html"
-Write-Host "🐙 GitHub: https://github.com/otto78/Antigravity-framework"
+Write-Host "📚 Documentation: https://otto78.github.io/loom-framework/docs.html"
+Write-Host "🐙 GitHub: https://github.com/otto78/loom-framework"

@@ -1,14 +1,14 @@
-﻿#!/bin/bash
-# Antigravity - One-liner installer
-# Usage: curl -fsSL https://raw.githubusercontent.com/otto78/antigravity/main/install.sh | bash
+#!/bin/bash
+# loom - One-liner installer
+# Usage: curl -fsSL https://raw.githubusercontent.com/otto78/loom/main/install.sh | bash
 
 set -e
 
-Antigravity_REPO="https://github.com/otto78/antigravity.git"
-Antigravity_DIR="$HOME/.antigravity"
+loom_REPO="https://github.com/otto78/loom.git"
+loom_DIR="$HOME/.loom"
 PYTHON_MIN_VERSION="3.8"
 
-echo "🧵 Antigravity Installer"
+echo "🧵 loom Installer"
 echo "============================"
 echo ""
 
@@ -29,39 +29,39 @@ fi
 
 echo "✅ Git detected"
 
-# Clone or update Antigravity
-if [ -d "$Antigravity_DIR" ]; then
-    echo "📦 Updating existing Antigravity installation..."
-    cd "$Antigravity_DIR"
+# Clone or update loom
+if [ -d "$loom_DIR" ]; then
+    echo "📦 Updating existing loom installation..."
+    cd "$loom_DIR"
     git pull --quiet
 else
-    echo "📦 Cloning Antigravity..."
-    git clone --quiet "$Antigravity_REPO" "$Antigravity_DIR"
+    echo "📦 Cloning loom..."
+    git clone --quiet "$loom_REPO" "$loom_DIR"
 fi
 
-echo "✅ Antigravity installed to $Antigravity_DIR"
+echo "✅ loom installed to $loom_DIR"
 echo ""
 
 # Detect project directory
 if [ -f "pyproject.toml" ] || [ -f "package.json" ] || [ -f "pom.xml" ]; then
     echo "🔍 Project detected in current directory: $(pwd)"
     echo ""
-    read -p "Setup Antigravity in this project? (y/n) " -n 1 -r
+    read -p "Setup loom in this project? (y/n) " -n 1 -r
     echo ""
     if [[ $REPLY =~ ^[Yy]$ ]]; then
-        python3 "$Antigravity_DIR/antigravity/scripts/setup.py"
+        python3 "$loom_DIR/loom/scripts/setup.py"
     else
-        echo "ℹ️  To setup Antigravity later, run:"
-        echo "   python3 $Antigravity_DIR/antigravity/scripts/setup.py"
+        echo "ℹ️  To setup loom later, run:"
+        echo "   python3 $loom_DIR/loom/scripts/setup.py"
     fi
 else
     echo "ℹ️  No project detected in current directory."
     echo "   Navigate to your project and run:"
-    echo "   python3 $Antigravity_DIR/antigravity/scripts/setup.py"
+    echo "   python3 $loom_DIR/loom/scripts/setup.py"
 fi
 
 echo ""
 echo "✨ Installation complete!"
 echo ""
-echo "📚 Documentation: https://otto78.github.io/antigravity/docs.html"
-echo "🐙 GitHub: https://github.com/otto78/antigravity"
+echo "📚 Documentation: https://otto78.github.io/loom/docs.html"
+echo "🐙 GitHub: https://github.com/otto78/loom"

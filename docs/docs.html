@@ -1,12 +1,12 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" data-theme="light" data-lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Antigravity - Documentation</title>
-<link rel="icon" type="image/svg+xml" href="Antigravity-logo.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="Antigravity-logo.png">
-<link rel="apple-touch-icon" href="Antigravity-logo.png">
+<title>loom - Documentation</title>
+<link rel="icon" type="image/svg+xml" href="loom-logo.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="loom-logo.png">
+<link rel="apple-touch-icon" href="loom-logo.png">
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github-dark.min.css">
 <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
@@ -123,14 +123,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 <nav class="topnav">
   <a href="index.html">&#8592; Home</a>
   <span style="color:rgba(255,255,255,.3)">|</span>
-  <a href="index.html" style="font-size:1rem;">&#129525; Antigravity</a>
+  <a href="index.html" style="font-size:1rem;">&#129525; loom</a>
   <div class="topnav-spacer"></div>
   <select class="lang-select" id="lang-select" onchange="setLang(this.value)">
     <option value="en">&#127468;&#127463; English</option>
     <option value="it">&#127470;&#127481; Italiano</option>
   </select>
   <button class="icon-btn" id="btn-dark" onclick="toggleDark()">&#127769;</button>
-  <a href="https://github.com/otto78/antigravity" style="color:white;opacity:.8;font-size:.82rem;margin-left:.25rem;">GitHub &#8599;</a>
+  <a href="https://github.com/otto78/loom" style="color:white;opacity:.8;font-size:.82rem;margin-left:.25rem;">GitHub &#8599;</a>
 </nav>
 
 <div class="layout">
@@ -142,14 +142,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 function setLang(l){
   document.documentElement.dataset.lang=l;
   document.getElementById('lang-select').value=l;
-  localStorage.setItem('Antigravity-lang',l);
+  localStorage.setItem('loom-lang',l);
   renderAll(); // Re-render to apply language change
 }
 function toggleDark(){
   const dark=document.documentElement.dataset.theme==='dark';
   document.documentElement.dataset.theme=dark?'light':'dark';
   document.getElementById('btn-dark').innerHTML=dark?'&#127769;':'&#9728;&#65039;';
-  localStorage.setItem('Antigravity-dark',!dark);
+  localStorage.setItem('loom-dark',!dark);
 }
 
 marked.use({breaks:true,gfm:true});
@@ -157,11 +157,11 @@ marked.use({breaks:true,gfm:true});
 const DOCS=[
 {
   id:'readme',icon:'&#128214;',labelEn:'README',labelIt:'README',file:'README.md',
-  content:`# Antigravity
+  content:`# loom
 
 > **Weave intelligent agents into your development workflow**
 
-A complete operational framework for AI-powered development across multiple IDEs. Antigravity provides structure, automation, and best practices for teams working with AI agents.
+A complete operational framework for AI-powered development across multiple IDEs. loom provides structure, automation, and best practices for teams working with AI agents.
 
 ---
 
@@ -176,10 +176,10 @@ AI-assisted development faces critical challenges:
 
 ## ✅ The Solution
 
-Antigravity solves these through **persistent file-based memory** and **DOE architecture**:
+loom solves these through **persistent file-based memory** and **DOE architecture**:
 - 🧠 **Persistent Memory** — TASKS.md, STORY.md survive resets.
 - 🔄 **Multi-Agent Support** — Same state across multiple IDEs.
-- 🚀 **Zero-Friction** — Just say "read Antigravity".
+- 🚀 **Zero-Friction** — Just say "read loom".
 
 ---
 
@@ -190,7 +190,7 @@ Antigravity solves these through **persistent file-based memory** and **DOE arch
 | 🌊 Windsurf | \`.windsurfrules\` | Root |
 | 🤖 Claude Code | \`CLAUDE.md\` | Root |
 | ↗️ Cursor | \`.cursorrules\` | Root |
-| ✨ Antigravity | \`ANTIGRAVITY.md\` | Root |
+| ✨ loom | \`loom.md\` | Root |
 | 💻 VS Code | \`.clinerules\` | Root |
 | 🧪 VS Code Insider | \`.clinerules\` | Root |
 | 💡 IntelliJ IDEA | \`agentic-framework.md\` | \`.idea/\` |
@@ -198,11 +198,11 @@ Antigravity solves these through **persistent file-based memory** and **DOE arch
 ---
 
 **Version**: 1.0.0 | **Author**: Andrea Mazzarotto | **License**: MIT`,
-  contentIt:`# Antigravity
+  contentIt:`# loom
 
 > **Integra agenti intelligenti nel tuo workflow di sviluppo**
 
-Un framework operativo completo per lo sviluppo assistito da AI su più IDE. Antigravity fornisce struttura, automazione e best practice per i team che lavorano con agenti AI.
+Un framework operativo completo per lo sviluppo assistito da AI su più IDE. loom fornisce struttura, automazione e best practice per i team che lavorano con agenti AI.
 
 ---
 
@@ -217,10 +217,10 @@ Lo sviluppo assistito da AI affronta sfide critiche:
 
 ## ✅ La Soluzione
 
-Antigravity risolve questi problemi attraverso la **memoria persistente su file** e l'**architettura DOE**:
+loom risolve questi problemi attraverso la **memoria persistente su file** e l'**architettura DOE**:
 - 🧠 **Memoria Persistente** — TASKS.md, STORY.md sopravvivono ai reset.
 - 🔄 **Supporto Multi-Agente** — Stesso stato su più IDE.
-- 🚀 **Zero-Friction** — Basta dire "leggi Antigravity".
+- 🚀 **Zero-Friction** — Basta dire "leggi loom".
 
 ---
 
@@ -231,7 +231,7 @@ Antigravity risolve questi problemi attraverso la **memoria persistente su file*
 | 🌊 Windsurf | \`.windsurfrules\` | Root |
 | 🤖 Claude Code | \`CLAUDE.md\` | Root |
 | ↗️ Cursor | \`.cursorrules\` | Root |
-| ✨ Antigravity | \`ANTIGRAVITY.md\` | Root |
+| ✨ loom | \`loom.md\` | Root |
 | 💻 VS Code | \`.clinerules\` | Root |
 | 🧪 VS Code Insider | \`.clinerules\` | Root |
 | 💡 IntelliJ IDEA | \`agentic-framework.md\` | \`.idea/\` |
@@ -244,7 +244,7 @@ Antigravity risolve questi problemi attraverso la **memoria persistente su file*
   id:'quickstart',icon:'&#128640;',labelEn:'Quick Start',labelIt:'Avvio Rapido',file:'QUICKSTART.md',
   content:`# Quick Start
 
-Get started with Antigravity in minutes!
+Get started with loom in minutes!
 
 ---
 
@@ -253,12 +253,12 @@ Get started with Antigravity in minutes!
 **For new projects (4 steps):**
 1. Create project folder.
 2. Create \`PROJECT.md\` with project description.
-3. Add \`Antigravity/\` folder to your project.
-4. Open any IDE and say: **"read Antigravity"**.
+3. Add \`loom/\` folder to your project.
+4. Open any IDE and say: **"read loom"**.
 
 **For existing projects (2 steps):**
-1. Add \`Antigravity/\` folder to your project.
-2. Open any IDE and say: **"read Antigravity"**.
+1. Add \`loom/\` folder to your project.
+2. Open any IDE and say: **"read loom"**.
 
 ---
 
@@ -266,12 +266,12 @@ Get started with Antigravity in minutes!
 
 ### One-Liner Install
 \`\`\`bash
-curl -fsSL https://raw.githubusercontent.com/otto78/antigravity/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/otto78/loom/main/install.sh | bash
 \`\`\`
 
 ### Interactive Wizard
 \`\`\`bash
-python Antigravity/scripts/setup.py
+python loom/scripts/setup.py
 \`\`\`
 
 ---
@@ -283,14 +283,14 @@ Just tell your AI agent:
 "start task TASK-001 'implement feature X'"
 \`\`\`
 
-Antigravity will automatically update \`docs/TASKS.md\` and prepare your environment.
+loom will automatically update \`docs/TASKS.md\` and prepare your environment.
 
 ---
 
 **Time to setup**: ~10 seconds | **Time to first task**: ~1 minute`,
   contentIt:`# Avvio Rapido
 
-Inizia con Antigravity in pochi minuti!
+Inizia con loom in pochi minuti!
 
 ---
 
@@ -299,12 +299,12 @@ Inizia con Antigravity in pochi minuti!
 **Per nuovi progetti (4 step):**
 1. Crea cartella progetto.
 2. Crea \`PROJECT.md\` con descrizione progetto.
-3. Aggiungi cartella \`Antigravity/\` al progetto.
-4. Apri qualsiasi IDE e di': **"leggi Antigravity"**.
+3. Aggiungi cartella \`loom/\` al progetto.
+4. Apri qualsiasi IDE e di': **"leggi loom"**.
 
 **Per progetti esistenti (2 step):**
-1. Aggiungi cartella \`Antigravity/\` al progetto.
-2. Apri qualsiasi IDE e di': **"leggi Antigravity"**.
+1. Aggiungi cartella \`loom/\` al progetto.
+2. Apri qualsiasi IDE e di': **"leggi loom"**.
 
 ---
 
@@ -312,12 +312,12 @@ Inizia con Antigravity in pochi minuti!
 
 ### Installer One-Liner
 \`\`\`bash
-curl -fsSL https://raw.githubusercontent.com/otto78/antigravity/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/otto78/loom/main/install.sh | bash
 \`\`\`
 
 ### Wizard Interattivo
 \`\`\`bash
-python Antigravity/scripts/setup.py
+python loom/scripts/setup.py
 \`\`\`
 
 ---
@@ -329,7 +329,7 @@ Di' semplicemente al tuo agente:
 "avvia task TASK-001 'implementa feature X'"
 \`\`\`
 
-Antigravity aggiornerà automaticamente \`docs/TASKS.md\` e preparerà l'ambiente.
+loom aggiornerà automaticamente \`docs/TASKS.md\` e preparerà l'ambiente.
 
 ---
 
@@ -347,12 +347,12 @@ Antigravity aggiornerà automaticamente \`docs/TASKS.md\` e preparerà l'ambient
 
 Instead of:
 \`\`\`bash
-python Antigravity/scripts/setup.py
+python loom/scripts/setup.py
 \`\`\`
 
 Just say:
 \`\`\`
-"setup Antigravity"
+"setup loom"
 \`\`\`
 
 The agent understands and executes automatically!
@@ -423,12 +423,12 @@ The agent understands and executes automatically!
 
 Invece di:
 \`\`\`bash
-python Antigravity/scripts/setup.py
+python loom/scripts/setup.py
 \`\`\`
 
 Di' semplicemente:
 \`\`\`
-"configura Antigravity"
+"configura loom"
 \`\`\`
 
 L'agente capisce ed esegue automaticamente!
@@ -586,8 +586,8 @@ def test_empty_email():
 
 When user says any of these, execute the setup wizard:
 
-- "setup Antigravity" / "setup Antigravity"
-- "configure Antigravity" / "initialize Antigravity"
+- "setup loom" / "setup loom"
+- "configure loom" / "initialize loom"
 - "configura il framework" / "avvia il framework"
 
 ---
@@ -611,13 +611,13 @@ I detected:
 - Languages: [python, javascript]
 - IDEs in use: [cursor, vscode]
 
-Do you want me to setup Antigravity?
+Do you want me to setup loom?
 \`\`\`
 
 ### Step 3: Run Setup
 
 \`\`\`bash
-python Antigravity/scripts/setup.py --auto --project-name "[name]" --ide [ides]
+python loom/scripts/setup.py --auto --project-name "[name]" --ide [ides]
 \`\`\`
 
 ---
@@ -626,12 +626,12 @@ python Antigravity/scripts/setup.py --auto --project-name "[name]" --ide [ides]
 
 | User Says | Execute |
 |-----------|---------|
-| "setup framework" | \`python Antigravity/scripts/setup.py\` |
-| "start task TASK-XXX 'desc'" | \`python Antigravity/scripts/task.py start TASK-XXX "desc"\` |
-| "list tasks" | \`python Antigravity/scripts/task.py list\` |
-| "run tests" | \`python Antigravity/scripts/task-tdd.py test\` |
-| "complete task TASK-XXX" | \`python Antigravity/scripts/task.py complete TASK-XXX "done"\` |
-| "sync configs" | \`bash Antigravity/scripts/sync-configs.sh\` |
+| "setup framework" | \`python loom/scripts/setup.py\` |
+| "start task TASK-XXX 'desc'" | \`python loom/scripts/task.py start TASK-XXX "desc"\` |
+| "list tasks" | \`python loom/scripts/task.py list\` |
+| "run tests" | \`python loom/scripts/task-tdd.py test\` |
+| "complete task TASK-XXX" | \`python loom/scripts/task.py complete TASK-XXX "done"\` |
+| "sync configs" | \`bash loom/scripts/sync-configs.sh\` |
 
 ---
 
@@ -771,7 +771,7 @@ Script deterministici in \`execution/*.py\`. Stesso input = stesso output.`
 },
 {
   id:'contributing',icon:'&#129309;',labelEn:'Contributing',labelIt:'Contribuire',file:'CONTRIBUTING.md',
-  content:`# Contributing to Antigravity
+  content:`# Contributing to loom
 
 Thank you for your interest in contributing!
 
@@ -780,12 +780,12 @@ Thank you for your interest in contributing!
 ## How to Contribute
 
 ### Report Issues
-1. Check [existing issues](https://github.com/otto78/antigravity/issues)
-2. [Create a new issue](https://github.com/otto78/antigravity/issues/new)
+1. Check [existing issues](https://github.com/otto78/loom/issues)
+2. [Create a new issue](https://github.com/otto78/loom/issues/new)
 
 ### Add IDE Support
-1. Create config template in \`Antigravity/ide-configs/your-ide/\`
-2. Update \`Antigravity/scripts/setup.py\` to detect and configure it
+1. Create config template in \`loom/ide-configs/your-ide/\`
+2. Update \`loom/scripts/setup.py\` to detect and configure it
 3. Add to README.md IDE support table
 4. Submit a pull request
 
@@ -794,8 +794,8 @@ Thank you for your interest in contributing!
 ## Development Setup
 
 \`\`\`bash
-git clone https://github.com/otto78/antigravity.git
-cd antigravity
+git clone https://github.com/otto78/loom.git
+cd loom
 python -m venv venv
 source venv/bin/activate  # Windows: venv\\Scripts\\activate
 pip install -r requirements-dev.txt
@@ -831,7 +831,7 @@ test: add tests for setup wizard
 
 ---
 
-**Every contribution makes Antigravity better for everyone.**`
+**Every contribution makes loom better for everyone.**`
 }
 ];
 
@@ -928,8 +928,8 @@ function renderAll(){
 }
 
 (function(){
-  const lang=localStorage.getItem('Antigravity-lang')||'en';
-  const dark=localStorage.getItem('Antigravity-dark')==='true';
+  const lang=localStorage.getItem('loom-lang')||'en';
+  const dark=localStorage.getItem('loom-dark')==='true';
   setLang(lang);
   if(dark){
     document.documentElement.dataset.theme='dark';

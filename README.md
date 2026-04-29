@@ -60,7 +60,7 @@ sequenceDiagram
 
 ## 📂 What Gets Created in Your Project
 
-After running `python loom/scripts/setup.py` in your project, Antigravity creates:
+After running `python loom/scripts/setup.py` in your project, loom creates:
 
 ```
 your-project/
@@ -80,7 +80,7 @@ your-project/
     └── HANDOFF.md            # Agent handoff protocol
 ```
 
-**Your existing files are never overwritten.** Antigravity only creates files that don't exist yet.
+**Your existing files are never overwritten.** loom only creates files that don't exist yet.
 
 ---
 
@@ -89,7 +89,7 @@ your-project/
 LOOM is an operational framework that brings structure to AI-assisted development. It provides:
 
 - ⚡ **Quick Setup** — Interactive wizard + automated scripts
-- 🤖 **Multi-IDE Support** — 7 IDEs (Windsurf, Claude Code, Cursor, Antigravity, VS Code, IntelliJ IDEA, VS Code Insider)
+- 🤖 **Multi-IDE Support** — 7 IDEs (Windsurf, Claude Code, Cursor, loom, VS Code, IntelliJ IDEA, VS Code Insider)
 - 📋 **Task Management** — Complete system with TASKS.md + BACKLOG.md
 - 🧪 **TDD Workflow** — Test-Driven Development integrated
 - 📝 **Integrated Versioning** — Automatic STORY.md + CHANGELOG.md
@@ -206,7 +206,7 @@ loom-framework/
 │       ├── CHANGELOG.md               # Detailed changelog
 │       └── HANDOFF.md                 # Handoff protocol
 │
-├── antigravity/
+├── loom/
 │   ├── scripts/                       # Automation scripts
 │   │   ├── task.py                    # Task workflow manager ⭐
 │   │   ├── task-tdd.py                # TDD workflow ⭐
@@ -250,32 +250,32 @@ loom-framework/
 
 ```bash
 # Initialize system (first time)
-python antigravity/scripts/task.py init
+python loom/scripts/task.py init
 
 # Start new task
-python antigravity/scripts/task.py start TASK-001 "Implement feature X"
+python loom/scripts/task.py start TASK-001 "Implement feature X"
 
 # List active tasks
-python antigravity/scripts/task.py list
+python loom/scripts/task.py list
 
 # Complete task
-python antigravity/scripts/task.py complete TASK-001 "Feature X implemented" --bump minor
+python loom/scripts/task.py complete TASK-001 "Feature X implemented" --bump minor
 ```
 
 ### TDD Workflow
 
 ```bash
 # Start TDD task (create tests first)
-python antigravity/scripts/task-tdd.py start TASK-001 "Add email validation"
+python loom/scripts/task-tdd.py start TASK-001 "Add email validation"
 
 # Write tests (should fail - Red phase)
 # Implement feature (tests pass - Green phase)
 
 # Run tests
-python antigravity/scripts/task-tdd.py test
+python loom/scripts/task-tdd.py test
 
 # Complete task (only if tests pass)
-python antigravity/scripts/task-tdd.py complete TASK-001
+python loom/scripts/task-tdd.py complete TASK-001
 ```
 
 ---
@@ -330,7 +330,7 @@ python antigravity/scripts/task-tdd.py complete TASK-001
 Cursor rules are a single config file for one IDE. LOOM is a full workflow system: task tracking, versioning, TDD, handoffs, and configs for 7 IDEs — all kept in sync.
 
 ### vs. aider
-aider is a CLI coding assistant. LOOM is not a coding tool — it's the **operational layer** that sits on top of any AI agent (including aider). You can use aider inside a Antigravity-managed project.
+aider is a CLI coding assistant. LOOM is not a coding tool — it's the **operational layer** that sits on top of any AI agent (including aider). You can use aider inside a loom-managed project.
 
 ### vs. VS Code Insider Instructions / `CLAUDE.md` alone
 Dropping a single instruction file in your repo gives the agent context, but no structure. LOOM adds task lifecycle management, TDD workflow, automated versioning, and agent-to-agent handoff protocol on top.
@@ -378,7 +378,7 @@ MIT — Use, modify, share freely.
 
 ## 🇮🇹 Italiano — Versione Italiana
 
-> Framework operativo completo per lo sviluppo AI su più IDE. Antigravity fornisce struttura, automazione e best practice per chi lavora con agenti AI.
+> Framework operativo completo per lo sviluppo AI su più IDE. loom fornisce struttura, automazione e best practice per chi lavora con agenti AI.
 
 ### ❌ Il Problema
 
@@ -392,7 +392,7 @@ Lo sviluppo assistito da AI è frenato da:
 
 ### ✅ La Soluzione: Memoria Persistente su File
 
-Antigravity fornisce una memoria strutturata basata su file che rimane con il tuo progetto:
+loom fornisce una memoria strutturata basata su file che rimane con il tuo progetto:
 
 - 🧠 **Memoria Persistente** — TASKS.md, STORY.md sopravvivono ai reset di contesto
 - 🔄 **Supporto Multi-Agente** — Stesso stato tra 7 IDE
@@ -407,14 +407,14 @@ Antigravity fornisce una memoria strutturata basata su file che rimane con il tu
 ```
 1. Crea cartella progetto
 2. Crea PROJECT.md con descrizione progetto
-3. Aggiungi cartella antigravity/ al progetto
+3. Aggiungi cartella loom/ al progetto
 4. Apri qualsiasi IDE e di': "leggi loom"
 ```
 
 **Per progetti esistenti (2 step):**
 
 ```
-1. Aggiungi cartella antigravity/ al progetto
+1. Aggiungi cartella loom/ al progetto
 2. Apri qualsiasi IDE e di': "leggi loom"
 ```
 
@@ -425,7 +425,7 @@ Per dettagli: **[QUICKSTART.md](./QUICKSTART.md)**
 ```
 ┌─────────────────────────────────────────┐
 │ Livello 1: DIRETTIVE (Cosa fare)        │
-│ antigravity/directives/*.md — SOP in           │
+│ loom/directives/*.md — SOP in           │
 │ linguaggio naturale                      │
 ├─────────────────────────────────────────┤
 │ Livello 2: ORCHESTRAZIONE (Come)        │
@@ -433,7 +433,7 @@ Per dettagli: **[QUICKSTART.md](./QUICKSTART.md)**
 │ e script di esecuzione                  │
 ├─────────────────────────────────────────┤
 │ Livello 3: ESECUZIONE (Fare il lavoro)  │
-│ antigravity/execution/*.py — Script            │
+│ loom/execution/*.py — Script            │
 │ deterministici (100% accuratezza)       │
 └─────────────────────────────────────────┘
 ```
