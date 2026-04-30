@@ -52,12 +52,18 @@ jobs:
           # Update docs.html version references
           sed -i "s/Version\*\*: $CURRENT/Version\*\*: $NEW_VERSION/g" docs/docs.html
           sed -i "s/Versione\*\*: $CURRENT/Versione\*\*: $NEW_VERSION/g" docs/docs.html
+          
+          # Update index.html footer version
+          sed -i "s/loom v$CURRENT/loom v$NEW_VERSION/g" docs/index.html
+          
+          # Update loom/__init__.py version
+          sed -i "s/__version__ = \"$CURRENT\"/__version__ = \"$NEW_VERSION\"/" loom/__init__.py
       
       - name: Commit version bump
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add pyproject.toml setup.py README.md docs/docs.html
+          git add pyproject.toml setup.py README.md docs/docs.html docs/index.html loom/__init__.py
           git diff --cached --quiet && echo "No changes to commit" && exit 0
           git commit -m "v${{ steps.bump.outputs.new }} [version bump]"
           git push
