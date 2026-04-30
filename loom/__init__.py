@@ -4,7 +4,7 @@ LOOM — Weave intelligent agents into your development workflow
 A complete operational framework for AI-powered development across multiple IDEs.
 """
 
-__version__ = "1.0.4"
+__version__ = "1.0.5"
 __author__ = "Andrea Mazzarotto"
 __license__ = "MIT"
 
