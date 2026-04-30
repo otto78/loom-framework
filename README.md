@@ -6,7 +6,7 @@
 > **Integra agenti intelligenti nel tuo workflow di sviluppo**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Version](https://img.shields.io/badge/version-1.0.8-blue.svg)](https://github.com/otto78/loom-framework/releases)
+[![Version](https://img.shields.io/badge/version-1.0.9-blue.svg)](https://github.com/otto78/loom-framework/releases)
 [![Python](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/)
 [![IDEs](https://img.shields.io/badge/IDEs-7%20supported-green.svg)](#-supported-ides)
 [![GitHub Stars](https://img.shields.io/github/stars/otto78/loom-framework?style=social)](https://github.com/otto78/loom-framework)
