@@ -29,8 +29,8 @@ classifiers = [
 [project.urls]
 Homepage = "https://otto78.github.io/loom"
 Documentation = "https://otto78.github.io/loom/docs.html"
-Repository = "https://github.com/otto78/loom"
-Issues = "https://github.com/otto78/loom/issues"
+Repository = "https://github.com/otto78/loom-framework"
+Issues = "https://github.com/otto78/loom-framework/issues"
 
 [project.optional-dependencies]
 dev = [

@@ -15,7 +15,7 @@ This is a **demonstration project** — it shows how a real project looks after 
 
 ```bash
 # Clone loom
-git clone https://github.com/otto78/loom.git
+git clone https://github.com/otto78/loom-framework.git
 
 # Navigate to this example
 cd loom/examples/python-api-project

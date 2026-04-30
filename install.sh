@@ -1,10 +1,10 @@
 #!/bin/bash
 # loom - One-liner installer
-# Usage: curl -fsSL https://raw.githubusercontent.com/otto78/loom/main/install.sh | bash
+# Usage: curl -fsSL https://raw.githubusercontent.com/otto78/loom-framework/main/install.sh | bash
 
 set -e
 
-loom_REPO="https://github.com/otto78/loom.git"
+loom_REPO="https://github.com/otto78/loom-framework.git"
 loom_DIR="$HOME/.loom"
 PYTHON_MIN_VERSION="3.8"
 
@@ -64,4 +64,4 @@ echo ""
 echo "✨ Installation complete!"
 echo ""
 echo "📚 Documentation: https://otto78.github.io/loom/docs.html"
-echo "🐙 GitHub: https://github.com/otto78/loom"
+echo "🐙 GitHub: https://github.com/otto78/loom-framework"

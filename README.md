@@ -79,13 +79,17 @@ After running `python loom/scripts/setup.py` in your project, loom creates:
 ```
 your-project/
 ├── AGENT.md                  # ⭐ Source of truth — project context for every agent session
-├── .windsurfrules            # IDE config (only for selected IDEs)
-├── .cursorrules              #
-├── CLAUDE.md                 #
-├── LOOM.md            #
-├── .clinerules               #
-├── .idea/
-│   └── LOOM.md  # IntelliJ config
+├── CLAUDE.md                 # IDE config — Claude Code
+├── GEMINI.md                 # IDE config — Antigravity
+├── AGENTS.md                 # Cross-tool (Antigravity + Windsurf + VS Code)
+├── .cursorrules              # Cursor (legacy fallback)
+├── .cursor/rules/loom.mdc   # Cursor (modern)
+├── .windsurfrules            # Windsurf (legacy fallback)
+├── .windsurf/rules/loom.md  # Windsurf (modern)
+├── .github/
+│   └── copilot-instructions.md  # VS Code / VS Code Insider
+├── .aiassistant/
+│   └── rules/loom.md        # IntelliJ AI Assistant
 └── docs/
     ├── TASKS.md              # Active task tracking
     ├── BACKLOG.md            # Future ideas
@@ -258,13 +262,12 @@ loom-framework/
 │   │   └── coding-standards.md        # Code standards
 │   │
 │   ├── ide-configs/                   # IDE configurations
-│   │   ├── windsurf/                  # .windsurfrules
 │   │   ├── claude/                    # CLAUDE.md
-│   │   ├── cursor/                    # .cursorrules
-│   │   ├── loom/               # LOOM template
-│   │   ├── vscode/                    # .clinerules
-│   │   ├── VS Code Insider/                   # VS Code Insider-instructions.md
-│   │   └── intellij/                  # LOOM.md
+│   │   ├── cursor/                    # .cursorrules + .cursor/rules/loom.mdc
+│   │   ├── antigravity/              # GEMINI.md + AGENTS.md
+│   │   ├── windsurf/                  # .windsurfrules + .windsurf/rules/loom.md
+│   │   ├── vscode/                    # .github/copilot-instructions.md
+│   │   └── intellij/                  # .aiassistant/rules/loom.md
 │   │
 │   ├── directives/                    # SOPs (Standard Operating Procedures)
 │   │   ├── README.md                  # How to write directives
@@ -321,13 +324,15 @@ python loom/scripts/task-tdd.py complete TASK-001
 
 | IDE/Tool | Config File | Location |
 |----------|-------------|----------|
-| 🌊 Windsurf | `.windsurfrules` | Root |
 | 🎯 Claude Code | `CLAUDE.md` | Root |
-| ⚡ Cursor | `.cursorrules` | Root |
-| 🚀 Antigravity | `ANTIGRAVITY.md` | Root |
-| 💻 VS Code + Cline | `.clinerules` | Root |
-| 💡 IntelliJ IDEA | `LOOM.md` | `.idea/` |
-| 🤖 GitHub Copilot | `copilot-instructions.md` | `.github/` |
+| ⚡ Cursor | `.cursor/rules/loom.mdc` | Root |
+| ⚡ Cursor (legacy) | `.cursorrules` | Root (fallback) |
+| 🚀 Antigravity | `GEMINI.md` | Root |
+| 🌊 Windsurf | `.windsurf/rules/loom.md` | Root |
+| 🌊 Windsurf (legacy) | `.windsurfrules` | Root (fallback) |
+| 💻 VS Code / VS Code Insider | `copilot-instructions.md` | `.github/` |
+| 💡 IntelliJ IDEA | `loom.md` | `.aiassistant/rules/` |
+| 📄 Cross-tool (AGENTS.md) | `AGENTS.md` | Root |
 
 ---
 
@@ -509,13 +514,15 @@ Dopo il setup, parla con il tuo agente AI:
 
 | IDE/Tool | File di Config | Posizione |
 |----------|---------------|----------|
-| 🌊 Windsurf | `.windsurfrules` | Root |
 | 🎯 Claude Code | `CLAUDE.md` | Root |
-| ⚡ Cursor | `.cursorrules` | Root |
-| 🚀 Antigravity | `ANTIGRAVITY.md` | Root |
-| 💻 VS Code + Cline | `.clinerules` | Root |
-| 💡 IntelliJ IDEA | `LOOM.md` | `.idea/` |
-| 🤖 GitHub Copilot | `copilot-instructions.md` | `.github/` |
+| ⚡ Cursor | `.cursor/rules/loom.mdc` | Root |
+| ⚡ Cursor (legacy) | `.cursorrules` | Root (fallback) |
+| 🚀 Antigravity | `GEMINI.md` | Root |
+| 🌊 Windsurf | `.windsurf/rules/loom.md` | Root |
+| 🌊 Windsurf (legacy) | `.windsurfrules` | Root (fallback) |
+| 💻 VS Code / VS Code Insider | `copilot-instructions.md` | `.github/` |
+| 💡 IntelliJ IDEA | `loom.md` | `.aiassistant/rules/` |
+| 📄 Cross-tool (AGENTS.md) | `AGENTS.md` | Root |
 
 ### 📚 Documentazione (Italiano)
 

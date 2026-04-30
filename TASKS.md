@@ -9,17 +9,17 @@
 
 | # | Task | Priorità | Stato |
 |---|------|----------|-------|
-| 1 | TASK-008 — Fix URL broken (`otto78/loom` → `otto78/loom-framework`) | CRITICA | [ ] |
-| 2 | TASK-005 — Fix VS Code: sostituire Cline con GitHub Copilot | CRITICA | [ ] |
-| 3 | TASK-003 — Creare `GEMINI.md` per Antigravity (mancante) | ALTA | [ ] |
-| 4 | TASK-004 — Aggiornare `AGENTS.md` come file cross-tool | ALTA | [ ] |
-| 5 | TASK-001 — Ridurre `CLAUDE.md` al modello minimale | ALTA | [ ] |
-| 6 | TASK-002 — Ridurre `.cursorrules` + migrare a `.cursor/rules/loom.mdc` | ALTA | [ ] |
-| 7 | TASK-006 — Fix Windsurf: ridurre + `.windsurf/rules/loom.md` | ALTA | [ ] |
-| 8 | TASK-007 — Fix IntelliJ: percorso `.aiassistant/rules/` | ALTA | [ ] |
-| 9 | TASK-009 — Rimuovere sezione duplicata `natural-lang` in docs.html | ALTA | [ ] |
-| 10 | TASK-010 — Aggiungere traduzioni IT mancanti | MEDIA | [ ] |
-| 11 | TASK-011 — Aggiornare tabella IDE in docs.html e README | MEDIA | [ ] |
+| 1 | TASK-008 — Fix URL broken (`otto78/loom` → `otto78/loom-framework`) | CRITICA | [x] |
+| 2 | TASK-005 — Fix VS Code: sostituire Cline con GitHub Copilot | CRITICA | [x] |
+| 3 | TASK-003 — Creare `GEMINI.md` per Antigravity (mancante) | ALTA | [x] |
+| 4 | TASK-004 — Aggiornare `AGENTS.md` come file cross-tool | ALTA | [x] |
+| 5 | TASK-001 — Ridurre `CLAUDE.md` al modello minimale | ALTA | [x] |
+| 6 | TASK-002 — Ridurre `.cursorrules` + migrare a `.cursor/rules/loom.mdc` | ALTA | [x] |
+| 7 | TASK-006 — Fix Windsurf: ridurre + `.windsurf/rules/loom.md` | ALTA | [x] |
+| 8 | TASK-007 — Fix IntelliJ: percorso `.aiassistant/rules/` | ALTA | [x] |
+| 9 | TASK-009 — Rimuovere sezione duplicata `natural-lang` in docs.html | ALTA | [x] |
+| 10 | TASK-010 — Aggiungere traduzioni IT mancanti | MEDIA | [x] |
+| 11 | TASK-011 — Aggiornare tabella IDE in docs.html e README | MEDIA | [x] |
 
 ---
 
