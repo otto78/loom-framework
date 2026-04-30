@@ -192,7 +192,7 @@ No need to remember Python script paths or command syntax!
 
 **DOE = Directives / Orchestration / Execution**
 
-A 3-layer architecture that solves the fundamental problem of AI agents: **probabilistic degradation**. Each decision an LLM makes has ~90% accuracy. Over 10 steps, accuracy drops to 35% ($0.9^{10}$). DOE solves this by pushing complexity into deterministic code.
+The DOE Architecture solves the fundamental problem of AI agents: **probabilistic degradation**. Each decision an LLM makes has ~90% accuracy. Over 10 steps, accuracy drops to 35% ($0.9^{10}$). DOE solves this by pushing complexity into deterministic code.
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -237,15 +237,11 @@ A 3-layer architecture that solves the fundamental problem of AI agents: **proba
 loom-framework/
 ├── README.md                          # This guide
 ├── docs/
-│   ├── setup-guide.md                 # Complete setup guide
-│   ├── workflow-guide.md              # Task workflow guide
-│   ├── framework-guide.md             # DOE Architecture
-│   └── templates/                     # Documentation templates
-│       ├── TASKS.md                   # Task tracking
-│       ├── BACKLOG.md                 # Future ideas
-│       ├── STORY.md                   # Operational history
-│       ├── CHANGELOG.md               # Detailed changelog
-│       └── HANDOFF.md                 # Handoff protocol
+│   ├── index.html                     # Homepage
+│   ├── docs.html                      # Full documentation site
+│   ├── PROJECT-MD-GUIDE.md            # PROJECT.md guide
+│   ├── doe-architecture.md            # DOE Architecture guide
+│   └── workflow-guide.md              # Task workflow guide
 │
 ├── loom/
 │   ├── scripts/                       # Automation scripts
@@ -258,7 +254,7 @@ loom-framework/
 │   │
 │   ├── templates/                     # Core templates
 │   │   ├── AGENT.md.template          # Project source of truth
-│   │   ├── 3-level-framework.md       # Architecture details
+│   │   ├── doe-architecture.md        # DOE Architecture details
 │   │   └── coding-standards.md        # Code standards
 │   │
 │   ├── ide-configs/                   # IDE configurations
@@ -344,7 +340,7 @@ python loom/scripts/task-tdd.py complete TASK-001
 - **[guides/TDD-WORKFLOW.md](./guides/TDD-WORKFLOW.md)** — Test-Driven Development guide
 - **[guides/MONOREPO-GUIDE.md](./guides/MONOREPO-GUIDE.md)** — Using LOOM in monorepos
 - **[guides/SETUP-INSTRUCTIONS.md](./guides/SETUP-INSTRUCTIONS.md)** — For AI agents
-- **[docs/framework-guide.md](./docs/framework-guide.md)** — 3-level architecture
+- **[docs/doe-architecture.md](./docs/doe-architecture.md)** — DOE Architecture guide
 - **[docs/workflow-guide.md](./docs/workflow-guide.md)** — Complete workflow guide
 
 ---
@@ -461,7 +457,7 @@ Per dettagli: **[QUICKSTART.md](./QUICKSTART.md)** o **[guides/ABSTRACT.md](./gu
 
 **DOE = Direttive / Orchestrazione / Esecuzione**
 
-Un'architettura a 3 livelli che risolve il problema fondamentale degli agenti AI: **il degrado probabilistico**. Ogni decisione di un LLM ha ~90% di accuratezza. Su 10 step, l'accuratezza scende al 35% ($0.9^{10}$). DOE risolve spingendo la complessità nel codice deterministico.
+L'architettura DOE che risolve il problema fondamentale degli agenti AI: **il degrado probabilistico**. Ogni decisione di un LLM ha ~90% di accuratezza. Su 10 step, l'accuratezza scende al 35% ($0.9^{10}$). DOE risolve spingendo la complessità nel codice deterministico.
 
 ```
 ┌─────────────────────────────────────────────────────────────┐

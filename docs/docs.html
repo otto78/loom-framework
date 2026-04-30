@@ -125,6 +125,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
   <span style="color:rgba(255,255,255,.3)">|</span>
   <a href="index.html" style="font-size:1rem;">&#129525; loom</a>
   <div class="topnav-spacer"></div>
+  <button id="btn-copy-all" onclick="copyAllDocs()" style="background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;padding:.4rem 1rem;font-size:.85rem;cursor:pointer;border-radius:6px;margin-right:.5rem;font-weight:600;transition:background .2s;">
+    <span class="en">&#128203; Copy docs for AI</span>
+    <span class="it">&#128203; Copia doc per AI</span>
+  </button>
   <a href="https://github.com/otto78/loom-framework/releases/download/latest/loom-framework.zip" class="btn" style="background:var(--accent);color:#fff;padding:.4rem 1rem;font-size:.85rem;text-decoration:none;border-radius:6px;margin-right:.5rem;">
     <span class="en">&#128229; Download</span>
     <span class="it">&#128229; Scarica</span>
@@ -153,6 +157,22 @@ function toggleDark(){
   document.documentElement.dataset.theme=dark?'light':'dark';
   document.getElementById('btn-dark').innerHTML=dark?'&#127769;':'&#9728;&#65039;';
   localStorage.setItem('loom-dark',!dark);
+}
+
+function copyAllDocs(){
+  const lang=document.documentElement.dataset.lang||'en';
+  const sections=DOCS.map(doc=>{
+    const content=(lang==='it'&&doc.contentIt)?doc.contentIt:doc.content;
+    return content;
+  });
+  const full='# LOOM Framework — Full Documentation\n\n---\n\n'+sections.join('\n\n---\n\n');
+  const btn=document.getElementById('btn-copy-all');
+  navigator.clipboard.writeText(full).then(()=>{
+    const orig=btn.innerHTML;
+    btn.innerHTML='<span class="en">&#9989; Copied!</span><span class="it">&#9989; Copiato!</span>';
+    btn.style.background='#28a745';
+    setTimeout(()=>{btn.innerHTML=orig;btn.style.background='';},2500);
+  });
 }
 
 marked.use({breaks:true,gfm:true});
@@ -1236,10 +1256,10 @@ LOOM a livello root per coordinazione + LOOM per package per i dettagli:
 - Package TASKS.md traccia il lavoro interno`
 },
 {
-  id:'framework',icon:'&#127959;&#65039;',labelEn:'DOE Architecture',labelIt:'Architettura DOE',file:'3-level-framework.md',
+  id:'framework',icon:'&#127959;&#65039;',labelEn:'DOE Architecture',labelIt:'Architettura DOE',file:'doe-architecture.md',
   content:`# DOE Architecture
 
-> **Directives / Orchestration / Execution** — A 3-layer architecture that makes AI agents reliable, persistent, and token-efficient.
+> **Directives / Orchestration / Execution** — The DOE Architecture that makes AI agents reliable, persistent, and token-efficient.
 
 ---
 
@@ -1475,7 +1495,7 @@ User: "Send welcome email to user@example.com"
 The result: Agents that actually work, every time. 🎯`,
   contentIt:`# Architettura DOE
 
-> **Directives / Orchestration / Execution** — Un'architettura a 3 livelli che rende gli agenti AI affidabili, persistenti ed efficienti nei token.
+> **Directives / Orchestration / Execution** — L'architettura DOE che rende gli agenti AI affidabili, persistenti ed efficienti nei token.
 
 ---
 

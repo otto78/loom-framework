@@ -116,10 +116,10 @@ declare -A IDE_CONFIGS=(
     ["windsurf"]=".windsurfrules|loom/ide-configs/windsurf/windsurfrules.template"
     ["claude"]="CLAUDE.md|loom/ide-configs/claude/CLAUDE.md.template"
     ["cursor"]=".cursorrules|loom/ide-configs/cursor/cursorrules.template"
-    ["loom"]="loom.md|loom/ide-configs/loom/loom.md.template"
-    ["vscode"]=".clinerules|loom/ide-configs/vscode/clinerules.template"
-    ["vscode-insider"]=".github/vscode-insider-instructions.md|loom/ide-configs/vscode-insider/vscode-insider-instructions.md.template"
-    ["intellij"]=".idea/loom.md|loom/ide-configs/intellij/loom.md.template"
+    ["antigravity"]="GEMINI.md|loom/ide-configs/antigravity/GEMINI.md.template"
+    ["agents"]="AGENTS.md|loom/ide-configs/antigravity/AGENTS.md.template"
+    ["vscode"]=".github/copilot-instructions.md|loom/ide-configs/vscode/copilot-instructions.md.template"
+    ["intellij"]=".aiassistant/rules/loom.md|loom/ide-configs/intellij/LOOM.md.template"
 )
 
 # Sync configurations

@@ -7,7 +7,7 @@
 # This script:
 # 1. Creates project directory
 # 2. Initializes git repository
-# 3. Copies agentic-framework
+# 3. Copies loom
 # 4. Runs setup wizard
 # 5. Creates initial commit
 
@@ -100,25 +100,25 @@ build/
 Write-Success "Created .gitignore"
 
 # Copy framework
-Copy-Item -Path $FrameworkRoot -Destination ".\agentic-framework" -Recurse
-Write-Success "Copied agentic-framework"
+Copy-Item -Path $FrameworkRoot -Destination ".\loom" -Recurse
+Write-Success "Copied loom"
 
 # Run setup
 Write-Header "Running Setup Wizard"
 
 if ($IDE -ne "") {
     # Auto setup with IDE argument
-    python agentic-framework\scripts\setup.py --auto --project-name $ProjectName --ide $IDE
+    python loom\scripts\setup.py --auto --project-name $ProjectName --ide $IDE
 } else {
     # Interactive setup
-    python agentic-framework\scripts\setup.py
+    python loom\scripts\setup.py
 }
 
 # Create initial commit
 Write-Header "Creating Initial Commit"
 
 git add .
-git commit -m "chore: initialize project with agentic-framework v1.0"
+git commit -m "chore: initialize project with loom v1.0"
 Write-Success "Created initial commit"
 
 # Success
@@ -129,6 +129,6 @@ Write-InfoMsg ""
 Write-InfoMsg "Next steps:"
 Write-InfoMsg "  1. cd $ProjectName"
 Write-InfoMsg "  2. Review AGENT.md"
-Write-InfoMsg "  3. python agentic-framework\scripts\task.py start TASK-001 'First task'"
+Write-InfoMsg "  3. python loom\scripts\task.py start TASK-001 'First task'"
 Write-InfoMsg ""
 Write-InfoMsg "Read QUICKSTART.md for more information"

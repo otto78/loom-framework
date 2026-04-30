@@ -63,13 +63,15 @@ your-project/
 ├── loom/                     # Framework folder (from ZIP or clone)
 ├── LOOM.md                   # Framework config (auto-created)
 ├── AGENT.md                  # Project context for agents (auto-created)
-├── .windsurfrules            # IDE configs (auto-created for selected IDEs)
-├── .cursorrules              #
-├── CLAUDE.md                 #
-├── .clinerules               #
-├── loom.md            #
-├── .idea/loom.md      # IntelliJ config
-├── .github/vscode-insider-instructions.md
+├── CLAUDE.md                 # IDE config — Claude Code
+├── GEMINI.md                 # IDE config — Antigravity
+├── AGENTS.md                 # Cross-tool (Antigravity + Windsurf + VS Code)
+├── .cursorrules              # Cursor (legacy fallback)
+├── .cursor/rules/loom.mdc   # Cursor (modern)
+├── .windsurfrules            # Windsurf (legacy fallback)
+├── .windsurf/rules/loom.md  # Windsurf (modern)
+├── .github/copilot-instructions.md  # VS Code / VS Code Insider
+├── .aiassistant/rules/loom.md       # IntelliJ AI Assistant
 └── docs/
     ├── TASKS.md              # ⭐ Active task tracking
     ├── BACKLOG.md            # Future ideas
@@ -174,13 +176,15 @@ tuo-progetto/
 ├── loom/                     # Cartella framework (da ZIP o clone)
 ├── LOOM.md                   # Config framework (auto-creato)
 ├── AGENT.md                  # Contesto progetto per agenti (auto-creato)
-├── .windsurfrules            # Config IDE (auto-creati per IDE selezionati)
-├── .cursorrules              #
-├── CLAUDE.md                 #
-├── .clinerules               #
-├── loom.md            #
-├── .idea/loom.md      # Config IntelliJ
-├── .github/vscode-insider-instructions.md
+├── CLAUDE.md                 # Config IDE — Claude Code
+├── GEMINI.md                 # Config IDE — Antigravity
+├── AGENTS.md                 # Cross-tool (Antigravity + Windsurf + VS Code)
+├── .cursorrules              # Cursor (fallback legacy)
+├── .cursor/rules/loom.mdc   # Cursor (moderno)
+├── .windsurfrules            # Windsurf (fallback legacy)
+├── .windsurf/rules/loom.md  # Windsurf (moderno)
+├── .github/copilot-instructions.md  # VS Code / VS Code Insider
+├── .aiassistant/rules/loom.md       # IntelliJ AI Assistant
 └── docs/
     ├── TASKS.md              # ⭐ Tracciamento task attivi
     ├── BACKLOG.md            # Idee future

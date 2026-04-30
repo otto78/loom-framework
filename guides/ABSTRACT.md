@@ -44,7 +44,7 @@ sequenceDiagram
     A->>U: "I'm ready. TASK-001 active."
 ```
 
-LOOM solves these problems through **persistent file-based memory** and a **deterministic 3-level architecture**:
+LOOM solves these problems through **persistent file-based memory** and the **DOE Architecture (Directives / Orchestration / Execution)**:
 
 #### 1. Persistent Memory (Beats Context Limits)
 - **TASKS.md** — Active work tracking that survives context resets
@@ -146,7 +146,7 @@ sequenceDiagram
     A->>U: "Sono pronto. TASK-001 attivo."
 ```
 
-LOOM risolve questi problemi attraverso **memoria persistente basata su file** e un'**architettura deterministica a 3 livelli**:
+LOOM risolve questi problemi attraverso **memoria persistente basata su file** e l'**architettura DOE (Direttive / Orchestrazione / Esecuzione)**:
 
 #### 1. Memoria Persistente (Supera i Limiti di Contesto)
 - **TASKS.md** — Tracciamento lavoro che sopravvive ai reset
