@@ -388,7 +388,18 @@ footer a:hover{text-decoration:underline;}
 
     <p class="step-title en">Then use natural language — no commands needed:</p>
     <p class="step-title it">Poi usa il linguaggio naturale — nessun comando necessario:</p>
-    
+
+    <div style="background:var(--feature-bg);border:1px solid var(--border);border-radius:10px;padding:1.25rem;margin:1.5rem 0;">
+      <p class="en" style="margin:0 0 .75rem;font-weight:600;color:var(--accent)">💡 First, check what tasks already exist:</p>
+      <p class="it" style="margin:0 0 .75rem;font-weight:600;color:var(--accent)">💡 Prima, controlla quali task esistono già:</p>
+      <div class="code-wrap" style="margin:.5rem 0;">
+        <div class="code-block en">"show me the tasks" or "list tasks"</div>
+        <div class="code-block it">"mostrami i task" o "lista task"</div>
+      </div>
+      <p class="en" style="margin:.75rem 0 0;font-size:.9rem;color:var(--muted)">The agent reads your PROJECT.md and checks TASKS.md. If tasks exist, it shows them. If not, it offers to create them from your epics.</p>
+      <p class="it" style="margin:.75rem 0 0;font-size:.9rem;color:var(--muted)">L'agente legge il tuo PROJECT.md e controlla TASKS.md. Se esistono task, li mostra. Se no, propone di crearli dalle tue epiche.</p>
+    </div>
+
     <div class="command-list en">
       <div class="command-item"><span>"start task TASK-001 'implement user login'"</span> <button class="code-copy" onclick="copyText(this)">📋</button></div>
       <div class="command-item"><span>"list tasks"</span> <button class="code-copy" onclick="copyText(this)">📋</button></div>

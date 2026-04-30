@@ -1172,6 +1172,145 @@ python loom/scripts/setup.py --auto --project-name "[name]" --ide [ides]
 4. **Auto-sync** delle configurazioni IDE dopo modifiche ad AGENT.md`
 },
 {
+  id:'monorepo',icon:'&#128230;',labelEn:'Monorepo Guide',labelIt:'Guida Monorepo',file:'MONOREPO-GUIDE.md',
+  content:`# Monorepo Usage Guide
+
+> Using LOOM in monorepo projects with multiple packages/services.
+
+---
+
+## What is a Monorepo?
+
+A monorepo contains multiple projects/packages in a single repository:
+
+\`\`\`
+monorepo/
+├── packages/
+│   ├── frontend/
+│   ├── backend/
+│   └── shared/
+├── services/
+│   ├── api/
+│   └── worker/
+└── tools/
+\`\`\`
+
+---
+
+## Approach 1: Root-Level LOOM (Recommended)
+
+Setup LOOM at the repository root to manage the entire monorepo as one project.
+
+\`\`\`bash
+cd /path/to/monorepo
+python loom/scripts/setup.py
+\`\`\`
+
+**Result:** Single AGENT.md, TASKS.md for the whole monorepo.
+
+**When to use:**
+- Packages are tightly coupled
+- Single team manages everything
+- Shared versioning/releases
+
+---
+
+## Approach 2: Per-Package LOOM
+
+Setup LOOM independently in each package.
+
+\`\`\`bash
+cd packages/frontend && python ../../loom/scripts/setup.py
+cd packages/backend && python ../../loom/scripts/setup.py
+\`\`\`
+
+**Result:** Separate AGENT.md and TASKS.md per package.
+
+**When to use:**
+- Packages are independent
+- Different teams per package
+- Independent versioning
+
+---
+
+## Hybrid Approach
+
+Root-level LOOM for coordination + per-package LOOM for details:
+
+- Root AGENT.md describes overall architecture
+- Each package has its own detailed AGENT.md
+- Root TASKS.md tracks cross-package work
+- Package TASKS.md tracks internal work`,
+  contentIt:`# Guida Monorepo
+
+> Usare LOOM in progetti monorepo con multipli package/servizi.
+
+---
+
+## Cos'è un Monorepo?
+
+Un monorepo contiene più progetti/package in un unico repository:
+
+\`\`\`
+monorepo/
+├── packages/
+│   ├── frontend/
+│   ├── backend/
+│   └── shared/
+├── services/
+│   ├── api/
+│   └── worker/
+└── tools/
+\`\`\`
+
+---
+
+## Approccio 1: LOOM a Livello Root (Consigliato)
+
+Configura LOOM nella root del repository per gestire l'intero monorepo come un unico progetto.
+
+\`\`\`bash
+cd /path/to/monorepo
+python loom/scripts/setup.py
+\`\`\`
+
+**Risultato:** Unico AGENT.md, TASKS.md per l'intero monorepo.
+
+**Quando usarlo:**
+- Package strettamente accoppiati
+- Unico team gestisce tutto
+- Versioning/release condivisi
+
+---
+
+## Approccio 2: LOOM per Package
+
+Configura LOOM indipendentemente in ogni package.
+
+\`\`\`bash
+cd packages/frontend && python ../../loom/scripts/setup.py
+cd packages/backend && python ../../loom/scripts/setup.py
+\`\`\`
+
+**Risultato:** AGENT.md e TASKS.md separati per ogni package.
+
+**Quando usarlo:**
+- Package indipendenti
+- Team diversi per package
+- Versioning indipendente
+
+---
+
+## Approccio Ibrido
+
+LOOM a livello root per coordinazione + LOOM per package per i dettagli:
+
+- Root AGENT.md descrive l'architettura generale
+- Ogni package ha il suo AGENT.md dettagliato
+- Root TASKS.md traccia il lavoro cross-package
+- Package TASKS.md traccia il lavoro interno`
+},
+{
   id:'framework',icon:'&#127959;&#65039;',labelEn:'DOE Architecture',labelIt:'Architettura DOE',file:'3-level-framework.md',
   content:`# DOE Architecture
 

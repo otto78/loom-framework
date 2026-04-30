@@ -528,6 +528,7 @@ Dopo il setup, parla con il tuo agente AI:
 - **[NATURAL-LANGUAGE-GUIDE.md](./NATURAL-LANGUAGE-GUIDE.md)** — Guida comandi bilingue
 - **[ABSTRACT.md](./ABSTRACT.md)** — Concetti fondamentali (bilingue)
 - **[TDD-WORKFLOW.md](./TDD-WORKFLOW.md)** — Workflow TDD
+- **[MONOREPO-GUIDE.md](./MONOREPO-GUIDE.md)** — Gestione monorepo
 - **[SETUP-INSTRUCTIONS.md](./SETUP-INSTRUCTIONS.md)** — Per agenti AI (bilingue)
 
 ---
