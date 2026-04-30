@@ -17,7 +17,7 @@
 
 The fastest way to get started:
 
-1. **Download** LOOM framework: [Get latest ZIP](https://github.com/otto78/loom/releases/latest/download/loom-framework-latest.zip)
+1. **Download** LOOM framework: [Get latest ZIP](https://github.com/otto78/loom-framework/releases/latest/download/loom-framework-latest.zip)
 2. **Extract** the ZIP to your project folder
 3. **Create PROJECT.md** (or let LOOM auto-detect)
 4. **Open any IDE** and say: **"read loom"**
@@ -29,7 +29,7 @@ That's it. LOOM handles the rest.
 
 ```bash
 # 1. Clone LOOM framework
-git clone https://github.com/otto78/loom.git
+git clone https://github.com/otto78/loom-framework.git
 cd loom
 
 # 2. Copy loom/ folder to your project
@@ -45,12 +45,12 @@ cp -r loom/ /path/to/your-project/
 
 **Windows (PowerShell)**:
 ```powershell
-irm https://raw.githubusercontent.com/otto78/loom/main/install.ps1 | iex
+irm https://raw.githubusercontent.com/otto78/loom-framework/main/install.ps1 | iex
 ```
 
 **Unix/Linux/macOS**:
 ```bash
-curl -fsSL https://raw.githubusercontent.com/otto78/loom/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/otto78/loom-framework/main/install.sh | bash
 ```
 
 ### What Gets Created in Your Project
@@ -128,7 +128,7 @@ After setup, you can tell your agent:
 
 Il modo più veloce per iniziare:
 
-1. **Scarica** framework LOOM: [Ottieni ultimo ZIP](https://github.com/otto78/loom/releases/latest/download/loom-framework-latest.zip)
+1. **Scarica** framework LOOM: [Ottieni ultimo ZIP](https://github.com/otto78/loom-framework/releases/latest/download/loom-framework-latest.zip)
 2. **Estrai** lo ZIP nella cartella del tuo progetto
 3. **Crea PROJECT.md** (oppure lascia che LOOM lo rilevi automaticamente)
 4. **Apri qualsiasi IDE** e di': **"leggi loom"**
@@ -140,7 +140,7 @@ Tutto qui. LOOM gestisce il resto.
 
 ```bash
 # 1. Clone repository LOOM
-git clone https://github.com/otto78/loom.git
+git clone https://github.com/otto78/loom-framework.git
 cd loom
 
 # 2. Copia cartella loom/ nel tuo progetto
@@ -156,12 +156,12 @@ cp -r loom/ /path/to/your-project/
 
 **Windows (PowerShell)**:
 ```powershell
-irm https://raw.githubusercontent.com/otto78/loom/main/install.ps1 | iex
+irm https://raw.githubusercontent.com/otto78/loom-framework/main/install.ps1 | iex
 ```
 
 **Unix/Linux/macOS**:
 ```bash
-curl -fsSL https://raw.githubusercontent.com/otto78/loom/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/otto78/loom-framework/main/install.sh | bash
 ```
 
 ### Cosa Viene Creato Nel Tuo Progetto

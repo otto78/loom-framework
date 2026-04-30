@@ -174,16 +174,18 @@ class ProjectDetector:
             ides.add("intellij")
         if (self.project_root / ".vscode").exists():
             ides.add("vscode")
-        if (self.project_root / ".cursorrules").exists():
+        if (self.project_root / ".cursor" / "rules").exists() or (self.project_root / ".cursorrules").exists():
             ides.add("cursor")
-        if (self.project_root / ".windsurfrules").exists():
+        if (self.project_root / ".windsurf" / "rules").exists() or (self.project_root / ".windsurfrules").exists():
             ides.add("windsurf")
         if (self.project_root / "CLAUDE.md").exists():
             ides.add("claude")
-        if (self.project_root / "loom.md").exists():
-            ides.add("loom")
-        if (self.project_root / ".github" / "vscode-insider-instructions.md").exists():
-            ides.add("vscode-insider")
+        if (self.project_root / "GEMINI.md").exists():
+            ides.add("antigravity")
+        if (self.project_root / "AGENTS.md").exists():
+            ides.add("agents")
+        if (self.project_root / ".github" / "copilot-instructions.md").exists():
+            ides.add("vscode")
         
         return ides
     
@@ -264,10 +266,10 @@ class FrameworkSetup:
             "windsurf": (".windsurfrules", "ide-configs/windsurf/windsurfrules.template"),
             "claude": ("CLAUDE.md", "ide-configs/claude/CLAUDE.md.template"),
             "cursor": (".cursorrules", "ide-configs/cursor/cursorrules.template"),
-            "loom": ("loom.md", "ide-configs/loom/loom.md.template"),
-            "vscode": (".clinerules", "ide-configs/vscode/clinerules.template"),
-            "vscode-insider": (".github/vscode-insider-instructions.md", "ide-configs/vscode-insider/vscode-insider-instructions.md.template"),
-            "intellij": (".idea/loom.md", "ide-configs/intellij/loom.md.template"),
+            "antigravity": ("GEMINI.md", "ide-configs/antigravity/GEMINI.md.template"),
+            "agents": ("AGENTS.md", "ide-configs/antigravity/AGENTS.md.template"),
+            "vscode": (".github/copilot-instructions.md", "ide-configs/vscode/copilot-instructions.md.template"),
+            "intellij": (".aiassistant/rules/loom.md", "ide-configs/intellij/LOOM.md.template"),
         }
         
         if ide not in ide_map:
@@ -292,6 +294,24 @@ class FrameworkSetup:
         # Copy template
         shutil.copy2(template_path, target_path)
         print_success(f"Created {target_file}")
+        
+        # For cursor: also generate modern .cursor/rules/loom.mdc
+        if ide == "cursor":
+            modern_path = self.project_root / ".cursor" / "rules" / "loom.mdc"
+            modern_template = self.framework_root / "ide-configs/cursor/rules/loom.mdc"
+            if modern_template.exists() and not modern_path.exists():
+                modern_path.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(modern_template, modern_path)
+                print_success(f"Created .cursor/rules/loom.mdc (modern format)")
+        
+        # For windsurf: also generate modern .windsurf/rules/loom.md
+        if ide == "windsurf":
+            modern_path = self.project_root / ".windsurf" / "rules" / "loom.md"
+            modern_template = self.framework_root / "ide-configs/windsurf/rules/loom.md"
+            if modern_template.exists() and not modern_path.exists():
+                modern_path.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(modern_template, modern_path)
+                print_success(f"Created .windsurf/rules/loom.md (modern format)")
     
     def init_docs(self):
         """Initialize documentation files."""
@@ -359,10 +379,10 @@ def interactive_setup():
     print("1. Windsurf")
     print("2. Claude Code")
     print("3. Cursor")
-    print("4. loom")
-    print("5. VS Code (Cline)")
-    print("6. VS Code Insider")
-    print("7. IntelliJ IDEA")
+    print("4. Antigravity (GEMINI.md)")
+    print("5. VS Code / VS Code Insider (GitHub Copilot)")
+    print("6. IntelliJ IDEA (AI Assistant)")
+    print("7. AGENTS.md (cross-tool: Antigravity + Windsurf + VS Code + Insider)")
     print("8. All")
     
     ide_choice = input(f"{Colors.CYAN}Enter numbers (comma-separated, e.g., 1,3,7): {Colors.END}").strip()
@@ -371,16 +391,16 @@ def interactive_setup():
         "1": "windsurf",
         "2": "claude",
         "3": "cursor",
-        "4": "loom",
+        "4": "antigravity",
         "5": "vscode",
-        "6": "vscode-insider",
-        "7": "intellij",
+        "6": "intellij",
+        "7": "agents",
         "8": "all",
     }
     
     selected_ides = set()
     if "8" in ide_choice:
-        selected_ides = {"windsurf", "claude", "cursor", "loom", "vscode", "vscode-insider", "intellij"}
+        selected_ides = {"windsurf", "claude", "cursor", "antigravity", "vscode", "intellij", "agents"}
     else:
         for num in ide_choice.split(","):
             num = num.strip()
@@ -429,7 +449,7 @@ def auto_setup(project_name: Optional[str] = None, ides: Optional[List[str]] = N
         project_name = project_root.name
     
     if not ides:
-        ides = list(detected_ides) if detected_ides else ["windsurf", "cursor"]
+        ides = list(detected_ides) if detected_ides else ["windsurf", "cursor", "agents"]
     
     print_info(f"Project: {project_name}")
     print_info(f"Languages: {', '.join(languages)}")

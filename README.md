@@ -6,20 +6,20 @@
 > **Integra agenti intelligenti nel tuo workflow di sviluppo**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/otto78/loom/releases)
+[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/otto78/loom-framework/releases)
 [![Python](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/)
 [![IDEs](https://img.shields.io/badge/IDEs-7%20supported-green.svg)](#-supported-ides)
-[![GitHub Stars](https://img.shields.io/github/stars/otto78/loom?style=social)](https://github.com/otto78/loom)
+[![GitHub Stars](https://img.shields.io/github/stars/otto78/loom-framework?style=social)](https://github.com/otto78/loom-framework)
 
 **🌐 [🇬🇧 English](#-the-problem) | [🇮🇹 Italiano](#-italiano--versione-italiana)**
 
 ---
 
-## **[📥 Download LOOM Framework](https://github.com/otto78/loom/releases/latest/download/loom-framework.zip)**
+## **[📥 Download LOOM Framework](https://github.com/otto78/loom-framework/releases/latest/download/loom-framework.zip)**
 
 ### *Scarica → Estrai nella cartella del tuo progetto → Crea PROJECT.md → Di' "read loom"*
 
-[![Download ZIP](https://img.shields.io/badge/Download-LOOM%20Framework%20ZIP-brightgreen?style=for-the-badge&logo=github)](https://github.com/otto78/loom/releases/latest/download/loom-framework.zip)
+[![Download ZIP](https://img.shields.io/badge/Download-LOOM%20Framework%20ZIP-brightgreen?style=for-the-badge&logo=github)](https://github.com/otto78/loom-framework/releases/latest/download/loom-framework.zip)
 
 </div>
 
@@ -120,7 +120,7 @@ LOOM is an operational framework that brings structure to AI-assisted developmen
 
 **The fastest way to get started — takes 2 minutes:**
 
-1. **[📥 Download `loom-framework.zip`](https://github.com/otto78/loom/releases/latest/download/loom-framework.zip)** ← Click here
+1. **[📥 Download `loom-framework.zip`](https://github.com/otto78/loom-framework/releases/latest/download/loom-framework.zip)** ← Click here
 2. **Extract** the ZIP into your project folder (creates `loom/` folder + files)
 3. **Create** `PROJECT.md` in your project root — describe your project in a few sentences
 4. **Open any IDE** (Windsurf, Cursor, Claude, etc.) and say: **"read loom"**
@@ -158,12 +158,12 @@ See **[QUICKSTART.md](./QUICKSTART.md)** for complete instructions and troublesh
 
 **Windows (PowerShell):**
 ```powershell
-irm https://raw.githubusercontent.com/otto78/loom/main/install.ps1 | iex
+irm https://raw.githubusercontent.com/otto78/loom-framework/main/install.ps1 | iex
 ```
 
 **Unix/Linux/macOS:**
 ```bash
-curl -fsSL https://raw.githubusercontent.com/otto78/loom/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/otto78/loom-framework/main/install.sh | bash
 ```
 
 ---
@@ -395,9 +395,9 @@ MIT — Use, modify, share freely.
 
 ## 🔗 Links
 
-- **Website**: [otto78.github.io/loom](https://otto78.github.io/loom)
+- **Website**: [otto78.github.io/loom-framework](https://otto78.github.io/loom-framework)
 - **Documentation**: [otto78.github.io/loom-framework/docs.html](https://otto78.github.io/loom-framework/docs.html)
-- **GitHub**: [github.com/otto78/loom](https://github.com/otto78/loom)
+- **GitHub**: [github.com/otto78/loom-framework](https://github.com/otto78/loom-framework)
 - **Issues**: [github.com/otto78/loom-framework/issues](https://github.com/otto78/loom-framework/issues)
 
 ---

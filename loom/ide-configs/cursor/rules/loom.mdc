@@ -1,7 +1,12 @@
-# IntelliJ AI Assistant Rules — loom
+---
+description: Loom framework rules
+alwaysApply: true
+---
+
+# Cursor Rules — loom
 
 > Leggi sempre `AGENT.md` all'inizio di ogni sessione.
-> Questo file contiene solo istruzioni specifiche per JetBrains AI Assistant.
+> Questo file contiene solo istruzioni specifiche per Cursor.
 > Per l'architettura DOE, task management, commit protocol e handoff: vedi `AGENT.md`.
 
 ---
@@ -30,9 +35,8 @@ python loom/scripts/setup.py
 
 ---
 
-## Best Practices IntelliJ AI Assistant
+## Best Practices Cursor
 
-- Usa AI Assistant inline per refactoring e generazione codice contestuale
-- Crea Run Configurations per script task.py e test suite
-- Usa Live Templates per boilerplate standard (docstring, error handling)
+- Chat per spiegazioni e planning, Composer per codice multi-file
+- Usa @-mentions per includere file nel contesto (`@filename`, `@folder/`)
 - Chiedi conferma prima di operazioni irreversibili

@@ -269,7 +269,7 @@ Get started with loom in minutes!
 
 ### One-Liner Install
 \`\`\`bash
-curl -fsSL https://raw.githubusercontent.com/otto78/loom/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/otto78/loom-framework/main/install.sh | bash
 \`\`\`
 
 ### Interactive Wizard
@@ -315,7 +315,7 @@ Inizia con loom in pochi minuti!
 
 ### Installer One-Liner
 \`\`\`bash
-curl -fsSL https://raw.githubusercontent.com/otto78/loom/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/otto78/loom-framework/main/install.sh | bash
 \`\`\`
 
 ### Wizard Interattivo
@@ -337,85 +337,6 @@ loom aggiornerà automaticamente \`docs/TASKS.md\` e preparerà l'ambiente.
 ---
 
 **Tempo setup**: ~10 secondi | **Tempo primo task**: ~1 minuto`
-},
-{
-  id:'natural-lang',icon:'&#128172;',labelEn:'Natural Language Guide',labelIt:'Guida Linguaggio Naturale',file:'guides/NATURAL-LANGUAGE-GUIDE.md',
-  content:`# Natural Language Guide
-
-> No need to run Python scripts manually. Just talk to your AI agent!
-
----
-
-## Core Idea
-
-Instead of:
-\`\`\`bash
-python loom/scripts/setup.py
-\`\`\`
-
-Just say:
-\`\`\`
-"setup loom"
-\`\`\`
-
-The agent understands and executes automatically!
-
----
-
-## Task Management Commands
-
-| You say | Agent executes |
-|---------|----------------|
-| "start task TASK-001 'feature X'" | \`task.py start TASK-001 "feature X"\` |
-| "list tasks" | \`task.py list\` |
-| "complete task TASK-001" | \`task.py complete TASK-001\` |
-| "run tests" | \`task-tdd.py test\` |
-| "sync configs" | \`sync-configs.sh\` |
-
----
-
-## TDD with Natural Language
-
-\`\`\`
-"start TDD task TASK-001 'add email validation'"
--> Creates test file, runs tests (Red phase)
-
-"run tests"
--> Shows test results
-
-"complete task TASK-001"
--> Verifies all tests pass, commits
-\`\`\`
-
----
-
-## Multilingual Support
-
-### Italiano
-\`\`\`
-"configura il framework"
-"avvia task TASK-001 'descrizione'"
-"mostra i task"
-"completa task TASK-001"
-"esegui i test"
-\`\`\`
-
-### English
-\`\`\`
-"setup the framework"
-"start task TASK-001 'description'"
-"show tasks"
-"complete task TASK-001"
-"run tests"
-\`\`\`
-
----
-
-## Best Practices
-
-1. **Use natural language** — "start task" = "create task" = "begin task"
-2. **Let the agent suggest** — it will recommend TDD for critical features
-3. **Use abbreviations** — "list", "complete TASK-001" all work`
 },
 {
   id:'project',icon:'&#128203;',labelEn:'PROJECT.md Guide',labelIt:'Guida PROJECT.md',file:'PROJECT-MD-GUIDE.md',
@@ -1796,8 +1717,8 @@ Thank you for your interest in contributing!
 ## How to Contribute
 
 ### Report Issues
-1. Check [existing issues](https://github.com/otto78/loom/issues)
-2. [Create a new issue](https://github.com/otto78/loom/issues/new)
+1. Check [existing issues](https://github.com/otto78/loom-framework/issues)
+2. [Create a new issue](https://github.com/otto78/loom-framework/issues/new)
 
 ### Add IDE Support
 1. Create config template in \`loom/ide-configs/your-ide/\`
@@ -1810,7 +1731,7 @@ Thank you for your interest in contributing!
 ## Development Setup
 
 \`\`\`bash
-git clone https://github.com/otto78/loom.git
+git clone https://github.com/otto78/loom-framework.git
 cd loom
 python -m venv venv
 source venv/bin/activate  # Windows: venv\\Scripts\\activate
@@ -1857,8 +1778,8 @@ Grazie per il tuo interesse nel contribuire!
 ## Come Contribuire
 
 ### Segnala Problemi
-1. Controlla [issue esistenti](https://github.com/otto78/loom/issues)
-2. [Crea una nuova issue](https://github.com/otto78/loom/issues/new)
+1. Controlla [issue esistenti](https://github.com/otto78/loom-framework/issues)
+2. [Crea una nuova issue](https://github.com/otto78/loom-framework/issues/new)
 
 ### Aggiungi Supporto IDE
 1. Crea template config in \`loom/ide-configs/tuo-ide/\`
@@ -1871,7 +1792,7 @@ Grazie per il tuo interesse nel contribuire!
 ## Setup Sviluppo
 
 \`\`\`bash
-git clone https://github.com/otto78/loom.git
+git clone https://github.com/otto78/loom-framework.git
 cd loom
 python -m venv venv
 source venv/bin/activate  # Windows: venv\\Scripts\\activate
