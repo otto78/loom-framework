@@ -5,6 +5,37 @@
 
 ---
 
+## 🚀 Setup Automatico
+
+**Quando l'utente dice:**
+- "setup loom"
+- "configura il framework"
+- "inizializza il framework"
+
+**Tu esegui automaticamente:**
+```bash
+python loom/scripts/setup.py
+```
+
+Vedi `guides/SETUP-INSTRUCTIONS.md` per dettagli completi.
+
+---
+
+## 💬 Comandi Naturali
+
+**L'utente può usare linguaggio naturale:**
+
+| Utente dice | Tu esegui |
+|-------------|----------|
+| "start task TASK-001 'feature X'" | `python loom/scripts/task.py start TASK-001 "feature X"` |
+| "list tasks" | `python loom/scripts/task.py list` |
+| "complete task TASK-001" | `python loom/scripts/task.py complete TASK-001 "done"` |
+| "start TDD task TASK-001 'feature X'" | `python loom/scripts/task-tdd.py start TASK-001 "feature X"` |
+| "run tests" | `python loom/scripts/task-tdd.py test` |
+| "sync configs" | `bash loom/scripts/sync-configs.sh` |
+
+---
+
 ## Fonte di Verità
 
 **File principale:** `AGENT.md`
@@ -40,18 +71,18 @@ Usa gli script per gestire task:
 
 ```bash
 # Avvia task
-python scripts/task.py start TASK-001 "Descrizione"
+python loom/scripts/task.py start TASK-001 "Descrizione"
 
 # Completa task
-python scripts/task.py complete TASK-001 "Descrizione" --bump minor
+python loom/scripts/task.py complete TASK-001 "Descrizione" --bump minor
 
 # Lista task
-python scripts/task.py list
+python loom/scripts/task.py list
 ```
 
 ---
 
-## Framework a 3 Livelli
+## Architettura DOE
 
 ### Livello 1: Direttive
 
@@ -137,22 +168,22 @@ Crea run configurations per:
 
 ```bash
 # Inizializza sistema task (prima volta)
-python scripts/task.py init
+python loom/scripts/task.py init
 
 # Avvia nuovo task
-python scripts/task.py start TASK-001 "Implementare feature X"
+python loom/scripts/task.py start TASK-001 "Implementare feature X"
 
 # Lista task attivi
-python scripts/task.py list
+python loom/scripts/task.py list
 
 # Completa task con version bump
-python scripts/task.py complete TASK-001 "Feature X completata" --bump minor
+python loom/scripts/task.py complete TASK-001 "Feature X completata" --bump minor
 
 # Dry-run (simula senza eseguire)
-python scripts/task.py complete TASK-001 "..." --dry-run
+python loom/scripts/task.py complete TASK-001 "..." --dry-run
 
 # Commit senza push
-python scripts/task.py complete TASK-001 "..." --no-push
+python loom/scripts/task.py complete TASK-001 "..." --no-push
 ```
 
 ---

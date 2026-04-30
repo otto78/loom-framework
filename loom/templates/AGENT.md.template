@@ -18,6 +18,15 @@
 
 ---
 
+## External Tools Configuration / Configurazione Tool Esterni (Optional)
+
+> Se usi MCP (Model Context Protocol) o tool esterni specifici, configura qui.
+
+**{Tool Name}**: {Configuration details, workspace ID, default project, etc.}
+{Dettagli configurazione, workspace, progetto default, etc.}
+
+---
+
 ## Tech Stack / Stack Tecnologico
 
 ### Backend / Frontend / Core
@@ -35,6 +44,22 @@
 - **Hosting**: {e.g., Render, Vercel, AWS}
 - **CI/CD**: {e.g., GitHub Actions, GitLab CI}
 - **Secrets**: `.env` (never commit / mai committare)
+
+### AI Layer (Optional / Opzionale)
+- **Orchestration**: {e.g., LangGraph, custom orchestrator}
+- **LLM Gateway**: {e.g., LiteLLM, direct API}
+- **STT**: {e.g., Whisper, self-hosted}
+- **Browser Automation**: {e.g., Playwright, Selenium}
+- **MCP**: {Model Context Protocol configuration}
+
+### Channels / Canali (Optional / Opzionale)
+- **Primary**: {e.g., WhatsApp, Telegram, Web}
+- **Secondary**: {e.g., Mobile App, Email}
+
+### Extended Infrastructure / Infrastruttura Estesa
+- **Container**: {e.g., Docker, Kubernetes}
+- **Monitoring**: {e.g., Grafana, Prometheus}
+- **GPU**: {e.g., RunPod, Lambda Labs}
 
 ---
 
@@ -59,6 +84,20 @@
 ├── loom/                       ← loom framework
 └── .env                        ← secrets (never commit / mai committare)
 ```
+
+---
+
+## Framework Operativo: Loom 🧵
+
+Questo progetto utilizza **[Loom Framework](https://github.com/otto78/loom-framework)** per la gestione operativa.
+
+Loom fornisce:
+- Task management automatizzato
+- TDD workflow integrato
+- Supporto multi-IDE
+- Comandi in linguaggio naturale
+
+**Configurazione**: Vedi [`.loom-framework.json`](./.loom-framework.json) e [`LOOM.md`](./LOOM.md)
 
 ---
 
@@ -106,6 +145,34 @@ python loom/execution/git_commit.py --files "file1,file2" --message "feat: descr
 
 ### 6. Ask before irreversible operations / Chiedi prima di operazioni irreversibili
 
+### 7. Versioning and Changelog / Versioning e Changelog (Mandatorio)
+
+Ogni modifica che altera il comportamento del sistema deve:
+1. Incrementare la versione semantica (es: `MAYA_VERSION` in `core/config.py`)
+2. Aggiungere entry in `directives/changelog.md` con messaggio per l'utente
+3. Questo garantisce che gli utenti ricevano notifiche delle nuove capacità
+
+### 8. Commit and Push after every fix / Commit e Push dopo ogni fix
+
+Dopo ogni modifica richiesta dall'utente:
+1. **Commit selettivo**: `git add <file1> <file2>` — SOLO file modificati direttamente
+2. Commit con messaggio coerente: `git commit -m "feat: descrizione [TASK-XXX]"`
+3. Push sul branch remoto
+
+**IMPORTANTE**: In ambiente concorrente, NON usare `git add -A` o `git add .` per evitare di committare file incompleti di altri agenti.
+
+Prima del push, aggiorna SEMPRE:
+- `docs/STORY.md` — versione, fix, evoluzioni
+- `docs/TASKS.md` — stato lavoro
+
+### 9. DB ↔ Local Files Alignment / Allineamento DB ↔ File Locali (Mandatorio)
+
+Se una direttiva o configurazione è usata sia da file locali (`directives/*.md`) sia dal database (`agent_prompts`):
+1. Aggiorna il file locale richiesto
+2. Verifica lo stato corrente su DB
+3. Applica la sincronizzazione su DB nella stessa sessione
+4. Verifica il risultato (versione, contenuti)
+
 ---
 
 ## Project-Specific Rules / Regole Specifiche Progetto
@@ -121,6 +188,19 @@ python loom/execution/git_commit.py --files "file1,file2" --message "feat: descr
 ### {Domain 3 — e.g., Testing}
 - {Rule 1}
 - {Rule 2}
+
+---
+
+## File Organization / Organizzazione File
+
+- `.tmp/` — file intermedi temporanei, rigenerabili. **Mai committare.**
+- `execution/` — script Python deterministici (i tool)
+- `directives/` — SOP in Markdown (le istruzioni operative)
+- `.env` — variabili d'ambiente e chiavi API (**mai committare**)
+- `docs/` — documentazione progetto (TASKS.md, STORY.md, etc.)
+- `loom/` — framework Loom (non modificare)
+- `.loom-framework.json` — configurazione Loom Framework
+- `LOOM.md` — come questo progetto usa Loom
 
 ---
 

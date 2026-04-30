@@ -14,10 +14,10 @@
 
 **Tu esegui automaticamente:**
 ```bash
-python agentic-framework/scripts/setup.py
+python loom/scripts/setup.py
 ```
 
-Vedi `agentic-framework/SETUP-INSTRUCTIONS.md` per dettagli completi.
+Vedi `guides/SETUP-INSTRUCTIONS.md` per dettagli completi.
 
 ---
 
@@ -27,12 +27,12 @@ Vedi `agentic-framework/SETUP-INSTRUCTIONS.md` per dettagli completi.
 
 | User says | You execute |
 |-----------|-------------|
-| "start task TASK-001 'feature X'" | `python scripts/task.py start TASK-001 "feature X"` |
-| "list tasks" | `python scripts/task.py list` |
-| "complete task TASK-001" | `python scripts/task.py complete TASK-001 "done"` |
-| "start TDD task TASK-001 'feature X'" | `python scripts/task-tdd.py start TASK-001 "feature X"` |
-| "run tests" | `python scripts/task-tdd.py test` |
-| "sync configs" | `bash scripts/sync-configs.sh` |
+| "start task TASK-001 'feature X'" | `python loom/scripts/task.py start TASK-001 "feature X"` |
+| "list tasks" | `python loom/scripts/task.py list` |
+| "complete task TASK-001" | `python loom/scripts/task.py complete TASK-001 "done"` |
+| "start TDD task TASK-001 'feature X'" | `python loom/scripts/task-tdd.py start TASK-001 "feature X"` |
+| "run tests" | `python loom/scripts/task-tdd.py test` |
+| "sync configs" | `bash loom/scripts/sync-configs.sh` |
 
 ---
 
@@ -71,13 +71,13 @@ Usa gli script per gestire task:
 
 ```bash
 # Avvia task
-python scripts/task.py start TASK-001 "Descrizione"
+python loom/scripts/task.py start TASK-001 "Descrizione"
 
 # Completa task
-python scripts/task.py complete TASK-001 "Descrizione" --bump minor
+python loom/scripts/task.py complete TASK-001 "Descrizione" --bump minor
 
 # Lista task
-python scripts/task.py list
+python loom/scripts/task.py list
 ```
 
 ---
@@ -186,22 +186,22 @@ Quando generi file completi, usa Artifacts per renderli facilmente copiabili.
 
 ```bash
 # Inizializza sistema task (prima volta)
-python scripts/task.py init
+python loom/scripts/task.py init
 
 # Avvia nuovo task
-python scripts/task.py start TASK-001 "Implementare feature X"
+python loom/scripts/task.py start TASK-001 "Implementare feature X"
 
 # Lista task attivi
-python scripts/task.py list
+python loom/scripts/task.py list
 
 # Completa task con version bump
-python scripts/task.py complete TASK-001 "Feature X completata" --bump minor
+python loom/scripts/task.py complete TASK-001 "Feature X completata" --bump minor
 
 # Dry-run (simula senza eseguire)
-python scripts/task.py complete TASK-001 "..." --dry-run
+python loom/scripts/task.py complete TASK-001 "..." --dry-run
 
 # Commit senza push
-python scripts/task.py complete TASK-001 "..." --no-push
+python loom/scripts/task.py complete TASK-001 "..." --no-push
 ```
 
 ---
