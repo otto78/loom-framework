@@ -1,7 +1,7 @@
 # AGENT.md — {PROJECT_NAME}
 # Source of Truth / Fonte di Verità
 
-> This file is read by all AI agents (Claude, Cursor, Windsurf, loom, VS Code Insider, Cline).
+> This file is read by all AI agents (Claude, Cursor, Windsurf, loom, VS Code, GitHub Copilot).
 > Do not duplicate these instructions in other files — they all reference here.
 > Questo file è letto da tutti gli agenti AI. Non duplicare queste istruzioni in altri file.
 
@@ -88,7 +88,7 @@ Loom fornisce:
 - Supporto multi-IDE
 - Comandi in linguaggio naturale
 
-**Configurazione**: Vedi [`.loom-framework.json`](./.loom-framework.json) e [`LOOM.md`](./LOOM.md)
+**Configurazione**: Vedi `AGENT.md` (questo file) e la cartella `loom/`
 
 ---
 
@@ -139,7 +139,7 @@ python loom/execution/git_commit.py --files "file1,file2" --message "feat: descr
 ### 7. Versioning and Changelog / Versioning e Changelog (Mandatorio)
 
 Ogni modifica che altera il comportamento del sistema deve:
-1. Incrementare la versione semantica (es: `MAYA_VERSION` in `core/config.py`)
+1. Incrementare la versione semantica (es: `version` in `pyproject.toml`)
 2. Aggiungere entry in `directives/changelog.md` con messaggio per l'utente
 3. Questo garantisce che gli utenti ricevano notifiche delle nuove capacità
 
@@ -190,8 +190,7 @@ Se una direttiva o configurazione è usata sia da file locali (`directives/*.md`
 - `.env` — variabili d'ambiente e chiavi API (**mai committare**)
 - `docs/` — documentazione progetto (TASKS.md, STORY.md, etc.)
 - `loom/` — framework Loom (non modificare)
-- `.loom-framework.json` — configurazione Loom Framework
-- `LOOM.md` — come questo progetto usa Loom
+- `AGENT.md` — configurazione progetto (questo file)
 
 ---
 

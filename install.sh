@@ -5,7 +5,7 @@
 set -e
 
 loom_REPO="https://github.com/otto78/loom-framework.git"
-loom_DIR="$HOME/.loom"
+loom_DIR="$HOME/.loom-framework"
 PYTHON_MIN_VERSION="3.8"
 
 echo "🧵 loom Installer"
@@ -63,5 +63,5 @@ fi
 echo ""
 echo "✨ Installation complete!"
 echo ""
-echo "📚 Documentation: https://otto78.github.io/loom/docs.html"
+echo "📚 Documentation: https://otto78.github.io/loom-framework/docs.html"
 echo "🐙 GitHub: https://github.com/otto78/loom-framework"

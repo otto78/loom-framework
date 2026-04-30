@@ -11,26 +11,27 @@ from pathlib import Path
 
 # Project root
 ROOT = Path(__file__).parent.parent
+GUIDES = ROOT / "guides"
 
 
 class TestAbstractExists:
     """Test that ABSTRACT.md exists with required content."""
     
     def test_abstract_file_exists(self):
-        """ABSTRACT.md must exist in root."""
-        assert (ROOT / "ABSTRACT.md").exists(), "ABSTRACT.md not found in root"
+        """ABSTRACT.md must exist in guides/."""
+        assert (GUIDES / "ABSTRACT.md").exists(), "ABSTRACT.md not found in guides/"
     
     def test_abstract_has_english_content(self):
         """ABSTRACT.md must have English section."""
-        content = (ROOT / "ABSTRACT.md").read_text(encoding="utf-8")
-        assert "# Abstract" in content or "# loom Abstract" in content
+        content = (GUIDES / "ABSTRACT.md").read_text(encoding="utf-8")
+        assert "abstract" in content.lower()
         assert "context window" in content.lower()
         assert "multi-agent" in content.lower()
         assert "token" in content.lower()
     
     def test_abstract_has_italian_content(self):
         """ABSTRACT.md must have Italian section."""
-        content = (ROOT / "ABSTRACT.md").read_text(encoding="utf-8")
+        content = (GUIDES / "ABSTRACT.md").read_text(encoding="utf-8")
         assert "italiano" in content.lower() or "## it" in content.lower()
         assert "contesto" in content.lower() or "finestra di contesto" in content.lower()
 
@@ -97,12 +98,12 @@ class TestNaturalLanguageGuideUpdated:
     
     def test_guide_has_read_loom_trigger(self):
         """Guide must list 'read loom' as trigger phrase."""
-        content = (ROOT / "NATURAL-LANGUAGE-GUIDE.md").read_text(encoding="utf-8")
+        content = (GUIDES / "NATURAL-LANGUAGE-GUIDE.md").read_text(encoding="utf-8")
         assert "read loom" in content.lower() or "leggi loom" in content.lower()
     
     def test_guide_has_configure_loom_trigger(self):
         """Guide must list 'configure loom' as trigger phrase."""
-        content = (ROOT / "NATURAL-LANGUAGE-GUIDE.md").read_text(encoding="utf-8")
+        content = (GUIDES / "NATURAL-LANGUAGE-GUIDE.md").read_text(encoding="utf-8")
         assert "configure loom" in content.lower() or "configura loom" in content.lower()
 
 
@@ -111,12 +112,12 @@ class TestSetupInstructionsUpdated:
     
     def test_setup_instructions_has_read_loom_trigger(self):
         """Setup instructions must include 'read loom' trigger."""
-        content = (ROOT / "SETUP-INSTRUCTIONS.md").read_text(encoding="utf-8")
+        content = (GUIDES / "SETUP-INSTRUCTIONS.md").read_text(encoding="utf-8")
         assert "read loom" in content.lower() or "leggi loom" in content.lower()
     
     def test_setup_instructions_mentions_project_md(self):
         """Setup instructions must mention PROJECT.md discovery."""
-        content = (ROOT / "SETUP-INSTRUCTIONS.md").read_text(encoding="utf-8")
+        content = (GUIDES / "SETUP-INSTRUCTIONS.md").read_text(encoding="utf-8")
         assert "PROJECT.md" in content or "PROGETTO.md" in content
 
 

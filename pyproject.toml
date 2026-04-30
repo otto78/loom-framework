@@ -10,7 +10,7 @@ readme = "README.md"
 requires-python = ">=3.8"
 license = {text = "MIT"}
 authors = [
-    {name = "Andrea Mazzarotto", email = "your.email@example.com"}
+    {name = "Andrea Mazzarotto", email = "andrea.mazzarotto@gmail.com"}
 ]
 keywords = ["ai", "agents", "framework", "development", "workflow", "automation", "tdd"]
 classifiers = [
@@ -27,8 +27,8 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://otto78.github.io/loom"
-Documentation = "https://otto78.github.io/loom/docs.html"
+Homepage = "https://otto78.github.io/loom-framework"
+Documentation = "https://otto78.github.io/loom-framework/docs.html"
 Repository = "https://github.com/otto78/loom-framework"
 Issues = "https://github.com/otto78/loom-framework/issues"
 
