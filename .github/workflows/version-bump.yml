@@ -1,0 +1,63 @@
+name: Auto Version Bump
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  bump-version:
+    # Skip if this is already a version bump commit
+    if: "!contains(github.event.head_commit.message, '[version bump]')"
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: Bump patch version
+        id: bump
+        run: |
+          # Read current version from pyproject.toml
+          CURRENT=$(python -c "import re; print(re.search(r'version = \"([^\"]+)\"', open('pyproject.toml').read()).group(1))")
+          echo "Current version: $CURRENT"
+          
+          # Bump patch version
+          IFS='.' read -r MAJOR MINOR PATCH <<< "$CURRENT"
+          NEW_PATCH=$((PATCH + 1))
+          NEW_VERSION="$MAJOR.$MINOR.$NEW_PATCH"
+          echo "New version: $NEW_VERSION"
+          echo "old=$CURRENT" >> $GITHUB_OUTPUT
+          echo "new=$NEW_VERSION" >> $GITHUB_OUTPUT
+          
+          # Update pyproject.toml
+          sed -i "s/^version = \"$CURRENT\"/version = \"$NEW_VERSION\"/" pyproject.toml
+          
+          # Update setup.py
+          sed -i "s/version=\"$CURRENT\"/version=\"$NEW_VERSION\"/" setup.py
+          
+          # Update README.md badge
+          sed -i "s/version-$CURRENT-blue/version-$NEW_VERSION-blue/" README.md
+          
+          # Update docs.html version references
+          sed -i "s/Version\*\*: $CURRENT/Version\*\*: $NEW_VERSION/g" docs/docs.html
+          sed -i "s/Versione\*\*: $CURRENT/Versione\*\*: $NEW_VERSION/g" docs/docs.html
+      
+      - name: Commit version bump
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add pyproject.toml setup.py README.md docs/docs.html
+          git diff --cached --quiet && echo "No changes to commit" && exit 0
+          git commit -m "v${{ steps.bump.outputs.new }} [version bump]"
+          git push
