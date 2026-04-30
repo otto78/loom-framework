@@ -109,14 +109,32 @@ python loom/scripts/task.py complete TASK-001 "Endpoint implemented and tested" 
 python loom/scripts/task.py list
 ```
 
-### 4. Commit only worked files (no git add -A)
+### 4. Update task status programmatically
+```bash
+python loom/execution/task_status.py --action set-status --task-id TASK-001 --status "Done"
+python loom/execution/task_status.py --action list
+```
+**You MUST update task status** after completing or starting a task.
+
+### 5. Check for framework updates at session start
+```bash
+python loom/scripts/check_updates.py
+```
+
+### 6. Manage custom directive plugins
+```bash
+python loom/scripts/plugins.py list
+python loom/scripts/plugins.py add --source https://github.com/user/directives
+```
+
+### 7. Commit only worked files (no git add -A)
 ```bash
 python loom/execution/git_commit.py --files "src/routes/tasks.py,tests/test_tasks.py" --message "feat: add task creation endpoint [TASK-001]"
 ```
 
-### 5. Always update TASKS.md before ending a session
+### 8. Always update TASKS.md before ending a session
 
-### 6. Ask before irreversible DB operations
+### 9. Ask before irreversible DB operations
 
 ---
 

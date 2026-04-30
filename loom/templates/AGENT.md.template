@@ -127,23 +127,45 @@ python loom/scripts/task.py complete TASK-XXX "Done" --bump minor
 python loom/scripts/task.py list
 ```
 
-### 4. Commit only worked files / Committa solo file modificati
+### 4. Update task status programmatically / Aggiorna stato task via script
+```bash
+python loom/execution/task_status.py --action set-status --task-id TASK-XXX --status "Done"
+python loom/execution/task_status.py --action list
+python loom/execution/task_status.py --action get --task-id TASK-XXX
+```
+**You MUST update task status** after completing or starting a task. / **DEVI aggiornare lo stato dei task** dopo aver completato o avviato un task.
+
+### 5. Check for framework updates / Controlla aggiornamenti framework
+```bash
+python loom/scripts/check_updates.py
+python loom/scripts/check_updates.py --update
+```
+Run this at session start to inform the user if a new version is available. / Esegui all'inizio della sessione per informare l'utente se c'e una nuova versione.
+
+### 6. Manage custom directive plugins / Gestisci plugin direttive custom
+```bash
+python loom/scripts/plugins.py list
+python loom/scripts/plugins.py add --source https://github.com/user/directives
+python loom/scripts/plugins.py remove --name directives
+```
+
+### 7. Commit only worked files / Committa solo file modificati
 ```bash
 python loom/execution/git_commit.py --files "file1,file2" --message "feat: description [TASK-XXX]"
 ```
 
-### 5. Always update TASKS.md before ending / Aggiorna sempre TASKS.md prima di terminare
+### 8. Always update TASKS.md before ending / Aggiorna sempre TASKS.md prima di terminare
 
-### 6. Ask before irreversible operations / Chiedi prima di operazioni irreversibili
+### 9. Ask before irreversible operations / Chiedi prima di operazioni irreversibili
 
-### 7. Versioning and Changelog / Versioning e Changelog (Mandatorio)
+### 10. Versioning and Changelog / Versioning e Changelog (Mandatorio)
 
 Ogni modifica che altera il comportamento del sistema deve:
 1. Incrementare la versione semantica (es: `version` in `pyproject.toml`)
 2. Aggiungere entry in `directives/changelog.md` con messaggio per l'utente
 3. Questo garantisce che gli utenti ricevano notifiche delle nuove capacità
 
-### 8. Commit and Push after every fix / Commit e Push dopo ogni fix
+### 11. Commit and Push after every fix / Commit e Push dopo ogni fix
 
 Dopo ogni modifica richiesta dall'utente:
 1. **Commit selettivo**: `git add <file1> <file2>` — SOLO file modificati direttamente
@@ -156,7 +178,7 @@ Prima del push, aggiorna SEMPRE:
 - `docs/STORY.md` — versione, fix, evoluzioni
 - `docs/TASKS.md` — stato lavoro
 
-### 9. DB ↔ Local Files Alignment / Allineamento DB ↔ File Locali (Mandatorio)
+### 12. DB ↔ Local Files Alignment / Allineamento DB ↔ File Locali (Mandatorio)
 
 Se una direttiva o configurazione è usata sia da file locali (`directives/*.md`) sia dal database (`agent_prompts`):
 1. Aggiorna il file locale richiesto
