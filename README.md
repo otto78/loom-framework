@@ -320,15 +320,15 @@ python loom/scripts/task-tdd.py complete TASK-001
 
 | IDE/Tool | Config File | Location |
 |----------|-------------|----------|
-| 🎯 Claude Code | `CLAUDE.md` | Root |
-| ⚡ Cursor | `.cursor/rules/loom.mdc` | Root |
-| ⚡ Cursor (legacy) | `.cursorrules` | Root (fallback) |
-| 🚀 Antigravity | `GEMINI.md` | Root |
-| 🌊 Windsurf | `.windsurf/rules/loom.md` | Root |
-| 🌊 Windsurf (legacy) | `.windsurfrules` | Root (fallback) |
-| 💻 VS Code / VS Code Insider | `copilot-instructions.md` | `.github/` |
-| 💡 IntelliJ IDEA | `loom.md` | `.aiassistant/rules/` |
-| 📄 Cross-tool (AGENTS.md) | `AGENTS.md` | Root |
+| Claude Code | `CLAUDE.md` | Root |
+| Cursor | `.cursor/rules/loom.mdc` | Root |
+| Cursor (legacy) | `.cursorrules` | Root (fallback) |
+| Antigravity | `GEMINI.md` | Root |
+| Windsurf | `.windsurf/rules/loom.md` | Root |
+| Windsurf (legacy) | `.windsurfrules` | Root (fallback) |
+| VS Code / VS Code Insider | `copilot-instructions.md` | `.github/` |
+| IntelliJ IDEA | `loom.md` | `.aiassistant/rules/` |
+| Cross-tool (AGENTS.md) | `AGENTS.md` | Root |
 
 ---
 
@@ -510,15 +510,15 @@ Dopo il setup, parla con il tuo agente AI:
 
 | IDE/Tool | File di Config | Posizione |
 |----------|---------------|----------|
-| 🎯 Claude Code | `CLAUDE.md` | Root |
-| ⚡ Cursor | `.cursor/rules/loom.mdc` | Root |
-| ⚡ Cursor (legacy) | `.cursorrules` | Root (fallback) |
-| 🚀 Antigravity | `GEMINI.md` | Root |
-| 🌊 Windsurf | `.windsurf/rules/loom.md` | Root |
-| 🌊 Windsurf (legacy) | `.windsurfrules` | Root (fallback) |
-| 💻 VS Code / VS Code Insider | `copilot-instructions.md` | `.github/` |
-| 💡 IntelliJ IDEA | `loom.md` | `.aiassistant/rules/` |
-| 📄 Cross-tool (AGENTS.md) | `AGENTS.md` | Root |
+| Claude Code | `CLAUDE.md` | Root |
+| Cursor | `.cursor/rules/loom.mdc` | Root |
+| Cursor (legacy) | `.cursorrules` | Root (fallback) |
+| Antigravity | `GEMINI.md` | Root |
+| Windsurf | `.windsurf/rules/loom.md` | Root |
+| Windsurf (legacy) | `.windsurfrules` | Root (fallback) |
+| VS Code / VS Code Insider | `copilot-instructions.md` | `.github/` |
+| IntelliJ IDEA | `loom.md` | `.aiassistant/rules/` |
+| Cross-tool (AGENTS.md) | `AGENTS.md` | Root |
 
 ### 📚 Documentazione (Italiano)
 

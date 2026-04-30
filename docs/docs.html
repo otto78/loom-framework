@@ -123,7 +123,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 <nav class="topnav">
   <a href="index.html">&#8592; Home</a>
   <span style="color:rgba(255,255,255,.3)">|</span>
-  <a href="index.html" style="font-size:1rem;">&#129525; loom</a>
+  <a href="index.html" style="font-size:1rem;display:flex;align-items:center;gap:.35rem;"><img src="loom-logo.svg" alt="Loom" style="width:22px;height:22px;"> Loom Framework</a>
   <div class="topnav-spacer"></div>
   <button id="btn-copy-all" onclick="copyAllDocs()" style="background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;padding:.4rem 1rem;font-size:.85rem;cursor:pointer;border-radius:6px;margin-right:.5rem;font-weight:600;transition:background .2s;">
     <span class="en">&#128203; Copy docs for AI</span>
@@ -180,7 +180,7 @@ marked.use({breaks:true,gfm:true});
 const DOCS=[
 {
   id:'readme',icon:'&#128214;',labelEn:'README',labelIt:'README',file:'README.md',
-  content:`# loom
+  content:`# Loom Framework
 
 > **Weave intelligent agents into your development workflow**
 
@@ -210,20 +210,20 @@ loom solves these through **persistent file-based memory** and **DOE architectur
 
 | IDE/Tool | Config File | Location |
 |----------|-------------|----------|
-| 🤖Claude Code | \`CLAUDE.md\` | Root |
-| ↗️ Cursor | \`.cursor/rules/loom.mdc\` | Root |
-| ↗️ Cursor (legacy) | \`.cursorrules\` | Root (fallback) |
-| 🚀Antigravity | \`GEMINI.md\` | Root |
-| 🌊Windsurf | \`.windsurf/rules/loom.md\` | Root |
-| 🌊Windsurf (legacy) | \`.windsurfrules\` | Root (fallback) |
-| 💻VS Code / VS Code Insider | \`copilot-instructions.md\` | \`.github/\` |
-| 💡IntelliJ IDEA | \`loom.md\` | \`.aiassistant/rules/\` |
-| 📄Cross-tool (AGENTS.md) | \`AGENTS.md\` | Root |
+| Claude Code | \`CLAUDE.md\` | Root |
+| Cursor | \`.cursor/rules/loom.mdc\` | Root |
+| Cursor (legacy) | \`.cursorrules\` | Root (fallback) |
+| Antigravity | \`GEMINI.md\` | Root |
+| Windsurf | \`.windsurf/rules/loom.md\` | Root |
+| Windsurf (legacy) | \`.windsurfrules\` | Root (fallback) |
+| VS Code / VS Code Insider | \`copilot-instructions.md\` | \`.github/\` |
+| IntelliJ IDEA | \`loom.md\` | \`.aiassistant/rules/\` |
+| Cross-tool (AGENTS.md) | \`AGENTS.md\` | Root |
 
 ---
 
 **Version**: 1.0.0 | **Author**: Andrea Mazzarotto | **License**: MIT`,
-  contentIt:`# loom
+  contentIt:`# Loom Framework
 
 > **Integra agenti intelligenti nel tuo workflow di sviluppo**
 
@@ -253,15 +253,15 @@ loom risolve questi problemi attraverso la **memoria persistente su file** e l'*
 
 | IDE/Tool | File di Config | Posizione |
 |----------|----------------|-----------|
-| 🤖Claude Code | \`CLAUDE.md\` | Root |
-| ↗️ Cursor | \`.cursor/rules/loom.mdc\` | Root |
-| ↗️ Cursor (legacy) | \`.cursorrules\` | Root (fallback) |
-| 🚀Antigravity | \`GEMINI.md\` | Root |
-| 🌊Windsurf | \`.windsurf/rules/loom.md\` | Root |
-| 🌊Windsurf (legacy) | \`.windsurfrules\` | Root (fallback) |
-| 💻VS Code / VS Code Insider | \`copilot-instructions.md\` | \`.github/\` |
-| 💡IntelliJ IDEA | \`loom.md\` | \`.aiassistant/rules/\` |
-| 📄Cross-tool (AGENTS.md) | \`AGENTS.md\` | Root |
+| Claude Code | \`CLAUDE.md\` | Root |
+| Cursor | \`.cursor/rules/loom.mdc\` | Root |
+| Cursor (legacy) | \`.cursorrules\` | Root (fallback) |
+| Antigravity | \`GEMINI.md\` | Root |
+| Windsurf | \`.windsurf/rules/loom.md\` | Root |
+| Windsurf (legacy) | \`.windsurfrules\` | Root (fallback) |
+| VS Code / VS Code Insider | \`copilot-instructions.md\` | \`.github/\` |
+| IntelliJ IDEA | \`loom.md\` | \`.aiassistant/rules/\` |
+| Cross-tool (AGENTS.md) | \`AGENTS.md\` | Root |
 
 ---
 
