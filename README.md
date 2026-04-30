@@ -334,10 +334,11 @@ python loom/scripts/task-tdd.py complete TASK-001
 ## 📚 Documentation
 
 - **[QUICKSTART.md](./QUICKSTART.md)** — 5-minute quick start
-- **[NATURAL-LANGUAGE-GUIDE.md](./NATURAL-LANGUAGE-GUIDE.md)** — Use framework by talking
-- **[TDD-WORKFLOW.md](./TDD-WORKFLOW.md)** — Test-Driven Development guide
-- **[MONOREPO-GUIDE.md](./MONOREPO-GUIDE.md)** — Using LOOM in monorepos
-- **[SETUP-INSTRUCTIONS.md](./SETUP-INSTRUCTIONS.md)** — For AI agents
+- **[guides/NATURAL-LANGUAGE-GUIDE.md](./guides/NATURAL-LANGUAGE-GUIDE.md)** — Use framework by talking
+- **[guides/ABSTRACT.md](./guides/ABSTRACT.md)** — Core concepts (bilingual)
+- **[guides/TDD-WORKFLOW.md](./guides/TDD-WORKFLOW.md)** — Test-Driven Development guide
+- **[guides/MONOREPO-GUIDE.md](./guides/MONOREPO-GUIDE.md)** — Using LOOM in monorepos
+- **[guides/SETUP-INSTRUCTIONS.md](./guides/SETUP-INSTRUCTIONS.md)** — For AI agents
 - **[docs/framework-guide.md](./docs/framework-guide.md)** — 3-level architecture
 - **[docs/workflow-guide.md](./docs/workflow-guide.md)** — Complete workflow guide
 
@@ -382,13 +383,7 @@ LLMs are probabilistic. Without structure, accuracy degrades with every chained 
 
 ## 🤝 Contributing
 
-LOOM is a living system. Improve it continuously:
-- Add new IDEs when you use them
-- Refine standards when you discover better patterns
-- Extend the framework when you need more structure
-- Share improvements with the community
-
-**Guiding principle**: Every project using LOOM should improve it for future projects.
+See **[guides/CONTRIBUTING.md](./guides/CONTRIBUTING.md)** for guidelines.
 
 ---
 
@@ -455,7 +450,7 @@ loom fornisce una memoria strutturata basata su file che rimane con il tuo proge
 2. Apri qualsiasi IDE e di': "leggi loom"
 ```
 
-Per dettagli: **[QUICKSTART.md](./QUICKSTART.md)**
+Per dettagli: **[QUICKSTART.md](./QUICKSTART.md)** o **[guides/ABSTRACT.md](./guides/ABSTRACT.md)** per i concetti
 
 ### 🏗️ L'Architettura DOE
 
@@ -525,11 +520,11 @@ Dopo il setup, parla con il tuo agente AI:
 ### 📚 Documentazione (Italiano)
 
 - **[QUICKSTART.md](./QUICKSTART.md)** — Avvio rapido bilingue
-- **[NATURAL-LANGUAGE-GUIDE.md](./NATURAL-LANGUAGE-GUIDE.md)** — Guida comandi bilingue
-- **[ABSTRACT.md](./ABSTRACT.md)** — Concetti fondamentali (bilingue)
-- **[TDD-WORKFLOW.md](./TDD-WORKFLOW.md)** — Workflow TDD
-- **[MONOREPO-GUIDE.md](./MONOREPO-GUIDE.md)** — Gestione monorepo
-- **[SETUP-INSTRUCTIONS.md](./SETUP-INSTRUCTIONS.md)** — Per agenti AI (bilingue)
+- **[guides/NATURAL-LANGUAGE-GUIDE.md](./guides/NATURAL-LANGUAGE-GUIDE.md)** — Guida comandi bilingue
+- **[guides/ABSTRACT.md](./guides/ABSTRACT.md)** — Concetti fondamentali (bilingue)
+- **[guides/TDD-WORKFLOW.md](./guides/TDD-WORKFLOW.md)** — Workflow TDD
+- **[guides/MONOREPO-GUIDE.md](./guides/MONOREPO-GUIDE.md)** — Gestione monorepo
+- **[guides/SETUP-INSTRUCTIONS.md](./guides/SETUP-INSTRUCTIONS.md)** — Per agenti AI (bilingue)
 
 ---
 

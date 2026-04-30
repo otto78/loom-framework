@@ -73,23 +73,25 @@ EXCLUDE_PATTERNS = {
     # Environment files
     ".env",
     ".env.local",
+    
+    # Non-essential documentation for end users
+    "CONTRIBUTING.md",
+    "PUBLISH.md",
+    "ABSTRACT.md",
+    "guides",
+    "TASKS.md",
 }
 
 # Files and directories to INCLUDE (override exclusions if needed)
 INCLUDE_PATTERNS = {
-    "docs/*.md",  # Key documentation
-    "loom/**/*",  # Entire framework
-    "README.md",
-    "ABSTRACT.md",
-    "QUICKSTART.md",
-    "NATURAL-LANGUAGE-GUIDE.md",
-    "TDD-WORKFLOW.md",
-    "MONOREPO-GUIDE.md",
-    "SETUP-INSTRUCTIONS.md",
-    "CONTRIBUTING.md",
-    "LICENSE",
-    "pyproject.toml",
-    "setup.py",
+    "loom/**/*",  # Entire framework (essential)
+    "README.md",  # Main documentation
+    "QUICKSTART.md",  # Quick start guide
+    "LICENSE",  # License file
+    "pyproject.toml",  # Package metadata
+    "setup.py",  # Setup script
+    "install.sh",  # Unix installer
+    "install.ps1",  # Windows installer
 }
 
 
