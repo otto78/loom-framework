@@ -1,7 +1,7 @@
 # AGENT.md — TaskFlow API
 # Source of Truth / Fonte di Verità
 
-> This file is read by all AI agents (Claude, Cursor, Windsurf, loom, VS Code Insider, Cline).
+> This file is read by all AI agents (Claude, Cursor, Windsurf, loom, VS Code, GitHub Copilot).
 > Do not duplicate these instructions in other files — they all reference here.
 
 ---

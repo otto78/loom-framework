@@ -5,10 +5,10 @@
 
 ---
 
-**NOTA:** Questo file è una copia di `framework/coding-standards.md` per comodità.
-La fonte di verità è `framework/coding-standards.md`.
+**NOTA:** Questo file è una copia di `loom/templates/coding-standards.md` per comodità.
+La fonte di verità è `loom/templates/coding-standards.md`.
 
-Per il contenuto completo, vedi: [framework/coding-standards.md](../framework/coding-standards.md)
+Per il contenuto completo, vedi: [templates/coding-standards.md](../templates/coding-standards.md)
 
 ---
 
@@ -37,7 +37,7 @@ Per il contenuto completo, vedi: [framework/coding-standards.md](../framework/co
 
 ---
 
-**Per dettagli completi, vedi:** [framework/coding-standards.md](../framework/coding-standards.md)
+**Per dettagli completi, vedi:** [templates/coding-standards.md](../templates/coding-standards.md)
 
 **Versione:** 1.0.0  
 **Framework:** loom v1.0

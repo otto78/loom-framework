@@ -8,12 +8,10 @@ without having to parse TASKS.md manually.
 Usage:
     python loom/execution/task_status.py --action list
     python loom/execution/task_status.py --action get --task-id TASK-001
-    python loom/execution/task_status.py --action set-status --task-id TASK-001 --status "In Progress"
 
 Returns (JSON to stdout):
     {"tasks": [...]}
     {"task": {"id": "TASK-001", "title": "...", "status": "In Progress"}}
-    {"success": true}
 """
 
 import argparse
