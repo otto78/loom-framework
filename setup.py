@@ -12,7 +12,7 @@ long_description = readme_file.read_text(encoding="utf-8") if readme_file.exists
 
 setup(
     name="loom",
-    version="1.0.0",
+    version="1.0.1",
     author="Andrea Mazzarotto",
     author_email="your.email@example.com",
     description="Weave intelligent agents into your development workflow",
