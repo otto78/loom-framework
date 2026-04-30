@@ -3,6 +3,8 @@
 > Refactor completo dei file di configurazione IDE per eliminare la duplicazione con AGENT.md
 > e adottare l'architettura GEMINI.md + AGENTS.md corretta.
 
+**All tasks completed.** See PR #1 for latest fixes (IDE tables, VS Code Insider icon, header logo).
+
 ---
 
 ## Ordine di esecuzione
