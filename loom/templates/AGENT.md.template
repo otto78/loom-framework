@@ -1,0 +1,137 @@
+# AGENT.md — {PROJECT_NAME}
+# Source of Truth / Fonte di Verità
+
+> This file is read by all AI agents (Claude, Cursor, Windsurf, loom, VS Code Insider, Cline).
+> Do not duplicate these instructions in other files — they all reference here.
+> Questo file è letto da tutti gli agenti AI. Non duplicare queste istruzioni in altri file.
+
+---
+
+## What is {PROJECT_NAME} / Cos'è {PROJECT_NAME}
+
+{Brief description of your project — what problem it solves, who uses it, and why it matters.}
+{Breve descrizione del progetto — quale problema risolve, chi lo usa, perché è importante.}
+
+**Stack**: {Language / Framework / Database / Hosting}  
+**Principle**: {Your core architectural principle — e.g., "Business logic in services, not controllers"}
+{Il tuo principio architetturale — es: "Logica di business nei servizi, non nei controller"}
+
+---
+
+## Tech Stack / Stack Tecnologico
+
+### Backend / Frontend / Core
+- **Language**: {e.g., Python 3.11, TypeScript 5.0, Rust}
+- **Framework**: {e.g., FastAPI, React, Express}
+- **Database**: {e.g., PostgreSQL, MongoDB, SQLite}
+- **Auth**: {e.g., JWT, OAuth2, Session-based}
+- **Validation**: {e.g., Pydantic, Zod, Joi}
+
+### Testing
+- **Framework**: {e.g., pytest, Jest, vitest}
+- **Coverage**: {Aim for X%}
+
+### Infrastructure
+- **Hosting**: {e.g., Render, Vercel, AWS}
+- **CI/CD**: {e.g., GitHub Actions, GitLab CI}
+- **Secrets**: `.env` (never commit / mai committare)
+
+---
+
+## Project Structure / Struttura Progetto
+
+```
+{project-name}/
+├── AGENT.md                    ← this file (source of truth / fonte di verità)
+├── PROJECT.md                  ← project description / descrizione progetto
+├── docs/
+│   ├── TASKS.md                ← task tracking / tracciamento task
+│   ├── BACKLOG.md              ← future ideas / idee future
+│   ├── STORY.md                ← project history / storia progetto
+│   ├── CHANGELOG.md            ← version changelog / changelog versioni
+│   └── HANDOFF.md              ← agent handoff notes / note passaggio agente
+│
+├── src/  # or /app, /lib, etc.
+│   ├── main.{ext}              ← app entry point / punto ingresso
+│   └── ...
+│
+├── tests/                      ← test files / file di test
+├── loom/                       ← loom framework
+└── .env                        ← secrets (never commit / mai committare)
+```
+
+---
+
+## DOE Architecture / Architettura DOE
+
+### Level 1 — Directives (`loom/directives/`)
+SOPs for each domain: how to add features, coding standards, conventions.
+SOP per ogni dominio: come aggiungere feature, standard di codice, convenzioni.
+
+### Level 2 — Orchestration (this agent)
+Read directives → choose right approach → call execution scripts → handle errors → update TASKS.md.
+Legge direttive → sceglie approccio → chiama script esecuzione → gestisce errori → aggiorna TASKS.md.
+
+### Level 3 — Execution (`loom/execution/`)
+Deterministic scripts for: git commits, task management, deployments.
+Script deterministici per: commit git, gestione task, deploy.
+
+---
+
+## Agent Operating Principles / Principi Operativi Agente
+
+### 1. {Your core principle / Il tuo principio core}
+```
+{Example: Routes thin, Services fat / Esempio: Route leggere, Servizi pesanti}
+```
+
+### 2. Always write tests for critical features / Sempre test per feature critiche
+```
+"start TDD task TASK-XXX 'description'"
+```
+
+### 3. Use loom scripts for task management / Usa script loom per task
+```bash
+python loom/scripts/task.py start TASK-XXX "Description"
+python loom/scripts/task.py complete TASK-XXX "Done" --bump minor
+python loom/scripts/task.py list
+```
+
+### 4. Commit only worked files / Committa solo file modificati
+```bash
+python loom/execution/git_commit.py --files "file1,file2" --message "feat: description [TASK-XXX]"
+```
+
+### 5. Always update TASKS.md before ending / Aggiorna sempre TASKS.md prima di terminare
+
+### 6. Ask before irreversible operations / Chiedi prima di operazioni irreversibili
+
+---
+
+## Project-Specific Rules / Regole Specifiche Progetto
+
+### {Domain 1 — e.g., API Design / Design API}
+- {Rule 1}
+- {Rule 2}
+
+### {Domain 2 — e.g., Database}
+- {Rule 1}
+- {Rule 2}
+
+### {Domain 3 — e.g., Testing}
+- {Rule 1}
+- {Rule 2}
+
+---
+
+## Current Status / Stato Attuale
+
+Read `docs/TASKS.md` for active tasks. / Leggi `docs/TASKS.md` per task attivi.  
+Read `docs/STORY.md` for project history. / Leggi `docs/STORY.md` per storia progetto.  
+Read `docs/HANDOFF.md` for last session notes. / Leggi `docs/HANDOFF.md` per note ultima sessione.
+
+---
+
+**Version**: {X.Y.Z}  
+**Last updated**: {YYYY-MM-DD}  
+**Framework**: loom v1.0
