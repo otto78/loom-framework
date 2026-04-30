@@ -188,6 +188,103 @@ def start_task(task_id: str, description: str, dry_run: bool = False, no_push: b
     print(f"\n✨ Task {task_id} avviato con successo!")
 
 
+def bump_version(bump_type: str, task_id: str, description: str, dry_run: bool = False):
+    """Incrementa la versione semantica in pyproject.toml e setup.py."""
+    pyproject = PROJECT_ROOT / "pyproject.toml"
+    setup_file = PROJECT_ROOT / "setup.py"
+    
+    # Leggi versione corrente da pyproject.toml
+    version_file = None
+    current_version = None
+    
+    if pyproject.exists():
+        content = pyproject.read_text(encoding="utf-8")
+        match = re.search(r'version\s*=\s*"(\d+\.\d+\.\d+)"', content)
+        if match:
+            current_version = match.group(1)
+            version_file = pyproject
+    
+    if current_version is None and setup_file.exists():
+        content = setup_file.read_text(encoding="utf-8")
+        match = re.search(r'version\s*=\s*"(\d+\.\d+\.\d+)"', content)
+        if match:
+            current_version = match.group(1)
+            version_file = setup_file
+    
+    if current_version is None:
+        print("⚠️  Nessun file versione trovato (pyproject.toml o setup.py)")
+        return
+    
+    # Calcola nuova versione
+    major, minor, patch = map(int, current_version.split("."))
+    if bump_type == "major":
+        major += 1
+        minor = 0
+        patch = 0
+    elif bump_type == "minor":
+        minor += 1
+        patch = 0
+    else:
+        patch += 1
+    
+    new_version = f"{major}.{minor}.{patch}"
+    print(f"📦 Version bump: {current_version} → {new_version} ({bump_type})")
+    
+    if dry_run:
+        return
+    
+    # Aggiorna pyproject.toml
+    if pyproject.exists():
+        content = pyproject.read_text(encoding="utf-8")
+        content = re.sub(
+            r'(version\s*=\s*)"' + re.escape(current_version) + '"',
+            rf'\g<1>"{new_version}"',
+            content
+        )
+        pyproject.write_text(content, encoding="utf-8")
+        print(f"  ✅ pyproject.toml → {new_version}")
+    
+    # Aggiorna setup.py
+    if setup_file.exists():
+        content = setup_file.read_text(encoding="utf-8")
+        content = re.sub(
+            r'(version\s*=\s*)"' + re.escape(current_version) + '"',
+            rf'\g<1>"{new_version}"',
+            content
+        )
+        setup_file.write_text(content, encoding="utf-8")
+        print(f"  ✅ setup.py → {new_version}")
+    
+    # Aggiorna CHANGELOG.md
+    if CHANGELOG_FILE.exists():
+        changelog = CHANGELOG_FILE.read_text(encoding="utf-8")
+        change_type = detect_change_type(description, "feat")
+        date_str = datetime.now().strftime("%Y-%m-%d")
+        new_entry = f"\n## [{new_version}] — {date_str}\n\n### {change_type}\n- {description} [{task_id}]\n"
+        
+        # Inserisci dopo il titolo principale
+        insert_pos = changelog.find("\n## ")
+        if insert_pos == -1:
+            changelog += new_entry
+        else:
+            changelog = changelog[:insert_pos] + new_entry + changelog[insert_pos:]
+        
+        CHANGELOG_FILE.write_text(changelog, encoding="utf-8")
+        print(f"  ✅ CHANGELOG.md aggiornato")
+    
+    # Aggiungi file modificati al git
+    files_to_add = []
+    if pyproject.exists():
+        files_to_add.append(str(pyproject))
+    if setup_file.exists():
+        files_to_add.append(str(setup_file))
+    if CHANGELOG_FILE.exists():
+        files_to_add.append(str(CHANGELOG_FILE))
+    
+    for f in files_to_add:
+        run_git_command(["add", f])
+
+
 def complete_task(task_id: str, description: str, version_bump: Optional[str] = None, 
                   dry_run: bool = False, no_push: bool = False):
     """Completa un task esistente."""
@@ -226,10 +323,9 @@ def complete_task(task_id: str, description: str, version_bump: Optional[str] = 
     
     print(f"✅ TASKS.md aggiornato")
     
-    # Aggiorna STORY.md e CHANGELOG.md se esistono
-    if STORY_FILE.exists() and version_bump:
-        # TODO: Implementare version bump
-        print(f"⏭️  Version bump ({version_bump}) - da implementare")
+    # Version bump
+    if version_bump:
+        bump_version(version_bump, task_id, description, dry_run)
     
     # Git commit
     commit_type = "feat" if "feat" in description.lower() else "fix"

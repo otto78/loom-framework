@@ -79,7 +79,9 @@ EXCLUDE_PATTERNS = {
     "PUBLISH.md",
     "ABSTRACT.md",
     "guides",
-    "TASKS.md",
+    
+    # Internal development files
+    "internal",
 }
 
 # Files and directories to INCLUDE (override exclusions if needed)
