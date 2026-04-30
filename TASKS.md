@@ -66,6 +66,17 @@ high
 **File:** tutti i file .md e .html
 **Estimated:** 30 min
 
+#### TASK-043 — Analisi integrazione MCP per tutti gli IDE
+**Scope:** Analizzare e pianificare l'integrazione del Model Context Protocol (MCP) per tutti gli IDE supportati:
+- Ogni IDE ha la propria gestione MCP (Claude Code, Cursor, Windsurf, VS Code, etc.)
+- Studio della configurazione workspace/tool per ogni piattaforma
+- Definire pattern comune di configurazione MCP nel framework
+- Creare documentazione specifica per ogni IDE
+**File:** nuovo task di ricerca, poi loom/ide-configs/*
+**Estimated:** 120 min (analisi + implementazione)
+**Priority:** medium
+**Blocked by:** richiede studio approfondito di ogni IDE
+
 ---
 
 ## Notes

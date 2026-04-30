@@ -18,15 +18,6 @@
 
 ---
 
-## External Tools Configuration / Configurazione Tool Esterni (Optional)
-
-> Se usi MCP (Model Context Protocol) o tool esterni specifici, configura qui.
-
-**{Tool Name}**: {Configuration details, workspace ID, default project, etc.}
-{Dettagli configurazione, workspace, progetto default, etc.}
-
----
-
 ## Tech Stack / Stack Tecnologico
 
 ### Backend / Frontend / Core
