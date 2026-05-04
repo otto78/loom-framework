@@ -2,8 +2,6 @@ name: Release LOOM ZIP
 
 on:
   push:
-    tags:
-      - 'v*.*.*'
     branches:
       - main
 
@@ -26,15 +24,9 @@ jobs:
       - name: Extract version
         id: version
         run: |
-          if [[ "${GITHUB_REF}" == refs/tags/v* ]]; then
-            VERSION=${GITHUB_REF#refs/tags/v}
-            echo "is_tag=true" >> $GITHUB_OUTPUT
-          else
-            VERSION=$(python -c "import re; content=open('pyproject.toml').read(); print(re.search(r'version = \"([^\"]+)\"', content).group(1))")
-            echo "is_tag=false" >> $GITHUB_OUTPUT
-          fi
+          VERSION=$(python -c "import re; content=open('pyproject.toml').read(); print(re.search(r'version = \"([^\"]+)\"', content).group(1))")
           echo "version=$VERSION" >> $GITHUB_OUTPUT
-          echo "📦 Building LOOM v$VERSION (tag=${{ steps.version.outputs.is_tag }})"
+          echo "📦 Building LOOM v$VERSION"
 
       - name: Build LOOM ZIP
         run: |
@@ -51,45 +43,7 @@ jobs:
             exit 1
           fi
 
-      - name: Create GitHub Release (tag only)
-        if: steps.version.outputs.is_tag == 'true'
-        uses: softprops/action-gh-release@v1
-        with:
-          tag_name: v${{ steps.version.outputs.version }}
-          name: LOOM ${{ steps.version.outputs.version }}
-          body: |
-            # LOOM Framework v${{ steps.version.outputs.version }}
-
-            ## What's Included
-            - ✅ LOOM framework (`loom/` folder)
-            - ✅ Documentation and guides
-            - ✅ IDE configurations (7 IDEs supported)
-            - ✅ Templates for PROJECT.md, TASKS.md, STORY.md, HANDOFF.md
-            - ✅ Setup instructions and quick start guide
-
-            ## How to Use
-
-            1. **Download** `loom-framework.zip`
-            2. **Extract** to your project folder
-            3. **Create** `PROJECT.md` with your project details (see template in ZIP)
-            4. **Tell your agent**: `"read loom"` or `"leggi loom"`
-            5. **Done!** LOOM auto-configures everything
-
-            ## Supported IDEs
-            - Windsurf, Cursor, Claude Code, VS Code, IntelliJ IDEA, Antigravity, VS Code Insider
-
-            ---
-            For more information, visit: https://github.com/otto78/loom
-          draft: false
-          prerelease: false
-          files: |
-            loom-framework-${{ steps.version.outputs.version }}.zip
-            loom-framework.zip
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Update latest release ZIP (main push only)
-        if: steps.version.outputs.is_tag == 'false'
+      - name: Update latest release ZIP
         run: |
           LATEST_TAG=$(gh release list --limit 1 --json tagName -q '.[0].tagName')
           if [ -n "$LATEST_TAG" ]; then
