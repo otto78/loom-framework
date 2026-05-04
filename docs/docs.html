@@ -220,6 +220,8 @@ loom solves these through **persistent file-based memory** and **DOE architectur
 | IntelliJ IDEA | \`loom.md\` | \`.aiassistant/rules/\` |
 | Cross-tool (AGENTS.md) | \`AGENTS.md\` | Root |
 
+> ⚠️ **Gemini CLI Note**: \`~/.gemini/GEMINI.md\` is shared between Antigravity IDE and Gemini CLI. To avoid conflicts: use AGENTS.md for cross-project shared rules and keep GEMINI.md minimal with only Antigravity-specific overrides.
+
 ---
 
 **Version**: 1.0.9 | **Author**: Andrea Mazzarotto | **License**: MIT`,
@@ -262,6 +264,8 @@ loom risolve questi problemi attraverso la **memoria persistente su file** e l'*
 | VS Code / VS Code Insider | \`copilot-instructions.md\` | \`.github/\` |
 | IntelliJ IDEA | \`loom.md\` | \`.aiassistant/rules/\` |
 | Cross-tool (AGENTS.md) | \`AGENTS.md\` | Root |
+
+> ⚠️ **Nota Gemini CLI**: \`~/.gemini/GEMINI.md\` è condiviso tra Antigravity IDE e Gemini CLI. Per evitare conflitti: usa AGENTS.md per regole condivise cross-progetto e tieni GEMINI.md minimale con solo override Antigravity-specifici.
 
 ---
 
@@ -1756,7 +1760,7 @@ Thank you for your interest in contributing!
 
 \`\`\`bash
 git clone https://github.com/otto78/loom-framework.git
-cd loom
+cd loom-framework
 python -m venv venv
 source venv/bin/activate  # Windows: venv\\Scripts\\activate
 pip install -r requirements-dev.txt
@@ -1817,7 +1821,7 @@ Grazie per il tuo interesse nel contribuire!
 
 \`\`\`bash
 git clone https://github.com/otto78/loom-framework.git
-cd loom
+cd loom-framework
 python -m venv venv
 source venv/bin/activate  # Windows: venv\\Scripts\\activate
 pip install -r requirements-dev.txt

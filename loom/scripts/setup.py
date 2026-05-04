@@ -226,7 +226,7 @@ class FrameworkSetup:
     
     def create_agent_md(self, project_name: str, languages: Set[str], frameworks: Set[str]):
         """Create AGENT.md from template."""
-        template_path = self.framework_root / "framework" / "AGENT.md.template"
+        template_path = self.framework_root / "templates" / "AGENT.md.template"
         target_path = self.project_root / "AGENT.md"
         
         if target_path.exists():
