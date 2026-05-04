@@ -1,6 +1,6 @@
-﻿#!/usr/bin/env python3
+#!/usr/bin/env python3
 """
-task-tdd.py - Test-Driven Development Workflow for Antigravity
+task-tdd.py - Test-Driven Development Workflow for loom
 
 This script implements a complete TDD workflow:
 1. Create/verify tests exist

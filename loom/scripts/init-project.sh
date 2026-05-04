@@ -1,5 +1,5 @@
-﻿#!/bin/bash
-# init-project.sh - Initialize new project with Antigravity
+#!/bin/bash
+# init-project.sh - Initialize new project with loom
 #
 # Usage:
 #   bash init-project.sh "ProjectName"
@@ -8,7 +8,7 @@
 # This script:
 # 1. Creates project directory
 # 2. Initializes git repository
-# 3. Copies antigravity
+# 3. Copies loom
 # 4. Runs setup wizard
 # 5. Creates initial commit
 
@@ -108,25 +108,25 @@ EOF
 print_success "Created .gitignore"
 
 # Copy framework
-cp -r "$FRAMEWORK_ROOT" ./antigravity
-print_success "Copied antigravity"
+cp -r "$FRAMEWORK_ROOT" ./loom
+print_success "Copied loom"
 
 # Run setup
 print_header "Running Setup Wizard"
 
 if [ -n "$IDE_ARG" ]; then
     # Auto setup with IDE argument
-    python3 antigravity/scripts/setup.py --auto --project-name "$PROJECT_NAME" $IDE_ARG
+    python3 loom/scripts/setup.py --auto --project-name "$PROJECT_NAME" $IDE_ARG
 else
     # Interactive setup
-    python3 antigravity/scripts/setup.py
+    python3 loom/scripts/setup.py
 fi
 
 # Create initial commit
 print_header "Creating Initial Commit"
 
 git add .
-git commit -m "chore: initialize project with antigravity v1.0"
+git commit -m "chore: initialize project with loom v1.0"
 print_success "Created initial commit"
 
 # Success
@@ -137,6 +137,6 @@ print_info ""
 print_info "Next steps:"
 print_info "  1. cd $PROJECT_NAME"
 print_info "  2. Review AGENT.md"
-print_info "  3. python antigravity/scripts/task.py start TASK-001 'First task'"
+print_info "  3. python loom/scripts/task.py start TASK-001 'First task'"
 print_info ""
 print_info "Read QUICKSTART.md for more information"

@@ -1,15 +1,14 @@
-# Windsurf Rules — loom
+# Antigravity Rules — loom
 
 > Leggi sempre `AGENT.md` all'inizio di ogni sessione.
-> Questo file contiene solo istruzioni specifiche per Windsurf (Cascade).
-> Per l'architettura DOE, task management, commit protocol e handoff: vedi `AGENT.md`.
-> Windsurf legge anche `AGENTS.md` nativamente (cross-tool).
+> Questo file contiene istruzioni specifiche per Antigravity (priorità su `AGENTS.md`).
+> Per regole condivise con altri tool vedi `AGENTS.md`.
 
 ---
 
 ## 🚀 Setup Automatico
 
-**Trigger:** "setup loom" / "configura il framework"
+**Trigger:** "setup loom" / "configura il framework" / "read loom"
 
 **Comando:**
 ```bash
@@ -36,10 +35,15 @@ python loom/scripts/setup.py
 
 ---
 
-## Best Practices Windsurf (Cascade)
+## Best Practices Antigravity
 
-- Usa Cascade per task multi-step: pianifica prima di eseguire
-- Usa rollback (freccia accanto al prompt) se qualcosa va storto
-  **⚠️ ATTENZIONE:** i rollback in Windsurf sono irreversibili
-- Reset Session da Command Palette se Cascade perde il contesto
+- Usa Agent Manager per task multi-step complessi e paralleli
+- Ogni agente produce Artifacts (piani, diff, risultati) — rivedili prima di approvare
+- Spawna agenti separati per task indipendenti (es. refactor auth + test E2E contemporaneamente)
 - Chiedi conferma prima di operazioni irreversibili
+
+---
+
+> **⚠️ Nota Gemini CLI:** `~/.gemini/GEMINI.md` è condiviso con Gemini CLI (conflitto noto #16058).
+> Usa `AGENTS.md` per regole progetto, questo file solo per override Antigravity-specific,
+> per evitare conflitti con Gemini CLI.

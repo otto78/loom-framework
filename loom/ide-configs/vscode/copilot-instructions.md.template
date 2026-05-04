@@ -1,15 +1,14 @@
-# Windsurf Rules — loom
+# VS Code Copilot Rules — loom
 
 > Leggi sempre `AGENT.md` all'inizio di ogni sessione.
-> Questo file contiene solo istruzioni specifiche per Windsurf (Cascade).
+> Questo file contiene solo istruzioni specifiche per GitHub Copilot (VS Code).
 > Per l'architettura DOE, task management, commit protocol e handoff: vedi `AGENT.md`.
-> Windsurf legge anche `AGENTS.md` nativamente (cross-tool).
 
 ---
 
 ## 🚀 Setup Automatico
 
-**Trigger:** "setup loom" / "configura il framework"
+**Trigger:** "setup loom" / "configure the framework"
 
 **Comando:**
 ```bash
@@ -20,8 +19,8 @@ python loom/scripts/setup.py
 
 ## 💬 Comandi Naturali
 
-| Utente dice | Tu esegui |
-|-------------|----------|
+| User says | You execute |
+|-----------|-------------|
 | "start task TASK-001 'feature X'" | `python loom/scripts/task.py start TASK-001 "feature X"` |
 | "list tasks" | `python loom/scripts/task.py list` |
 | "complete task TASK-001" | `python loom/scripts/task.py complete TASK-001 "done"` |
@@ -36,10 +35,12 @@ python loom/scripts/setup.py
 
 ---
 
-## Best Practices Windsurf (Cascade)
+## Best Practices VS Code Copilot
 
-- Usa Cascade per task multi-step: pianifica prima di eseguire
-- Usa rollback (freccia accanto al prompt) se qualcosa va storto
-  **⚠️ ATTENZIONE:** i rollback in Windsurf sono irreversibili
-- Reset Session da Command Palette se Cascade perde il contesto
+- Usa `/init` in chat per generare istruzioni progetto-specifiche
+- Agent mode (`#agent`) per task multi-file complessi
+- Usa `#file`, `#folder`, `@workspace` per includere contesto
 - Chiedi conferma prima di operazioni irreversibili
+
+> **Nota:** VS Code Insider usa questo stesso file `.github/copilot-instructions.md`.
+> Non è necessario un file separato per VS Code Insider.

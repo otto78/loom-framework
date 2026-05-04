@@ -15,16 +15,16 @@
 
 When the user says any of these:
 - `"read loom"` / `"leggi loom"`
-- `"setup loom"` / `"configure Antigravity"`
-- `"inizializza Antigravity"` / `"usa Antigravity"`
-- `"configura loom"` / `"installa Antigravity"`
+- `"setup loom"` / `"configure loom"`
+- `"inizializza loom"` / `"usa loom"`
+- `"configura loom"` / `"installa loom"`
 - `"setup agentic framework"` / `"setup loom"`
 
 **→ Execute the Zero-Friction Setup procedure automatically**
 
 ---
 
-### Step 1: Detect Project Context & Antigravity Files
+### Step 1: Detect Project Context & loom Files
 
 Before running setup, gather information:
 
@@ -50,7 +50,7 @@ Before running setup, gather information:
 After setup completes, tell the user:
 
 ```
-✅ Antigravity configured!
+✅ loom configured!
 
 Project: [project_name]
 Source of Truth: AGENT.md
@@ -61,21 +61,21 @@ Ready! Try: "start task TASK-001 'description'"
 
 ---
 
-## 🤖 IT — Per Agenti AI: Come Configurare Antigravity
+## 🤖 IT — Per Agenti AI: Come Configurare loom
 
 ### Frasi Trigger dell'Utente
 
 Quando l'utente dice uno di questi:
 - `"leggi loom"` / `"read loom"`
 - `"configura loom"` / `"setup loom"`
-- `"inizializza Antigravity"` / `"usa Antigravity"`
-- `"installa Antigravity"` / `"configure Antigravity"`
+- `"inizializza loom"` / `"usa loom"`
+- `"installa loom"` / `"configure loom"`
 
 **→ Esegui automaticamente la procedura di Setup Zero-Friction**
 
 ---
 
-### Step 1: Rileva il Contesto e i File Antigravity
+### Step 1: Rileva il Contesto e i File loom
 
 Prima di eseguire il setup, raccogli informazioni:
 
@@ -101,7 +101,7 @@ Prima di eseguire il setup, raccogli informazioni:
 Dopo che il setup è completato, di' all'utente:
 
 ```
-✅ Antigravity configurato!
+✅ loom configurato!
 
 Progetto: [nome_progetto]
 Fonte di verità: AGENT.md
@@ -116,7 +116,7 @@ Pronto! Prova: "avvia task TASK-001 'descrizione'"
 
 | User Says / L'Utente Dice | Execute / Esegui |
 |---------------------------|-----------------|
-| `"read loom"` / `"leggi loom"` | `python loom/scripts/read_Antigravity.py` |
+| `"read loom"` / `"leggi loom"` | `python loom/scripts/read_loom.py` |
 | `"setup loom"` / `"configura loom"` | `python loom/scripts/setup.py` |
 | `"start task TASK-XXX 'desc'"` | `python loom/scripts/task.py start TASK-XXX "desc"` |
 | `"avvia task TASK-XXX 'desc'"` | `python loom/scripts/task.py start TASK-XXX "desc"` |
@@ -149,6 +149,6 @@ Pronto! Prova: "avvia task TASK-001 'descrizione'"
 ---
 
 **Version / Versione**: 1.0.0  
-**For / Per**: AI Agents — Windsurf, Claude, Cursor, Antigravity, VS Code, VS Code Insider, IntelliJ  
+**For / Per**: AI Agents — Windsurf, Claude, Cursor, loom, VS Code, VS Code Insider, IntelliJ  
 **Purpose / Scopo**: Enable zero-friction setup and persistent task management / Setup senza attrito e gestione task persistente
 

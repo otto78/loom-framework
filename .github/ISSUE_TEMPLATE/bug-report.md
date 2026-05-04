@@ -1,4 +1,4 @@
-﻿---
+---
 name: Bug Report
 about: Something isn't working as expected
 title: "[BUG] "
@@ -29,7 +29,7 @@ assignees: ''
 - OS: 
 - Python version: 
 - IDE: 
-- Antigravity version: 
+- loom version: 
 
 ## Logs / output
 

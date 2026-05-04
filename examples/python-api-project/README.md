@@ -1,8 +1,8 @@
-﻿# TaskFlow API — Example Project
+# TaskFlow API — Example Project
 
-> A simple FastAPI task management API, used to demonstrate the Antigravity workflow.
+> A simple FastAPI task management API, used to demonstrate the loom workflow.
 
-This is a **demonstration project** — it shows how a real project looks after Antigravity has been configured.
+This is a **demonstration project** — it shows how a real project looks after loom has been configured.
 
 ## What This Example Shows
 
@@ -14,14 +14,14 @@ This is a **demonstration project** — it shows how a real project looks after 
 ## How to Use
 
 ```bash
-# Clone antigravity
-git clone https://github.com/otto78/antigravity.git
+# Clone loom
+git clone https://github.com/otto78/loom-framework.git
 
 # Navigate to this example
-cd antigravity/examples/python-api-project
+cd loom/examples/python-api-project
 
 # Open in your IDE and say:
-"read Antigravity"
+"read loom"
 
 # The agent will read AGENT.md and be ready to work
 # Try:

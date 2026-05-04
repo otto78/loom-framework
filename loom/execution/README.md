@@ -1,6 +1,6 @@
-﻿# Antigravity Execution Scripts
+# loom Execution Scripts
 
-This directory contains **deterministic execution scripts** — Level 3 of the Antigravity DOE Architecture.
+This directory contains **deterministic execution scripts** — Level 3 of the loom DOE Architecture.
 
 ## What Goes Here
 
@@ -33,7 +33,7 @@ The AI agent calls scripts like this:
 
 ```bash
 # Agent calls script directly
-python antigravity/execution/git_commit.py --files "src/auth.py,tests/test_auth.py" --message "feat: add OAuth2 login [TASK-001]"
+python loom/execution/git_commit.py --files "src/auth.py,tests/test_auth.py" --message "feat: add OAuth2 login [TASK-001]"
 
 # Script returns JSON
 {"success": true, "commit": "abc1234", "pushed": true}
@@ -42,7 +42,7 @@ python antigravity/execution/git_commit.py --files "src/auth.py,tests/test_auth.
 ## Adding a New Script
 
 ```bash
-cp antigravity/execution/_template.py antigravity/execution/my_feature.py
+cp loom/execution/_template.py loom/execution/my_feature.py
 # Edit my_feature.py
 # Add tests in tests/test_my_feature.py
 ```

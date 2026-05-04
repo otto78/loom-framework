@@ -1,4 +1,4 @@
-﻿# Project Tasks — [NOME_PROGETTO]
+# Project Tasks — [NOME_PROGETTO]
 
 Questo file traccia il progresso del lavoro per garantire la continuità tra diverse sessioni di sviluppo e diversi agenti AI.
 

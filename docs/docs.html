@@ -1,12 +1,12 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" data-theme="light" data-lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Antigravity - Documentation</title>
-<link rel="icon" type="image/svg+xml" href="Antigravity-logo.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="Antigravity-logo.png">
-<link rel="apple-touch-icon" href="Antigravity-logo.png">
+<title>Loom Framework - Documentation</title>
+<link rel="icon" type="image/svg+xml" href="loom-logo.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="loom-logo.png">
+<link rel="apple-touch-icon" href="loom-logo.png">
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github-dark.min.css">
 <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
@@ -123,14 +123,21 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 <nav class="topnav">
   <a href="index.html">&#8592; Home</a>
   <span style="color:rgba(255,255,255,.3)">|</span>
-  <a href="index.html" style="font-size:1rem;">&#129525; Antigravity</a>
+  <a href="index.html" style="font-size:1rem;display:flex;align-items:center;gap:.35rem;"><img src="loom-logo.svg" alt="Loom" style="width:22px;height:22px;"> Loom Framework</a>
   <div class="topnav-spacer"></div>
+  <button id="btn-copy-all" onclick="copyAllDocs()" style="background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;padding:.4rem 1rem;font-size:.85rem;cursor:pointer;border-radius:6px;margin-right:.5rem;font-weight:600;transition:background .2s;">
+    <span class="en">&#128203; Copy docs for AI</span>
+    <span class="it">&#128203; Copia doc per AI</span>
+  </button>
+  <a href="https://github.com/otto78/loom-framework/releases/download/latest/loom-framework.zip" class="btn" style="background:var(--accent);color:#fff;padding:.4rem 1rem;font-size:.85rem;text-decoration:none;border-radius:6px;margin-right:.5rem;">
+    <span class="en">&#128229; Download</span>
+    <span class="it">&#128229; Scarica</span>
+  </a>
   <select class="lang-select" id="lang-select" onchange="setLang(this.value)">
     <option value="en">&#127468;&#127463; English</option>
     <option value="it">&#127470;&#127481; Italiano</option>
   </select>
   <button class="icon-btn" id="btn-dark" onclick="toggleDark()">&#127769;</button>
-  <a href="https://github.com/otto78/antigravity" style="color:white;opacity:.8;font-size:.82rem;margin-left:.25rem;">GitHub &#8599;</a>
 </nav>
 
 <div class="layout">
@@ -142,14 +149,30 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 function setLang(l){
   document.documentElement.dataset.lang=l;
   document.getElementById('lang-select').value=l;
-  localStorage.setItem('Antigravity-lang',l);
+  localStorage.setItem('loom-lang',l);
   renderAll(); // Re-render to apply language change
 }
 function toggleDark(){
   const dark=document.documentElement.dataset.theme==='dark';
   document.documentElement.dataset.theme=dark?'light':'dark';
   document.getElementById('btn-dark').innerHTML=dark?'&#127769;':'&#9728;&#65039;';
-  localStorage.setItem('Antigravity-dark',!dark);
+  localStorage.setItem('loom-dark',!dark);
+}
+
+function copyAllDocs(){
+  const lang=document.documentElement.dataset.lang||'en';
+  const sections=DOCS.map(doc=>{
+    const content=(lang==='it'&&doc.contentIt)?doc.contentIt:doc.content;
+    return content;
+  });
+  const full='# LOOM Framework — Full Documentation\n\n---\n\n'+sections.join('\n\n---\n\n');
+  const btn=document.getElementById('btn-copy-all');
+  navigator.clipboard.writeText(full).then(()=>{
+    const orig=btn.innerHTML;
+    btn.innerHTML='<span class="en">&#9989; Copied!</span><span class="it">&#9989; Copiato!</span>';
+    btn.style.background='#28a745';
+    setTimeout(()=>{btn.innerHTML=orig;btn.style.background='';},2500);
+  });
 }
 
 marked.use({breaks:true,gfm:true});
@@ -157,11 +180,11 @@ marked.use({breaks:true,gfm:true});
 const DOCS=[
 {
   id:'readme',icon:'&#128214;',labelEn:'README',labelIt:'README',file:'README.md',
-  content:`# Antigravity
+  content:`# Loom Framework
 
 > **Weave intelligent agents into your development workflow**
 
-A complete operational framework for AI-powered development across multiple IDEs. Antigravity provides structure, automation, and best practices for teams working with AI agents.
+A complete operational framework for AI-powered development across multiple IDEs. loom provides structure, automation, and best practices for teams working with AI agents.
 
 ---
 
@@ -176,10 +199,10 @@ AI-assisted development faces critical challenges:
 
 ## ✅ The Solution
 
-Antigravity solves these through **persistent file-based memory** and **DOE architecture**:
+loom solves these through **persistent file-based memory** and **DOE architecture**:
 - 🧠 **Persistent Memory** — TASKS.md, STORY.md survive resets.
 - 🔄 **Multi-Agent Support** — Same state across multiple IDEs.
-- 🚀 **Zero-Friction** — Just say "read Antigravity".
+- 🚀 **Zero-Friction** — Just say "read loom".
 
 ---
 
@@ -187,22 +210,26 @@ Antigravity solves these through **persistent file-based memory** and **DOE arch
 
 | IDE/Tool | Config File | Location |
 |----------|-------------|----------|
-| 🌊 Windsurf | \`.windsurfrules\` | Root |
-| 🤖 Claude Code | \`CLAUDE.md\` | Root |
-| ↗️ Cursor | \`.cursorrules\` | Root |
-| ✨ Antigravity | \`ANTIGRAVITY.md\` | Root |
-| 💻 VS Code | \`.clinerules\` | Root |
-| 🧪 VS Code Insider | \`.clinerules\` | Root |
-| 💡 IntelliJ IDEA | \`agentic-framework.md\` | \`.idea/\` |
+| Claude Code | \`CLAUDE.md\` | Root |
+| Cursor | \`.cursor/rules/loom.mdc\` | Root |
+| Cursor (legacy) | \`.cursorrules\` | Root (fallback) |
+| Antigravity | \`GEMINI.md\` | Root |
+| Windsurf | \`.windsurf/rules/loom.md\` | Root |
+| Windsurf (legacy) | \`.windsurfrules\` | Root (fallback) |
+| VS Code / VS Code Insider | \`copilot-instructions.md\` | \`.github/\` |
+| IntelliJ IDEA | \`loom.md\` | \`.aiassistant/rules/\` |
+| Cross-tool (AGENTS.md) | \`AGENTS.md\` | Root |
+
+> ⚠️ **Gemini CLI Note**: \`~/.gemini/GEMINI.md\` is shared between Antigravity IDE and Gemini CLI. To avoid conflicts: use AGENTS.md for cross-project shared rules and keep GEMINI.md minimal with only Antigravity-specific overrides.
 
 ---
 
-**Version**: 1.0.0 | **Author**: Andrea Mazzarotto | **License**: MIT`,
-  contentIt:`# Antigravity
+**Version**: 1.0.13 | **Author**: Andrea Mazzarotto | **License**: MIT`,
+  contentIt:`# Loom Framework
 
 > **Integra agenti intelligenti nel tuo workflow di sviluppo**
 
-Un framework operativo completo per lo sviluppo assistito da AI su più IDE. Antigravity fornisce struttura, automazione e best practice per i team che lavorano con agenti AI.
+Un framework operativo completo per lo sviluppo assistito da AI su più IDE. loom fornisce struttura, automazione e best practice per i team che lavorano con agenti AI.
 
 ---
 
@@ -217,10 +244,10 @@ Lo sviluppo assistito da AI affronta sfide critiche:
 
 ## ✅ La Soluzione
 
-Antigravity risolve questi problemi attraverso la **memoria persistente su file** e l'**architettura DOE**:
+loom risolve questi problemi attraverso la **memoria persistente su file** e l'**architettura DOE**:
 - 🧠 **Memoria Persistente** — TASKS.md, STORY.md sopravvivono ai reset.
 - 🔄 **Supporto Multi-Agente** — Stesso stato su più IDE.
-- 🚀 **Zero-Friction** — Basta dire "leggi Antigravity".
+- 🚀 **Zero-Friction** — Basta dire "leggi loom".
 
 ---
 
@@ -228,23 +255,27 @@ Antigravity risolve questi problemi attraverso la **memoria persistente su file*
 
 | IDE/Tool | File di Config | Posizione |
 |----------|----------------|-----------|
-| 🌊 Windsurf | \`.windsurfrules\` | Root |
-| 🤖 Claude Code | \`CLAUDE.md\` | Root |
-| ↗️ Cursor | \`.cursorrules\` | Root |
-| ✨ Antigravity | \`ANTIGRAVITY.md\` | Root |
-| 💻 VS Code | \`.clinerules\` | Root |
-| 🧪 VS Code Insider | \`.clinerules\` | Root |
-| 💡 IntelliJ IDEA | \`agentic-framework.md\` | \`.idea/\` |
+| Claude Code | \`CLAUDE.md\` | Root |
+| Cursor | \`.cursor/rules/loom.mdc\` | Root |
+| Cursor (legacy) | \`.cursorrules\` | Root (fallback) |
+| Antigravity | \`GEMINI.md\` | Root |
+| Windsurf | \`.windsurf/rules/loom.md\` | Root |
+| Windsurf (legacy) | \`.windsurfrules\` | Root (fallback) |
+| VS Code / VS Code Insider | \`copilot-instructions.md\` | \`.github/\` |
+| IntelliJ IDEA | \`loom.md\` | \`.aiassistant/rules/\` |
+| Cross-tool (AGENTS.md) | \`AGENTS.md\` | Root |
+
+> ⚠️ **Nota Gemini CLI**: \`~/.gemini/GEMINI.md\` è condiviso tra Antigravity IDE e Gemini CLI. Per evitare conflitti: usa AGENTS.md per regole condivise cross-progetto e tieni GEMINI.md minimale con solo override Antigravity-specifici.
 
 ---
 
-**Versione**: 1.0.0 | **Autore**: Andrea Mazzarotto | **Licenza**: MIT`
+**Versione**: 1.0.13 | **Autore**: Andrea Mazzarotto | **Licenza**: MIT`
 },
 {
   id:'quickstart',icon:'&#128640;',labelEn:'Quick Start',labelIt:'Avvio Rapido',file:'QUICKSTART.md',
   content:`# Quick Start
 
-Get started with Antigravity in minutes!
+Get started with loom in minutes!
 
 ---
 
@@ -253,12 +284,12 @@ Get started with Antigravity in minutes!
 **For new projects (4 steps):**
 1. Create project folder.
 2. Create \`PROJECT.md\` with project description.
-3. Add \`Antigravity/\` folder to your project.
-4. Open any IDE and say: **"read Antigravity"**.
+3. Add \`loom/\` folder to your project.
+4. Open any IDE and say: **"read loom"**.
 
 **For existing projects (2 steps):**
-1. Add \`Antigravity/\` folder to your project.
-2. Open any IDE and say: **"read Antigravity"**.
+1. Add \`loom/\` folder to your project.
+2. Open any IDE and say: **"read loom"**.
 
 ---
 
@@ -266,12 +297,12 @@ Get started with Antigravity in minutes!
 
 ### One-Liner Install
 \`\`\`bash
-curl -fsSL https://raw.githubusercontent.com/otto78/antigravity/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/otto78/loom-framework/main/install.sh | bash
 \`\`\`
 
 ### Interactive Wizard
 \`\`\`bash
-python Antigravity/scripts/setup.py
+python loom/scripts/setup.py
 \`\`\`
 
 ---
@@ -283,14 +314,14 @@ Just tell your AI agent:
 "start task TASK-001 'implement feature X'"
 \`\`\`
 
-Antigravity will automatically update \`docs/TASKS.md\` and prepare your environment.
+loom will automatically update \`docs/TASKS.md\` and prepare your environment.
 
 ---
 
 **Time to setup**: ~10 seconds | **Time to first task**: ~1 minute`,
   contentIt:`# Avvio Rapido
 
-Inizia con Antigravity in pochi minuti!
+Inizia con loom in pochi minuti!
 
 ---
 
@@ -299,12 +330,12 @@ Inizia con Antigravity in pochi minuti!
 **Per nuovi progetti (4 step):**
 1. Crea cartella progetto.
 2. Crea \`PROJECT.md\` con descrizione progetto.
-3. Aggiungi cartella \`Antigravity/\` al progetto.
-4. Apri qualsiasi IDE e di': **"leggi Antigravity"**.
+3. Aggiungi cartella \`loom/\` al progetto.
+4. Apri qualsiasi IDE e di': **"leggi loom"**.
 
 **Per progetti esistenti (2 step):**
-1. Aggiungi cartella \`Antigravity/\` al progetto.
-2. Apri qualsiasi IDE e di': **"leggi Antigravity"**.
+1. Aggiungi cartella \`loom/\` al progetto.
+2. Apri qualsiasi IDE e di': **"leggi loom"**.
 
 ---
 
@@ -312,12 +343,12 @@ Inizia con Antigravity in pochi minuti!
 
 ### Installer One-Liner
 \`\`\`bash
-curl -fsSL https://raw.githubusercontent.com/otto78/antigravity/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/otto78/loom-framework/main/install.sh | bash
 \`\`\`
 
 ### Wizard Interattivo
 \`\`\`bash
-python Antigravity/scripts/setup.py
+python loom/scripts/setup.py
 \`\`\`
 
 ---
@@ -329,17 +360,318 @@ Di' semplicemente al tuo agente:
 "avvia task TASK-001 'implementa feature X'"
 \`\`\`
 
-Antigravity aggiornerà automaticamente \`docs/TASKS.md\` e preparerà l'ambiente.
+loom aggiornerà automaticamente \`docs/TASKS.md\` e preparerà l'ambiente.
 
 ---
 
 **Tempo setup**: ~10 secondi | **Tempo primo task**: ~1 minuto`
 },
 {
-  id:'natural-lang',icon:'&#128172;',labelEn:'Natural Language Guide',labelIt:'Guida Linguaggio Naturale',file:'NATURAL-LANGUAGE-GUIDE.md',
+  id:'project',icon:'&#128203;',labelEn:'PROJECT.md Guide',labelIt:'Guida PROJECT.md',file:'PROJECT-MD-GUIDE.md',
+  content:`# PROJECT.md — The Foundation of LOOM
+
+> **The single source of truth for your project.** Without it, the agent works blind. With it, the agent becomes your perfect teammate.
+
+---
+
+## What is PROJECT.md?
+
+**PROJECT.md** tells LOOM everything it needs to know:
+
+| Section | What It Contains | Why It Matters |
+|---------|------------------|----------------|
+| **Goal** | 2-3 sentences describing what you're building | Agent knows the big picture |
+| **Stack** | Technologies with versions (Python 3.11, React 18, etc.) | Agent uses correct syntax & APIs |
+| **Architecture** | 3-5 key design decisions | Agent respects your patterns |
+| **Rules** | MUST-FOLLOW coding standards | Agent follows your conventions |
+| **Notes** | Constraints, gotchas, past decisions | Agent avoids known pitfalls |
+
+---
+
+## The PROJECT.md Flow
+
+When you say **"read loom"**, here's what happens:
+
+\`\`\`
+1. Agent checks for PROJECT.md
+   ├── EXISTS? → Read it and configure everything
+   └── MISSING? → Ask you what to do:
+       ├── "Create it for me" → Agent analyzes codebase & creates PROJECT.md
+       ├── "Help me write it" → Agent asks questions, you answer
+       └── "I'll do it myself" → Agent shows template & waits
+\`\`\`
+
+### If Project Already Has Code
+
+**Loom can auto-generate PROJECT.md by analyzing:**
+- \`package.json\` / \`pyproject.toml\` / \`requirements.txt\` → detects stack
+- \`README.md\` → extracts goal
+- Directory structure → infers architecture
+- Existing tests → understands rules
+- \`.gitignore\`, CI config → detects constraints
+
+**Prompt to use:**
+\`\`\`
+"This project already has code. Analyze it and create a PROJECT.md for me.
+Look at my stack, structure, and any existing docs."
+\`\`\`
+
+### If Starting From Scratch
+
+**Let loom guide you:**
+\`\`\`
+"Help me write PROJECT.md. Ask me questions about:
+1. What does this project do?
+2. What technologies will you use?
+3. What are 3-5 key architectural decisions?
+4. What rules MUST be followed?
+5. Any constraints or gotchas I should know?"
+\`\`\`
+
+---
+
+## Real-World Example: FastAPI API
+
+\`\`\`markdown
+# TaskFlow API
+
+## Goal
+REST API for personal task management. Users create, update, and track tasks with deadlines, priorities, and team collaboration.
+
+## Stack
+- Backend: Python 3.11 + FastAPI
+- Database: PostgreSQL 15 (asyncpg + SQLAlchemy v2)
+- Auth: JWT (python-jose)
+- Testing: pytest + httpx
+- Hosting: Render.com
+
+## Architecture
+- Stateless REST API (no frontend)
+- Business logic ONLY in service layer
+- Async/await throughout
+- Models → Services → Routes pattern
+
+## Rules
+- Every endpoint MUST have a test
+- NO direct DB queries in routes
+- ALL functions MUST have docstrings
+- NEVER use git add -A (selective commits)
+- Type hints required on all functions
+
+## Notes
+- DB has 2M user records: avoid unindexed queries
+- Rate limit: 100 req/min per user token
+- API versioning: all endpoints start with /api/v1/
+\`\`\`
+
+---
+
+## AI Prompts for PROJECT.md
+
+### Prompt 1: Auto-Generate from Existing Code
+\`\`\`
+"Analyze my codebase and create a draft PROJECT.md.
+Look at:
+- package.json / pyproject.toml (detect stack)
+- README.md (extract goal)
+- Code structure (infer architecture)
+- Tests and CI config (detect rules)
+
+Then show me the draft so I can edit it."
+\`\`\`
+
+### Prompt 2: Guided Creation
+\`\`\`
+"Help me write PROJECT.md for my project.
+I'll answer questions about goal, stack, architecture, rules, and constraints.
+Ask me one question at a time."
+\`\`\`
+
+### Prompt 3: Refine Existing
+\`\`\`
+"Review my PROJECT.md:
+- Is the Goal clear and specific?
+- Are Stack versions complete?
+- Are rules actionable (not vague)?
+- Did I miss important constraints?
+- Would an agent understand this?"
+\`\`\`
+
+---
+
+## Quality Checklist
+
+✅ **Goal**: 2-3 sentences, crystal clear  
+✅ **Stack**: Specific versions (not just "Python")  
+✅ **Architecture**: Actual decisions (not "modular")  
+✅ **Rules**: MUST-FOLLOW (not "should follow")  
+✅ **Notes**: Documented constraints & gotchas  
+✅ **Length**: 50-80 lines (concise, not rambling)
+
+---
+
+## Next Steps
+
+1. **Create PROJECT.md** in your project root
+2. **Tell agent**: "read loom" or "leggi loom"
+3. **Agent auto-configures** based on YOUR PROJECT.md!
+
+**Remember**: PROJECT.md is YOUR voice telling the agent what to care about. Make it clear, make it specific, and the agent will deliver amazing work! 🎯`,
+  contentIt:`# PROJECT.md — La Fondazione di LOOM
+
+> **La fonte unica di verità per il tuo progetto.** Senza di esso, l'agente lavora alla cieca. Con esso, l'agente diventa il tuo compagno di team perfetto.
+
+---
+
+## Cos'è PROJECT.md?
+
+**PROJECT.md** dice a LOOM tutto ciò che deve sapere:
+
+| Sezione | Cosa Contiene | Perché Importa |
+|---------|---------------|----------------|
+| **Goal** | 2-3 frasi che descrivono cosa stai costruendo | L'agente conosce il quadro generale |
+| **Stack** | Tecnologie con versioni (Python 3.11, React 18, etc.) | L'agente usa sintassi & API corrette |
+| **Architettura** | 3-5 decisioni chiave di design | L'agente rispetta i tuoi pattern |
+| **Regole** | Standard di codice MUST-FOLLOW | L'agente segue le tue convenzioni |
+| **Note** | Vincoli, gotchas, decisioni passate | L'agente evita problemi noti |
+
+---
+
+## Il Flusso PROJECT.md
+
+Quando dici **"leggi loom"**, ecco cosa succede:
+
+\`\`\`
+1. L'agente controlla se esiste PROJECT.md
+   ├── ESISTE? → Lo legge e configura tutto
+   └── MANCANTE? → Ti chiede cosa fare:
+       ├── "Crealo per me" → L'agente analizza il codebase e crea PROJECT.md
+       ├── "Aiutami a scriverlo" → L'agente fa domande, tu rispondi
+       └── "Lo faccio io" → L'agente mostra il template e aspetta
+\`\`\`
+
+### Se il Progetto Ha Già Codice
+
+**Loom può auto-generare PROJECT.md analizzando:**
+- \`package.json\` / \`pyproject.toml\` / \`requirements.txt\` → rileva stack
+- \`README.md\` → estrae goal
+- Struttura directory → inferisce architettura
+- Test esistenti → capisce regole
+- \`.gitignore\`, CI config → rileva vincoli
+
+**Prompt da usare:**
+\`\`\`
+"Questo progetto ha già codice. Analizzalo e crea un PROJECT.md per me.
+Guarda il mio stack, struttura, e documentazione esistente."
+\`\`\`
+
+### Se Si Parte da Zero
+
+**Lascia che loom ti guidi:**
+\`\`\`
+"Aiutami a scrivere PROJECT.md. Fammi domande su:
+1. Cosa fa questo progetto?
+2. Quali tecnologie userai?
+3. Quali sono 3-5 decisioni architetturali chiave?
+4. Quali regole DEVONO essere seguite?
+5. Ci sono vincoli o gotchas che dovrei sapere?"
+\`\`\`
+
+---
+
+## Esempio Reale: FastAPI API
+
+\`\`\`markdown
+# TaskFlow API
+
+## Goal
+REST API per task management personale. Gli utenti creano, aggiornano e tracciano task con scadenze, priorità e collaborazione team.
+
+## Stack
+- Backend: Python 3.11 + FastAPI
+- Database: PostgreSQL 15 (asyncpg + SQLAlchemy v2)
+- Auth: JWT (python-jose)
+- Testing: pytest + httpx
+- Hosting: Render.com
+
+## Architettura
+- Stateless REST API (no frontend)
+- Business logic SOLO nel service layer
+- Async/await ovunque
+- Pattern Models → Services → Routes
+
+## Regole
+- Ogni endpoint DEVE avere un test
+- NO query DB dirette nelle routes
+- TUTTE le funzioni DEVONO avere docstrings
+- MAI usare git add -A (commit selettivi)
+- Type hints richieste su tutte le funzioni
+
+## Note
+- DB ha 2M record utente: evita query senza indici
+- Rate limit: 100 req/min per token utente
+- API versioning: tutti gli endpoint iniziano con /api/v1/
+\`\`\`
+
+---
+
+## Prompt AI per PROJECT.md
+
+### Prompt 1: Auto-Genera da Codice Esistente
+\`\`\`
+"Analizza il mio codebase e crea una bozza di PROJECT.md.
+Guarda:
+- package.json / pyproject.toml (rileva stack)
+- README.md (estrai goal)
+- Struttura del codice (inferisci architettura)
+- Test e CI config (rileva regole)
+
+Poi mostrami la bozza così posso modificarla."
+\`\`\`
+
+### Prompt 2: Creazione Guidata
+\`\`\`
+"Aiutami a scrivere PROJECT.md per il mio progetto.
+Risponderò a domande su goal, stack, architettura, regole e vincoli.
+Fammi una domanda alla volta."
+\`\`\`
+
+### Prompt 3: Affina Esistente
+\`\`\`
+"Revisiona il mio PROJECT.md:
+- Il Goal è chiaro e specifico?
+- Lo Stack ha versioni complete?
+- Le regole sono azionabili (non vaghe)?
+- Ho perso vincoli importanti?
+- Un agente capirebbe questo?"
+\`\`\`
+
+---
+
+## Checklist Qualità
+
+✅ **Goal**: 2-3 frasi, cristallino  
+✅ **Stack**: Versioni specifiche (non solo "Python")  
+✅ **Architettura**: Decisioni reali (non "modulare")  
+✅ **Regole**: MUST-FOLLOW (non "dovresti seguire")  
+✅ **Note**: Vincoli & gotchas documentati  
+✅ **Lunghezza**: 50-80 righe (conciso, non verboso)
+
+---
+
+## Prossimi Passi
+
+1. **Crea PROJECT.md** nella root del tuo progetto
+2. **Di' all'agente**: "read loom" o "leggi loom"
+3. **L'agente si auto-configura** in base al TUO PROJECT.md!
+
+**Ricorda**: PROJECT.md è la TUA voce che dice all'agente cosa deve importare. Rendiolo chiaro, rendilo specifico, e l'agente farà un lavoro straordinario! 🎯`
+},
+{
+  id:'natural-language',icon:'&#128172;',labelEn:'Natural Language Guide',labelIt:'Guida Linguaggio Naturale',file:'guides/NATURAL-LANGUAGE-GUIDE.md',
   content:`# Natural Language Guide
 
-> No need to run Python scripts manually. Just talk to your AI agent!
+> No need to manually run Python scripts. Just talk to your AI agent naturally!
 
 ---
 
@@ -347,12 +679,12 @@ Antigravity aggiornerà automaticamente \`docs/TASKS.md\` e preparerà l'ambient
 
 Instead of:
 \`\`\`bash
-python Antigravity/scripts/setup.py
+python loom/scripts/setup.py
 \`\`\`
 
 Just say:
 \`\`\`
-"setup Antigravity"
+"setup loom"
 \`\`\`
 
 The agent understands and executes automatically!
@@ -361,10 +693,10 @@ The agent understands and executes automatically!
 
 ## Task Management Commands
 
-| You say | Agent executes |
-|---------|----------------|
+| You Say | Agent Executes |
+|---------|---------------|
 | "start task TASK-001 'feature X'" | \`task.py start TASK-001 "feature X"\` |
-| "list tasks" | \`task.py list\` |
+| "show tasks" | \`task.py list\` |
 | "complete task TASK-001" | \`task.py complete TASK-001\` |
 | "run tests" | \`task-tdd.py test\` |
 | "sync configs" | \`sync-configs.sh\` |
@@ -388,15 +720,6 @@ The agent understands and executes automatically!
 
 ## Multilingual Support
 
-### Italiano
-\`\`\`
-"configura il framework"
-"avvia task TASK-001 'descrizione'"
-"mostra i task"
-"completa task TASK-001"
-"esegui i test"
-\`\`\`
-
 ### English
 \`\`\`
 "setup the framework"
@@ -404,6 +727,15 @@ The agent understands and executes automatically!
 "show tasks"
 "complete task TASK-001"
 "run tests"
+\`\`\`
+
+### Italiano
+\`\`\`
+"configura il framework"
+"avvia task TASK-001 'descrizione'"
+"mostra i task"
+"completa task TASK-001"
+"esegui i test"
 \`\`\`
 
 ---
@@ -423,12 +755,12 @@ The agent understands and executes automatically!
 
 Invece di:
 \`\`\`bash
-python Antigravity/scripts/setup.py
+python loom/scripts/setup.py
 \`\`\`
 
 Di' semplicemente:
 \`\`\`
-"configura Antigravity"
+"configura loom"
 \`\`\`
 
 L'agente capisce ed esegue automaticamente!
@@ -491,7 +823,7 @@ L'agente capisce ed esegue automaticamente!
 3. **Usa abbreviazioni** — "lista", "completa TASK-001" funzionano tutti`
 },
 {
-  id:'tdd',icon:'&#129514;',labelEn:'TDD Workflow',labelIt:'Workflow TDD',file:'TDD-WORKFLOW.md',
+  id:'tdd',icon:'&#129514;',labelEn:'TDD Workflow',labelIt:'Workflow TDD',file:'guides/TDD-WORKFLOW.md',
   content:`# TDD Workflow — Test-Driven Development
 
 > Complete Test-Driven Development workflow integrated in the framework.
@@ -572,10 +904,91 @@ def test_empty_email():
 - **Descriptive names** — \`test_empty_email_returns_false\`
 - **Arrange-Act-Assert** pattern
 - **Independent tests** — no shared state
-- **Cover edge cases** — empty, null, boundary values`
+- **Cover edge cases** — empty, null, boundary values`,
+  contentIt:`# Workflow TDD — Test-Driven Development
+
+> Workflow completo di Test-Driven Development integrato nel framework.
+
+---
+
+## Cos'è TDD?
+
+1. **Scrivi i test PRIMA** — prima di qualsiasi codice
+2. **Esegui i test** — devono fallire (fase Red)
+3. **Scrivi codice minimo** — per far passare i test (fase Green)
+4. **Refactor** — pulisci mantenendo i test verdi
+
+---
+
+## Ciclo Red-Green-Refactor
+
+\`\`\`
+RED    -> Scrivi test che fallisce
+GREEN  -> Scrivi codice minimo per passare
+REFACTOR -> Pulisci, i test rimangono verdi
+Ripeti per la prossima feature
+\`\`\`
+
+---
+
+## Comandi
+
+\`\`\`bash
+# Avvia task TDD (crea file test, esegue test - fase Red)
+python scripts/task-tdd.py start TASK-001 "Aggiungi validazione email"
+
+# Esegui test
+python scripts/task-tdd.py test
+
+# Completa task (solo se tutti i test passano)
+python scripts/task-tdd.py complete TASK-001
+\`\`\`
+
+---
+
+## Esempio File Test
+
+\`\`\`python
+# tests/test_task_001.py
+
+def test_email_valido():
+    from myapp import validate_email
+    assert validate_email("user@example.com") == True
+
+def test_email_non_valido():
+    from myapp import validate_email
+    assert validate_email("invalid") == False
+
+def test_email_vuoto():
+    from myapp import validate_email
+    assert validate_email("") == False
+    assert validate_email(None) == False
+\`\`\`
+
+---
+
+## Checklist TDD in TASKS.md
+
+\`\`\`markdown
+**Workflow TDD:**
+- [x] Red: Test creati e fallenti
+- [ ] Green: Implementa feature per passare i test
+- [ ] Refactor: Pulisci il codice
+- [ ] Complete: Tutti i test passano
+\`\`\`
+
+---
+
+## Best Practice
+
+- **Test piccoli e focalizzati** — un test, un comportamento
+- **Nomi descrittivi** — \`test_email_vuoto_restituisce_false\`
+- **Pattern Arrange-Act-Assert**
+- **Test indipendenti** — nessuno stato condiviso
+- **Copri edge cases** — vuoto, null, valori limite`
 },
 {
-  id:'setup-instructions',icon:'&#9881;&#65039;',labelEn:'Setup Instructions (AI)',labelIt:'Istruzioni Setup (AI)',file:'SETUP-INSTRUCTIONS.md',
+  id:'setup-instructions',icon:'&#9881;&#65039;',labelEn:'Setup Instructions (AI)',labelIt:'Istruzioni Setup (AI)',file:'guides/SETUP-INSTRUCTIONS.md',
   content:`# Setup Instructions — For AI Agents
 
 > This file is read by AI agents to understand how to setup the framework.
@@ -586,8 +999,8 @@ def test_empty_email():
 
 When user says any of these, execute the setup wizard:
 
-- "setup Antigravity" / "setup Antigravity"
-- "configure Antigravity" / "initialize Antigravity"
+- "setup loom" / "setup loom"
+- "configure loom" / "initialize loom"
 - "configura il framework" / "avvia il framework"
 
 ---
@@ -611,13 +1024,13 @@ I detected:
 - Languages: [python, javascript]
 - IDEs in use: [cursor, vscode]
 
-Do you want me to setup Antigravity?
+Do you want me to setup loom?
 \`\`\`
 
 ### Step 3: Run Setup
 
 \`\`\`bash
-python Antigravity/scripts/setup.py --auto --project-name "[name]" --ide [ides]
+python loom/scripts/setup.py --auto --project-name "[name]" --ide [ides]
 \`\`\`
 
 ---
@@ -626,12 +1039,12 @@ python Antigravity/scripts/setup.py --auto --project-name "[name]" --ide [ides]
 
 | User Says | Execute |
 |-----------|---------|
-| "setup framework" | \`python Antigravity/scripts/setup.py\` |
-| "start task TASK-XXX 'desc'" | \`python Antigravity/scripts/task.py start TASK-XXX "desc"\` |
-| "list tasks" | \`python Antigravity/scripts/task.py list\` |
-| "run tests" | \`python Antigravity/scripts/task-tdd.py test\` |
-| "complete task TASK-XXX" | \`python Antigravity/scripts/task.py complete TASK-XXX "done"\` |
-| "sync configs" | \`bash Antigravity/scripts/sync-configs.sh\` |
+| "setup framework" | \`python loom/scripts/setup.py\` |
+| "start task TASK-XXX 'desc'" | \`python loom/scripts/task.py start TASK-XXX "desc"\` |
+| "list tasks" | \`python loom/scripts/task.py list\` |
+| "run tests" | \`python loom/scripts/task-tdd.py test\` |
+| "complete task TASK-XXX" | \`python loom/scripts/task.py complete TASK-XXX "done"\` |
+| "sync configs" | \`bash loom/scripts/sync-configs.sh\` |
 
 ---
 
@@ -640,138 +1053,690 @@ python Antigravity/scripts/setup.py --auto --project-name "[name]" --ide [ides]
 1. **Always read AGENT.md first** — it contains project context
 2. **Respect existing files** — do not overwrite TASKS.md, README.md
 3. **Suggest TDD** for critical features (auth, payments, validation)
-4. **Auto-sync** IDE configs after AGENT.md changes`
-},
-{
-  id:'framework',icon:'&#127959;&#65039;',labelEn:'DOE Architecture',labelIt:'Architettura DOE',file:'3-level-framework.md',
-  content:`# DOE Architecture
+4. **Auto-sync** IDE configs after AGENT.md changes`,
+  contentIt:`# Istruzioni Setup — Per Agenti AI
 
-> Separate responsibilities to maximize reliability and reduce LLM errors.
+> Questo file viene letto dagli agenti AI per capire come configurare il framework.
 
 ---
 
-## The Problem
+## Frasi di Attivazione
+
+Quando l'utente dice una di queste, esegui il wizard di setup:
+
+- "setup loom" / "configura loom"
+- "configure loom" / "initialize loom"
+- "configura il framework" / "avvia il framework"
+
+---
+
+## Procedura di Setup
+
+### Step 1: Rileva Contesto Progetto
+
+\`\`\`python
+project_root = current_working_directory
+languages = detect_languages()    # Python, JavaScript, etc.
+frameworks = detect_frameworks()  # FastAPI, React, etc.
+existing_ides = detect_ide_configs()
+\`\`\`
+
+### Step 2: Chiedi Conferma
+
+\`\`\`
+Ho rilevato:
+- Progetto: [name]
+- Linguaggi: [python, javascript]
+- IDE in uso: [cursor, vscode]
+
+Vuoi che configuri loom?
+\`\`\`
+
+### Step 3: Esegui Setup
+
+\`\`\`bash
+python loom/scripts/setup.py --auto --project-name "[name]" --ide [ides]
+\`\`\`
+
+---
+
+## Mappatura Comandi
+
+| Utente Dice | Esegui |
+|-----------|---------|
+| "setup framework" | \`python loom/scripts/setup.py\` |
+| "start task TASK-XXX 'desc'" | \`python loom/scripts/task.py start TASK-XXX "desc"\` |
+| "list tasks" | \`python loom/scripts/task.py list\` |
+| "run tests" | \`python loom/scripts/task-tdd.py test\` |
+| "complete task TASK-XXX" | \`python loom/scripts/task.py complete TASK-XXX "done"\` |
+| "sync configs" | \`bash loom/scripts/sync-configs.sh\` |
+
+---
+
+## Note Importanti
+
+1. **Leggi sempre AGENT.md prima** — contiene il contesto del progetto
+2. **Rispetta i file esistenti** — non sovrascrivere TASKS.md, README.md
+3. **Suggerisci TDD** per feature critiche (auth, pagamenti, validazione)
+4. **Auto-sync** delle configurazioni IDE dopo modifiche ad AGENT.md`
+},
+{
+  id:'monorepo',icon:'&#128230;',labelEn:'Monorepo Guide',labelIt:'Guida Monorepo',file:'guides/MONOREPO-GUIDE.md',
+  content:`# Monorepo Usage Guide
+
+> Using LOOM in monorepo projects with multiple packages/services.
+
+---
+
+## What is a Monorepo?
+
+A monorepo contains multiple projects/packages in a single repository:
+
+\`\`\`
+monorepo/
+├── packages/
+│   ├── frontend/
+│   ├── backend/
+│   └── shared/
+├── services/
+│   ├── api/
+│   └── worker/
+└── tools/
+\`\`\`
+
+---
+
+## Approach 1: Root-Level LOOM (Recommended)
+
+Setup LOOM at the repository root to manage the entire monorepo as one project.
+
+\`\`\`bash
+cd /path/to/monorepo
+python loom/scripts/setup.py
+\`\`\`
+
+**Result:** Single AGENT.md, TASKS.md for the whole monorepo.
+
+**When to use:**
+- Packages are tightly coupled
+- Single team manages everything
+- Shared versioning/releases
+
+---
+
+## Approach 2: Per-Package LOOM
+
+Setup LOOM independently in each package.
+
+\`\`\`bash
+cd packages/frontend && python ../../loom/scripts/setup.py
+cd packages/backend && python ../../loom/scripts/setup.py
+\`\`\`
+
+**Result:** Separate AGENT.md and TASKS.md per package.
+
+**When to use:**
+- Packages are independent
+- Different teams per package
+- Independent versioning
+
+---
+
+## Hybrid Approach
+
+Root-level LOOM for coordination + per-package LOOM for details:
+
+- Root AGENT.md describes overall architecture
+- Each package has its own detailed AGENT.md
+- Root TASKS.md tracks cross-package work
+- Package TASKS.md tracks internal work`,
+  contentIt:`# Guida Monorepo
+
+> Usare LOOM in progetti monorepo con multipli package/servizi.
+
+---
+
+## Cos'è un Monorepo?
+
+Un monorepo contiene più progetti/package in un unico repository:
+
+\`\`\`
+monorepo/
+├── packages/
+│   ├── frontend/
+│   ├── backend/
+│   └── shared/
+├── services/
+│   ├── api/
+│   └── worker/
+└── tools/
+\`\`\`
+
+---
+
+## Approccio 1: LOOM a Livello Root (Consigliato)
+
+Configura LOOM nella root del repository per gestire l'intero monorepo come un unico progetto.
+
+\`\`\`bash
+cd /path/to/monorepo
+python loom/scripts/setup.py
+\`\`\`
+
+**Risultato:** Unico AGENT.md, TASKS.md per l'intero monorepo.
+
+**Quando usarlo:**
+- Package strettamente accoppiati
+- Unico team gestisce tutto
+- Versioning/release condivisi
+
+---
+
+## Approccio 2: LOOM per Package
+
+Configura LOOM indipendentemente in ogni package.
+
+\`\`\`bash
+cd packages/frontend && python ../../loom/scripts/setup.py
+cd packages/backend && python ../../loom/scripts/setup.py
+\`\`\`
+
+**Risultato:** AGENT.md e TASKS.md separati per ogni package.
+
+**Quando usarlo:**
+- Package indipendenti
+- Team diversi per package
+- Versioning indipendente
+
+---
+
+## Approccio Ibrido
+
+LOOM a livello root per coordinazione + LOOM per package per i dettagli:
+
+- Root AGENT.md descrive l'architettura generale
+- Ogni package ha il suo AGENT.md dettagliato
+- Root TASKS.md traccia il lavoro cross-package
+- Package TASKS.md traccia il lavoro interno`
+},
+{
+  id:'framework',icon:'&#127959;&#65039;',labelEn:'DOE Architecture',labelIt:'Architettura DOE',file:'doe-architecture.md',
+  content:`# DOE Architecture
+
+> **Directives / Orchestration / Execution** — The DOE Architecture that makes AI agents reliable, persistent, and token-efficient.
+
+---
+
+## The Problem: Probabilistic Degradation
 
 LLMs are probabilistic. Each decision has ~90% accuracy.
 
-**The math:**
+**The math is brutal:**
 - 1 step: 90% success
 - 2 steps: 81% (0.9 × 0.9)
 - 5 steps: 59%
-- 10 steps: 35%
+- 10 steps: 35% ❌
 
-Chaining LLM decisions leads to frequent failures. The solution: push complexity into deterministic code.
+Chaining LLM decisions leads to **compounding errors**. By step 10, the agent is more likely wrong than right.
+
+**Traditional approach:** Ask the LLM to do everything in one shot.
+\`\`\`
+"Build me a REST API with auth, tests, and deployment"
+→ 50+ decisions
+→ 35% accuracy at step 10
+→ Bugs, missing tests, security holes
+\`\`\`
+
+**DOE solution:** Push complexity into deterministic code. The agent only makes *decisions*, not calculations.
 
 ---
 
 ## Architecture: DOE
 
-DOE stands for **D**irectives, **O**rchestration, and **E**xecution.
-
 \`\`\`
-┌─────────────────────────────────────────┐
-│ D — DIRECTIVES (What to do)            │
-│ directives/*.md — SOPs in natural      │
-│ language, objectives, inputs, outputs   │
-├─────────────────────────────────────────┤
-│ O — ORCHESTRATION (How to decide)      │
-│ Intelligent routing between directives │
-│ and execution scripts                   │
-├─────────────────────────────────────────┤
-│ E — EXECUTION (Do the work)            │
-│ execution/*.py — Deterministic scripts │
-└─────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────┐
+│ LAYER 1: DIRECTIVES (What to do)                           │
+│ loom/directives/*.md — SOPs in natural language            │
+│ • Objectives, inputs, outputs defined in plain English    │
+│ • Agent reads once, cached for entire session               │
+│ • Zero probability of error — just text files               │
+├─────────────────────────────────────────────────────────────┤
+│ LAYER 2: ORCHESTRATION (How to decide)                     │
+│ Agent makes high-level decisions                           │
+│ • Chooses which directive to apply                          │
+│ • Determines parameters                                     │
+│ • Routes to appropriate execution script                    │
+│ • Handles errors and reports results                        │
+│ • This is where the LLM thinks (90% accuracy per decision) │
+├─────────────────────────────────────────────────────────────┤
+│ LAYER 3: EXECUTION (Do the work) — 100% Deterministic      │
+│ loom/execution/*.py — Python scripts that never hallucinate│
+│ • Send the actual HTTP request                              │
+│ • Write the actual file to disk                             │
+│ • Make the actual Git commit                                │
+│ • Zero tokens, zero probability of error                    │
+└─────────────────────────────────────────────────────────────┘
 \`\`\`
 
 ---
 
 ## D — Directives (What to do)
 
-SOPs written in Markdown that define **what** to do. They live in \`directives/*.md\`.
+**Directives are SOPs (Standard Operating Procedures)** written in Markdown. They define:
+- **Objective**: What we're trying to accomplish
+- **Inputs**: What data/parameters are needed
+- **Outputs**: What should be produced
+- **Tool**: Which execution script to call
 
-### Example: \`directives/send-email.md\`
+### Key Insight
+The directive is read **once** at the start of a session and cached. The agent doesn't re-read it for every task — it knows the SOP and follows it.
+
+### Example: \`directives/create-task.md\`
 
 \`\`\`markdown
-# Directive: Send Email
+# Directive: Create New Task
 
 ## Objective
-Send transactional emails to users.
+Create a new task entry in TASKS.md with proper formatting and metadata.
+
+## Inputs
+- task_id: Format TASK-XXX (e.g., TASK-001)
+- description: Clear, actionable description
+- priority: low | medium | high
+
+## Outputs
+- Updated TASKS.md with new task
+- Git commit with message: "chore: add TASK-XXX [description]"
 
 ## Tool
-execution/send_email.py
+execution/create_task.py
 \`\`\`
 
 ---
 
 ## O — Orchestration (How to decide)
 
-The AI agent's job: intelligent routing between directives and scripts.
+**Orchestration is where the AI agent works.** The agent:
+1. **Parses your natural language request** ("start a new task for email validation")
+2. **Selects the appropriate directive** (create-task.md)
+3. **Extracts parameters** (task_id=TASK-001, description="email validation")
+4. **Calls the execution script** with validated parameters
+5. **Handles errors** and reports results back to you
+
+### Why This Matters
+The agent only makes **high-level decisions** (which directive, what parameters). It never:
+- Writes files directly ❌
+- Makes Git commits directly ❌  
+- Runs shell commands directly ❌
+
+Those go to deterministic execution scripts.
+
+### Example Flow
+\`\`\`
+User: "Create task TASK-001 for email validation"
+  ↓
+Agent (Orchestration):
+  1. Parse intent → create new task
+  2. Extract params → id=TASK-001, desc="email validation"
+  3. Select directive → directives/create-task.md
+  4. Validate format → TASK-001 matches pattern
+  5. Call execution → create_task.py --id TASK-001 --desc "email validation"
+  ↓
+Script (Execution):
+  1. Read TASKS.md
+  2. Append new task
+  3. Run: git add TASKS.md && git commit -m "..."
+  4. Return: {"status": "success", "task": "TASK-001"}
+  ↓
+Agent (Orchestration):
+  1. Format success message
+  2. Show to user: "✅ Created TASK-001: email validation"
+\`\`\`
 
 ---
 
 ## E — Execution (Do the work)
 
-Deterministic scripts in \`execution/*.py\`. Same input always produces same output.`,
-  contentIt:`# Architettura DOE
+**Execution scripts are 100% deterministic Python.** They:
+- Live in \`loom/execution/*.py\`
+- Have zero AI/LLM involvement
+- Produce the same output for the same input, every time
+- Handle the actual "work" (file I/O, Git operations, HTTP requests)
 
-> Separa le responsabilità per massimizzare l'affidabilità e ridurre gli errori degli LLM.
+### Example: \`execution/create_task.py\`
+
+\`\`\`python
+#!/usr/bin/env python3
+import argparse
+import re
+from datetime import datetime
+
+def create_task(task_id: str, description: str) -> dict:
+    """Create a new task in TASKS.md."""
+    # Validate task_id format
+    if not re.match(r'^TASK-\d{3}$', task_id):
+        return {"error": "Invalid task_id format. Use TASK-XXX"}
+    
+    # Read current TASKS.md
+    with open('TASKS.md', 'r') as f:
+        content = f.read()
+    
+    # Check for duplicates
+    if task_id in content:
+        return {"error": f"Task {task_id} already exists"}
+    
+    # Append new task
+    new_task = f"\n## {task_id}\n**Status**: 🔵 New\n**Desc**: {description}\n**Created**: {datetime.now().isoformat()}\n"
+    
+    with open('TASKS.md', 'w') as f:
+        f.write(content + new_task)
+    
+    # Git commit
+    import subprocess
+    subprocess.run(['git', 'add', 'TASKS.md'])
+    subprocess.run(['git', 'commit', '-m', f'chore: add {task_id}'])
+    
+    return {"status": "success", "task": task_id}
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--id', required=True)
+    parser.add_argument('--desc', required=True)
+    args = parser.parse_args()
+    
+    result = create_task(args.id, args.desc)
+    print(json.dumps(result))
+\`\`\`
+
+### Key Benefits
+| Aspect | Before (LLM does everything) | After (DOE) |
+|--------|------------------------------|-------------|
+| Accuracy | 35% at step 10 | 90% at step 10 |
+| Token cost | High (rewrites files) | Low (just decisions) |
+| Reliability | Inconsistent | Deterministic |
+| Speed | Slow (LLM processes) | Fast (Python scripts) |
+| Audit trail | Hard to verify | Every action logged |
 
 ---
 
-## Il Problema
+## Complete Example: Sending a Welcome Email
+
+\`\`\`
+User: "Send welcome email to user@example.com"
+
+┌──────────────────────────────────────────────────────────┐
+│ 1. DIRECTIVE — Agent reads directives/send-email.md       │
+│    • Input: recipient email, template name               │
+│    • Output: sent confirmation                           │
+│    • Tool: execution/send_email.py                       │
+├──────────────────────────────────────────────────────────┤
+│ 2. ORCHESTRATION — Agent makes decisions                 │
+│    • Select template: "welcome"                          │
+│    • Validate email format: ✓                            │
+│    • Call: send_email.py --to user@example.com --template welcome
+├──────────────────────────────────────────────────────────┤
+│ 3. EXECUTION — Script does the work (100% deterministic) │
+│    • Load template file                                  │
+│    • Call SendGrid API                                   │
+│    • Return: {"status": "sent", "message_id": "xyz"}     │
+├──────────────────────────────────────────────────────────┤
+│ 4. ORCHESTRATION — Agent formats result                  │
+│    • Parse JSON response                                 │
+│    • Show: "✅ Welcome email sent to user@example.com"  │
+└──────────────────────────────────────────────────────────┘
+\`\`\`
+
+---
+
+## Summary
+
+**DOE makes AI agents reliable by:**
+1. **Caching directives** (read once, use all session)
+2. **Limiting LLM decisions** to high-level routing (not file operations)
+3. **Pushing all work** to deterministic Python scripts
+4. **Preserving accuracy** across long sessions (90% → 90%, not 90% → 35%)
+
+The result: Agents that actually work, every time. 🎯`,
+  contentIt:`# Architettura DOE
+
+> **Directives / Orchestration / Execution** — L'architettura DOE che rende gli agenti AI affidabili, persistenti ed efficienti nei token.
+
+---
+
+## Il Problema: Degrado Probabilistico
 
 Gli LLM sono probabilistici. Ogni decisione ha un'accuratezza di circa il 90%.
 
-**La matematica:**
+**La matematica è implacabile:**
 - 1 step: 90% successo
 - 2 step: 81% (0.9 × 0.9)
 - 5 step: 59%
-- 10 step: 35%
+- 10 step: 35% ❌
 
-Concatenare decisioni degli LLM porta a fallimenti frequenti. La soluzione: spostare la complessità in codice deterministico.
+Concatenare decisioni degli LLM porta a **errori cumulativi**. Allo step 10, l'agente ha più probabilità di sbagliare che di azzeccare.
+
+**Approccio tradizionale:** Chiedere all'LLM di fare tutto in un colpo solo.
+\`\`\`
+"Costruiscimi una REST API con auth, test e deployment"
+→ 50+ decisioni
+→ 35% accuratezza allo step 10
+→ Bug, test mancanti, falle di sicurezza
+\`\`\`
+
+**Soluzione DOE:** Spingere la complessità nel codice deterministico. L'agente prende solo *decisioni*, non fa calcoli.
 
 ---
 
 ## Architettura: DOE
 
-DOE sta per **D**irectives (Direttive), **O**rchestration (Orchestrazione) ed **E**xecution (Esecuzione).
+\`\`\`
+┌─────────────────────────────────────────────────────────────┐
+│ LIVELLO 1: DIRETTIVE (Cosa fare)                           │
+│ loom/directives/*.md — SOP in linguaggio naturale          │
+│ • Obiettivi, input, output definiti in italiano/inglese   │
+│ • Agente legge una volta, cached per tutta la sessione     │
+│ • Zero probabilità di errore — solo file di testo         │
+├─────────────────────────────────────────────────────────────┤
+│ LIVELLO 2: ORCHESTRAZIONE (Come decidere)                │
+│ Agente prende decisioni ad alto livello                   │
+│ • Sceglie quale direttiva applicare                       │
+│ • Determina i parametri                                   │
+│ • Indirizza allo script di esecuzione appropriato         │
+│ • Gestisce errori e riporta risultati                     │
+│ • Qui l'LLM pensa (90% accuratezza per decisione)          │
+├─────────────────────────────────────────────────────────────┤
+│ LIVELLO 3: ESECUZIONE (Fare il lavoro) — 100% Deterministico│
+│ loom/execution/*.py — Script Python che non allucinano     │
+│ • Invia la richiesta HTTP reale                           │
+│ • Scrive il file effettivo su disco                       │
+│ • Fa il commit Git effettivo                              │
+│ • Zero token, zero probabilità di errore                  │
+└─────────────────────────────────────────────────────────────┘
+\`\`\`
+
+---
+
+## D — Direttive (Cosa fare)
+
+**Le Direttive sono SOP (Standard Operating Procedures)** scritte in Markdown. Definiscono:
+- **Obiettivo**: Cosa stiamo cercando di realizzare
+- **Input**: Quali dati/parametri servono
+- **Output**: Cosa deve essere prodotto
+- **Tool**: Quale script di esecuzione chiamare
+
+### Insight Chiave
+La direttiva viene letta **una volta** all'inizio della sessione e cached. L'agente non la rilegge per ogni task — conosce la SOP e la segue.
+
+### Esempio: \`directives/create-task.md\`
+
+\`\`\`markdown
+# Direttiva: Crea Nuovo Task
+
+## Obiettivo
+Crea una nuova voce task in TASKS.md con formattazione e metadata corretti.
+
+## Input
+- task_id: Formato TASK-XXX (es. TASK-001)
+- description: Descrizione chiara e azionabile
+- priority: low | medium | high
+
+## Output
+- TASKS.md aggiornato con il nuovo task
+- Git commit con messaggio: "chore: add TASK-XXX [description]"
+
+## Tool
+execution/create_task.py
+\`\`\`
+
+---
+
+## O — Orchestrazione (Come decidere)
+
+**L'Orchestrazione è dove lavora l'agente AI.** L'agente:
+1. **Parsa la tua richiesta in linguaggio naturale** ("avvia un task per email validation")
+2. **Seleziona la direttiva appropriata** (create-task.md)
+3. **Estrae i parametri** (task_id=TASK-001, description="email validation")
+4. **Chiama lo script di esecuzione** con parametri validati
+5. **Gestisce errori** e riporta i risultati a te
+
+### Perché Questo Importa
+L'agente fa solo **decisioni ad alto livello** (quale direttiva, quali parametri). Non fa mai:
+- Scrivere file direttamente ❌
+- Fare commit Git direttamente ❌  
+- Eseguire comandi shell direttamente ❌
+
+Quelli vanno agli script di esecuzione deterministici.
+
+### Esempio di Flusso
+\`\`\`
+Utente: "Crea task TASK-001 per email validation"
+  ↓
+Agente (Orchestrazione):
+  1. Analizza intento → crea nuovo task
+  2. Estrae params → id=TASK-001, desc="email validation"
+  3. Seleziona direttiva → directives/create-task.md
+  4. Valida formato → TASK-001 matcha pattern
+  5. Chiama esecuzione → create_task.py --id TASK-001 --desc "email validation"
+  ↓
+Script (Esecuzione):
+  1. Legge TASKS.md
+  2. Append nuovo task
+  3. Esegue: git add TASKS.md && git commit -m "..."
+  4. Ritorna: {"status": "success", "task": "TASK-001"}
+  ↓
+Agente (Orchestrazione):
+  1. Formatta messaggio successo
+  2. Mostra ad utente: "✅ Creato TASK-001: email validation"
+\`\`\`
+
+---
+
+## E — Esecuzione (Fare il lavoro)
+
+**Gli script di esecuzione sono Python 100% deterministico.** Essi:
+- Stanno in \`loom/execution/*.py\`
+- Hanno zero coinvolgimento AI/LLM
+- Producono lo stesso output per lo stesso input, sempre
+- Gestiscono il vero "lavoro" (I/O file, operazioni Git, richieste HTTP)
+
+### Esempio: \`execution/create_task.py\`
+
+\`\`\`python
+#!/usr/bin/env python3
+import argparse
+import re
+from datetime import datetime
+
+def create_task(task_id: str, description: str) -> dict:
+    """Crea un nuovo task in TASKS.md."""
+    # Valida formato task_id
+    if not re.match(r'^TASK-\d{3}$', task_id):
+        return {"error": "Formato task_id invalido. Usa TASK-XXX"}
+    
+    # Legge TASKS.md corrente
+    with open('TASKS.md', 'r') as f:
+        content = f.read()
+    
+    # Controlla duplicati
+    if task_id in content:
+        return {"error": f"Task {task_id} già esistente"}
+    
+    # Append nuovo task
+    new_task = f"\n## {task_id}\n**Status**: 🔵 New\n**Desc**: {description}\n**Created**: {datetime.now().isoformat()}\n"
+    
+    with open('TASKS.md', 'w') as f:
+        f.write(content + new_task)
+    
+    # Git commit
+    import subprocess
+    subprocess.run(['git', 'add', 'TASKS.md'])
+    subprocess.run(['git', 'commit', '-m', f'chore: add {task_id}'])
+    
+    return {"status": "success", "task": task_id}
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--id', required=True)
+    parser.add_argument('--desc', required=True)
+    args = parser.parse_args()
+    
+    result = create_task(args.id, args.desc)
+    print(json.dumps(result))
+\`\`\`
+
+### Benefici Chiave
+| Aspetto | Prima (LLM fa tutto) | Dopo (DOE) |
+|---------|----------------------|------------|
+| Accuratezza | 35% allo step 10 | 90% allo step 10 |
+| Costo token | Alto (riscrive file) | Basso (solo decisioni) |
+| Affidabilità | Inconsistente | Deterministica |
+| Velocità | Lento (LLM processa) | Veloce (script Python) |
+| Audit trail | Difficile da verificare | Ogni azione loggata |
+
+---
+
+## Esempio Completo: Inviare una Email di Benvenuto
 
 \`\`\`
-┌─────────────────────────────────────────┐
-│ D — DIRECTIVES (Cosa fare)             │
-│ directives/*.md — SOP in linguaggio    │
-│ naturale, obiettivi, input, output     │
-├─────────────────────────────────────────┤
-│ O — ORCHESTRATION (Come decidere)      │
-│ Routing intelligente tra direttive     │
-│ e script di esecuzione                  │
-├─────────────────────────────────────────┤
-│ E — EXECUTION (Fare il lavoro)         │
-│ execution/*.py — Script deterministici │
-└─────────────────────────────────────────┘
+Utente: "Invia email di benvenuto a user@example.com"
+
+┌──────────────────────────────────────────────────────────┐
+│ 1. DIRETTIVA — Agente legge directives/send-email.md    │
+│    • Input: email destinatario, nome template            │
+│    • Output: conferma invio                              │
+│    • Tool: execution/send_email.py                      │
+├──────────────────────────────────────────────────────────┤
+│ 2. ORCHESTRAZIONE — Agente prende decisioni             │
+│    • Seleziona template: "welcome"                      │
+│    • Valida formato email: ✓                            │
+│    • Chiama: send_email.py --to user@example.com --template welcome
+├──────────────────────────────────────────────────────────┤
+│ 3. ESECUZIONE — Script fa il lavoro (100% deterministico)│
+│    • Carica file template                               │
+│    • Chiama API SendGrid                                │
+│    • Ritorna: {"status": "sent", "message_id": "xyz"}    │
+├──────────────────────────────────────────────────────────┤
+│ 4. ORCHESTRAZIONE — Agente formatta risultato           │
+│    • Parsa risposta JSON                                │
+│    • Mostra: "✅ Email di benvenuto inviata a user@example.com"│
+└──────────────────────────────────────────────────────────┘
 \`\`\`
 
 ---
 
-## D — Directives (Cosa fare)
+## Riepilogo
 
-SOP scritte in Markdown che definiscono **cosa** fare. Si trovano in \`directives/*.md\`.
+**DOE rende gli agenti AI affidabili perché:**
+1. **Cache delle direttive** (legge una volta, usa tutta la sessione)
+2. **Limita decisioni LLM** al routing di alto livello (non operazioni su file)
+3. **Spinge tutto il lavoro** agli script Python deterministici
+4. **Preserva accuratezza** attraverso lunghe sessioni (90% → 90%, non 90% → 35%)
 
----
-
-## O — Orchestration (Come decidere)
-
-Il compito dell'agente AI: routing intelligente tra direttive e script.
-
----
-
-## E — Execution (Fare il lavoro)
-
-Script deterministici in \`execution/*.py\`. Stesso input = stesso output.`
+Il risultato: Agenti che funzionano davvero, ogni volta. 🎯`
 },
 {
-  id:'contributing',icon:'&#129309;',labelEn:'Contributing',labelIt:'Contribuire',file:'CONTRIBUTING.md',
-  content:`# Contributing to Antigravity
+  id:'contributing',icon:'&#129309;',labelEn:'Contributing',labelIt:'Contribuire',file:'guides/CONTRIBUTING.md',
+  content:`# Contributing to loom
 
 Thank you for your interest in contributing!
 
@@ -780,12 +1745,12 @@ Thank you for your interest in contributing!
 ## How to Contribute
 
 ### Report Issues
-1. Check [existing issues](https://github.com/otto78/antigravity/issues)
-2. [Create a new issue](https://github.com/otto78/antigravity/issues/new)
+1. Check [existing issues](https://github.com/otto78/loom-framework/issues)
+2. [Create a new issue](https://github.com/otto78/loom-framework/issues/new)
 
 ### Add IDE Support
-1. Create config template in \`Antigravity/ide-configs/your-ide/\`
-2. Update \`Antigravity/scripts/setup.py\` to detect and configure it
+1. Create config template in \`loom/ide-configs/your-ide/\`
+2. Update \`loom/scripts/setup.py\` to detect and configure it
 3. Add to README.md IDE support table
 4. Submit a pull request
 
@@ -794,8 +1759,8 @@ Thank you for your interest in contributing!
 ## Development Setup
 
 \`\`\`bash
-git clone https://github.com/otto78/antigravity.git
-cd antigravity
+git clone https://github.com/otto78/loom-framework.git
+cd loom-framework
 python -m venv venv
 source venv/bin/activate  # Windows: venv\\Scripts\\activate
 pip install -r requirements-dev.txt
@@ -831,8 +1796,69 @@ test: add tests for setup wizard
 
 ---
 
-**Every contribution makes Antigravity better for everyone.**`
-}
+**Every contribution makes loom better for everyone.**`,
+  contentIt:`# Come Contribuire a loom
+
+Grazie per il tuo interesse nel contribuire!
+
+---
+
+## Come Contribuire
+
+### Segnala Problemi
+1. Controlla [issue esistenti](https://github.com/otto78/loom-framework/issues)
+2. [Crea una nuova issue](https://github.com/otto78/loom-framework/issues/new)
+
+### Aggiungi Supporto IDE
+1. Crea template config in \`loom/ide-configs/tuo-ide/\`
+2. Aggiorna \`loom/scripts/setup.py\` per rilevarlo e configurarlo
+3. Aggiungi alla tabella IDE supportate in README.md
+4. Invia una pull request
+
+---
+
+## Setup Sviluppo
+
+\`\`\`bash
+git clone https://github.com/otto78/loom-framework.git
+cd loom-framework
+python -m venv venv
+source venv/bin/activate  # Windows: venv\\Scripts\\activate
+pip install -r requirements-dev.txt
+pytest tests/
+\`\`\`
+
+---
+
+## Processo Pull Request
+
+1. Fork il repository
+2. Crea branch: \`git checkout -b feature/nuova-feature\`
+3. Apporta modifiche e testa
+4. Commit: \`git commit -m "feat: aggiunge nuova feature"\`
+5. Push e apri una pull request
+
+### Formato Commit
+
+\`\`\`
+feat: aggiungi supporto per PyCharm IDE
+fix: risolvi bug completamento task
+docs: aggiorna guida QUICKSTART
+test: aggiungi test per setup wizard
+\`\`\`
+
+---
+
+## Standard di Codice
+
+- Python: PEP 8, type hints, docstrings
+- Script: gestione errori, supporto \`--dry-run\`
+- Test richiesti per nuove feature
+
+---
+
+**Ogni contributo rende loom migliore per tutti.**`
+},
 ];
 
 function renderAll(){
@@ -928,8 +1954,8 @@ function renderAll(){
 }
 
 (function(){
-  const lang=localStorage.getItem('Antigravity-lang')||'en';
-  const dark=localStorage.getItem('Antigravity-dark')==='true';
+  const lang=localStorage.getItem('loom-lang')||'en';
+  const dark=localStorage.getItem('loom-dark')==='true';
   setLang(lang);
   if(dark){
     document.documentElement.dataset.theme='dark';

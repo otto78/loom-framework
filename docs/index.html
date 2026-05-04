@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Antigravity — Weave intelligent agents into your workflow</title>
+<title>Loom Framework — Weave intelligent agents into your workflow</title>
 <meta name="description" content="A complete operational framework for AI-powered development across multiple IDEs">
-<link rel="icon" type="image/svg+xml" href="Antigravity-logo.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="Antigravity-logo.png">
-<link rel="apple-touch-icon" href="Antigravity-logo.png">
+<link rel="icon" type="image/svg+xml" href="loom-logo.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="loom-logo.png">
+<link rel="apple-touch-icon" href="loom-logo.png">
 <style>
 :root {
   --bg:#f5f6fa; --surface:#fff; --border:#e1e4e8; --text:#333; --muted:#666;
@@ -143,7 +143,11 @@ footer a:hover{text-decoration:underline;}
 </head>
 <body>
 
-<div class="topbar">
+<div class="topbar" style="display:flex;justify-content:flex-end;align-items:center;gap:.5rem;">
+  <a href="https://github.com/otto78/loom-framework/releases/download/latest/loom-framework.zip" class="btn btn-primary" style="padding:.4rem 1rem;font-size:.85rem;">
+    <span class="en">📥 Download</span>
+    <span class="it">📥 Scarica</span>
+  </a>
   <select class="lang-select" id="lang-select" onchange="setLang(this.value)">
     <option value="en">🇬🇧 English</option>
     <option value="it">🇮🇹 Italiano</option>
@@ -152,22 +156,26 @@ footer a:hover{text-decoration:underline;}
 </div>
 
 <header>
-  <div class="logo">🛸</div>
-  <h1>Antigravity</h1>
+  <div class="logo"><img src="loom-logo.svg" alt="Loom" style="width:80px;height:80px;"></div>
+  <h1>Loom Framework</h1>
   <p class="tagline en">Weave intelligent agents into your development workflow</p>
   <p class="tagline it">Integra agenti AI nel tuo workflow di sviluppo</p>
   <p style="font-size:1.1rem;margin:1rem 0 2rem;opacity:.95;max-width:600px;margin-left:auto;margin-right:auto;">
-    <span class="en">Just say <strong>"read Antigravity"</strong> — that's it. No commands to remember.</span>
-    <span class="it">Basta dire <strong>"leggi Antigravity"</strong> — tutto qui. Nessun comando da ricordare.</span>
+    <span class="en">Just say <strong>"read loom"</strong> — that's it. No commands to remember.</span>
+    <span class="it">Basta dire <strong>"leggi loom"</strong> — tutto qui. Nessun comando da ricordare.</span>
   </p>
   <div class="cta-buttons">
-    <a href="#quickstart" class="btn btn-primary">
+    <a href="https://github.com/otto78/loom-framework/releases/download/latest/loom-framework.zip" class="btn btn-primary">
+      <span class="en">📥 Download</span>
+      <span class="it">📥 Scarica</span>
+    </a>
+    <a href="#quickstart" class="btn btn-secondary">
       <span class="en">🚀 Get Started</span>
       <span class="it">🚀 Inizia Ora</span>
     </a>
     <a href="docs.html" class="btn btn-secondary">
-      <span class="en">📚 Documentation</span>
-      <span class="it">📚 Documentazione</span>
+      <span class="en">📚 Docs</span>
+      <span class="it">📚 Doc</span>
     </a>
   </div>
 </header>
@@ -202,10 +210,10 @@ footer a:hover{text-decoration:underline;}
     </div>
   </section>
 
-  <!-- WHY Antigravity -->
+  <!-- WHY loom -->
   <section class="card">
-    <h2 class="en">Why Antigravity?</h2>
-    <h2 class="it">Perché Antigravity?</h2>
+    <h2 class="en">Why loom?</h2>
+    <h2 class="it">Perché loom?</h2>
     <div class="feature-grid">
       <div class="feature">
         <div class="feature-icon">⚡</div>
@@ -252,8 +260,8 @@ footer a:hover{text-decoration:underline;}
     <h2 class="it">Come Funziona: Architettura DOE</h2>
     <p class="en" style="text-align:center;color:var(--muted);margin-bottom:.5rem">LLMs are probabilistic — 90% accuracy per step means only 35% success over 10 chained steps.</p>
     <p class="it" style="text-align:center;color:var(--muted);margin-bottom:.5rem">Gli LLM sono probabilistici — 90% di accuratezza per step significa solo 35% di successo su 10 step concatenati.</p>
-    <p class="en" style="text-align:center;color:var(--muted);margin-bottom:2rem">Antigravity pushes complexity into deterministic code — the agent only makes <em>decisions</em>, not calculations.</p>
-    <p class="it" style="text-align:center;color:var(--muted);margin-bottom:2rem">Antigravity sposta la complessità in codice deterministico — l'agente prende solo <em>decisioni</em>, non calcola.</p>
+    <p class="en" style="text-align:center;color:var(--muted);margin-bottom:2rem">loom pushes complexity into deterministic code — the agent only makes <em>decisions</em>, not calculations.</p>
+    <p class="it" style="text-align:center;color:var(--muted);margin-bottom:2rem">loom sposta la complessità in codice deterministico — l'agente prende solo <em>decisioni</em>, non calcola.</p>
     <div class="feature-grid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
       <div class="feature" style="border-left:4px solid var(--accent)">
         <div class="feature-icon">📋</div>
@@ -338,8 +346,7 @@ footer a:hover{text-decoration:underline;}
       </div>
 
       <div class="ide-card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Visual_Studio_Code_Insiders_1.36_icon.svg/512px-Visual_Studio_Code_Insiders_1.36_icon.svg.png" alt="VS Code Insider"
-             onerror="this.src='https://code.visualstudio.com/favicon.ico'">
+        <img src="vscode-insiders-icon.svg" alt="VS Code Insider" style="width:48px;height:48px;">
         <span>VS Code Insider</span>
       </div>
 
@@ -364,23 +371,34 @@ footer a:hover{text-decoration:underline;}
       </div>
       <div class="feature" style="border-left:4px solid var(--accent2)">
         <div class="feature-icon">📦</div>
-        <h3 class="en">2 — Add Antigravity</h3>
-        <h3 class="it">2 — Aggiungi Antigravity</h3>
-        <p class="en">Add the <code>Antigravity/</code> folder to your project. Clone it, copy it, or install it — any method works.</p>
-        <p class="it">Aggiungi la cartella <code>Antigravity/</code> al tuo progetto. Clonalo, copialo o installalo — qualsiasi metodo funziona.</p>
+        <h3 class="en">2 — Add loom</h3>
+        <h3 class="it">2 — Aggiungi loom</h3>
+        <p class="en">Add the <code>loom/</code> folder to your project. Clone it, copy it, or install it — any method works.</p>
+        <p class="it">Aggiungi la cartella <code>loom/</code> al tuo progetto. Clonalo, copialo o installalo — qualsiasi metodo funziona.</p>
       </div>
       <div class="feature" style="border-left:4px solid #28a745">
         <div class="feature-icon">💬</div>
-        <h3 class="en">3 — Say "read Antigravity"</h3>
-        <h3 class="it">3 — Di' "leggi Antigravity"</h3>
-        <p class="en">Open any IDE with an AI agent and just say <strong>"read Antigravity"</strong>. The agent configures everything automatically in seconds.</p>
-        <p class="it">Apri qualsiasi IDE con agente AI e di' semplicemente <strong>"leggi Antigravity"</strong>. L'agente configura tutto automaticamente in pochi secondi.</p>
+        <h3 class="en">3 — Say "read loom"</h3>
+        <h3 class="it">3 — Di' "leggi loom"</h3>
+        <p class="en">Open any IDE with an AI agent and just say <strong>"read loom"</strong>. The agent configures everything automatically in seconds.</p>
+        <p class="it">Apri qualsiasi IDE con agente AI e di' semplicemente <strong>"leggi loom"</strong>. L'agente configura tutto automaticamente in pochi secondi.</p>
       </div>
     </div>
 
     <p class="step-title en">Then use natural language — no commands needed:</p>
     <p class="step-title it">Poi usa il linguaggio naturale — nessun comando necessario:</p>
-    
+
+    <div style="background:var(--feature-bg);border:1px solid var(--border);border-radius:10px;padding:1.25rem;margin:1.5rem 0;">
+      <p class="en" style="margin:0 0 .75rem;font-weight:600;color:var(--accent)">💡 First, check what tasks already exist:</p>
+      <p class="it" style="margin:0 0 .75rem;font-weight:600;color:var(--accent)">💡 Prima, controlla quali task esistono già:</p>
+      <div class="code-wrap" style="margin:.5rem 0;">
+        <div class="code-block en">"show me the tasks" or "list tasks"</div>
+        <div class="code-block it">"mostrami i task" o "lista task"</div>
+      </div>
+      <p class="en" style="margin:.75rem 0 0;font-size:.9rem;color:var(--muted)">The agent reads your PROJECT.md and checks TASKS.md. If tasks exist, it shows them. If not, it offers to create them from your epics.</p>
+      <p class="it" style="margin:.75rem 0 0;font-size:.9rem;color:var(--muted)">L'agente legge il tuo PROJECT.md e controlla TASKS.md. Se esistono task, li mostra. Se no, propone di crearli dalle tue epiche.</p>
+    </div>
+
     <div class="command-list en">
       <div class="command-item"><span>"start task TASK-001 'implement user login'"</span> <button class="code-copy" onclick="copyText(this)">📋</button></div>
       <div class="command-item"><span>"list tasks"</span> <button class="code-copy" onclick="copyText(this)">📋</button></div>
@@ -397,7 +415,7 @@ footer a:hover{text-decoration:underline;}
     <p class="step-title en" style="margin-top:2rem">Alternative: one-liner install</p>
     <p class="step-title it" style="margin-top:2rem">Alternativa: installa con un comando</p>
     <div class="code-wrap">
-      <div class="code-block">curl -fsSL https://raw.githubusercontent.com/otto78/antigravity/main/install.sh | bash</div>
+      <div class="code-block">curl -fsSL https://raw.githubusercontent.com/otto78/loom-framework/main/install.sh | bash</div>
       <button class="code-copy" onclick="copyCode(this)">📋</button>
     </div>
 
@@ -405,6 +423,128 @@ footer a:hover{text-decoration:underline;}
       <a href="docs.html" class="btn btn-primary" style="background:var(--accent);color:white;">
         <span class="en">Read Full Documentation →</span>
         <span class="it">Leggi la Documentazione Completa →</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- PROJECT.md SECTION -->
+  <section class="card" id="project">
+    <h2 class="en">📋 PROJECT.md — Your Project's Brain</h2>
+    <h2 class="it">📋 PROJECT.md — Il Cervello del Tuo Progetto</h2>
+    
+    <p class="en" style="text-align:center;color:var(--muted);margin-bottom:2rem">The single source of truth that makes AI agents understand your project.</p>
+    <p class="it" style="text-align:center;color:var(--muted);margin-bottom:2rem">La fonte unica di verità che fa capire agli agenti AI il tuo progetto.</p>
+
+    <div class="feature-grid" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr));margin-bottom:2rem">
+      <div class="feature" style="border-left:4px solid var(--accent)">
+        <div class="feature-icon">🎯</div>
+        <h3 class="en">Goal</h3><h3 class="it">Goal</h3>
+        <p class="en">What you're building in 2-3 sentences</p>
+        <p class="it">Cosa stai costruendo in 2-3 frasi</p>
+      </div>
+      <div class="feature" style="border-left:4px solid var(--accent2)">
+        <div class="feature-icon">🛠️</div>
+        <h3 class="en">Stack</h3><h3 class="it">Stack</h3>
+        <p class="en">Technologies with versions (Python 3.11, React 18)</p>
+        <p class="it">Tecnologie con versioni (Python 3.11, React 18)</p>
+      </div>
+      <div class="feature" style="border-left:4px solid #28a745">
+        <div class="feature-icon">🏗️</div>
+        <h3 class="en">Architecture</h3><h3 class="it">Architettura</h3>
+        <p class="en">3-5 key design decisions</p>
+        <p class="it">3-5 decisioni chiave di design</p>
+      </div>
+      <div class="feature" style="border-left:4px solid #dc3545">
+        <div class="feature-icon">📏</div>
+        <h3 class="en">Rules</h3><h3 class="it">Regole</h3>
+        <p class="en">MUST-FOLLOW coding standards</p>
+        <p class="it">Standard di codice MUST-FOLLOW</p>
+      </div>
+    </div>
+
+    <h3 class="en">The PROJECT.md Flow</h3>
+    <h3 class="it">Il Flusso PROJECT.md</h3>
+    
+    <p class="en">When you say <strong>"read loom"</strong>, here's what happens:</p>
+    <p class="it">Quando dici <strong>"leggi loom"</strong>, ecco cosa succede:</p>
+    
+    <div class="code-wrap">
+      <div class="code-block en">1. Agent checks for PROJECT.md
+   ├── EXISTS? → Read it and configure everything
+   └── MISSING? → Ask you what to do:
+       ├── "Create it for me" → Agent analyzes codebase & creates PROJECT.md
+       ├── "Help me write it" → Agent asks questions, you answer
+       └── "I'll do it myself" → Agent shows template & waits</div>
+      <div class="code-block it">1. L'agente controlla se esiste PROJECT.md
+   ├── ESISTE? → Lo legge e configura tutto
+   └── MANCANTE? → Ti chiede cosa fare:
+       ├── "Crealo per me" → L'agente analizza il codebase e crea PROJECT.md
+       ├── "Aiutami a scriverlo" → L'agente fa domande, tu rispondi
+       └── "Lo faccio io" → L'agente mostra il template e aspetta</div>
+    </div>
+
+    <h3 class="en" style="margin-top:2rem">AI Prompts to Create PROJECT.md</h3>
+    <h3 class="it" style="margin-top:2rem">Prompt AI per Creare PROJECT.md</h3>
+    
+    <p class="step-title en">For existing projects (with code):</p>
+    <p class="step-title it">Per progetti esistenti (con codice):</p>
+    <div class="code-wrap">
+      <div class="code-block en">"This project already has code. Analyze it and create a PROJECT.md for me.
+Look at my stack, structure, and any existing docs."
+
+Analyze:
+- package.json / pyproject.toml → detect stack
+- README.md → extract goal  
+- Code structure → infer architecture
+- Tests → understand rules</div>
+      <div class="code-block it">"Questo progetto ha già codice. Analizzalo e crea un PROJECT.md per me.
+Guarda il mio stack, struttura, e documentazione esistente."
+
+Analizza:
+- package.json / pyproject.toml → rileva stack
+- README.md → estrai goal  
+- Struttura codice → inferisci architettura
+- Test → capisci regole</div>
+    </div>
+
+    <p class="step-title en" style="margin-top:1.5rem">For new projects (from scratch):</p>
+    <p class="step-title it" style="margin-top:1.5rem">Per nuovi progetti (da zero):</p>
+    <div class="code-wrap">
+      <div class="code-block en">"Help me write PROJECT.md. Ask me one question at a time:
+1. What does this project do?
+2. What technologies will you use?
+3. What are 3-5 key architectural decisions?
+4. What rules MUST be followed?
+5. Any constraints or gotchas?"</div>
+      <div class="code-block it">"Aiutami a scrivere PROJECT.md. Fammi una domanda alla volta:
+1. Cosa fa questo progetto?
+2. Quali tecnologie userai?
+3. Quali sono 3-5 decisioni architetturali chiave?
+4. Quali regole DEVONO essere seguite?
+5. Ci sono vincoli o gotchas?"</div>
+    </div>
+
+    <p class="step-title en" style="margin-top:1.5rem">To refine existing PROJECT.md:</p>
+    <p class="step-title it" style="margin-top:1.5rem">Per affinare un PROJECT.md esistente:</p>
+    <div class="code-wrap">
+      <div class="code-block en">"Review my PROJECT.md:
+- Is the Goal clear and specific?
+- Are Stack versions complete?
+- Are rules actionable (not vague)?
+- Did I miss important constraints?
+- Would an agent understand this?"</div>
+      <div class="code-block it">"Revisiona il mio PROJECT.md:
+- Il Goal è chiaro e specifico?
+- Lo Stack ha versioni complete?
+- Le regole sono azionabili (non vaghe)?
+- Ho perso vincoli importanti?
+- Un agente capirebbe questo?"</div>
+    </div>
+
+    <div style="text-align:center;margin-top:2rem;">
+      <a href="docs.html#project" class="btn btn-secondary">
+        <span class="en">Read Full PROJECT.md Guide →</span>
+        <span class="it">Leggi la Guida Completa PROJECT.md →</span>
       </a>
     </div>
   </section>
@@ -421,18 +561,26 @@ footer a:hover{text-decoration:underline;}
         <p class="step-title it">Struttura progetto</p>
         <div class="tree-view">
           <div class="tree-item">📁 your-project/</div>
-          <div class="tree-item" style="padding-left:1.5rem">├── 📁 antigravity/ <small>(framework core)</small></div>
-          <div class="tree-item" style="padding-left:1.5rem">├── 📄 AGENT.md <span style="color:var(--accent);font-weight:600">⭐ fonte di verità</span></div>
-          <div class="tree-item" style="padding-left:1.5rem">├── 📄 .cursorrules <small>(config IDE)</small></div>
-          <div class="tree-item" style="padding-left:1.5rem">├── 📄 .windsurfrules <small>(config IDE)</small></div>
-          <div class="tree-item" style="padding-left:1.5rem">├── 📄 CLAUDE.md <small>(config IDE)</small></div>
-          <div class="tree-item" style="padding-left:1.5rem">├── 📄 ANTIGRAVITY.md <small>(config IDE)</small></div>
+          <div class="tree-item" style="padding-left:1.5rem">├── 📁 loom/ <small>(framework core)</small></div>
+          <div class="tree-item" style="padding-left:1.5rem">├── 📄 AGENT.md <span style="color:var(--accent);font-weight:600">⭐ fonte di verità progetto</span></div>
+          <div class="tree-item" style="padding-left:1.5rem">├── 📄 AGENTS.md <small>(cross-tool config: Antigravity, Windsurf, VS Code, VS Code Insider)</small></div>
+          <div class="tree-item" style="padding-left:1.5rem">├── 📄 CLAUDE.md <small>(Claude Code config)</small></div>
+          <div class="tree-item" style="padding-left:1.5rem">├── 📄 GEMINI.md <small>(Antigravity config)</small></div>
+          <div class="tree-item" style="padding-left:1.5rem">├── 📁 .cursor/rules/</div>
+          <div class="tree-item" style="padding-left:3rem">└── 📄 loom.mdc <small>(Cursor config)</small></div>
+          <div class="tree-item" style="padding-left:1.5rem">├── 📁 .windsurf/rules/</div>
+          <div class="tree-item" style="padding-left:3rem">└── 📄 loom.md <small>(Windsurf config)</small></div>
+          <div class="tree-item" style="padding-left:1.5rem">├── 📁 .github/</div>
+          <div class="tree-item" style="padding-left:3rem">└── 📄 copilot-instructions.md <small>(VS Code / Insider config)</small></div>
+          <div class="tree-item" style="padding-left:1.5rem">├── 📁 .aiassistant/rules/</div>
+          <div class="tree-item" style="padding-left:3rem">└── 📄 loom.md <small>(IntelliJ IDEA config)</small></div>
           <div class="tree-item" style="padding-left:1.5rem">└── 📁 docs/</div>
           <div class="tree-item" style="padding-left:3rem">├── 📄 TASKS.md</div>
           <div class="tree-item" style="padding-left:3rem">├── 📄 BACKLOG.md</div>
           <div class="tree-item" style="padding-left:3rem">├── 📄 STORY.md</div>
           <div class="tree-item" style="padding-left:3rem">├── 📄 CHANGELOG.md</div>
           <div class="tree-item" style="padding-left:3rem">└── 📄 HANDOFF.md</div>
+          <div class="tree-item" style="padding-left:1.5rem;margin-top:.5rem"><small style="color:var(--muted)">I file legacy .cursorrules e .windsurfrules vengono generati come fallback per compatibilità.</small></div>
         </div>
       </div>
       <div>
@@ -458,15 +606,15 @@ footer a:hover{text-decoration:underline;}
 </div>
 
 <footer>
-  <p>Antigravity v1.0.0 — MIT License</p>
+  <p>loom v1.0.1 — MIT License</p>
   <p style="margin:.3rem 0">
     <span class="en">Created by</span><span class="it">Creato da</span>
     <strong> Andrea Mazzarotto</strong>
   </p>
   <p style="margin-top:.75rem">
-    <a href="https://github.com/otto78/antigravity">GitHub</a> ·
-    <a href="https://github.com/otto78/antigravity/issues">Issues</a> ·
-    <a href="https://github.com/otto78/antigravity/discussions">Discussions</a>
+    <a href="https://github.com/otto78/loom-framework">GitHub</a> ·
+    <a href="https://github.com/otto78/loom-framework/issues">Issues</a> ·
+    <a href="https://github.com/otto78/loom-framework/discussions">Discussions</a>
   </p>
 </footer>
 
@@ -474,14 +622,14 @@ footer a:hover{text-decoration:underline;}
 function setLang(l) {
   document.documentElement.dataset.lang = l;
   document.getElementById('lang-select').value = l;
-  localStorage.setItem('Antigravity-lang', l);
+  localStorage.setItem('loom-lang', l);
 }
 
 function toggleDark() {
   const dark = document.documentElement.dataset.theme === 'dark';
   document.documentElement.dataset.theme = dark ? 'light' : 'dark';
   document.getElementById('btn-dark').textContent = dark ? '🌙' : '☀️';
-  localStorage.setItem('Antigravity-dark', !dark);
+  localStorage.setItem('loom-dark', !dark);
 }
 
 function copyCode(btn) {
@@ -505,8 +653,8 @@ function copyText(btn) {
 }
 
 (function () {
-  const lang = localStorage.getItem('Antigravity-lang') || 'en';
-  const dark = localStorage.getItem('Antigravity-dark') === 'true';
+  const lang = localStorage.getItem('loom-lang') || 'en';
+  const dark = localStorage.getItem('loom-dark') === 'true';
   setLang(lang);
   if (dark) {
     document.documentElement.dataset.theme = 'dark';

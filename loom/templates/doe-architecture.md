@@ -1,4 +1,4 @@
-﻿# Architettura DOE — Architettura Operativa
+# Architettura DOE — Architettura Operativa
 
 > Separazione delle responsabilità per massimizzare affidabilità e ridurre errori LLM.
 

@@ -1,4 +1,4 @@
-﻿# Project Story — [NOME_PROGETTO]
+# Project Story — [NOME_PROGETTO]
 
 Storia operativa del progetto con versioni, milestone e decisioni chiave.
 
@@ -90,7 +90,7 @@ Vedi `CHANGELOG.md` per dettagli completi.
 **2025-01-15 — Scelta Framework Agentico**
 
 - **Problema:** Necessità di coordinare più agenti AI
-- **Soluzione:** Adottato Antigravity v1.0
+- **Soluzione:** Adottato loom v1.0
 - **Motivazione:** Architettura DOE riduce errori LLM
 - **Alternativa considerata:** Nessun framework strutturato
 - **Risultato:** Migliorata continuità tra sessioni

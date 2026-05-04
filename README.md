@@ -1,15 +1,29 @@
-# LOOM Framework 🧵
+# <div align="center">🧵 LOOM Framework 🧵</div>
+
+<div align="center">
 
 > **Weave intelligent agents into your development workflow**  
 > **Integra agenti intelligenti nel tuo workflow di sviluppo**
 
-🌐 **Language / Lingua**: [🇬🇧 English](#-the-problem) | [🇮🇹 Italiano](#-italiano--versione-italiana)
-
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/otto78/loom/releases)
+[![Version](https://img.shields.io/badge/version-1.0.13-blue.svg)](https://github.com/otto78/loom-framework/releases)
 [![Python](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/)
 [![IDEs](https://img.shields.io/badge/IDEs-7%20supported-green.svg)](#-supported-ides)
-[![GitHub Stars](https://img.shields.io/github/stars/otto78/loom?style=social)](https://github.com/otto78/loom)
+[![GitHub Stars](https://img.shields.io/github/stars/otto78/loom-framework?style=social)](https://github.com/otto78/loom-framework)
+
+**🌐 [🇬🇧 English](#-the-problem) | [🇮🇹 Italiano](#-italiano--versione-italiana)**
+
+---
+
+## **[📥 Download LOOM Framework](https://github.com/otto78/loom-framework/releases/latest/download/loom-framework.zip)**
+
+### *Scarica → Estrai nella cartella del tuo progetto → Crea PROJECT.md → Di' "read loom"*
+
+[![Download ZIP](https://img.shields.io/badge/Download-LOOM%20Framework%20ZIP-brightgreen?style=for-the-badge&logo=github)](https://github.com/otto78/loom-framework/releases/latest/download/loom-framework.zip)
+
+</div>
+
+---
 
 A complete operational framework for AI-powered development across multiple IDEs. LOOM provides structure, automation, and best practices for teams working with AI agents.
 
@@ -60,18 +74,22 @@ sequenceDiagram
 
 ## 📂 What Gets Created in Your Project
 
-After running `python loom/scripts/setup.py` in your project, Antigravity creates:
+After running `python loom/scripts/setup.py` in your project, loom creates:
 
 ```
 your-project/
 ├── AGENT.md                  # ⭐ Source of truth — project context for every agent session
-├── .windsurfrules            # IDE config (only for selected IDEs)
-├── .cursorrules              #
-├── CLAUDE.md                 #
-├── LOOM.md            #
-├── .clinerules               #
-├── .idea/
-│   └── LOOM.md  # IntelliJ config
+├── CLAUDE.md                 # IDE config — Claude Code
+├── GEMINI.md                 # IDE config — Antigravity
+├── AGENTS.md                 # Cross-tool (Antigravity + Windsurf + VS Code)
+├── .cursorrules              # Cursor (legacy fallback)
+├── .cursor/rules/loom.mdc   # Cursor (modern)
+├── .windsurfrules            # Windsurf (legacy fallback)
+├── .windsurf/rules/loom.md  # Windsurf (modern)
+├── .github/
+│   └── copilot-instructions.md  # VS Code / VS Code Insider
+├── .aiassistant/
+│   └── rules/loom.md        # IntelliJ AI Assistant
 └── docs/
     ├── TASKS.md              # Active task tracking
     ├── BACKLOG.md            # Future ideas
@@ -80,7 +98,7 @@ your-project/
     └── HANDOFF.md            # Agent handoff protocol
 ```
 
-**Your existing files are never overwritten.** Antigravity only creates files that don't exist yet.
+**Your existing files are never overwritten.** loom only creates files that don't exist yet.
 
 ---
 
@@ -89,7 +107,7 @@ your-project/
 LOOM is an operational framework that brings structure to AI-assisted development. It provides:
 
 - ⚡ **Quick Setup** — Interactive wizard + automated scripts
-- 🤖 **Multi-IDE Support** — 7 IDEs (Windsurf, Claude Code, Cursor, Antigravity, VS Code, IntelliJ IDEA, VS Code Insider)
+- 🤖 **Multi-IDE Support** — 7 IDEs (Windsurf, Claude Code, Cursor, Antigravity, VS Code, IntelliJ IDEA, GitHub Copilot)
 - 📋 **Task Management** — Complete system with TASKS.md + BACKLOG.md
 - 🧪 **TDD Workflow** — Test-Driven Development integrated
 - 📝 **Integrated Versioning** — Automatic STORY.md + CHANGELOG.md
@@ -102,17 +120,23 @@ LOOM is an operational framework that brings structure to AI-assisted developmen
 
 ## 🚀 Quick Start
 
-### **Method 1: Download ZIP (Easiest)** 🎁
+### **Method 1: Download ZIP (Recommended)** 🎁
 
-The fastest way to get started:
+**The fastest way to get started — takes 2 minutes:**
 
-1. **[📥 Download Latest ZIP](https://github.com/otto78/loom/releases/latest/download/loom-framework.zip)**
-2. **Extract** to your project folder
-3. **Create** `PROJECT.md` (describe your project)
-4. **Open** any IDE and say: **"read loom"**
-5. **Done!** LOOM auto-configures everything
+1. **[📥 Download `loom-framework.zip`](https://github.com/otto78/loom-framework/releases/latest/download/loom-framework.zip)** ← Click here
+2. **Extract** the ZIP into your project folder (creates `loom/` folder + files)
+3. **Create** `PROJECT.md` in your project root — describe your project in a few sentences
+4. **Open any IDE** (Windsurf, Cursor, Claude, etc.) and say: **"read loom"**
+5. **Done!** LOOM auto-configures everything and starts working
 
-See **[QUICKSTART.md](./QUICKSTART.md)** for complete instructions.
+**What you get in the ZIP:**
+- `loom/` — Framework folder with all scripts and templates
+- `setup.py` — Interactive setup wizard
+- `docs/` — Templates for TASKS.md, STORY.md, CHANGELOG.md
+- IDE configs for all 7 supported IDEs
+
+See **[QUICKSTART.md](./QUICKSTART.md)** for complete instructions and troubleshooting.
 
 ---
 
@@ -138,12 +162,12 @@ See **[QUICKSTART.md](./QUICKSTART.md)** for complete instructions.
 
 **Windows (PowerShell):**
 ```powershell
-irm https://raw.githubusercontent.com/otto78/loom/main/install.ps1 | iex
+irm https://raw.githubusercontent.com/otto78/loom-framework/main/install.ps1 | iex
 ```
 
 **Unix/Linux/macOS:**
 ```bash
-curl -fsSL https://raw.githubusercontent.com/otto78/loom/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/otto78/loom-framework/main/install.sh | bash
 ```
 
 ---
@@ -166,27 +190,44 @@ No need to remember Python script paths or command syntax!
 
 ## 🏗️ The DOE Architecture
 
+**DOE = Directives / Orchestration / Execution**
+
+The DOE Architecture solves the fundamental problem of AI agents: **probabilistic degradation**. Each decision an LLM makes has ~90% accuracy. Over 10 steps, accuracy drops to 35% ($0.9^{10}$). DOE solves this by pushing complexity into deterministic code.
+
 ```
-┌─────────────────────────────────────────┐
-│ Level 1: DIRECTIVES (What to do)       │
-│ directives/*.md — SOPs in natural      │
-│ language, objectives, inputs, outputs   │
-├─────────────────────────────────────────┤
-│ Level 2: ORCHESTRATION (How to decide) │
-│ Intelligent routing between directives │
-│ and execution scripts                   │
-├─────────────────────────────────────────┤
-│ Level 3: EXECUTION (Do the work)       │
-│ execution/*.py — Deterministic scripts │
-│ Environment variables in .env           │
-└─────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────┐
+│ Level 1: DIRECTIVES (What to do)                           │
+│ loom/directives/*.md — SOPs in natural language            │
+│ • Objectives, inputs, outputs defined in plain English      │
+│ • Agent reads once, cached for entire session               │
+│ • Example: "Send welcome email to new user"                 │
+├─────────────────────────────────────────────────────────────┤
+│ Level 2: ORCHESTRATION (How to decide)                     │
+│ Agent makes high-level decisions                            │
+│ • Chooses which directive to apply                            │
+│ • Determines parameters                                     │
+│ • Routes to appropriate execution script                    │
+│ • This is where the LLM thinks, not where it works          │
+├─────────────────────────────────────────────────────────────┤
+│ Level 3: EXECUTION (Do the work) — 100% Deterministic      │
+│ loom/execution/*.py — Python scripts that never hallucinate │
+│ • Send the actual HTTP request                                │
+│ • Write the actual file to disk                               │
+│ • Make the actual Git commit                                  │
+│ • Zero tokens, zero probability of error                      │
+└─────────────────────────────────────────────────────────────┘
 ```
 
-**Why it works**: 
-- **LLMs are probabilistic**: 90% accuracy per step = 59% over 5 steps = 35% over 10 steps
-- **Deterministic scripts**: Push complexity into Python code (100% accuracy)
-- **Token savings**: Directives cached, scripts reused, no repetitive prompts
-- **Result**: Maintain 90% accuracy over 10+ steps instead of degrading to 35%
+**Real Example: Sending an Email**
+
+| Step | Traditional AI | DOE Approach |
+|------|---------------|--------------|
+| 1 | Ask LLM "send email" → 90% accurate | Agent reads `directives/send-email.md` once |
+| 2 | LLM writes code → 90% accurate | Agent decides to call `execution/send_email.py` |
+| 3 | LLM executes code → 90% accurate | **Script executes deterministically** — 100% |
+| **Result** | 72% success (0.9³) | 90% success (LLM only makes 1 decision) |
+
+**Why it works**: Every line of code an LLM might write is replaced by pre-tested Python. The agent makes decisions; scripts do the work. Token usage drops 80%, accuracy stays high across long workflows.
 
 ---
 
@@ -196,17 +237,13 @@ No need to remember Python script paths or command syntax!
 loom-framework/
 ├── README.md                          # This guide
 ├── docs/
-│   ├── setup-guide.md                 # Complete setup guide
-│   ├── workflow-guide.md              # Task workflow guide
-│   ├── framework-guide.md             # DOE Architecture
-│   └── templates/                     # Documentation templates
-│       ├── TASKS.md                   # Task tracking
-│       ├── BACKLOG.md                 # Future ideas
-│       ├── STORY.md                   # Operational history
-│       ├── CHANGELOG.md               # Detailed changelog
-│       └── HANDOFF.md                 # Handoff protocol
+│   ├── index.html                     # Homepage
+│   ├── docs.html                      # Full documentation site
+│   ├── PROJECT-MD-GUIDE.md            # PROJECT.md guide
+│   ├── doe-architecture.md            # DOE Architecture guide
+│   └── workflow-guide.md              # Task workflow guide
 │
-├── antigravity/
+├── loom/
 │   ├── scripts/                       # Automation scripts
 │   │   ├── task.py                    # Task workflow manager ⭐
 │   │   ├── task-tdd.py                # TDD workflow ⭐
@@ -217,17 +254,16 @@ loom-framework/
 │   │
 │   ├── templates/                     # Core templates
 │   │   ├── AGENT.md.template          # Project source of truth
-│   │   ├── 3-level-framework.md       # Architecture details
+│   │   ├── doe-architecture.md        # DOE Architecture details
 │   │   └── coding-standards.md        # Code standards
 │   │
 │   ├── ide-configs/                   # IDE configurations
-│   │   ├── windsurf/                  # .windsurfrules
 │   │   ├── claude/                    # CLAUDE.md
-│   │   ├── cursor/                    # .cursorrules
-│   │   ├── loom/               # LOOM template
-│   │   ├── vscode/                    # .clinerules
-│   │   ├── VS Code Insider/                   # VS Code Insider-instructions.md
-│   │   └── intellij/                  # LOOM.md
+│   │   ├── cursor/                    # .cursorrules + .cursor/rules/loom.mdc
+│   │   ├── antigravity/              # GEMINI.md + AGENTS.md
+│   │   ├── windsurf/                  # .windsurfrules + .windsurf/rules/loom.md
+│   │   ├── vscode/                    # .github/copilot-instructions.md
+│   │   └── intellij/                  # .aiassistant/rules/loom.md
 │   │
 │   ├── directives/                    # SOPs (Standard Operating Procedures)
 │   │   ├── README.md                  # How to write directives
@@ -250,32 +286,32 @@ loom-framework/
 
 ```bash
 # Initialize system (first time)
-python antigravity/scripts/task.py init
+python loom/scripts/task.py init
 
 # Start new task
-python antigravity/scripts/task.py start TASK-001 "Implement feature X"
+python loom/scripts/task.py start TASK-001 "Implement feature X"
 
 # List active tasks
-python antigravity/scripts/task.py list
+python loom/scripts/task.py list
 
 # Complete task
-python antigravity/scripts/task.py complete TASK-001 "Feature X implemented" --bump minor
+python loom/scripts/task.py complete TASK-001 "Feature X implemented" --bump minor
 ```
 
 ### TDD Workflow
 
 ```bash
 # Start TDD task (create tests first)
-python antigravity/scripts/task-tdd.py start TASK-001 "Add email validation"
+python loom/scripts/task-tdd.py start TASK-001 "Add email validation"
 
 # Write tests (should fail - Red phase)
 # Implement feature (tests pass - Green phase)
 
 # Run tests
-python antigravity/scripts/task-tdd.py test
+python loom/scripts/task-tdd.py test
 
 # Complete task (only if tests pass)
-python antigravity/scripts/task-tdd.py complete TASK-001
+python loom/scripts/task-tdd.py complete TASK-001
 ```
 
 ---
@@ -284,24 +320,27 @@ python antigravity/scripts/task-tdd.py complete TASK-001
 
 | IDE/Tool | Config File | Location |
 |----------|-------------|----------|
-| 🌊 Windsurf | `.windsurfrules` | Root |
-| 🤖 Claude Code | `CLAUDE.md` | Root |
-| ↗️ Cursor | `.cursorrules` | Root |
-| ✨ LOOM | `LOOM.md` | Root |
-| 💻 VS Code (Cline) | `.clinerules` | Root |
-| 💡 IntelliJ IDEA | `LOOM.md` | `.idea/` |
-| 🐙 VS Code Insider | `VS Code Insider-instructions.md` | `.github/` |
+| Claude Code | `CLAUDE.md` | Root |
+| Cursor | `.cursor/rules/loom.mdc` | Root |
+| Cursor (legacy) | `.cursorrules` | Root (fallback) |
+| Antigravity | `GEMINI.md` | Root |
+| Windsurf | `.windsurf/rules/loom.md` | Root |
+| Windsurf (legacy) | `.windsurfrules` | Root (fallback) |
+| VS Code / VS Code Insider | `copilot-instructions.md` | `.github/` |
+| IntelliJ IDEA | `loom.md` | `.aiassistant/rules/` |
+| Cross-tool (AGENTS.md) | `AGENTS.md` | Root |
 
 ---
 
 ## 📚 Documentation
 
 - **[QUICKSTART.md](./QUICKSTART.md)** — 5-minute quick start
-- **[NATURAL-LANGUAGE-GUIDE.md](./NATURAL-LANGUAGE-GUIDE.md)** — Use framework by talking
-- **[TDD-WORKFLOW.md](./TDD-WORKFLOW.md)** — Test-Driven Development guide
-- **[MONOREPO-GUIDE.md](./MONOREPO-GUIDE.md)** — Using LOOM in monorepos
-- **[SETUP-INSTRUCTIONS.md](./SETUP-INSTRUCTIONS.md)** — For AI agents
-- **[docs/framework-guide.md](./docs/framework-guide.md)** — 3-level architecture
+- **[guides/NATURAL-LANGUAGE-GUIDE.md](./guides/NATURAL-LANGUAGE-GUIDE.md)** — Use framework by talking
+- **[guides/ABSTRACT.md](./guides/ABSTRACT.md)** — Core concepts (bilingual)
+- **[guides/TDD-WORKFLOW.md](./guides/TDD-WORKFLOW.md)** — Test-Driven Development guide
+- **[guides/MONOREPO-GUIDE.md](./guides/MONOREPO-GUIDE.md)** — Using LOOM in monorepos
+- **[guides/SETUP-INSTRUCTIONS.md](./guides/SETUP-INSTRUCTIONS.md)** — For AI agents
+- **[docs/doe-architecture.md](./docs/doe-architecture.md)** — DOE Architecture guide
 - **[docs/workflow-guide.md](./docs/workflow-guide.md)** — Complete workflow guide
 
 ---
@@ -330,7 +369,7 @@ python antigravity/scripts/task-tdd.py complete TASK-001
 Cursor rules are a single config file for one IDE. LOOM is a full workflow system: task tracking, versioning, TDD, handoffs, and configs for 7 IDEs — all kept in sync.
 
 ### vs. aider
-aider is a CLI coding assistant. LOOM is not a coding tool — it's the **operational layer** that sits on top of any AI agent (including aider). You can use aider inside a Antigravity-managed project.
+aider is a CLI coding assistant. LOOM is not a coding tool — it's the **operational layer** that sits on top of any AI agent (including aider). You can use aider inside a loom-managed project.
 
 ### vs. VS Code Insider Instructions / `CLAUDE.md` alone
 Dropping a single instruction file in your repo gives the agent context, but no structure. LOOM adds task lifecycle management, TDD workflow, automated versioning, and agent-to-agent handoff protocol on top.
@@ -345,13 +384,7 @@ LLMs are probabilistic. Without structure, accuracy degrades with every chained 
 
 ## 🤝 Contributing
 
-LOOM is a living system. Improve it continuously:
-- Add new IDEs when you use them
-- Refine standards when you discover better patterns
-- Extend the framework when you need more structure
-- Share improvements with the community
-
-**Guiding principle**: Every project using LOOM should improve it for future projects.
+See **[guides/CONTRIBUTING.md](./guides/CONTRIBUTING.md)** for guidelines.
 
 ---
 
@@ -363,9 +396,9 @@ MIT — Use, modify, share freely.
 
 ## 🔗 Links
 
-- **Website**: [otto78.github.io/loom](https://otto78.github.io/loom)
+- **Website**: [otto78.github.io/loom-framework](https://otto78.github.io/loom-framework)
 - **Documentation**: [otto78.github.io/loom-framework/docs.html](https://otto78.github.io/loom-framework/docs.html)
-- **GitHub**: [github.com/otto78/loom](https://github.com/otto78/loom)
+- **GitHub**: [github.com/otto78/loom-framework](https://github.com/otto78/loom-framework)
 - **Issues**: [github.com/otto78/loom-framework/issues](https://github.com/otto78/loom-framework/issues)
 
 ---
@@ -378,7 +411,7 @@ MIT — Use, modify, share freely.
 
 ## 🇮🇹 Italiano — Versione Italiana
 
-> Framework operativo completo per lo sviluppo AI su più IDE. Antigravity fornisce struttura, automazione e best practice per chi lavora con agenti AI.
+> Framework operativo completo per lo sviluppo AI su più IDE. loom fornisce struttura, automazione e best practice per chi lavora con agenti AI.
 
 ### ❌ Il Problema
 
@@ -392,7 +425,7 @@ Lo sviluppo assistito da AI è frenato da:
 
 ### ✅ La Soluzione: Memoria Persistente su File
 
-Antigravity fornisce una memoria strutturata basata su file che rimane con il tuo progetto:
+loom fornisce una memoria strutturata basata su file che rimane con il tuo progetto:
 
 - 🧠 **Memoria Persistente** — TASKS.md, STORY.md sopravvivono ai reset di contesto
 - 🔄 **Supporto Multi-Agente** — Stesso stato tra 7 IDE
@@ -407,36 +440,59 @@ Antigravity fornisce una memoria strutturata basata su file che rimane con il tu
 ```
 1. Crea cartella progetto
 2. Crea PROJECT.md con descrizione progetto
-3. Aggiungi cartella antigravity/ al progetto
+3. Aggiungi cartella loom/ al progetto
 4. Apri qualsiasi IDE e di': "leggi loom"
 ```
 
 **Per progetti esistenti (2 step):**
 
 ```
-1. Aggiungi cartella antigravity/ al progetto
+1. Aggiungi cartella loom/ al progetto
 2. Apri qualsiasi IDE e di': "leggi loom"
 ```
 
-Per dettagli: **[QUICKSTART.md](./QUICKSTART.md)**
+Per dettagli: **[QUICKSTART.md](./QUICKSTART.md)** o **[guides/ABSTRACT.md](./guides/ABSTRACT.md)** per i concetti
 
-### 🏗️ Il Architettura DOE
+### 🏗️ L'Architettura DOE
+
+**DOE = Direttive / Orchestrazione / Esecuzione**
+
+L'architettura DOE che risolve il problema fondamentale degli agenti AI: **il degrado probabilistico**. Ogni decisione di un LLM ha ~90% di accuratezza. Su 10 step, l'accuratezza scende al 35% ($0.9^{10}$). DOE risolve spingendo la complessità nel codice deterministico.
 
 ```
-┌─────────────────────────────────────────┐
-│ Livello 1: DIRETTIVE (Cosa fare)        │
-│ antigravity/directives/*.md — SOP in           │
-│ linguaggio naturale                      │
-├─────────────────────────────────────────┤
-│ Livello 2: ORCHESTRAZIONE (Come)        │
-│ Routing intelligente tra direttive      │
-│ e script di esecuzione                  │
-├─────────────────────────────────────────┤
-│ Livello 3: ESECUZIONE (Fare il lavoro)  │
-│ antigravity/execution/*.py — Script            │
-│ deterministici (100% accuratezza)       │
-└─────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────┐
+│ Livello 1: DIRETTIVE (Cosa fare)                           │
+│ loom/directives/*.md — SOP in linguaggio naturale           │
+│ • Obiettivi, input, output definiti in italiano/inglese    │
+│ • Agente legge una volta, cached per tutta la sessione    │
+│ • Esempio: "Invia email di benvenuto al nuovo utente"     │
+├─────────────────────────────────────────────────────────────┤
+│ Livello 2: ORCHESTRAZIONE (Come decidere)                  │
+│ Agente prende decisioni ad alto livello                     │
+│ • Sceglie quale direttiva applicare                        │
+│ • Determina i parametri                                     │
+│ • Indirizza allo script di esecuzione appropriato          │
+│ • Qui l'LLM pensa, non qui lavora                           │
+├─────────────────────────────────────────────────────────────┤
+│ Livello 3: ESECUZIONE (Fare il lavoro) — 100% Deterministico │
+│ loom/execution/*.py — Script Python che non allucinano      │
+│ • Invia la richiesta HTTP reale                             │
+│ • Scrive il file effettivo su disco                         │
+│ • Fa il commit Git effettivo                                │
+│ • Zero token, zero probabilità di errore                  │
+└─────────────────────────────────────────────────────────────┘
 ```
+
+**Esempio Reale: Inviare una Email**
+
+| Step | AI Tradizionale | Approccio DOE |
+|------|-----------------|---------------|
+| 1 | Chiedi LLM "invia email" → 90% accurato | Agente legge `directives/send-email.md` una volta |
+| 2 | LLM scrive codice → 90% accurato | Agente decide di chiamare `execution/send_email.py` |
+| 3 | LLM esegue codice → 90% accurato | **Script esegue deterministicamente** — 100% |
+| **Risultato** | 72% successo (0.9³) | 90% successo (LLM fa solo 1 decisione) |
+
+**Perché funziona**: Ogni riga di codice che un LLM potrebbe scrivere è sostituita da Python pre-testato. L'agente prende decisioni; gli script fanno il lavoro. Uso dei token cala dell'80%, l'accuratezza resta alta su workflow lunghi.
 
 ### 💬 Comandi in Linguaggio Naturale
 
@@ -454,21 +510,24 @@ Dopo il setup, parla con il tuo agente AI:
 
 | IDE/Tool | File di Config | Posizione |
 |----------|---------------|----------|
-| 🌊 Windsurf | `.windsurfrules` | Root |
-| 🤖 Claude Code | `CLAUDE.md` | Root |
-| ↗️ Cursor | `.cursorrules` | Root |
-| ✨ LOOM | `LOOM.md` | Root |
-| 💻 VS Code (Cline) | `.clinerules` | Root |
-| 💡 IntelliJ IDEA | `LOOM.md` | `.idea/` |
-| 🐙 VS Code Insider | `VS Code Insider-instructions.md` | `.github/` |
+| Claude Code | `CLAUDE.md` | Root |
+| Cursor | `.cursor/rules/loom.mdc` | Root |
+| Cursor (legacy) | `.cursorrules` | Root (fallback) |
+| Antigravity | `GEMINI.md` | Root |
+| Windsurf | `.windsurf/rules/loom.md` | Root |
+| Windsurf (legacy) | `.windsurfrules` | Root (fallback) |
+| VS Code / VS Code Insider | `copilot-instructions.md` | `.github/` |
+| IntelliJ IDEA | `loom.md` | `.aiassistant/rules/` |
+| Cross-tool (AGENTS.md) | `AGENTS.md` | Root |
 
 ### 📚 Documentazione (Italiano)
 
 - **[QUICKSTART.md](./QUICKSTART.md)** — Avvio rapido bilingue
-- **[NATURAL-LANGUAGE-GUIDE.md](./NATURAL-LANGUAGE-GUIDE.md)** — Guida comandi bilingue
-- **[ABSTRACT.md](./ABSTRACT.md)** — Concetti fondamentali (bilingue)
-- **[TDD-WORKFLOW.md](./TDD-WORKFLOW.md)** — Workflow TDD
-- **[SETUP-INSTRUCTIONS.md](./SETUP-INSTRUCTIONS.md)** — Per agenti AI (bilingue)
+- **[guides/NATURAL-LANGUAGE-GUIDE.md](./guides/NATURAL-LANGUAGE-GUIDE.md)** — Guida comandi bilingue
+- **[guides/ABSTRACT.md](./guides/ABSTRACT.md)** — Concetti fondamentali (bilingue)
+- **[guides/TDD-WORKFLOW.md](./guides/TDD-WORKFLOW.md)** — Workflow TDD
+- **[guides/MONOREPO-GUIDE.md](./guides/MONOREPO-GUIDE.md)** — Gestione monorepo
+- **[guides/SETUP-INSTRUCTIONS.md](./guides/SETUP-INSTRUCTIONS.md)** — Per agenti AI (bilingue)
 
 ---
 

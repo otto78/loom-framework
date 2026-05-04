@@ -113,13 +113,13 @@ fi
 
 # IDE configurations
 declare -A IDE_CONFIGS=(
-    ["windsurf"]=".windsurfrules|antigravity/ide-configs/windsurf/windsurfrules.template"
-    ["claude"]="CLAUDE.md|antigravity/ide-configs/claude/CLAUDE.md.template"
-    ["cursor"]=".cursorrules|antigravity/ide-configs/cursor/cursorrules.template"
-    ["antigravity"]="ANTIGRAVITY.md|antigravity/ide-configs/antigravity/ANTIGRAVITY.md.template"
-    ["vscode"]=".clinerules|antigravity/ide-configs/vscode/clinerules.template"
-    ["vscode-insider"]=".github/vscode-insider-instructions.md|antigravity/ide-configs/vscode-insider/vscode-insider-instructions.md.template"
-    ["intellij"]=".idea/antigravity.md|antigravity/ide-configs/intellij/antigravity.md.template"
+    ["windsurf"]=".windsurfrules|loom/ide-configs/windsurf/windsurfrules.template"
+    ["claude"]="CLAUDE.md|loom/ide-configs/claude/CLAUDE.md.template"
+    ["cursor"]=".cursorrules|loom/ide-configs/cursor/cursorrules.template"
+    ["antigravity"]="GEMINI.md|loom/ide-configs/antigravity/GEMINI.md.template"
+    ["agents"]="AGENTS.md|loom/ide-configs/antigravity/AGENTS.md.template"
+    ["vscode"]=".github/copilot-instructions.md|loom/ide-configs/vscode/copilot-instructions.md.template"
+    ["intellij"]=".aiassistant/rules/loom.md|loom/ide-configs/intellij/LOOM.md.template"
 )
 
 # Sync configurations

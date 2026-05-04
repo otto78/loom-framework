@@ -1,4 +1,4 @@
-﻿# LOOM — Abstract
+# LOOM — Abstract
 
 > **The operational framework that makes AI agents reliable, persistent, and token-efficient**
 
@@ -44,7 +44,7 @@ sequenceDiagram
     A->>U: "I'm ready. TASK-001 active."
 ```
 
-LOOM solves these problems through **persistent file-based memory** and a **deterministic 3-level architecture**:
+LOOM solves these problems through **persistent file-based memory** and the **DOE Architecture (Directives / Orchestration / Execution)**:
 
 #### 1. Persistent Memory (Beats Context Limits)
 - **TASKS.md** — Active work tracking that survives context resets
@@ -60,7 +60,7 @@ These files create a **shared memory layer** that:
 
 #### 2. Multi-IDE & Multi-Agent Support
 - **7 IDE configs** kept in sync automatically
-- Same workflow in Cursor, Windsurf, Claude Code, VS Code, IntelliJ, Antigravity (IDE), VS Code Insider
+- Same workflow in Cursor, Windsurf, Claude Code, VS Code, IntelliJ, loom (IDE), VS Code Insider
 - Agents read the same files regardless of IDE
 - Switch tools without losing context
 
@@ -146,7 +146,7 @@ sequenceDiagram
     A->>U: "Sono pronto. TASK-001 attivo."
 ```
 
-LOOM risolve questi problemi attraverso **memoria persistente basata su file** e un'**architettura deterministica a 3 livelli**:
+LOOM risolve questi problemi attraverso **memoria persistente basata su file** e l'**architettura DOE (Direttive / Orchestrazione / Esecuzione)**:
 
 #### 1. Memoria Persistente (Supera i Limiti di Contesto)
 - **TASKS.md** — Tracciamento lavoro che sopravvive ai reset
@@ -162,7 +162,7 @@ Questi file creano un **layer di memoria condivisa** che:
 
 #### 2. Supporto Multi-IDE & Multi-Agente
 - **7 config IDE** mantenute sincronizzate automaticamente
-- Stesso workflow in Cursor, Windsurf, Claude Code, VS Code, IntelliJ, Antigravity (IDE), VS Code Insider
+- Stesso workflow in Cursor, Windsurf, Claude Code, VS Code, IntelliJ, loom (IDE), VS Code Insider
 - Gli agenti leggono gli stessi file indipendentemente dall'IDE
 - Cambia strumenti senza perdere contesto
 

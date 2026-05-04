@@ -1,11 +1,11 @@
-﻿# 🚀 Come Pubblicare Antigravity su GitHub
+# 🚀 Come Pubblicare loom su GitHub
 
 ## 📋 Passi da Seguire
 
 ### 1. Crea Repository su GitHub
 
 1. Vai su [github.com/new](https://github.com/new)
-2. Nome repository: `antigravity`
+2. Nome repository: `loom`
 3. Descrizione: `Weave intelligent agents into your development workflow`
 4. Visibilità: **Public**
 5. **NON** inizializzare con README, .gitignore o license (già presenti)
@@ -14,10 +14,10 @@
 ### 2. Collega Repository Locale
 
 ```bash
-cd c:/Users/andrea.mazzarotto/myJobs/antigravity
+cd c:/Users/andrea.mazzarotto/myJobs/loom
 
 # Aggiungi remote
-git remote add origin https://github.com/TUO_USERNAME/antigravity.git
+git remote add origin https://github.com/TUO_USERNAME/loom.git
 
 # Verifica
 git remote -v
@@ -49,7 +49,7 @@ Settings → General → Topics:
 #### About Section
 Settings → General → About:
 - Description: `Weave intelligent agents into your development workflow`
-- Website: `https://TUO_USERNAME.github.io/antigravity`
+- Website: `https://TUO_USERNAME.github.io/loom`
 - Topics: (aggiunti sopra)
 
 #### Features
@@ -63,12 +63,12 @@ Settings → General → Features:
 
 1. Vai su **Releases** → **Create a new release**
 2. Tag: `v1.0.0`
-3. Title: `Antigravity v1.0.0 — Initial Release`
+3. Title: `loom v1.0.0 — Initial Release`
 4. Description:
 ```markdown
-# 🎉 Antigravity v1.0.0
+# 🎉 loom v1.0.0
 
-First public release of Antigravity!
+First public release of loom!
 
 ## 🌟 Features
 
@@ -84,23 +84,23 @@ First public release of Antigravity!
 ## 🚀 Quick Start
 
 ```bash
-git clone https://github.com/TUO_USERNAME/antigravity.git
-cd antigravity
-python antigravity/scripts/setup.py
+git clone https://github.com/TUO_USERNAME/loom.git
+cd loom
+python loom/scripts/setup.py
 ```
 
-Or just tell your AI agent: "setup Antigravity"
+Or just tell your AI agent: "setup loom"
 
 ## 📚 Documentation
 
-- [README](https://github.com/TUO_USERNAME/antigravity#readme)
-- [Quick Start](https://github.com/TUO_USERNAME/antigravity/blob/main/QUICKSTART.md)
-- [Natural Language Guide](https://github.com/TUO_USERNAME/antigravity/blob/main/NATURAL-LANGUAGE-GUIDE.md)
-- [Website](https://TUO_USERNAME.github.io/antigravity)
+- [README](https://github.com/TUO_USERNAME/loom#readme)
+- [Quick Start](https://github.com/TUO_USERNAME/loom/blob/main/QUICKSTART.md)
+- [Natural Language Guide](https://github.com/TUO_USERNAME/loom/blob/main/NATURAL-LANGUAGE-GUIDE.md)
+- [Website](https://TUO_USERNAME.github.io/loom)
 
 ## 🤝 Contributing
 
-See [CONTRIBUTING.md](https://github.com/TUO_USERNAME/antigravity/blob/main/CONTRIBUTING.md)
+See [CONTRIBUTING.md](https://github.com/TUO_USERNAME/loom/blob/main/CONTRIBUTING.md)
 
 ---
 
@@ -142,19 +142,19 @@ git push
 
 Dopo il push, vai su:
 - **Actions** → Verifica che il workflow "Deploy to GitHub Pages" sia completato
-- Visita: `https://TUO_USERNAME.github.io/antigravity`
+- Visita: `https://TUO_USERNAME.github.io/loom`
 
 ### 8. Aggiungi Social Preview
 
 1. Crea un'immagine 1280x640px con:
    - Logo 🧵
-   - Titolo "Antigravity"
+   - Titolo "loom"
    - Tagline "Weave intelligent agents into your workflow"
 2. Settings → General → Social preview → Upload image
 
 ### 9. Opzionale: Custom Domain
 
-Se hai un dominio `antigravity.dev`:
+Se hai un dominio `loom.dev`:
 
 1. Configura DNS:
    ```
@@ -163,7 +163,7 @@ Se hai un dominio `antigravity.dev`:
    Value: TUO_USERNAME.github.io
    ```
 
-2. Settings → Pages → Custom domain: `antigravity.dev`
+2. Settings → Pages → Custom domain: `loom.dev`
 
 3. ✅ Enforce HTTPS
 
@@ -195,8 +195,8 @@ Se hai un dominio `antigravity.dev`:
 ## 🎉 Fatto!
 
 Il tuo framework è ora pubblico e accessibile a:
-- **Repository**: `https://github.com/TUO_USERNAME/antigravity`
-- **Website**: `https://TUO_USERNAME.github.io/antigravity`
-- **Releases**: `https://github.com/TUO_USERNAME/antigravity/releases`
+- **Repository**: `https://github.com/TUO_USERNAME/loom`
+- **Website**: `https://TUO_USERNAME.github.io/loom`
+- **Releases**: `https://github.com/TUO_USERNAME/loom/releases`
 
 Buona condivisione! 🧵

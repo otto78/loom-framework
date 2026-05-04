@@ -1,4 +1,4 @@
-﻿import os
+import os
 import unittest
 from pathlib import Path
 import shutil
@@ -7,13 +7,13 @@ import sys
 # Add project root to sys.path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from Antigravity.scripts.setup import ProjectDetector, FrameworkSetup
+from loom.scripts.setup import ProjectDetector, FrameworkSetup
 
 class TestSetupAutoDiscovery(unittest.TestCase):
     def setUp(self):
         self.test_dir = Path("tests/temp_project")
         self.test_dir.mkdir(parents=True, exist_ok=True)
-        self.Antigravity_dir = Path(__file__).parent.parent / "Antigravity"
+        self.loom_dir = Path(__file__).parent.parent / "loom"
         
     def tearDown(self):
         if self.test_dir.exists():
@@ -42,7 +42,7 @@ class TestSetupAutoDiscovery(unittest.TestCase):
         project_content = "# My Awesome Project\n\nStack: Python, React"
         project_file.write_text(project_content, encoding="utf-8")
         
-        setup = FrameworkSetup(self.test_dir, Path(__file__).parent.parent / "Antigravity")
+        setup = FrameworkSetup(self.test_dir, Path(__file__).parent.parent / "loom")
         # Simulate the new behavior
         setup.create_agent_md_from_meta(project_file)
         

@@ -51,7 +51,7 @@
 
 ---
 
-## 🚀 Workflow con Antigravity
+## 🚀 Workflow con loom
 
 ### Comando Principale
 
@@ -570,6 +570,6 @@ Prima di completare un task TDD:
 ---
 
 **Versione:** 1.0.0  
-**Framework:** Antigravity v1.0  
+**Framework:** loom v1.0  
 **Metodologia:** Test-Driven Development
 

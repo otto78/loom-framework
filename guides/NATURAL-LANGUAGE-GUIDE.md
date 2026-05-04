@@ -18,7 +18,7 @@ Just say:
 ```
 "read loom"
 ```
-Antigravity self-configures by reading its files and your `PROJECT.md`. The agent understands and executes everything automatically.
+loom self-configures by reading its files and your `PROJECT.md`. The agent understands and executes everything automatically.
 
 ---
 
@@ -32,7 +32,7 @@ Basta dire:
 ```
 "leggi loom"
 ```
-Antigravity si auto-configura leggendo i suoi file e il tuo `PROJECT.md`. L'agente capisce ed esegue tutto automaticamente.
+loom si auto-configura leggendo i suoi file e il tuo `PROJECT.md`. L'agente capisce ed esegue tutto automaticamente.
 
 ---
 
@@ -429,7 +429,7 @@ Agent: "🎉 TASK-001 completed with TDD! All tests passing ✅"
 ```
 Tu:    "leggi loom"
 Agente:"Rilevato: Progetto MyApp, Python, FastAPI.
-        Configuro Antigravity? (s/n)"
+        Configuro loom? (s/n)"
 Tu:    "sì"
 Agente:"✅ LOOM configurato! Creati AGENT.md, .cursorrules, docs/TASKS.md."
 
@@ -519,7 +519,7 @@ Tu:    "sì"
 
 ### EN — Before vs After
 
-**Before Antigravity (Manual)**:
+**Before loom (Manual)**:
 ```bash
 cd /path/to/project
 python loom/scripts/setup.py
@@ -528,7 +528,7 @@ python loom/scripts/task.py list
 python loom/scripts/task.py complete TASK-001 "done" --bump patch
 ```
 
-**After Antigravity (Natural)**:
+**After loom (Natural)**:
 ```
 "setup framework"
 "start task TASK-001 'description'"
@@ -538,7 +538,7 @@ python loom/scripts/task.py complete TASK-001 "done" --bump patch
 
 ### IT — Prima vs Dopo
 
-**Prima di Antigravity (Manuale)**:
+**Prima di loom (Manuale)**:
 ```bash
 cd /path/to/project
 python loom/scripts/setup.py
@@ -547,7 +547,7 @@ python loom/scripts/task.py list
 python loom/scripts/task.py complete TASK-001 "fatto" --bump patch
 ```
 
-**Dopo Antigravity (Naturale)**:
+**Dopo loom (Naturale)**:
 ```
 "configura il framework"
 "avvia task TASK-001 'descrizione'"
@@ -567,6 +567,6 @@ python loom/scripts/task.py complete TASK-001 "fatto" --bump patch
 ---
 
 **Version / Versione**: 1.0.0  
-**Framework**: Antigravity v1.0  
+**Framework**: loom v1.0  
 **Support / Supporto**: All IDEs with AI agents / Tutti gli IDE con agenti AI
 

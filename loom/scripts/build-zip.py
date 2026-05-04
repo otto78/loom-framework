@@ -76,23 +76,28 @@ EXCLUDE_PATTERNS = {
     # Environment files
     ".env",
     ".env.local",
+    
+    # Non-essential documentation for end users
+    "CONTRIBUTING.md",
+    "PUBLISH.md",
+    "ABSTRACT.md",
+    "guides",
+    
+    # Internal development files
+    "internal",
 }
 
 # Files and directories to INCLUDE (override exclusions if needed)
+# All files will be placed INSIDE the loom/ folder in the ZIP
 INCLUDE_PATTERNS = {
-    "docs/*.md",  # Key documentation
-    "loom/**/*",  # Entire framework
-    "README.md",
-    "ABSTRACT.md",
-    "QUICKSTART.md",
-    "NATURAL-LANGUAGE-GUIDE.md",
-    "TDD-WORKFLOW.md",
-    "MONOREPO-GUIDE.md",
-    "SETUP-INSTRUCTIONS.md",
-    "CONTRIBUTING.md",
-    "LICENSE",
-    "pyproject.toml",
-    "setup.py",
+    "loom/**/*",  # Entire framework (essential)
+    "README.md",  # Main documentation -> goes to loom/README.md
+    "QUICKSTART.md",  # Quick start guide -> goes to loom/QUICKSTART.md
+    "LICENSE",  # License file -> goes to loom/LICENSE
+    "pyproject.toml",  # Package metadata -> goes to loom/pyproject.toml
+    "setup.py",  # Setup script -> goes to loom/setup.py
+    "install.sh",  # Unix installer -> goes to loom/install.sh
+    "install.ps1",  # Windows installer -> goes to loom/install.ps1
 }
 
 
@@ -176,9 +181,20 @@ def build_zip(output_path: str = None, version: str = None) -> str:
             
             # Add file to ZIP with archive name (relative path)
             archive_name = rel_path.replace("\\", "/")
+            
+            # If it's a root-level meta file (not in loom/), put it inside loom/
+            root_meta_files = [
+                "README.md", "QUICKSTART.md", "LICENSE", 
+                "pyproject.toml", "setup.py", "install.sh", "install.ps1"
+            ]
+            if archive_name in root_meta_files:
+                archive_name = f"loom/{archive_name}"
+                print(f"  ✓ {archive_name} (from root)")
+            else:
+                print(f"  ✓ {archive_name}")
+            
             zf.write(file_path, arcname=archive_name)
             files_added += 1
-            print(f"  ✓ {archive_name}")
     
     file_size_mb = output_path.stat().st_size / (1024 * 1024)
     
@@ -189,9 +205,19 @@ def build_zip(output_path: str = None, version: str = None) -> str:
     print(f"\n📦 ZIP file: {output_path.absolute()}")
     print(f"\n🎯 Users should:")
     print(f"   1. Download this ZIP")
-    print(f"   2. Extract to their project folder")
-    print(f"   3. Create PROJECT.md with their project details")
-    print(f"   4. Tell their agent: 'read loom'")
+    print(f"   2. Extract to get the loom/ folder")
+    print(f"   3. Copy loom/ folder to their project")
+    print(f"   4. Create PROJECT.md with their project details")
+    print(f"   5. Tell their agent: 'read loom'")
+    print(f"\n📁 ZIP Structure:")
+    print(f"   loom/")
+    print(f"   ├── README.md")
+    print(f"   ├── QUICKSTART.md")
+    print(f"   ├── LICENSE")
+    print(f"   ├── install.sh / install.ps1")
+    print(f"   ├── scripts/")
+    print(f"   ├── templates/")
+    print(f"   └── ...")
     
     return str(output_path)
 
