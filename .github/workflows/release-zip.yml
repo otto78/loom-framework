@@ -41,6 +41,7 @@ jobs:
       - name: Build LOOM ZIP
         run: |
           python loom/scripts/build-zip.py --version ${{ steps.version.outputs.version }}
+          cp loom-framework-${{ steps.version.outputs.version }}.zip loom-framework.zip
       
       - name: Create generic loom-framework.zip
         run: |
