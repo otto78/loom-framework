@@ -31,6 +31,7 @@ jobs:
       - name: Build LOOM ZIP
         run: |
           python loom/scripts/build-zip.py --version ${{ steps.version.outputs.version }}
+          cp loom-framework-${{ steps.version.outputs.version }}.zip loom-framework.zip
       
       - name: Verify ZIP contents
         run: |
@@ -88,6 +89,7 @@ jobs:
           prerelease: false
           files: |
             loom-framework-${{ steps.version.outputs.version }}.zip
+            loom-framework.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
