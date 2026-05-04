@@ -110,7 +110,7 @@ def init_task_system(dry_run: bool = False):
         print(f"✅ Creata directory: {DOCS_DIR}")
     
     # Crea file da template se non esistono
-    templates_dir = Path(__file__).parent.parent / "docs" / "templates"
+    templates_dir = Path(__file__).parent.parent / "templates" / "docs"
     
     files_to_create = [
         (TASKS_FILE, templates_dir / "TASKS.md"),
