@@ -216,6 +216,32 @@ Se una direttiva o configurazione è usata sia da file locali (`directives/*.md`
 
 ---
 
+## Bootstrap — First Run / Prima Esecuzione
+
+**When you read this file for the first time, check if the `docs/` folder exists and contains all required files. If any are missing, create them immediately using the templates below.**
+
+**Quando leggi questo file per la prima volta, verifica che la cartella `docs/` esista e contenga tutti i file richiesti. Se mancano, creali subito usando i template qui sotto.**
+
+### Required files in `docs/` / File richiesti in `docs/`
+
+| File | Purpose |
+|------|---------|
+| `docs/TASKS.md` | Task tracking — active and completed tasks |
+| `docs/BACKLOG.md` | Future ideas and experiments |
+| `docs/STORY.md` | Project history, versions, key decisions |
+| `docs/CHANGELOG.md` | Version changelog |
+| `docs/HANDOFF.md` | Agent handoff notes |
+
+If `docs/` or any of these files is missing, run:
+
+```bash
+python loom/scripts/setup.py --auto
+```
+
+Or create them manually from the templates in `loom/templates/docs/`.
+
+---
+
 ## Current Status / Stato Attuale
 
 Read `docs/TASKS.md` for active tasks. / Leggi `docs/TASKS.md` per task attivi.  
