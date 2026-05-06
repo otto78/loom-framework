@@ -127,6 +127,74 @@ Pronto! Prova: "avvia task TASK-001 'descrizione'"
 | `"complete task TASK-XXX"` | `python loom/scripts/task.py complete TASK-XXX "done"` |
 | `"completa task TASK-XXX"` | `python loom/scripts/task.py complete TASK-XXX "fatto"` |
 | `"sync configs"` / `"sincronizza configurazioni"` | `bash loom/scripts/sync-configs.sh` |
+| `"loom version"` / `"versione loom"` | `python loom/scripts/update.py --status` |
+| `"check for loom updates"` / `"ci sono aggiornamenti?"` | `python loom/scripts/update.py --check` |
+| `"update loom"` / `"aggiorna loom"` | `python loom/scripts/update.py --apply` |
+| `"rollback loom"` / `"ripristina loom"` | `python loom/scripts/update.py --rollback` |
+
+---
+
+## 🔄 EN — Updating loom
+
+### If `update.py` is already present (v1.0.16+)
+
+```bash
+python loom/scripts/update.py --check    # check if updates are available
+python loom/scripts/update.py --apply    # download and apply the update
+python loom/scripts/update.py --rollback # restore previous version if needed
+```
+
+After `--apply`, run `python loom/scripts/setup.py` to configure any new IDE/Agent support.
+
+### If `update.py` is NOT present (older version — bootstrap)
+
+Download `update.py` first, then use it to update everything:
+
+**Windows (PowerShell):**
+```powershell
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/otto78/loom-framework/main/loom/scripts/update.py" -OutFile "loom/scripts/update.py"
+python loom/scripts/update.py --apply
+```
+
+**Linux / macOS:**
+```bash
+curl -fsSL https://raw.githubusercontent.com/otto78/loom-framework/main/loom/scripts/update.py -o loom/scripts/update.py
+python loom/scripts/update.py --apply
+```
+
+> 🔒 **Safe to run at any time** — your project files (AGENT.md, IDE configs, TASKS.md, STORY.md, etc.) are **never touched**. Only the `loom/` directory is updated.
+
+---
+
+## 🔄 IT — Aggiornare loom
+
+### Se `update.py` è già presente (v1.0.16+)
+
+```bash
+python loom/scripts/update.py --check    # verifica se ci sono aggiornamenti
+python loom/scripts/update.py --apply    # scarica e applica l'aggiornamento
+python loom/scripts/update.py --rollback # ripristina la versione precedente
+```
+
+Dopo `--apply`, esegui `python loom/scripts/setup.py` per configurare eventuali nuovi tool.
+
+### Se `update.py` NON è presente (versione precedente — bootstrap)
+
+Scarica prima `update.py`, poi usalo per aggiornare tutto:
+
+**Windows (PowerShell):**
+```powershell
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/otto78/loom-framework/main/loom/scripts/update.py" -OutFile "loom/scripts/update.py"
+python loom/scripts/update.py --apply
+```
+
+**Linux / macOS:**
+```bash
+curl -fsSL https://raw.githubusercontent.com/otto78/loom-framework/main/loom/scripts/update.py -o loom/scripts/update.py
+python loom/scripts/update.py --apply
+```
+
+> 🔒 **Sicuro da eseguire in qualsiasi momento** — i file del progetto (AGENT.md, config IDE, TASKS.md, STORY.md, ecc.) non vengono **mai toccati**. Viene aggiornata solo la cartella `loom/`.
 
 ---
 
@@ -148,7 +216,7 @@ Pronto! Prova: "avvia task TASK-001 'descrizione'"
 
 ---
 
-**Version / Versione**: 1.0.0  
+**Version / Versione**: 1.0.16  
 **For / Per**: AI Agents — Windsurf, Cursor, Trae, Antigravity, VS Code, IntelliJ + Agents: Claude Code, Cline  
 **Purpose / Scopo**: Enable zero-friction setup and persistent task management / Setup senza attrito e gestione task persistente
 
