@@ -206,19 +206,28 @@ loom solves these through **persistent file-based memory** and **DOE architectur
 
 ---
 
-## Supported IDEs
+## Supported Tools
 
-| IDE/Tool | Config File | Location |
-|----------|-------------|----------|
-| Claude Code | \`CLAUDE.md\` | Root |
+### 🖥️ IDEs & Editors
+
+| Tool | Config File | Location |
+|------|-------------|----------|
 | Cursor | \`.cursor/rules/loom.mdc\` | Root |
 | Cursor (legacy) | \`.cursorrules\` | Root (fallback) |
-| Antigravity | \`GEMINI.md\` | Root |
 | Windsurf | \`.windsurf/rules/loom.md\` | Root |
 | Windsurf (legacy) | \`.windsurfrules\` | Root (fallback) |
+| Trae | \`project_rules.md\` | \`.trae/rules/\` |
+| Antigravity | \`GEMINI.md\` | Root |
 | VS Code / VS Code Insider | \`copilot-instructions.md\` | \`.github/\` |
 | IntelliJ IDEA | \`loom.md\` | \`.aiassistant/rules/\` |
-| Cross-tool (AGENTS.md) | \`AGENTS.md\` | Root |
+| Cross-tool | \`AGENTS.md\` | Root |
+
+### ⚡ AI Agents
+
+| Agent | Config File | Location | Notes |
+|-------|-------------|----------|---------|
+| Claude Code | \`CLAUDE.md\` | Root | CLI agent |
+| Cline | \`loom.md\` | \`.clinerules/\` | Runs inside VS Code |
 
 > ⚠️ **Gemini CLI Note**: \`~/.gemini/GEMINI.md\` is shared between Antigravity IDE and Gemini CLI. To avoid conflicts: use AGENTS.md for cross-project shared rules and keep GEMINI.md minimal with only Antigravity-specific overrides.
 
@@ -251,19 +260,28 @@ loom risolve questi problemi attraverso la **memoria persistente su file** e l'*
 
 ---
 
-## IDE Supportati
+### 🎨 Tool Supportati
 
-| IDE/Tool | File di Config | Posizione |
-|----------|----------------|-----------|
-| Claude Code | \`CLAUDE.md\` | Root |
+#### 🖥️ IDE & Editor
+
+| Tool | File di Config | Posizione |
+|------|---------------|----------|
 | Cursor | \`.cursor/rules/loom.mdc\` | Root |
 | Cursor (legacy) | \`.cursorrules\` | Root (fallback) |
-| Antigravity | \`GEMINI.md\` | Root |
 | Windsurf | \`.windsurf/rules/loom.md\` | Root |
 | Windsurf (legacy) | \`.windsurfrules\` | Root (fallback) |
+| Trae | \`project_rules.md\` | \`.trae/rules/\` |
+| Antigravity | \`GEMINI.md\` | Root |
 | VS Code / VS Code Insider | \`copilot-instructions.md\` | \`.github/\` |
 | IntelliJ IDEA | \`loom.md\` | \`.aiassistant/rules/\` |
-| Cross-tool (AGENTS.md) | \`AGENTS.md\` | Root |
+| Cross-tool | \`AGENTS.md\` | Root |
+
+#### ⚡ Agenti AI
+
+| Agente | File di Config | Posizione | Note |
+|--------|---------------|------------|------|
+| Claude Code | \`CLAUDE.md\` | Root | Agente CLI |
+| Cline | \`loom.md\` | \`.clinerules/\` | Gira dentro VS Code |
 
 > ⚠️ **Nota Gemini CLI**: \`~/.gemini/GEMINI.md\` è condiviso tra Antigravity IDE e Gemini CLI. Per evitare conflitti: usa AGENTS.md per regole condivise cross-progetto e tieni GEMINI.md minimale con solo override Antigravity-specifici.
 

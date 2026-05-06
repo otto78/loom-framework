@@ -149,6 +149,6 @@ Pronto! Prova: "avvia task TASK-001 'descrizione'"
 ---
 
 **Version / Versione**: 1.0.0  
-**For / Per**: AI Agents — Windsurf, Claude, Cursor, loom, VS Code, VS Code Insider, IntelliJ  
+**For / Per**: AI Agents — Windsurf, Cursor, Trae, Antigravity, VS Code, IntelliJ + Agents: Claude Code, Cline  
 **Purpose / Scopo**: Enable zero-friction setup and persistent task management / Setup senza attrito e gestione task persistente
 

@@ -223,9 +223,9 @@ footer a:hover{text-decoration:underline;}
       </div>
       <div class="feature">
         <div class="feature-icon">🤖</div>
-        <h3 class="en">Multi-IDE Support</h3><h3 class="it">Multi-IDE</h3>
-        <p class="en">Works with VS Code, Windsurf, Claude Code, Cursor, Antigravity, IntelliJ IDEA and more.</p>
-        <p class="it">Funziona con VS Code, Windsurf, Claude Code, Cursor, Antigravity, IntelliJ IDEA e altri.</p>
+        <h3 class="en">Multi-tool Support</h3><h3 class="it">Multi-tool</h3>
+        <p class="en">Works with Windsurf, Cursor, Trae, Antigravity, VS Code, IntelliJ IDEA, Claude Code, Cline and more.</p>
+        <p class="it">Funziona con Windsurf, Cursor, Trae, Antigravity, VS Code, IntelliJ IDEA, Claude Code, Cline e altri.</p>
       </div>
       <div class="feature">
         <div class="feature-icon">📋</div>
@@ -304,38 +304,33 @@ footer a:hover{text-decoration:underline;}
     </div>
   </section>
 
-  <!-- SUPPORTED IDEs -->
+  <!-- SUPPORTED TOOLS -->
   <section class="card">
-    <h2 class="en">Supported IDEs</h2>
-    <h2 class="it">IDE Supportati</h2>
-    <div class="ide-grid">
+    <h2 class="en">Supported Tools</h2>
+    <h2 class="it">Tool Supportati</h2>
+
+    <p class="en" style="text-align:center;color:var(--muted);margin-bottom:.5rem;font-size:.95rem">🖥️ <strong>IDEs &amp; Editors</strong> — where you write code</p>
+    <p class="it" style="text-align:center;color:var(--muted);margin-bottom:.5rem;font-size:.95rem">🖥️ <strong>IDE &amp; Editor</strong> — dove scrivi il codice</p>
+    <div class="ide-grid" style="margin-bottom:2rem">
 
       <div class="ide-card">
         <img src="https://code.visualstudio.com/favicon.ico" alt="VS Code"
              onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/512px-Visual_Studio_Code_1.35_icon.svg.png'">
         <span>VS Code</span>
+        <small>Copilot Instructions</small>
+      </div>
+
+      <div class="ide-card">
+        <img src="vscode-insiders-icon.svg" alt="VS Code Insider" style="width:48px;height:48px;">
+        <span>VS Code Insider</span>
+        <small>Copilot Instructions</small>
       </div>
 
       <div class="ide-card">
         <img src="https://www.cursor.com/favicon.ico" alt="Cursor"
              onerror="this.outerHTML='<svg viewBox=&quot;0 0 48 48&quot; width=&quot;48&quot; height=&quot;48&quot;><rect width=&quot;48&quot; height=&quot;48&quot; rx=&quot;8&quot; fill=&quot;#000&quot;/><text x=&quot;24&quot; y=&quot;33&quot; font-size=&quot;26&quot; text-anchor=&quot;middle&quot; fill=&quot;white&quot;>C</text></svg>'">
         <span>Cursor</span>
-      </div>
-
-      <div class="ide-card">
-        <img src="Claude_AI_symbol.svg" alt="Claude Code" style="width:48px;height:48px;">
-        <span>Claude Code</span>
-      </div>
-
-      <div class="ide-card">
-        <img src="antigravity-logo.png" alt="Antigravity" style="width: 48px; height: 48px;">
-        <span>Antigravity</span>
-      </div>
-
-      <div class="ide-card">
-        <img src="https://www.jetbrains.com/favicon.ico" alt="IntelliJ IDEA"
-             onerror="this.src='https://resources.jetbrains.com/storage/products/intellij-idea/img/meta/intellij-idea_logo_300x300.png'">
-        <span>IntelliJ IDEA</span>
+        <small>.cursor/rules/</small>
       </div>
 
       <div class="ide-card">
@@ -346,8 +341,42 @@ footer a:hover{text-decoration:underline;}
       </div>
 
       <div class="ide-card">
-        <img src="vscode-insiders-icon.svg" alt="VS Code Insider" style="width:48px;height:48px;">
-        <span>VS Code Insider</span>
+        <img src="https://www.trae.ai/favicon.ico" alt="Trae"
+             onerror="this.outerHTML='<svg viewBox=&quot;0 0 48 48&quot; width=&quot;48&quot; height=&quot;48&quot;><rect width=&quot;48&quot; height=&quot;48&quot; rx=&quot;8&quot; fill=&quot;#1a1a2e&quot;/><text x=&quot;24&quot; y=&quot;33&quot; font-size=&quot;22&quot; text-anchor=&quot;middle&quot; fill=&quot;white&quot;>T</text></svg>'">
+        <span>Trae</span>
+        <small>.trae/rules/</small>
+      </div>
+
+      <div class="ide-card">
+        <img src="antigravity-logo.png" alt="Antigravity" style="width: 48px; height: 48px;">
+        <span>Antigravity</span>
+        <small>GEMINI.md</small>
+      </div>
+
+      <div class="ide-card">
+        <img src="https://www.jetbrains.com/favicon.ico" alt="IntelliJ IDEA"
+             onerror="this.src='https://resources.jetbrains.com/storage/products/intellij-idea/img/meta/intellij-idea_logo_300x300.png'">
+        <span>IntelliJ IDEA</span>
+        <small>AI Assistant</small>
+      </div>
+
+    </div>
+
+    <p class="en" style="text-align:center;color:var(--muted);margin-bottom:.5rem;font-size:.95rem">⚡ <strong>AI Agents</strong> — autonomous agents, standalone or embedded</p>
+    <p class="it" style="text-align:center;color:var(--muted);margin-bottom:.5rem;font-size:.95rem">⚡ <strong>Agenti AI</strong> — agenti autonomi, standalone o embedded</p>
+    <div class="ide-grid">
+
+      <div class="ide-card">
+        <img src="Claude_AI_symbol.svg" alt="Claude Code" style="width:48px;height:48px;">
+        <span>Claude Code</span>
+        <small>CLAUDE.md</small>
+      </div>
+
+      <div class="ide-card">
+        <img src="https://cline.bot/favicon.ico" alt="Cline"
+             onerror="this.outerHTML='<svg viewBox=&quot;0 0 48 48&quot; width=&quot;48&quot; height=&quot;48&quot;><rect width=&quot;48&quot; height=&quot;48&quot; rx=&quot;8&quot; fill=&quot;#7c3aed&quot;/><text x=&quot;24&quot; y=&quot;33&quot; font-size=&quot;22&quot; text-anchor=&quot;middle&quot; fill=&quot;white&quot;>C</text></svg>'">
+        <span>Cline</span>
+        <small>.clinerules/</small>
       </div>
 
     </div>
@@ -563,9 +592,13 @@ Analizza:
           <div class="tree-item">📁 your-project/</div>
           <div class="tree-item" style="padding-left:1.5rem">├── 📁 loom/ <small>(framework core)</small></div>
           <div class="tree-item" style="padding-left:1.5rem">├── 📄 AGENT.md <span style="color:var(--accent);font-weight:600">⭐ fonte di verità progetto</span></div>
-          <div class="tree-item" style="padding-left:1.5rem">├── 📄 AGENTS.md <small>(cross-tool config: Antigravity, Windsurf, VS Code, VS Code Insider)</small></div>
-          <div class="tree-item" style="padding-left:1.5rem">├── 📄 CLAUDE.md <small>(Claude Code config)</small></div>
+          <div class="tree-item" style="padding-left:1.5rem">├── 📄 AGENTS.md <small>(cross-tool config: Antigravity, Windsurf, VS Code, Cline)</small></div>
+          <div class="tree-item" style="padding-left:1.5rem">├── 📄 CLAUDE.md <small>(Claude Code — agent)</small></div>
           <div class="tree-item" style="padding-left:1.5rem">├── 📄 GEMINI.md <small>(Antigravity config)</small></div>
+          <div class="tree-item" style="padding-left:1.5rem">├── 📁 .clinerules/</div>
+          <div class="tree-item" style="padding-left:3rem">└── 📄 loom.md <small>(Cline agent)</small></div>
+          <div class="tree-item" style="padding-left:1.5rem">├── 📁 .trae/rules/</div>
+          <div class="tree-item" style="padding-left:3rem">└── 📄 project_rules.md <small>(Trae IDE)</small></div>
           <div class="tree-item" style="padding-left:1.5rem">├── 📁 .cursor/rules/</div>
           <div class="tree-item" style="padding-left:3rem">└── 📄 loom.mdc <small>(Cursor config)</small></div>
           <div class="tree-item" style="padding-left:1.5rem">├── 📁 .windsurf/rules/</div>

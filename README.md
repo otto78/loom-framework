@@ -8,7 +8,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Version](https://img.shields.io/badge/version-1.0.15-blue.svg)](https://github.com/otto78/loom-framework/releases)
 [![Python](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/)
-[![IDEs](https://img.shields.io/badge/IDEs-7%20supported-green.svg)](#-supported-ides)
+[![IDEs & Agents](https://img.shields.io/badge/IDEs%20%26%20Agents-9%20supported-green.svg)](#-supported-tools)
 [![GitHub Stars](https://img.shields.io/github/stars/otto78/loom-framework?style=social)](https://github.com/otto78/loom-framework)
 
 **🌐 [🇬🇧 English](#-the-problem) | [🇮🇹 Italiano](#-italiano--versione-italiana)**
@@ -65,7 +65,7 @@ sequenceDiagram
 ```
 
 - 🧠 **Persistent Memory** — TASKS.md, STORY.md survive context resets
-- 🔄 **Multi-Agent Support** — Same state across 7 IDEs
+- 🔄 **Multi-Agent Support** — Same state across 9 tools
 - 💰 **Token Savings** — Scripts replace repetitive prompts
 - 🎯 **Deterministic** — 90% accuracy maintained over 10+ steps
 - 🚀 **Zero-Friction** — Just say "read loom"
@@ -79,13 +79,17 @@ After running `python loom/scripts/setup.py` in your project, loom creates:
 ```
 your-project/
 ├── AGENT.md                  # ⭐ Source of truth — project context for every agent session
-├── CLAUDE.md                 # IDE config — Claude Code
+├── CLAUDE.md                 # Agent config — Claude Code
 ├── GEMINI.md                 # IDE config — Antigravity
-├── AGENTS.md                 # Cross-tool (Antigravity + Windsurf + VS Code)
+├── AGENTS.md                 # Cross-tool (Antigravity + Windsurf + VS Code + Cline)
 ├── .cursorrules              # Cursor (legacy fallback)
 ├── .cursor/rules/loom.mdc   # Cursor (modern)
 ├── .windsurfrules            # Windsurf (legacy fallback)
 ├── .windsurf/rules/loom.md  # Windsurf (modern)
+├── .clinerules/
+│   └── loom.md              # Cline agent
+├── .trae/
+│   └── rules/project_rules.md  # Trae IDE
 ├── .github/
 │   └── copilot-instructions.md  # VS Code / VS Code Insider
 ├── .aiassistant/
@@ -107,7 +111,7 @@ your-project/
 LOOM is an operational framework that brings structure to AI-assisted development. It provides:
 
 - ⚡ **Quick Setup** — Interactive wizard + automated scripts
-- 🤖 **Multi-IDE Support** — 7 IDEs (Windsurf, Claude Code, Cursor, Antigravity, VS Code, IntelliJ IDEA, GitHub Copilot)
+- 🤖 **Multi-tool Support** — 7 IDEs & Editors + 2 AI Agents
 - 📋 **Task Management** — Complete system with TASKS.md + BACKLOG.md
 - 🧪 **TDD Workflow** — Test-Driven Development integrated
 - 📝 **Integrated Versioning** — Automatic STORY.md + CHANGELOG.md
@@ -257,10 +261,12 @@ loom-framework/
 │   │   ├── doe-architecture.md        # DOE Architecture details
 │   │   └── coding-standards.md        # Code standards
 │   │
-│   ├── ide-configs/                   # IDE configurations
-│   │   ├── claude/                    # CLAUDE.md
+│   ├── ide-configs/                   # IDE & Agent configurations
+│   │   ├── claude/                    # CLAUDE.md             [Agent]
+│   │   ├── cline/                     # .clinerules/loom.md   [Agent]
 │   │   ├── cursor/                    # .cursorrules + .cursor/rules/loom.mdc
-│   │   ├── antigravity/              # GEMINI.md + AGENTS.md
+│   │   ├── trae/                      # .trae/rules/project_rules.md
+│   │   ├── antigravity/               # GEMINI.md + AGENTS.md
 │   │   ├── windsurf/                  # .windsurfrules + .windsurf/rules/loom.md
 │   │   ├── vscode/                    # .github/copilot-instructions.md
 │   │   └── intellij/                  # .aiassistant/rules/loom.md
@@ -316,19 +322,28 @@ python loom/scripts/task-tdd.py complete TASK-001
 
 ---
 
-## 🎨 Supported IDEs
+## 🎨 Supported Tools
 
-| IDE/Tool | Config File | Location |
-|----------|-------------|----------|
-| Claude Code | `CLAUDE.md` | Root |
+### 🖥️ IDEs & Editors
+
+| Tool | Config File | Location |
+|------|-------------|----------|
 | Cursor | `.cursor/rules/loom.mdc` | Root |
 | Cursor (legacy) | `.cursorrules` | Root (fallback) |
-| Antigravity | `GEMINI.md` | Root |
 | Windsurf | `.windsurf/rules/loom.md` | Root |
 | Windsurf (legacy) | `.windsurfrules` | Root (fallback) |
+| Trae | `project_rules.md` | `.trae/rules/` |
+| Antigravity | `GEMINI.md` | Root |
 | VS Code / VS Code Insider | `copilot-instructions.md` | `.github/` |
 | IntelliJ IDEA | `loom.md` | `.aiassistant/rules/` |
-| Cross-tool (AGENTS.md) | `AGENTS.md` | Root |
+| Cross-tool | `AGENTS.md` | Root |
+
+### ⚡ AI Agents
+
+| Agent | Config File | Location | Notes |
+|-------|-------------|----------|---------|
+| Claude Code | `CLAUDE.md` | Root | CLI agent |
+| Cline | `loom.md` | `.clinerules/` | Runs inside VS Code |
 
 ---
 
@@ -506,19 +521,28 @@ Dopo il setup, parla con il tuo agente AI:
 "sincronizza configurazioni"
 ```
 
-### 🎨 IDE Supportati
+### 🎨 Tool Supportati
 
-| IDE/Tool | File di Config | Posizione |
-|----------|---------------|----------|
-| Claude Code | `CLAUDE.md` | Root |
+#### 🖥️ IDE & Editor
+
+| Tool | File di Config | Posizione |
+|------|---------------|----------|
 | Cursor | `.cursor/rules/loom.mdc` | Root |
 | Cursor (legacy) | `.cursorrules` | Root (fallback) |
-| Antigravity | `GEMINI.md` | Root |
 | Windsurf | `.windsurf/rules/loom.md` | Root |
 | Windsurf (legacy) | `.windsurfrules` | Root (fallback) |
+| Trae | `project_rules.md` | `.trae/rules/` |
+| Antigravity | `GEMINI.md` | Root |
 | VS Code / VS Code Insider | `copilot-instructions.md` | `.github/` |
 | IntelliJ IDEA | `loom.md` | `.aiassistant/rules/` |
-| Cross-tool (AGENTS.md) | `AGENTS.md` | Root |
+| Cross-tool | `AGENTS.md` | Root |
+
+#### ⚡ Agenti AI
+
+| Agente | File di Config | Posizione | Note |
+|--------|---------------|------------|------|
+| Claude Code | `CLAUDE.md` | Root | Agente CLI |
+| Cline | `loom.md` | `.clinerules/` | Gira dentro VS Code |
 
 ### 📚 Documentazione (Italiano)
 
